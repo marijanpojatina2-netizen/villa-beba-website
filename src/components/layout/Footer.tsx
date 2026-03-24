@@ -2,141 +2,99 @@
 
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
-import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const t = useTranslations('Footer');
   const year = new Date().getFullYear();
 
-  const quickLinks = [
-    { href: '/villas/ballena', label: t('ballena') },
-    { href: '/villas/beluga', label: t('beluga') },
-    { href: '/villas/complex', label: t('complex') },
-    { href: '/pricing', label: t('pricing') },
-    { href: '/experiences', label: t('experiences') },
-    { href: '/contact', label: t('contact') },
-  ];
-
   return (
-    <footer className="border-t border-gold/10 bg-midnight-light">
-      {/* Main Footer */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
+    <footer className="bg-bg">
+      {/* Top line */}
+      <div className="line-h" />
+
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10 py-16 lg:py-20">
+        <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
+
+          {/* Left — Logo + Tagline */}
+          <div className="flex-shrink-0">
             <Link href="/" className="inline-block">
-              <span className="font-[family-name:var(--font-heading)] text-lg font-bold uppercase tracking-[0.2em] text-white">
-                Ballena <span className="text-gold">&amp;</span> Beluga
+              <span className="font-heading text-[0.6875rem] font-medium uppercase tracking-[0.25em] text-text">
+                Ballena & Beluga
               </span>
             </Link>
-            <p className="mt-4 font-[family-name:var(--font-accent)] text-lg italic text-white/50">
+            <p className="mt-3 micro-italic max-w-[25ch]">
               {t('tagline')}
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-[0.15em] text-gold">
-              {t('quickLinks')}
-            </h3>
-            <ul className="mt-6 space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-white/60 transition-colors hover:text-gold"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Center — Nav Links */}
+          <div className="flex flex-wrap gap-x-8 gap-y-3">
+            {[
+              { href: '/villa-ballena' as const, label: 'Villa Ballena' },
+              { href: '/villa-beluga' as const, label: 'Villa Beluga' },
+              { href: '/experiences' as const, label: t('experiences') },
+              { href: '/weddings' as const, label: 'Weddings' },
+              { href: '/pricing' as const, label: t('pricing') },
+              { href: '/contact' as const, label: t('contact') },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-[0.75rem] font-heading uppercase tracking-[0.12em] text-text-dim transition-colors duration-300 hover:text-text"
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-[0.15em] text-gold">
-              {t('contactTitle')}
-            </h3>
-            <ul className="mt-6 space-y-4">
-              <li>
-                <a
-                  href="mailto:info@villabeba.com"
-                  className="flex items-center gap-3 text-sm text-white/60 transition-colors hover:text-gold"
-                >
-                  <Mail size={16} className="flex-shrink-0 text-gold/60" />
-                  info@villabeba.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+385XXXXXXXX"
-                  className="flex items-center gap-3 text-sm text-white/60 transition-colors hover:text-gold"
-                >
-                  <Phone size={16} className="flex-shrink-0 text-gold/60" />
-                  +385 XX XXX XXXX
-                </a>
-              </li>
-              <li>
-                <span className="flex items-center gap-3 text-sm text-white/60">
-                  <MapPin size={16} className="flex-shrink-0 text-gold/60" />
-                  {t('location')}
-                </span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Social */}
-          <div>
-            <h3 className="font-[family-name:var(--font-heading)] text-sm font-semibold uppercase tracking-[0.15em] text-gold">
-              {t('followUs')}
-            </h3>
-            <div className="mt-6 flex gap-4">
+          {/* Right — Contact */}
+          <div className="flex flex-col items-start lg:items-end gap-2">
+            <a
+              href="mailto:info@villabeba.com"
+              className="text-[0.8125rem] text-text-muted transition-colors hover:text-text"
+            >
+              info@villabeba.com
+            </a>
+            <a
+              href="tel:+385915251565"
+              className="text-[0.8125rem] text-text-muted transition-colors hover:text-text"
+            >
+              +385 91 525 1565
+            </a>
+            <div className="flex items-center gap-4 mt-3">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/60 transition-all hover:border-gold/50 hover:text-gold"
+                className="text-text-dim transition-colors hover:text-text"
                 aria-label="Instagram"
               >
-                <svg className="h-[18px] w-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
               </a>
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/60 transition-all hover:border-gold/50 hover:text-gold"
+                className="text-text-dim transition-colors hover:text-text"
                 aria-label="Facebook"
               >
-                <svg className="h-[18px] w-[18px]" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z"/></svg>
+                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.737-.9 10.125-5.864 10.125-11.854z"/></svg>
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/5">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs text-white/40">
-              &copy; {year} Ballena &amp; Beluga. {t('rights')}
-            </p>
-            <div className="flex gap-6">
-              <Link
-                href="/privacy"
-                className="text-xs text-white/40 transition-colors hover:text-gold"
-              >
-                {t('privacy')}
-              </Link>
-              <Link
-                href="/terms"
-                className="text-xs text-white/40 transition-colors hover:text-gold"
-              >
-                {t('terms')}
-              </Link>
-            </div>
-          </div>
+      {/* Bottom copyright */}
+      <div className="line-h" />
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10 py-5">
+        <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
+          <p className="text-[0.625rem] font-heading uppercase tracking-[0.15em] text-text-dim">
+            &copy; {year} Ballena & Beluga. {t('rights')}
+          </p>
+          <p className="micro-italic text-[0.75rem]">
+            Svetvincenat, Istria, Croatia
+          </p>
         </div>
       </div>
     </footer>

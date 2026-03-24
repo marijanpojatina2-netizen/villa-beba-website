@@ -1,51 +1,164 @@
 'use client';
 
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { heroImages, villaCards } from '@/lib/images';
 
-/* ─────────────────────────── Hero ─────────────────────────── */
+gsap.registerPlugin(ScrollTrigger);
+
+/* ═══════════════════════════════════════════════════════════
+   S1 — HERO
+   ═══════════════════════════════════════════════════════════ */
 function Hero() {
   const t = useTranslations('hero');
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (sectionRef.current) {
+        gsap.to(sectionRef.current, {
+          scale: 0.92, borderRadius: '24px',
+          scrollTrigger: { trigger: sectionRef.current, start: 'top top', end: 'bottom top', scrub: true },
+        });
+      }
+      if (titleRef.current) {
+        const lines = titleRef.current.querySelectorAll('.hero-line');
+        gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 });
+      }
+    });
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      {/* Background image */}
-      <Image
-        src={heroImages.homepage}
-        alt="Villa Ballena and Villa Beluga aerial view at dusk"
-        fill
-        className="object-cover"
-        priority
-        quality={85}
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-midnight/60 via-midnight/30 to-midnight/70" />
-
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
-          Svetvincenat, Istria
-        </p>
-        <h1 className="heading-xl text-[clamp(2rem,7vw,4.5rem)] text-white">
-          {t('title')}
-        </h1>
-        <a
-          href="#villas"
-          className="mt-10 inline-block rounded-full bg-gold px-10 py-4 text-sm font-semibold uppercase tracking-widest text-midnight transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)]"
-        >
-          {t('cta')}
-        </a>
+    <section ref={sectionRef} className="relative h-screen w-full overflow-hidden" style={{ transformOrigin: 'center top' }}>
+      <Image src={heroImages.homepage} alt="Villa Ballena and Villa Beluga aerial view at dusk" fill className="object-cover" priority quality={90} />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+      <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
+        <div ref={titleRef} className="max-w-[90vw]">
+          <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">BALLENA</h1></div>
+          <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">&amp; BELUGA</h1></div>
+        </div>
+        <div className="absolute right-6 bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] text-right">
+          <p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">{t('title')}</p>
+          <p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">Svetvincenat, Istria</p>
+        </div>
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">Scroll</span>
+          <div className="h-8 w-px bg-white/20 animate-pulse" />
+        </div>
       </div>
+    </section>
+  );
+}
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">Scroll</span>
-          <div className="animate-bounce">
-            <svg className="h-5 w-5 text-gold/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7" />
-            </svg>
+/* ═══════════════════════════════════════════════════════════
+   S2 — ABOUT
+   ═══════════════════════════════════════════════════════════ */
+function About() {
+  const t = useTranslations('home');
+  const sectionRef = useRef<HTMLElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const bigTextRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (imageRef.current) {
+        const img = imageRef.current.querySelector('img');
+        if (img) gsap.fromTo(img, { scale: 1.15 }, { scale: 1, scrollTrigger: { trigger: imageRef.current, start: 'top bottom', end: 'bottom top', scrub: true } });
+      }
+      if (textRef.current) gsap.fromTo(textRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: textRef.current, start: 'top 85%' } });
+      if (bigTextRef.current) {
+        const lines = bigTextRef.current.querySelectorAll('.reveal-line');
+        gsap.fromTo(lines, { y: '110%' }, { y: '0%', duration: 0.9, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: bigTextRef.current, start: 'top 80%' } });
+      }
+    });
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="section-editorial bg-bg relative">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <p className="label-section mb-16 lg:mb-24">(ABOUT)</p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4">
+          <div className="hidden lg:block lg:col-span-3" />
+          <div ref={imageRef} className="lg:col-span-4 overflow-hidden rounded-sm">
+            <div className="relative aspect-[3/4]">
+              <Image src="/images/ballena/Ballena 11.jpg" alt="Villa Ballena interior living area" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
+            </div>
+          </div>
+          <div ref={textRef} className="lg:col-span-5 flex flex-col justify-start lg:pt-8 lg:pl-12">
+            <p className="body-editorial">{t('intro')}</p>
+            <p className="mt-6 micro-italic">{t('introTitle')}</p>
+            <Link href="/about" className="btn-editorial mt-8 w-fit">Learn More</Link>
+          </div>
+        </div>
+        <div ref={bigTextRef} className="mt-20 lg:mt-32 max-w-[600px]">
+          <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic">Timeless</p></div>
+          <div className="overflow-hidden"><p className="reveal-line display-lg">Design.</p></div>
+          <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic font-bold">Wellness-</p></div>
+          <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic font-bold">Focused</p></div>
+          <div className="overflow-hidden"><p className="reveal-line display-lg">Living.</p></div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   S3 — STATS (Scattered Rolling Counters)
+   ═══════════════════════════════════════════════════════════ */
+function Stats() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current) return;
+      const counters = sectionRef.current.querySelectorAll('.stat-number');
+      counters.forEach((counter) => {
+        const target = parseInt(counter.getAttribute('data-target') || '0', 10);
+        if (isNaN(target) || target === 0) return;
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target, duration: 1.5, ease: 'power2.out',
+          scrollTrigger: { trigger: counter, start: 'top 85%' },
+          onUpdate: () => { counter.textContent = Math.round(obj.val).toString(); },
+        });
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="section-editorial bg-bg relative min-h-[80vh]">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="relative grid grid-cols-2 lg:grid-cols-12 gap-y-20 lg:gap-y-32">
+          <div className="col-span-1 lg:col-span-4 lg:row-start-2">
+            <div className="flex items-baseline gap-2">
+              <span className="stat-number display-hero text-[clamp(4rem,10vw,8rem)] text-text/90" data-target="700">0</span>
+              <span className="font-accent text-2xl italic text-text-muted">m&sup2;</span>
+            </div>
+            <p className="mt-2 text-sm text-text-dim leading-relaxed">of meticulously designed<br />living space.</p>
+          </div>
+          <div className="col-span-1 lg:col-span-4 lg:col-start-6">
+            <div className="flex items-baseline gap-1">
+              <span className="stat-number display-hero text-[clamp(4rem,10vw,8rem)] text-text/90" data-target="60">0</span>
+              <span className="font-accent text-3xl italic text-text-muted">%</span>
+            </div>
+            <p className="mt-2 text-sm text-text-dim leading-relaxed">green spaces<br />for tranquility & wellness.</p>
+          </div>
+          <div className="col-span-1 lg:col-span-3 lg:col-start-10">
+            <span className="stat-number display-hero text-[clamp(4rem,10vw,8rem)] text-text/90" data-target="8">0</span>
+            <p className="mt-2 text-sm text-text-dim leading-relaxed">exclusive bedrooms,<br />each tailored for comfort<br />& elegance.</p>
+          </div>
+          <div className="col-span-2 lg:col-span-4 lg:col-start-5 lg:row-start-2">
+            <span className="display-hero text-[clamp(3rem,8vw,7rem)] text-text/90 font-display italic">24/7</span>
+            <p className="mt-2 text-sm text-text-dim leading-relaxed">concierge services, meeting<br />every need effortlessly.</p>
           </div>
         </div>
       </div>
@@ -53,298 +166,95 @@ function Hero() {
   );
 }
 
-/* ────────────────────── Introduction ──────────────────────── */
-function Introduction() {
+/* ═══════════════════════════════════════════════════════════
+   S4 — VILLAS SHOWCASE
+   ═══════════════════════════════════════════════════════════ */
+function VillasShowcase() {
   const t = useTranslations('home');
-
-  return (
-    <section className="section-padding bg-midnight">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <p className="font-accent text-xl italic text-gold md:text-2xl">
-          {t('introTitle')}
-        </p>
-        <p className="mt-8 text-base leading-relaxed text-white/70 md:text-lg">
-          {t('intro')}
-        </p>
-        {/* Gold divider */}
-        <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────── Two Villas ──────────────────────── */
-function VillasSection() {
-  const t = useTranslations('home');
+  const sectionRef = useRef<HTMLElement>(null);
 
   const villas = [
-    {
-      name: 'Villa Ballena',
-      tagline: t('ballenaTagline'),
-      features: t('ballenaFeatures').split(' · '),
-      href: '/villa-ballena' as const,
-      cta: t('discoverBallena'),
-      image: villaCards.ballena,
-      imageAlt: 'Villa Ballena terrace and pool at night',
-    },
-    {
-      name: 'Villa Beluga',
-      tagline: t('belugaTagline'),
-      features: t('belugaFeatures').split(' · '),
-      href: '/villa-beluga' as const,
-      cta: t('discoverBeluga'),
-      image: villaCards.beluga,
-      imageAlt: 'Villa Beluga exterior with pool at dusk',
-    },
+    { name: 'Villa Ballena', tagline: t('ballenaTagline'), href: '/villa-ballena' as const, image: villaCards.ballena, imageAlt: 'Villa Ballena terrace and pool at night' },
+    { name: 'Villa Beluga', tagline: t('belugaTagline'), href: '/villa-beluga' as const, image: villaCards.beluga, imageAlt: 'Villa Beluga exterior with pool at dusk' },
   ];
 
-  return (
-    <section id="villas" className="section-padding bg-midnight-light">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="heading-lg text-3xl text-white md:text-4xl">
-            {t('villasTitle')}
-          </h2>
-        </div>
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current) return;
+      const cards = sectionRef.current.querySelectorAll('.villa-card');
+      cards.forEach((card, i) => {
+        gsap.fromTo(card, { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: card, start: 'top 85%' }, delay: i * 0.2 });
+        const img = card.querySelector('img');
+        if (img) gsap.fromTo(img, { scale: 1.1 }, { scale: 1, scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true } });
+      });
+    });
+    return () => ctx.revert();
+  }, []);
 
-        <div className="grid gap-8 md:grid-cols-2">
+  return (
+    <section ref={sectionRef} className="section-editorial bg-bg">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="flex items-center justify-between mb-16">
+          <p className="label-section">(OUR VILLAS)</p>
+          <div className="flex items-center gap-3 text-[0.6875rem] font-heading tracking-wider text-text-dim">
+            <span className="text-text">(1)</span><span>(2)</span>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {villas.map((villa) => (
-            <div
-              key={villa.name}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/5 transition-all duration-500 hover:border-gold/20"
-            >
-              {/* Villa image */}
-              <Image
-                src={villa.image}
-                alt={villa.imageAlt}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                quality={80}
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-midnight/70 via-midnight/20 to-transparent" />
-
-              {/* Content overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8">
-                <h3 className="heading-lg text-2xl text-white md:text-3xl">
-                  {villa.name}
-                </h3>
-                <p className="mt-2 font-accent text-lg italic text-gold/80">
-                  {villa.tagline}
-                </p>
-
-                {/* Features */}
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {villa.features.map((feat) => (
-                    <span
-                      key={feat}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs tracking-wide text-white/60"
-                    >
-                      {feat}
-                    </span>
-                  ))}
-                </div>
-
-                <Link
-                  href={villa.href}
-                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-gold/40 px-6 py-3 text-sm font-medium uppercase tracking-wider text-gold transition-all duration-300 hover:bg-gold hover:text-midnight"
-                >
-                  {villa.cta}
-                  <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────── Key Numbers Strip ───────────────────── */
-function NumbersStrip() {
-  const t = useTranslations('home');
-
-  const stats = [
-    { value: '350', label: t('area') },
-    { value: '4', label: t('enSuiteBedrooms') },
-    { value: '8x4m', label: t('heatedPool') },
-    { value: '2021', label: t('builtYear') },
-    { value: '300m', label: t('toVillage') },
-    { value: '18', label: t('maxGuests') },
-  ];
-
-  return (
-    <section className="border-y border-white/5 bg-midnight py-16">
-      <div className="mx-auto max-w-7xl px-6">
-        <h2 className="mb-12 text-center heading-md text-xl text-white/80 md:text-2xl">
-          {t('numbersTitle')}
-        </h2>
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-3xl font-bold text-gold md:text-4xl font-heading">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-xs uppercase tracking-wider text-white/50">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────── Experiences Teaser ────────────────────── */
-function ExperiencesTeaser() {
-  const t = useTranslations('home');
-
-  const experiences = [
-    {
-      title: 'Wine Tasting',
-      description: 'Explore award-winning Istrian cellars with private tastings of Malvazija and Teran.',
-      image: '/images/beluga/Beluga 13.jpg',
-      imageAlt: 'Stone wall terrace with Mediterranean ambiance for wine tasting',
-    },
-    {
-      title: 'Truffle Hunting',
-      description: 'Join a local hunter and his dogs through ancient oak forests in search of Istrian gold.',
-      image: '/images/ballena/Ballena 35-1.jpg',
-      imageAlt: 'Olive tree courtyard at dusk, truffle hunting setting',
-    },
-    {
-      title: 'Rovinj Day Trip',
-      description: 'Just 23 km away, this pastel-colored coastal gem is the jewel of the Adriatic.',
-      image: '/images/beluga/Beluga 42.jpg',
-      imageAlt: 'Aerial view of Svetvincenat village near Rovinj',
-    },
-    {
-      title: 'Al Fresco Dining',
-      description: 'Private chef experiences on your terrace with the finest Istrian ingredients.',
-      image: '/images/beluga/Beluga 35.jpg',
-      imageAlt: 'Outdoor dining setup at Villa Beluga at night',
-    },
-  ];
-
-  return (
-    <section className="section-padding bg-midnight-light">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="heading-lg text-3xl text-white md:text-4xl">
-            {t('experiencesTitle')}
-          </h2>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {experiences.map((exp) => (
-            <div
-              key={exp.title}
-              className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20"
-            >
-              {/* Experience image */}
-              <div className="relative aspect-[3/4]">
-                <Image
-                  src={exp.image}
-                  alt={exp.imageAlt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  quality={75}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <h3 className="font-heading text-lg font-bold uppercase tracking-wider text-white">
-                    {exp.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60">
-                    {exp.description}
-                  </p>
+            <Link key={villa.name} href={villa.href} className="villa-card group block">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
+                <Image src={villa.image} alt={villa.imageAlt} fill className="object-cover transition-transform duration-700" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
+                <div className="absolute inset-0 flex items-end p-8 lg:p-12">
+                  <h2 className="display-lg text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.5)]">{villa.name.split(' ')[1]?.toUpperCase()}</h2>
                 </div>
               </div>
-            </div>
+              <div className="mt-6 flex items-start justify-between">
+                <div>
+                  <h3 className="font-heading text-sm uppercase tracking-[0.12em] text-text">{villa.name}</h3>
+                  <p className="mt-1 micro-italic">{villa.tagline}</p>
+                </div>
+                <span className="btn-editorial text-[0.6rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300">Explore</span>
+              </div>
+            </Link>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            href="/experiences"
-            className="inline-flex items-center gap-2 rounded-full border border-gold/40 px-8 py-3 text-sm font-medium uppercase tracking-wider text-gold transition-all duration-300 hover:bg-gold hover:text-midnight"
-          >
-            {t('experiencesCta')}
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
         </div>
       </div>
     </section>
   );
 }
 
-/* ───────────────────── Reviews Section ────────────────────── */
-function ReviewsSection() {
-  const t = useTranslations('home');
+/* ═══════════════════════════════════════════════════════════
+   S5 — BELIEFS
+   ═══════════════════════════════════════════════════════════ */
+function Beliefs() {
+  const textRef = useRef<HTMLDivElement>(null);
 
-  const reviews = [
-    {
-      quote: 'An absolutely stunning property. The attention to detail, the pool, the views — everything exceeded our expectations. We felt like we were in our own private paradise.',
-      author: 'Sarah & James',
-      origin: 'London, UK',
-    },
-    {
-      quote: 'Wir haben noch nie einen so perfekten Urlaub erlebt. Die Villa ist ein Traum und die Lage ist einfach unschlagbar.',
-      author: 'Familie Weber',
-      origin: 'Munich, Germany',
-    },
-    {
-      quote: 'From the moment we arrived, everything was taken care of. The truffle hunting experience and the private chef dinner were highlights we will never forget.',
-      author: 'The Andersons',
-      origin: 'New York, USA',
-    },
-  ];
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (textRef.current) {
+        const lines = textRef.current.querySelectorAll('.reveal-line');
+        gsap.fromTo(lines, { y: '110%' }, { y: '0%', duration: 0.9, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: textRef.current, start: 'top 80%' } });
+      }
+    });
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="section-padding bg-midnight">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <h2 className="heading-lg mb-16 text-3xl text-white md:text-4xl">
-          {t('reviewsTitle')}
-        </h2>
-
-        {/* Show first review (static for now) */}
-        <div className="relative">
-          {/* Gold quote marks */}
-          <span className="absolute -top-8 left-1/2 -translate-x-1/2 font-accent text-8xl leading-none text-gold/20 select-none">
-            &ldquo;
-          </span>
-
-          <blockquote className="relative z-10">
-            <p className="font-accent text-xl italic leading-relaxed text-white/80 md:text-2xl lg:text-3xl">
-              {reviews[0].quote}
-            </p>
-            <footer className="mt-8">
-              <p className="text-sm font-semibold uppercase tracking-wider text-gold">
-                {reviews[0].author}
-              </p>
-              <p className="mt-1 text-xs tracking-wide text-white/40">
-                {reviews[0].origin}
-              </p>
-            </footer>
-          </blockquote>
-
-          {/* Dots indicator (static) */}
-          <div className="mt-10 flex items-center justify-center gap-2">
-            {reviews.map((_, i) => (
-              <span
-                key={i}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  i === 0 ? 'w-6 bg-gold' : 'w-2 bg-white/20'
-                }`}
-              />
-            ))}
+    <section className="section-editorial bg-bg">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="flex justify-end mb-16"><p className="label-section">(OUR BELIEFS)</p></div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+            <Image src="/images/beluga/Beluga 35.jpg" alt="Villa Beluga living room interior" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
+          </div>
+          <div>
+            <div ref={textRef}>
+              <div className="overflow-hidden"><p className="reveal-line display-lg">A Vision of</p></div>
+              <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic">Inspired Living</p></div>
+            </div>
+            <p className="mt-10 body-editorial">To inspire and nurture an enriched lifestyle that harmonizes beauty, wellness, and cultural connection, creating a sanctuary that feels like home.</p>
+            <Link href="/contact" className="btn-editorial mt-10 w-fit">Book a Visit</Link>
           </div>
         </div>
       </div>
@@ -352,54 +262,50 @@ function ReviewsSection() {
   );
 }
 
-/* ───────────────────── Location Section ───────────────────── */
-function LocationSection() {
-  const t = useTranslations('home');
-
-  const distances = [
-    { place: 'Rovinj', distance: '23 km', icon: '🏘' },
-    { place: 'Pula', distance: '27.5 km', icon: '🏛' },
-    { place: 'Airport (PUY)', distance: '33 km', icon: '✈' },
-    { place: 'Beach', distance: '19 km', icon: '🏖' },
+/* ═══════════════════════════════════════════════════════════
+   S6 — VALUES GRID OVER PHOTO
+   ═══════════════════════════════════════════════════════════ */
+function ValuesGrid() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const values = [
+    { num: '1', title: 'Privacy &\nSeclusion', desc: 'Spaces designed to nurture the mind, body, and soul.' },
+    { num: '2', title: 'Design\nExcellence', desc: 'Privacy and personal growth at the forefront.' },
+    { num: '3', title: 'Istrian\nAuthenticity', desc: 'Celebrate local artistry, history, and traditions.' },
+    { num: '4', title: 'Warm\nHospitality', desc: 'A welcoming environment that fosters relationships.' },
+    { num: '5', title: 'Nature &\nWellness', desc: 'Luxury that respects our environment.' },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current) return;
+      const items = sectionRef.current.querySelectorAll('.value-item');
+      gsap.fromTo(items, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' } });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative overflow-hidden section-padding">
-      {/* Background image */}
-      <Image
-        src="/images/ballena/Ballena 33.jpg"
-        alt="Villa Ballena exterior at sunset"
-        fill
-        className="object-cover"
-        quality={75}
-      />
-      <div className="absolute inset-0 bg-midnight/40" />
-
-      <div className="relative z-10 mx-auto max-w-5xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="heading-lg text-3xl text-white md:text-4xl">
-            {t('locationTitle')}
-          </h2>
-          <p className="mt-4 font-accent text-lg italic text-gold/80">
-            {t('locationSubtitle')}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-          {distances.map((item) => (
-            <div
-              key={item.place}
-              className="rounded-xl border border-white/5 bg-midnight/50 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-gold/20"
-            >
-              <span className="text-3xl" role="img" aria-label={item.place}>
-                {item.icon}
-              </span>
-              <p className="mt-4 text-2xl font-bold text-gold font-heading">
-                {item.distance}
-              </p>
-              <p className="mt-1 text-xs uppercase tracking-wider text-white/50">
-                {item.place}
-              </p>
+    <section ref={sectionRef} className="relative min-h-[80vh] flex items-center overflow-hidden">
+      <Image src="/images/beluga/Beluga 25.jpg" alt="Villa Beluga glass terrace interior" fill className="object-cover" quality={80} />
+      <div className="absolute inset-0 bg-black/65" />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10 py-20 w-full">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
+          {values.slice(0, 2).map((v) => (
+            <div key={v.num} className="value-item col-span-1 lg:col-span-3">
+              <h3 className="display-md text-white whitespace-pre-line !text-xl lg:!text-2xl">{v.title}</h3>
+              <p className="mt-3 text-[0.8125rem] text-white/50 leading-relaxed">{v.desc}</p>
+              <p className="mt-4 text-white/30 text-sm">({v.num})</p>
+            </div>
+          ))}
+          <div className="value-item col-span-2 lg:col-span-5 lg:col-start-8 lg:row-span-2 flex flex-col justify-start">
+            <p className="body-editorial text-white/60 !max-w-none">At Villa Ballena & Beluga, we believe that a home is more than a physical space — it is a reflection of your aspirations, well-being, and values.</p>
+            <p className="mt-6 body-editorial text-white/50 !max-w-none">Our mission is to immerse you in a lifestyle that balances refined aesthetics, architectural excellence, and a profound sense of community.</p>
+          </div>
+          {values.slice(2).map((v) => (
+            <div key={v.num} className="value-item col-span-1 lg:col-span-2">
+              <h3 className="display-md text-white whitespace-pre-line !text-lg lg:!text-xl">{v.title}</h3>
+              <p className="mt-3 text-[0.75rem] text-white/50 leading-relaxed">{v.desc}</p>
+              <p className="mt-4 text-white/30 text-sm">({v.num})</p>
             </div>
           ))}
         </div>
@@ -408,58 +314,105 @@ function LocationSection() {
   );
 }
 
-/* ───────────────────── CTA Banner ─────────────────────────── */
-function CTABanner() {
-  const t = useTranslations('home');
+/* ═══════════════════════════════════════════════════════════
+   S7 — AMENITIES (Overlapping Images)
+   ═══════════════════════════════════════════════════════════ */
+function Amenities() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current) return;
+      const text = sectionRef.current.querySelector('.amenity-text');
+      const imgs = sectionRef.current.querySelectorAll('.amenity-img');
+      if (text) gsap.fromTo(text, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: text, start: 'top 85%' } });
+      imgs.forEach((img, i) => { gsap.fromTo(img, { x: 60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, delay: i * 0.15, scrollTrigger: { trigger: img, start: 'top 85%' } }); });
+    });
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section className="relative overflow-hidden bg-midnight py-24">
-      {/* Decorative gold gradients */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(201,169,110,0.08)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(201,169,110,0.06)_0%,transparent_50%)]" />
-
-      {/* Gold line accents */}
-      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-
-      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-        <h2 className="heading-lg text-3xl text-white md:text-4xl lg:text-5xl">
-          {t('ctaTitle')}
-        </h2>
-
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            href="/contact"
-            className="w-full rounded-full bg-gold px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-midnight transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] sm:w-auto"
-          >
-            {t('ctaButton')}
-          </Link>
-          <a
-            href="https://wa.me/385915251565"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full rounded-full border border-gold/40 px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-gold hover:text-midnight sm:w-auto"
-          >
-            {t('ctaWhatsapp')}
-          </a>
+    <section ref={sectionRef} className="section-editorial bg-bg overflow-hidden">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="amenity-text">
+            <h2 className="display-lg"><span className="font-bold">Wellness-</span><br /><span className="font-bold">Centered</span><br /><span className="italic">Amenities</span></h2>
+            <p className="mt-8 body-editorial">From private saunas to heated biological pools, our amenities are designed to enhance your well-being and foster a sense of harmony.</p>
+            <Link href="/villa-ballena" className="btn-editorial mt-8 w-fit">Learn More</Link>
+          </div>
+          <div className="relative h-[500px] lg:h-[600px]">
+            <div className="amenity-img absolute top-0 right-0 w-[65%] h-[70%] overflow-hidden rounded-sm">
+              <Image src="/images/ballena/Ballena 10.jpg" alt="Villa Ballena covered terrace" fill className="object-cover" quality={80} sizes="40vw" />
+            </div>
+            <div className="amenity-img absolute bottom-0 left-0 w-[55%] h-[55%] overflow-hidden rounded-sm z-10 border border-line">
+              <Image src="/images/ballena/Ballena 38.jpg" alt="Villa Ballena pool at dusk" fill className="object-cover" quality={80} sizes="35vw" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-/* ═══════════════════════ HOME PAGE ═══════════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   S8 — REVIEWS
+   ═══════════════════════════════════════════════════════════ */
+function Reviews() {
+  return (
+    <section className="bg-bg py-32 lg:py-48">
+      <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
+        <span className="block font-display text-8xl leading-none text-text-dim/20 select-none mb-4">&ldquo;</span>
+        <blockquote>
+          <p className="font-accent text-xl italic leading-relaxed text-text/80 lg:text-3xl lg:leading-relaxed">
+            An absolutely stunning property. The attention to detail, the pool, the views — everything exceeded our expectations.
+          </p>
+        </blockquote>
+        <footer className="mt-10">
+          <p className="font-heading text-[0.6875rem] font-medium uppercase tracking-[0.2em] text-text-muted">Sarah & James</p>
+          <p className="mt-1 text-[0.75rem] text-text-dim">London, UK</p>
+        </footer>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   S9 — CTA
+   ═══════════════════════════════════════════════════════════ */
+function CTA() {
+  return (
+    <section className="bg-bg">
+      <div className="line-h" />
+      <div className="py-32 lg:py-48">
+        <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
+          <h2 className="display-lg">Book Your Stay</h2>
+          <p className="mt-6 micro-italic">Limited summer 2026 availability — secure your dates today</p>
+          <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link href="/contact" className="btn-editorial">Book a Visit</Link>
+            <a href="https://wa.me/385915251565" target="_blank" rel="noopener noreferrer" className="btn-editorial">WhatsApp Us</a>
+          </div>
+        </div>
+      </div>
+      <div className="line-h" />
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HOME PAGE
+   ═══════════════════════════════════════════════════════════ */
 export default function HomePage() {
   return (
     <main>
       <Hero />
-      <Introduction />
-      <VillasSection />
-      <NumbersStrip />
-      <ExperiencesTeaser />
-      <ReviewsSection />
-      <LocationSection />
-      <CTABanner />
+      <About />
+      <Stats />
+      <VillasShowcase />
+      <Beliefs />
+      <ValuesGrid />
+      <Amenities />
+      <Reviews />
+      <CTA />
     </main>
   );
 }
