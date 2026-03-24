@@ -81,13 +81,13 @@ export default function BlogPage() {
       </section>
 
       {/* ──────── Blog Grid ──────── */}
-      <section className="section-padding bg-midnight">
+      <section className="section-padding bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
               <article
                 key={post.slug}
-                className="group overflow-hidden rounded-2xl border border-white/5 transition-all duration-500 hover:border-gold/20"
+                className="group overflow-hidden rounded-2xl border border-gray-200 shadow-sm transition-all duration-500 hover:border-gold/20"
               >
                 {/* Image */}
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -108,8 +108,8 @@ export default function BlogPage() {
                 </div>
 
                 {/* Content */}
-                <div className="bg-midnight-light/50 p-6">
-                  <time className="text-xs tracking-wider text-white/40">
+                <div className="bg-white p-6">
+                  <time className="text-xs tracking-wider text-body-dark/40">
                     {new Date(post.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
@@ -117,11 +117,11 @@ export default function BlogPage() {
                     })}
                   </time>
 
-                  <h2 className="mt-3 heading-md text-base text-white transition-colors duration-300 group-hover:text-gold md:text-lg">
+                  <h2 className="mt-3 heading-md text-base text-midnight transition-colors duration-300 group-hover:text-gold md:text-lg">
                     {post.title}
                   </h2>
 
-                  <p className="mt-3 text-sm leading-relaxed text-white/50">
+                  <p className="mt-3 text-sm leading-relaxed text-body-dark">
                     {post.excerpt}
                   </p>
 

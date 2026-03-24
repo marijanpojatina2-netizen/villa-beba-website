@@ -52,7 +52,7 @@ function Hero() {
 /* ────────────────────── Introduction ──────────────────────── */
 function Introduction() {
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-4xl px-6">
         <ScrollReveal>
           <p className="font-accent text-2xl italic leading-relaxed text-gold md:text-3xl">
@@ -60,7 +60,7 @@ function Introduction() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <p className="mt-8 text-base leading-relaxed text-white/70 md:text-lg">
+          <p className="mt-8 text-base leading-relaxed text-body-dark md:text-lg">
             Step onto your private terrace with coffee, then ease into a heated pool surrounded by nature.
             Villa Ballena is a 350m&sup2; designer residence built in 2021, where dark sophisticated interiors
             meet the warmth of Mediterranean living. Four en-suite bedrooms, a private Finnish sauna,
@@ -78,10 +78,10 @@ function PhotoGallery() {
   const heights = ['aspect-[3/4]', 'aspect-[4/5]', 'aspect-[3/4]', 'aspect-[4/3]', 'aspect-[4/5]', 'aspect-[3/4]'];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
-          <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
+          <h2 className="heading-lg mb-16 text-center text-3xl text-midnight md:text-4xl">
             Gallery
           </h2>
         </ScrollReveal>
@@ -89,7 +89,7 @@ function PhotoGallery() {
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
           {ballenaGallery.slice(0, 6).map((image, i) => (
             <ScrollReveal key={image.src} delay={i * 0.1}>
-              <div className="group mb-4 break-inside-avoid overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20">
+              <div className="group mb-4 break-inside-avoid overflow-hidden rounded-xl border border-gray-200 shadow-sm transition-all duration-500 hover:border-gold/20">
                 <div className={`${heights[i]} relative`}>
                   <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
@@ -121,10 +121,10 @@ function Specifications() {
   ];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-5xl px-6">
         <ScrollReveal>
-          <h2 className="heading-lg mb-12 text-center text-3xl text-white md:text-4xl">
+          <h2 className="heading-lg mb-12 text-center text-3xl text-midnight md:text-4xl">
             {t('specifications')}
           </h2>
         </ScrollReveal>
@@ -138,7 +138,7 @@ function Specifications() {
               className={`relative rounded-full px-6 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
                 activeTab === i
                   ? 'bg-gold/10 text-gold'
-                  : 'text-white/50 hover:text-white/80'
+                  : 'text-body-dark/50 hover:text-body-dark/80'
               }`}
             >
               {tab.label}
@@ -150,13 +150,13 @@ function Specifications() {
         </div>
 
         {/* Tab Content */}
-        <div className="rounded-2xl border border-white/5 bg-midnight-light/50 p-8">
+        <div className="rounded-2xl border border-gray-200 bg-cream/50 p-8">
           {activeTab === 0 && (
             <div className="grid gap-6 md:grid-cols-2">
               {villaBallena.bedrooms.map((room) => (
-                <div key={room.name} className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+                <div key={room.name} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                   <h3 className="heading-md text-lg text-gold">{room.name}</h3>
-                  <p className="mt-2 text-sm text-white/60">{room.beds}</p>
+                  <p className="mt-2 text-sm text-body-dark">{room.beds}</p>
                   {room.enSuite && (
                     <span className="mt-3 inline-block rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-xs text-gold/80">
                       En-suite bathroom
@@ -164,8 +164,8 @@ function Specifications() {
                   )}
                 </div>
               ))}
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6 md:col-span-2">
-                <div className="grid grid-cols-2 gap-4 text-sm text-white/60">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm md:col-span-2">
+                <div className="grid grid-cols-2 gap-4 text-sm text-body-dark">
                   <p><span className="text-gold">Bathrooms:</span> {villaCommon.bathrooms}</p>
                   <p><span className="text-gold">Guest WCs:</span> {villaCommon.guestWCs}</p>
                   <p><span className="text-gold">Max guests:</span> {villaCommon.maxGuests}</p>
@@ -176,27 +176,27 @@ function Specifications() {
 
           {activeTab === 1 && (
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-lg text-gold">Private Sauna</h3>
-                <p className="mt-2 text-sm text-white/60">{villaBallena.unique.sauna}</p>
-                <p className="mt-1 text-sm text-white/60">Wellness shower included</p>
+                <p className="mt-2 text-sm text-body-dark">{villaBallena.unique.sauna}</p>
+                <p className="mt-1 text-sm text-body-dark">Wellness shower included</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-lg text-gold">Heated Pool</h3>
-                <p className="mt-2 text-sm text-white/60">Size: {villaCommon.pool.size}</p>
-                <p className="mt-1 text-sm text-white/60">Depth: {villaCommon.pool.depth}</p>
-                <p className="mt-1 text-sm text-white/60">{villaCommon.pool.type}</p>
+                <p className="mt-2 text-sm text-body-dark">Size: {villaCommon.pool.size}</p>
+                <p className="mt-1 text-sm text-body-dark">Depth: {villaCommon.pool.depth}</p>
+                <p className="mt-1 text-sm text-body-dark">{villaCommon.pool.type}</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6 md:col-span-2">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm md:col-span-2">
                 <h3 className="heading-md text-lg text-gold">Pool Features</h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {villaCommon.pool.features.map((f) => (
-                    <span key={f} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                    <span key={f} className="rounded-full border border-gray-200 bg-cream px-3 py-1 text-xs text-body-dark">
                       {f}
                     </span>
                   ))}
                 </div>
-                <p className="mt-3 text-sm text-white/50">Season: {villaCommon.pool.season}</p>
+                <p className="mt-3 text-sm text-body-dark/70">Season: {villaCommon.pool.season}</p>
               </div>
             </div>
           )}
@@ -204,51 +204,51 @@ function Specifications() {
           {activeTab === 2 && (
             <div className="grid gap-6 md:grid-cols-2">
               {Object.entries(villaCommon.outdoor).map(([key, value]) => (
-                <div key={key} className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+                <div key={key} className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                   <h3 className="heading-md text-sm text-gold">{key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())}</h3>
-                  <p className="mt-2 text-sm text-white/60">{value}</p>
+                  <p className="mt-2 text-sm text-body-dark">{value}</p>
                 </div>
               ))}
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-sm text-gold">Terrace</h3>
-                <p className="mt-2 text-sm text-white/60">{villaBallena.unique.terrace}</p>
+                <p className="mt-2 text-sm text-body-dark">{villaBallena.unique.terrace}</p>
               </div>
             </div>
           )}
 
           {activeTab === 3 && (
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-sm text-gold">Climate</h3>
-                <p className="mt-2 text-sm text-white/60">{villaCommon.indoor.ac}</p>
-                <p className="mt-1 text-sm text-white/60">{villaCommon.indoor.heating}</p>
-                {villaCommon.indoor.fireplace && <p className="mt-1 text-sm text-white/60">Fireplace</p>}
+                <p className="mt-2 text-sm text-body-dark">{villaCommon.indoor.ac}</p>
+                <p className="mt-1 text-sm text-body-dark">{villaCommon.indoor.heating}</p>
+                {villaCommon.indoor.fireplace && <p className="mt-1 text-sm text-body-dark">Fireplace</p>}
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-sm text-gold">Entertainment</h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {villaCommon.indoor.entertainment.map((e) => (
-                    <span key={e} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                    <span key={e} className="rounded-full border border-gray-200 bg-cream px-3 py-1 text-xs text-body-dark">
                       {e}
                     </span>
                   ))}
                 </div>
-                <p className="mt-2 text-sm text-white/50">WiFi: {villaCommon.indoor.wifi}</p>
+                <p className="mt-2 text-sm text-body-dark/70">WiFi: {villaCommon.indoor.wifi}</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-sm text-gold">Kitchen</h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {villaCommon.indoor.kitchen.map((k) => (
-                    <span key={k} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                    <span key={k} className="rounded-full border border-gray-200 bg-cream px-3 py-1 text-xs text-body-dark">
                       {k}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-sm text-gold">Laundry & Security</h3>
-                <p className="mt-2 text-sm text-white/60">{villaCommon.indoor.laundry}</p>
-                {villaCommon.indoor.safe && <p className="mt-1 text-sm text-white/60">In-room safe</p>}
+                <p className="mt-2 text-sm text-body-dark">{villaCommon.indoor.laundry}</p>
+                {villaCommon.indoor.safe && <p className="mt-1 text-sm text-body-dark">In-room safe</p>}
               </div>
             </div>
           )}
@@ -270,10 +270,10 @@ function DayTimeline() {
   ];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-4xl px-6">
         <ScrollReveal>
-          <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
+          <h2 className="heading-lg mb-16 text-center text-3xl text-midnight md:text-4xl">
             {t('dayTitle', { villa: 'Villa Ballena' })}
           </h2>
         </ScrollReveal>
@@ -288,7 +288,7 @@ function DayTimeline() {
                 <div className="relative flex items-start gap-8">
                   {/* Timeline dot */}
                   <div className="relative z-10 hidden flex-shrink-0 md:block">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-midnight">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-white">
                       <svg className="h-5 w-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d={slot.icon} />
                       </svg>
@@ -296,12 +296,12 @@ function DayTimeline() {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 rounded-xl border border-white/5 bg-midnight/50 p-6">
+                  <div className="flex-1 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
                     <div className="flex items-center gap-3">
                       <span className="text-sm font-bold text-gold">{slot.time}</span>
-                      <span className="heading-md text-sm text-white/80">{slot.period}</span>
+                      <span className="heading-md text-sm text-midnight">{slot.period}</span>
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-white/60">{slot.description}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-body-dark">{slot.description}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -364,10 +364,10 @@ function PricingQuickView() {
   const t = useTranslations('villa');
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <ScrollReveal>
-          <p className="text-sm uppercase tracking-[0.3em] text-white/40">Starting from</p>
+          <p className="text-sm uppercase tracking-[0.3em] text-body-dark/50">Starting from</p>
           <p className="mt-4 text-gradient-gold text-5xl font-bold md:text-6xl lg:text-7xl font-heading">
             {t('pricingTeaser')}
           </p>

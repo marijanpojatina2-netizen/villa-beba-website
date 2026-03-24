@@ -26,7 +26,7 @@ const cormorant = Cormorant_Garamond({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className={`${montserrat.variable} ${inter.variable} ${cormorant.variable}`}>
-      <body className="bg-midnight font-body text-white antialiased">
+      <body className="bg-white font-body text-body-dark antialiased">
         {children}
       </body>
     </html>

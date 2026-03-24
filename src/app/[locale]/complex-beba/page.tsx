@@ -55,7 +55,7 @@ function Introduction() {
   const t = useTranslations('complex');
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <ScrollReveal>
           <p className="font-accent text-2xl italic leading-relaxed text-gold md:text-3xl">
@@ -63,7 +63,7 @@ function Introduction() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <p className="mt-8 text-base leading-relaxed text-white/70 md:text-lg">
+          <p className="mt-8 text-base leading-relaxed text-body-dark md:text-lg">
             {t('intro')}
           </p>
         </ScrollReveal>
@@ -83,14 +83,14 @@ function KeyStats() {
   ];
 
   return (
-    <section className="border-y border-white/5 bg-midnight-light py-16">
+    <section className="border-y border-gray-200 bg-cream py-16">
       <div className="mx-auto max-w-5xl px-6">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat) => (
             <ScrollReveal key={stat.label}>
               <div className="text-center">
                 <CountUp end={stat.end} suffix={stat.suffix} className="text-4xl font-bold text-gold md:text-5xl font-heading" />
-                <p className="mt-2 text-xs uppercase tracking-wider text-white/50">{stat.label}</p>
+                <p className="mt-2 text-xs uppercase tracking-wider text-body-dark">{stat.label}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -111,10 +111,10 @@ function SharedAmenities() {
   ];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-5xl px-6">
         <ScrollReveal>
-          <h2 className="heading-lg mb-12 text-center text-3xl text-white md:text-4xl">
+          <h2 className="heading-lg mb-12 text-center text-3xl text-midnight md:text-4xl">
             {t('shared')}
           </h2>
         </ScrollReveal>
@@ -122,13 +122,13 @@ function SharedAmenities() {
         <div className="grid gap-6 md:grid-cols-3">
           {complexBeba.sharedAmenities.map((amenity, i) => (
             <ScrollReveal key={amenity} delay={i * 0.15}>
-              <div className="group rounded-xl border border-white/5 bg-midnight-light/50 p-8 text-center transition-all duration-300 hover:border-gold/20">
+              <div className="group rounded-xl border border-gray-200 bg-white p-8 text-center shadow-sm transition-all duration-300 hover:border-gold/20">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-gold/20 bg-gold/5 transition-colors group-hover:bg-gold/10">
                   <svg className="h-7 w-7 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={amenityIcons[i]} />
                   </svg>
                 </div>
-                <h3 className="heading-md text-sm text-white">{amenity}</h3>
+                <h3 className="heading-md text-sm text-midnight">{amenity}</h3>
               </div>
             </ScrollReveal>
           ))}
@@ -170,10 +170,10 @@ function IdealFor() {
   ];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-6xl px-6">
         <ScrollReveal>
-          <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
+          <h2 className="heading-lg mb-16 text-center text-3xl text-midnight md:text-4xl">
             {t('idealFor')}
           </h2>
         </ScrollReveal>
@@ -214,7 +214,7 @@ function CombinedFeatures() {
   ];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-5xl px-6">
         <ScrollReveal>
           <p className="mb-12 text-center font-accent text-lg italic text-gold/80 md:text-xl">
@@ -225,14 +225,14 @@ function CombinedFeatures() {
         <div className="grid gap-6 md:grid-cols-3">
           {features.map((feature, i) => (
             <ScrollReveal key={feature.title} delay={i * 0.15}>
-              <div className="rounded-xl border border-white/5 bg-midnight-light/50 p-8 transition-all duration-300 hover:border-gold/20">
+              <div className="rounded-xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:border-gold/20">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/20 bg-gold/5">
                   <svg className="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={feature.icon} />
                   </svg>
                 </div>
-                <h3 className="heading-md text-sm text-white">{feature.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/60">{feature.description}</p>
+                <h3 className="heading-md text-sm text-midnight">{feature.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-body-dark">{feature.description}</p>
               </div>
             </ScrollReveal>
           ))}
@@ -245,26 +245,26 @@ function CombinedFeatures() {
 /* ─────────────── Villa Comparison ──────────────────────────── */
 function VillaComparison() {
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-5xl px-6">
         <ScrollReveal>
-          <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
+          <h2 className="heading-lg mb-16 text-center text-3xl text-midnight md:text-4xl">
             Two Personalities, One Estate
           </h2>
         </ScrollReveal>
 
         <div className="grid gap-8 md:grid-cols-2">
           <ScrollReveal direction="left">
-            <div className="rounded-2xl border border-white/5 bg-midnight/50 p-8">
+            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
               <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
                 <Image src="/images/ballena/Ballena 36.jpg" alt="Villa Ballena terrace and pool at night" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} />
                 <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent" />
               </div>
               <h3 className="heading-md mt-6 text-lg text-gold">Villa Ballena</h3>
-              <p className="mt-1 font-accent text-sm italic text-white/50">The Serene Wellness Retreat</p>
+              <p className="mt-1 font-accent text-sm italic text-body-dark/50">The Serene Wellness Retreat</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {['Private sauna', 'Wellness shower', 'Dark interiors'].map((tag) => (
-                  <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                  <span key={tag} className="rounded-full border border-gray-200 bg-cream px-3 py-1 text-xs text-body-dark">
                     {tag}
                   </span>
                 ))}
@@ -282,16 +282,16 @@ function VillaComparison() {
           </ScrollReveal>
 
           <ScrollReveal direction="right">
-            <div className="rounded-2xl border border-white/5 bg-midnight/50 p-8">
+            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
               <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
                 <Image src="/images/beluga/Beluga 36.jpg" alt="Villa Beluga pool and terrace at dusk" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} />
                 <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent" />
               </div>
               <h3 className="heading-md mt-6 text-lg text-gold">Villa Beluga</h3>
-              <p className="mt-1 font-accent text-sm italic text-white/50">The Entertainment &amp; Lifestyle Villa</p>
+              <p className="mt-1 font-accent text-sm italic text-body-dark/50">The Entertainment &amp; Lifestyle Villa</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {['Game room', 'Glass terrace', 'Family-friendly'].map((tag) => (
-                  <span key={tag} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                  <span key={tag} className="rounded-full border border-gray-200 bg-cream px-3 py-1 text-xs text-body-dark">
                     {tag}
                   </span>
                 ))}

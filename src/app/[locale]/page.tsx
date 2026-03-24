@@ -58,12 +58,12 @@ function Introduction() {
   const t = useTranslations('home');
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <p className="font-accent text-xl italic text-gold md:text-2xl">
           {t('introTitle')}
         </p>
-        <p className="mt-8 text-base leading-relaxed text-white/70 md:text-lg">
+        <p className="mt-8 text-base leading-relaxed text-body-dark md:text-lg">
           {t('intro')}
         </p>
         {/* Gold divider */}
@@ -99,10 +99,10 @@ function VillasSection() {
   ];
 
   return (
-    <section id="villas" className="section-padding bg-midnight-light">
+    <section id="villas" className="section-padding bg-cream">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <h2 className="heading-lg text-3xl text-white md:text-4xl">
+          <h2 className="heading-lg text-3xl text-midnight md:text-4xl">
             {t('villasTitle')}
           </h2>
         </div>
@@ -111,7 +111,7 @@ function VillasSection() {
           {villas.map((villa) => (
             <div
               key={villa.name}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/5 transition-all duration-500 hover:border-gold/20"
+              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 shadow-sm transition-all duration-500 hover:border-gold/20"
             >
               {/* Villa image */}
               <Image
@@ -177,9 +177,9 @@ function NumbersStrip() {
   ];
 
   return (
-    <section className="border-y border-white/5 bg-midnight py-16">
+    <section className="border-y border-gray-200 bg-white py-16">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="mb-12 text-center heading-md text-xl text-white/80 md:text-2xl">
+        <h2 className="mb-12 text-center heading-md text-xl text-midnight md:text-2xl">
           {t('numbersTitle')}
         </h2>
         <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
@@ -188,7 +188,7 @@ function NumbersStrip() {
               <p className="text-3xl font-bold text-gold md:text-4xl font-heading">
                 {stat.value}
               </p>
-              <p className="mt-2 text-xs uppercase tracking-wider text-white/50">
+              <p className="mt-2 text-xs uppercase tracking-wider text-body-dark">
                 {stat.label}
               </p>
             </div>
@@ -231,10 +231,10 @@ function ExperiencesTeaser() {
   ];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <h2 className="heading-lg text-3xl text-white md:text-4xl">
+          <h2 className="heading-lg text-3xl text-midnight md:text-4xl">
             {t('experiencesTitle')}
           </h2>
         </div>
@@ -243,7 +243,7 @@ function ExperiencesTeaser() {
           {experiences.map((exp) => (
             <div
               key={exp.title}
-              className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20"
+              className="group overflow-hidden rounded-xl border border-gray-200 shadow-sm transition-all duration-500 hover:border-gold/20"
             >
               {/* Experience image */}
               <div className="relative aspect-[3/4]">
@@ -308,9 +308,9 @@ function ReviewsSection() {
   ];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-4xl px-6 text-center">
-        <h2 className="heading-lg mb-16 text-3xl text-white md:text-4xl">
+        <h2 className="heading-lg mb-16 text-3xl text-midnight md:text-4xl">
           {t('reviewsTitle')}
         </h2>
 
@@ -322,14 +322,14 @@ function ReviewsSection() {
           </span>
 
           <blockquote className="relative z-10">
-            <p className="font-accent text-xl italic leading-relaxed text-white/80 md:text-2xl lg:text-3xl">
+            <p className="font-accent text-xl italic leading-relaxed text-midnight md:text-2xl lg:text-3xl">
               {reviews[0].quote}
             </p>
             <footer className="mt-8">
               <p className="text-sm font-semibold uppercase tracking-wider text-gold">
                 {reviews[0].author}
               </p>
-              <p className="mt-1 text-xs tracking-wide text-white/40">
+              <p className="mt-1 text-xs tracking-wide text-body-dark">
                 {reviews[0].origin}
               </p>
             </footer>
@@ -341,7 +341,7 @@ function ReviewsSection() {
               <span
                 key={i}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  i === 0 ? 'w-6 bg-gold' : 'w-2 bg-white/20'
+                  i === 0 ? 'w-6 bg-gold' : 'w-2 bg-midnight/20'
                 }`}
               />
             ))}

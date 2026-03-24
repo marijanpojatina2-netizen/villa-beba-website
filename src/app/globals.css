@@ -19,8 +19,8 @@ html {
 }
 
 body {
-  background: var(--color-midnight);
-  color: #FFFFFF;
+  background: #FFFFFF;
+  color: var(--color-body-dark);
   font-family: var(--font-body);
 }
 

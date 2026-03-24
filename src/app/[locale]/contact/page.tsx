@@ -54,8 +54,8 @@ export default function ContactPage() {
   };
 
   const inputClasses =
-    'w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 transition-all duration-300 focus:border-gold/50 focus:outline-none focus:ring-1 focus:ring-gold/30';
-  const labelClasses = 'mb-2 block text-xs font-medium uppercase tracking-wider text-white/50';
+    'w-full rounded-lg border border-gray-200 bg-cream px-4 py-3 text-sm text-midnight placeholder:text-body-dark/30 transition-all duration-300 focus:border-gold/50 focus:outline-none focus:ring-1 focus:ring-gold/30';
+  const labelClasses = 'mb-2 block text-xs font-medium uppercase tracking-wider text-body-dark';
 
   return (
     <main>
@@ -76,7 +76,7 @@ export default function ContactPage() {
       </section>
 
       {/* ──────── Two-Column Layout ──────── */}
-      <section className="section-padding bg-midnight">
+      <section className="section-padding bg-white">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
             {/* ── Left: Form ── */}
@@ -248,8 +248,8 @@ export default function ContactPage() {
 
             {/* ── Right: Contact Info ── */}
             <div className="lg:col-span-2">
-              <div className="rounded-2xl border border-white/5 bg-midnight-light/50 p-8">
-                <h2 className="heading-md text-lg text-white">
+              <div className="rounded-2xl border border-gray-200 bg-cream p-8">
+                <h2 className="heading-md text-lg text-midnight">
                   {t('directContact')}
                 </h2>
 
@@ -262,7 +262,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-white/40">Email</p>
+                      <p className="text-xs font-medium uppercase tracking-wider text-body-dark/40">Email</p>
                       <a href="mailto:info@villa-beba.com" className="mt-1 block text-sm text-gold transition-colors hover:text-gold-light">
                         info@villa-beba.com
                       </a>
@@ -277,7 +277,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-white/40">Phone</p>
+                      <p className="text-xs font-medium uppercase tracking-wider text-body-dark/40">Phone</p>
                       <a href="tel:+385915251565" className="mt-1 block text-sm text-gold transition-colors hover:text-gold-light">
                         +385 91 525 1565
                       </a>
@@ -292,7 +292,7 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-white/40">WhatsApp</p>
+                      <p className="text-xs font-medium uppercase tracking-wider text-body-dark/40">WhatsApp</p>
                       <a
                         href="https://wa.me/385915251565"
                         target="_blank"
@@ -313,8 +313,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-white/40">Location</p>
-                      <p className="mt-1 text-sm text-white/70">
+                      <p className="text-xs font-medium uppercase tracking-wider text-body-dark/40">Location</p>
+                      <p className="mt-1 text-sm text-body-dark">
                         {t('location')}
                       </p>
                     </div>
@@ -322,17 +322,17 @@ export default function ContactPage() {
                 </div>
 
                 {/* Divider */}
-                <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 
                 {/* Map placeholder */}
-                <div className="aspect-[4/3] overflow-hidden rounded-xl border border-white/5 bg-gradient-to-br from-[#0d1a2a] via-[#12203a] to-[#0a1628]">
+                <div className="aspect-[4/3] overflow-hidden rounded-xl border border-gray-200 bg-gradient-to-br from-cream via-white to-cream">
                   <div className="flex h-full items-center justify-center">
                     <div className="text-center">
-                      <svg className="mx-auto h-12 w-12 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                      <svg className="mx-auto h-12 w-12 text-body-dark/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                       </svg>
-                      <p className="mt-3 text-xs uppercase tracking-wider text-white/30">
+                      <p className="mt-3 text-xs uppercase tracking-wider text-body-dark/30">
                         Map Coming Soon
                       </p>
                     </div>

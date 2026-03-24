@@ -55,9 +55,9 @@ export default function FAQPage() {
       </section>
 
       {/* ──────── Accordion ──────── */}
-      <section className="section-padding bg-midnight">
+      <section className="section-padding bg-white">
         <div className="mx-auto max-w-3xl px-6">
-          <div className="divide-y divide-white/5">
+          <div className="divide-y divide-gray-200">
             {faqItems.map((item, index) => (
               <div key={index} className="group">
                 <button
@@ -67,7 +67,7 @@ export default function FAQPage() {
                 >
                   <span
                     className={`pr-8 text-base font-medium transition-colors duration-300 md:text-lg ${
-                      openIndex === index ? 'text-gold' : 'text-white/80 group-hover:text-white'
+                      openIndex === index ? 'text-gold' : 'text-midnight group-hover:text-midnight/80'
                     }`}
                   >
                     {item.q}
@@ -78,7 +78,7 @@ export default function FAQPage() {
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
                       openIndex === index
                         ? 'border-gold/40 bg-gold/10 text-gold'
-                        : 'border-white/10 text-white/40 group-hover:border-white/20'
+                        : 'border-gray-200 text-body-dark/40 group-hover:border-gray-300'
                     }`}
                   >
                     <svg
@@ -101,7 +101,7 @@ export default function FAQPage() {
                     openIndex === index ? 'max-h-96 pb-6' : 'max-h-0'
                   }`}
                 >
-                  <p className="text-sm leading-relaxed text-white/50 md:text-base">
+                  <p className="text-sm leading-relaxed text-body-dark md:text-base">
                     {item.a}
                   </p>
                 </div>

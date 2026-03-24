@@ -57,7 +57,7 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-midnight/95 backdrop-blur-md shadow-lg'
+            ? 'bg-white/95 backdrop-blur-md shadow-md'
             : 'bg-transparent'
         }`}
       >
@@ -65,14 +65,18 @@ export default function Header() {
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
-              <span className="font-[family-name:var(--font-heading)] text-lg font-bold uppercase tracking-[0.2em] text-white">
+              <span
+                className={`font-[family-name:var(--font-heading)] text-lg font-bold uppercase tracking-[0.2em] transition-colors duration-500 ${
+                  scrolled ? 'text-midnight' : 'text-white'
+                }`}
+              >
                 Ballena <span className="text-gold">&amp;</span> Beluga
               </span>
             </Link>
 
             {/* Desktop Nav */}
             <nav className="hidden lg:flex items-center gap-8">
-              <NavLink href="/" label={t('home')} pathname={pathname} />
+              <NavLink href="/" label={t('home')} pathname={pathname} scrolled={scrolled} />
 
               {/* Villas Dropdown */}
               <div
@@ -80,7 +84,11 @@ export default function Header() {
                 onMouseEnter={() => setVillasOpen(true)}
                 onMouseLeave={() => setVillasOpen(false)}
               >
-                <button className="group relative flex items-center gap-1 text-sm font-medium uppercase tracking-wider text-white/80 transition-colors hover:text-gold">
+                <button
+                  className={`group relative flex items-center gap-1 text-sm font-medium uppercase tracking-wider transition-colors hover:text-gold ${
+                    scrolled ? 'text-body-dark' : 'text-white/80'
+                  }`}
+                >
                   {t('villas')}
                   <ChevronDown
                     size={14}
@@ -96,12 +104,22 @@ export default function Header() {
                       : 'pointer-events-none -translate-y-2 opacity-0'
                   }`}
                 >
-                  <div className="min-w-[200px] rounded-lg border border-white/10 bg-midnight/95 p-3 backdrop-blur-md shadow-xl">
+                  <div
+                    className={`min-w-[200px] rounded-lg border p-3 backdrop-blur-md shadow-xl ${
+                      scrolled
+                        ? 'border-gray-200 bg-white'
+                        : 'border-white/10 bg-midnight/95'
+                    }`}
+                  >
                     {villaLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="block rounded-md px-4 py-2.5 text-sm text-white/80 transition-colors hover:bg-white/5 hover:text-gold"
+                        className={`block rounded-md px-4 py-2.5 text-sm transition-colors hover:text-gold ${
+                          scrolled
+                            ? 'text-body-dark hover:bg-gray-50'
+                            : 'text-white/80 hover:bg-white/5'
+                        }`}
                       >
                         {link.label}
                       </Link>
@@ -110,10 +128,10 @@ export default function Header() {
                 </div>
               </div>
 
-              <NavLink href="/experiences" label={t('experiences')} pathname={pathname} />
-              <NavLink href="/weddings" label={t('weddings')} pathname={pathname} />
-              <NavLink href="/pricing" label={t('pricing')} pathname={pathname} />
-              <NavLink href="/contact" label={t('contact')} pathname={pathname} />
+              <NavLink href="/experiences" label={t('experiences')} pathname={pathname} scrolled={scrolled} />
+              <NavLink href="/weddings" label={t('weddings')} pathname={pathname} scrolled={scrolled} />
+              <NavLink href="/pricing" label={t('pricing')} pathname={pathname} scrolled={scrolled} />
+              <NavLink href="/contact" label={t('contact')} pathname={pathname} scrolled={scrolled} />
             </nav>
 
             {/* Right Side */}
@@ -125,18 +143,22 @@ export default function Header() {
                   className={`px-1.5 py-0.5 uppercase tracking-wider transition-colors ${
                     locale === 'en'
                       ? 'text-gold font-semibold'
-                      : 'text-white/60 hover:text-white'
+                      : scrolled
+                        ? 'text-body-dark/60 hover:text-body-dark'
+                        : 'text-white/60 hover:text-white'
                   }`}
                 >
                   EN
                 </button>
-                <span className="text-white/30">|</span>
+                <span className={`transition-colors duration-500 ${scrolled ? 'text-body-dark/30' : 'text-white/30'}`}>|</span>
                 <button
                   onClick={() => switchLocale('de')}
                   className={`px-1.5 py-0.5 uppercase tracking-wider transition-colors ${
                     locale === 'de'
                       ? 'text-gold font-semibold'
-                      : 'text-white/60 hover:text-white'
+                      : scrolled
+                        ? 'text-body-dark/60 hover:text-body-dark'
+                        : 'text-white/60 hover:text-white'
                   }`}
                 >
                   DE
@@ -154,7 +176,9 @@ export default function Header() {
               {/* Mobile Hamburger */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 text-white"
+                className={`lg:hidden p-2 transition-colors duration-500 ${
+                  scrolled ? 'text-midnight' : 'text-white'
+                }`}
                 aria-label="Toggle menu"
               >
                 {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -272,10 +296,12 @@ function NavLink({
   href,
   label,
   pathname,
+  scrolled,
 }: {
   href: string;
   label: string;
   pathname: string;
+  scrolled: boolean;
 }) {
   const isActive = pathname === href;
 
@@ -283,7 +309,11 @@ function NavLink({
     <Link
       href={href}
       className={`group relative text-sm font-medium uppercase tracking-wider transition-colors ${
-        isActive ? 'text-gold' : 'text-white/80 hover:text-gold'
+        isActive
+          ? 'text-gold'
+          : scrolled
+            ? 'text-body-dark hover:text-gold'
+            : 'text-white/80 hover:text-gold'
       }`}
     >
       {label}

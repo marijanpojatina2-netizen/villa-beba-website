@@ -72,19 +72,19 @@ export default function AboutPage() {
       </section>
 
       {/* ──────── Story Section ──────── */}
-      <section className="section-padding bg-midnight">
+      <section className="section-padding bg-white">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div className="text-center lg:text-left">
-              <h2 className="heading-lg text-2xl text-white md:text-3xl lg:text-4xl">
+              <h2 className="heading-lg text-2xl text-midnight md:text-3xl lg:text-4xl">
                 {t('storyTitle')}
               </h2>
               <div className="mx-auto mt-6 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent lg:mx-0" />
-              <p className="mt-8 font-accent text-lg leading-relaxed text-white/70 md:text-xl">
+              <p className="mt-8 font-accent text-lg leading-relaxed text-body-dark md:text-xl">
                 {t('story')}
               </p>
             </div>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
               <Image
                 src="/images/ballena/Ballena 42.jpg"
                 alt="Aerial view of both villas at dusk"
@@ -99,14 +99,14 @@ export default function AboutPage() {
       </section>
 
       {/* ──────── Philosophy Section ──────── */}
-      <section className="section-padding bg-midnight-light">
+      <section className="section-padding bg-cream">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-center">
-            <h2 className="heading-lg text-2xl text-white md:text-3xl lg:text-4xl">
+            <h2 className="heading-lg text-2xl text-midnight md:text-3xl lg:text-4xl">
               {t('philosophyTitle')}
             </h2>
             <div className="mx-auto mt-6 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
-            <p className="mt-8 text-base leading-relaxed text-white/60 md:text-lg">
+            <p className="mt-8 text-base leading-relaxed text-body-dark md:text-lg">
               {t('philosophy')}
             </p>
           </div>
@@ -114,21 +114,21 @@ export default function AboutPage() {
       </section>
 
       {/* ──────── Values Grid ──────── */}
-      <section className="section-padding bg-midnight">
+      <section className="section-padding bg-white">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value) => (
               <div
                 key={value.title}
-                className="group rounded-2xl border border-white/5 bg-midnight-light/30 p-8 transition-all duration-500 hover:border-gold/20"
+                className="group rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-500 hover:border-gold/20"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-gold/20 bg-gold/10 text-gold transition-all duration-300 group-hover:bg-gold/20">
                   {value.icon}
                 </div>
-                <h3 className="mt-6 heading-md text-base text-white">
+                <h3 className="mt-6 heading-md text-base text-midnight">
                   {value.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-white/50">
+                <p className="mt-3 text-sm leading-relaxed text-body-dark">
                   {value.description}
                 </p>
               </div>

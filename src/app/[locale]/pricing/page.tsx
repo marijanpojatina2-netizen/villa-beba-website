@@ -175,11 +175,11 @@ function WhatsIncluded() {
   ];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-6xl px-6">
         <ScrollReveal>
           <div className="mb-16 text-center">
-            <h2 className="heading-lg text-3xl text-white md:text-4xl">
+            <h2 className="heading-lg text-3xl text-midnight md:text-4xl">
               What&apos;s Included
             </h2>
           </div>
@@ -188,7 +188,7 @@ function WhatsIncluded() {
         <div className="grid gap-12 md:grid-cols-2">
           {/* Included */}
           <ScrollReveal delay={0.1}>
-            <div className="rounded-2xl border border-white/5 bg-midnight-light/50 p-8">
+            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
               <h3 className="mb-6 heading-md text-lg text-gold">
                 Included in Every Stay
               </h3>
@@ -200,7 +200,7 @@ function WhatsIncluded() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span className="text-sm text-white/70">{item}</span>
+                    <span className="text-sm text-body-dark">{item}</span>
                   </div>
                 ))}
               </div>
@@ -209,21 +209,21 @@ function WhatsIncluded() {
 
           {/* Not included */}
           <ScrollReveal delay={0.2}>
-            <div className="rounded-2xl border border-white/5 bg-midnight-light/50 p-8">
-              <h3 className="mb-6 heading-md text-lg text-white/60">
+            <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+              <h3 className="mb-6 heading-md text-lg text-body-dark/60">
                 Not Included
               </h3>
               <div className="space-y-4">
                 {notIncluded.map((entry) => (
                   <div key={entry.item} className="flex items-start gap-3">
-                    <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-white/5">
-                      <svg className="h-3.5 w-3.5 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-gray-100">
+                      <svg className="h-3.5 w-3.5 text-body-dark/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                       </svg>
                     </span>
                     <div>
-                      <span className="text-sm text-white/70">{entry.item}</span>
-                      <span className="ml-2 text-sm text-white/40">&mdash; {entry.note}</span>
+                      <span className="text-sm text-body-dark">{entry.item}</span>
+                      <span className="ml-2 text-sm text-body-dark/50">&mdash; {entry.note}</span>
                     </div>
                   </div>
                 ))}

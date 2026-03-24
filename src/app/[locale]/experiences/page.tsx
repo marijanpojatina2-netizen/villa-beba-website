@@ -91,7 +91,7 @@ function ExperienceCards() {
   const categories: Category[] = ['all', 'gastronomy', 'daytrip', 'nature', 'sports', 'family', 'culture'];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-7xl px-6">
         {/* Filter buttons */}
         <ScrollReveal>
@@ -103,7 +103,7 @@ function ExperienceCards() {
                 className={`rounded-full px-5 py-2 text-xs font-medium uppercase tracking-wider transition-all duration-300 ${
                   activeCategory === cat
                     ? 'bg-gold text-midnight'
-                    : 'border border-white/10 bg-white/5 text-white/60 hover:border-gold/30 hover:text-gold'
+                    : 'border border-gray-200 bg-white text-body-dark/60 hover:border-gold/30 hover:text-gold'
                 }`}
               >
                 {categoryLabels[cat]}
@@ -116,7 +116,7 @@ function ExperienceCards() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredExperiences.map((exp, i) => (
             <ScrollReveal key={exp.title} delay={(i % 3) * 0.1}>
-              <div className="group h-full overflow-hidden rounded-xl border border-white/5 bg-midnight-light/50 transition-all duration-500 hover:border-gold/20">
+              <div className="group h-full overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:border-gold/20">
                 {/* Image */}
                 <div className="aspect-[16/10] relative overflow-hidden">
                   <Image
@@ -126,7 +126,7 @@ function ExperienceCards() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     quality={75}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight-light/90 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent" />
 
                   {/* Distance badge */}
                   <div className="absolute right-4 top-4">
@@ -145,10 +145,10 @@ function ExperienceCards() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="heading-md text-lg text-white">
+                  <h3 className="heading-md text-lg text-midnight">
                     {exp.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/60">
+                  <p className="mt-3 text-sm leading-relaxed text-body-dark">
                     {exp.description}
                   </p>
                   <div className="mt-4 flex items-center gap-2">

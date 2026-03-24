@@ -89,16 +89,16 @@ function BlogPostContent({ slug }: { slug: string }) {
       </section>
 
       {/* ──────── Article Body ──────── */}
-      <section className="section-padding bg-midnight">
+      <section className="section-padding bg-white">
         <div className="mx-auto max-w-3xl px-6">
-          <article className="prose prose-invert max-w-none">
-            <p className="text-lg leading-relaxed text-white/70">
+          <article className="prose max-w-none">
+            <p className="text-lg leading-relaxed text-body-dark">
               The rolling hills of Istria, dotted with centuries-old olive groves and vineyards, have long been a sanctuary for those who seek an authentic Mediterranean experience. Nestled in the heart of this peninsula, the medieval village of Svetvincenat offers a gateway to a world where time seems to slow, where every meal tells a story, and where the landscape itself becomes a companion to your journey.
             </p>
 
             <div className="my-10 h-px w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
 
-            <p className="text-base leading-relaxed text-white/60">
+            <p className="text-base leading-relaxed text-body-dark">
               Istria has been called many things: the new Tuscany, Croatia&apos;s hidden gem, a food lover&apos;s paradise. Yet none of these labels quite capture its essence. It is a place of contrasts, where the azure waters of the Adriatic meet ancient hilltop towns shrouded in morning mist, where Roman ruins stand beside contemporary art galleries, and where a simple plate of hand-rolled pasta becomes an unforgettable experience.
             </p>
 
@@ -121,6 +121,7 @@ function BlogPostContent({ slug }: { slug: string }) {
               Experience this from Villa Ballena
             </p>
             <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-white/50">
+
               Make Istria your home for a week. Explore the region from the comfort of a luxury villa with a heated pool, private sauna, and everything you need.
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -155,9 +156,9 @@ function BlogPostContent({ slug }: { slug: string }) {
       </section>
 
       {/* ──────── Related Posts ──────── */}
-      <section className="section-padding border-t border-white/5 bg-midnight-light">
+      <section className="section-padding border-t border-gray-200 bg-cream">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="heading-md mb-12 text-center text-xl text-white md:text-2xl">
+          <h2 className="heading-md mb-12 text-center text-xl text-midnight md:text-2xl">
             {t('relatedPosts')}
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
@@ -165,7 +166,7 @@ function BlogPostContent({ slug }: { slug: string }) {
               <Link
                 key={related.slug}
                 href={`/blog/${related.slug}` as '/blog/truffle-season-in-istria'}
-                className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20"
+                className="group overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:border-gold/20"
               >
                 <div className={`aspect-[16/10] bg-gradient-to-br ${related.gradient}`}>
                   <div className="flex h-full items-end bg-gradient-to-t from-midnight/60 to-transparent p-4">
@@ -174,11 +175,11 @@ function BlogPostContent({ slug }: { slug: string }) {
                     </span>
                   </div>
                 </div>
-                <div className="bg-midnight/50 p-5">
-                  <h3 className="heading-md text-sm text-white transition-colors duration-300 group-hover:text-gold">
+                <div className="bg-white p-5">
+                  <h3 className="heading-md text-sm text-midnight transition-colors duration-300 group-hover:text-gold">
                     {related.title}
                   </h3>
-                  <time className="mt-2 block text-xs tracking-wider text-white/30">
+                  <time className="mt-2 block text-xs tracking-wider text-body-dark/40">
                     {new Date(related.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',

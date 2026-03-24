@@ -95,14 +95,14 @@ function VenueCapabilities() {
   ];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
           <div className="mb-16 text-center">
-            <h2 className="heading-lg text-3xl text-white md:text-4xl">
+            <h2 className="heading-lg text-3xl text-midnight md:text-4xl">
               Venue Capabilities
             </h2>
-            <p className="mt-4 text-base text-white/60">
+            <p className="mt-4 text-base text-body-dark">
               Everything your team needs to focus, collaborate, and recharge
             </p>
           </div>
@@ -111,17 +111,17 @@ function VenueCapabilities() {
         <div className="grid gap-8 md:grid-cols-3">
           {capabilities.map((cap, i) => (
             <ScrollReveal key={cap.title} delay={i * 0.1}>
-              <div className="h-full rounded-2xl border-2 border-gold/20 bg-midnight/50 p-8 text-center transition-all duration-500 hover:border-gold/40">
+              <div className="h-full rounded-2xl border-2 border-gold/20 bg-white p-8 text-center shadow-sm transition-all duration-500 hover:border-gold/40">
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-gold/20 bg-gold/5">
                   {cap.icon}
                 </div>
-                <h3 className="mt-6 heading-md text-lg text-white">
+                <h3 className="mt-6 heading-md text-lg text-midnight">
                   {cap.title}
                 </h3>
                 <p className="mt-2 text-2xl font-bold text-gold font-heading">
                   {cap.value}
                 </p>
-                <p className="mt-4 text-sm leading-relaxed text-white/60">
+                <p className="mt-4 text-sm leading-relaxed text-body-dark">
                   {cap.description}
                 </p>
               </div>
@@ -136,11 +136,11 @@ function VenueCapabilities() {
 /* ──────────────── Strategy Offsite Package ───────────────── */
 function StrategyPackage() {
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-4xl px-6">
         <ScrollReveal>
           <div className="text-center">
-            <h2 className="heading-lg text-3xl text-white md:text-4xl">
+            <h2 className="heading-lg text-3xl text-midnight md:text-4xl">
               Strategy Offsite Package
             </h2>
             <p className="mt-4 font-accent text-lg italic text-gold/80">
@@ -150,8 +150,8 @@ function StrategyPackage() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="mt-12 rounded-2xl border border-gold/20 bg-midnight-light/50 p-8 md:p-12">
-            <p className="text-base leading-relaxed text-white/70 md:text-lg">
+          <div className="mt-12 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm md:p-12">
+            <p className="text-base leading-relaxed text-body-dark md:text-lg">
               Our Strategy Offsite Package transforms Villa Ballena and Villa Beluga into your private executive retreat. With exclusive use of both properties, your team of up to 18 can work, collaborate, and unwind in a setting that inspires breakthrough thinking.
             </p>
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
@@ -159,7 +159,7 @@ function StrategyPackage() {
                 <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">
                   Included
                 </h4>
-                <ul className="mt-4 space-y-3 text-sm text-white/70">
+                <ul className="mt-4 space-y-3 text-sm text-body-dark">
                   <li className="flex items-start gap-3">
                     <span className="mt-0.5 text-gold">&#10003;</span>
                     <span>Exclusive use of both villas (up to 18 guests)</span>
@@ -190,7 +190,7 @@ function StrategyPackage() {
                 <h4 className="text-sm font-semibold uppercase tracking-wider text-gold">
                   Available Add-Ons
                 </h4>
-                <ul className="mt-4 space-y-3 text-sm text-white/70">
+                <ul className="mt-4 space-y-3 text-sm text-body-dark">
                   <li className="flex items-start gap-3">
                     <span className="mt-0.5 text-gold">+</span>
                     <span>Private chef &amp; catering services</span>
@@ -251,14 +251,14 @@ function TeamBuilding() {
   ];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
           <div className="mb-16 text-center">
-            <h2 className="heading-lg text-3xl text-white md:text-4xl">
+            <h2 className="heading-lg text-3xl text-midnight md:text-4xl">
               Team-Building Activities
             </h2>
-            <p className="mt-4 text-base text-white/60">
+            <p className="mt-4 text-base text-body-dark">
               Strengthen bonds beyond the boardroom
             </p>
           </div>
@@ -267,7 +267,7 @@ function TeamBuilding() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {activities.map((act, i) => (
             <ScrollReveal key={act.title} delay={i * 0.1}>
-              <div className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20">
+              <div className="group overflow-hidden rounded-xl border border-gray-200 shadow-sm transition-all duration-500 hover:border-gold/20">
                 <div className={`aspect-[3/4] bg-gradient-to-b ${act.gradient} relative`}>
                   <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-transparent" />
                   <div className="absolute inset-0 flex flex-col justify-end p-6">

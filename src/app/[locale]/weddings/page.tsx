@@ -62,10 +62,10 @@ function WeddingHero() {
 /* ─────────────────────── Why Istria ─────────────────────── */
 function WhyIstria() {
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <ScrollReveal>
-          <h2 className="heading-lg text-3xl text-white md:text-4xl">
+          <h2 className="heading-lg text-3xl text-midnight md:text-4xl">
             Why Istria
           </h2>
         </ScrollReveal>
@@ -75,7 +75,7 @@ function WhyIstria() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <p className="mt-6 text-base leading-relaxed text-white/70 md:text-lg">
+          <p className="mt-6 text-base leading-relaxed text-body-dark md:text-lg">
             Nestled in the heart of Istria, our twin luxury villas offer an intimate, private setting for your celebration. The medieval castle of Morosini-Grimani stands just 550 meters away, providing a dramatic backdrop for ceremonies and photographs. With world-class gastronomy, award-winning wines, and the Adriatic coast minutes away, Svetvinčenat is where timeless romance meets modern luxury.
           </p>
         </ScrollReveal>
@@ -88,14 +88,14 @@ function WhyIstria() {
 /* ──────────────────── Wedding Packages ──────────────────── */
 function WeddingPackages() {
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
           <div className="mb-16 text-center">
-            <h2 className="heading-lg text-3xl text-white md:text-4xl">
+            <h2 className="heading-lg text-3xl text-midnight md:text-4xl">
               Wedding Packages
             </h2>
-            <p className="mt-4 text-base text-white/60 md:text-lg">
+            <p className="mt-4 text-base text-body-dark md:text-lg">
               Two exclusive options for your celebration
             </p>
           </div>
@@ -104,20 +104,20 @@ function WeddingPackages() {
         <div className="grid gap-8 md:grid-cols-2">
           {/* Istrian Romance */}
           <ScrollReveal delay={0.1}>
-            <div className="h-full rounded-2xl border-2 border-gold/40 bg-midnight/50 p-8 transition-all duration-500 hover:border-gold/60 md:p-10">
+            <div className="h-full rounded-2xl border-2 border-gold/40 bg-white p-8 shadow-sm transition-all duration-500 hover:border-gold/60 md:p-10">
               <div className="mb-6">
                 <span className="inline-block rounded-full border border-gold/30 px-4 py-1 text-xs uppercase tracking-wider text-gold">
                   Intimate
                 </span>
               </div>
-              <h3 className="heading-md text-2xl text-white">
+              <h3 className="heading-md text-2xl text-midnight">
                 Istrian Romance
               </h3>
               <p className="mt-2 font-accent text-lg italic text-gold/80">
                 Up to 30 guests &middot; One villa
               </p>
               <div className="mt-6 h-px w-full bg-gradient-to-r from-gold/30 via-gold/10 to-transparent" />
-              <ul className="mt-6 space-y-3 text-sm text-white/70">
+              <ul className="mt-6 space-y-3 text-sm text-body-dark">
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 text-gold">&#10003;</span>
                   <span>Exclusive use of one luxury villa (8+1 guests accommodation)</span>
@@ -156,20 +156,20 @@ function WeddingPackages() {
 
           {/* Grand Celebration */}
           <ScrollReveal delay={0.2}>
-            <div className="h-full rounded-2xl border-2 border-gold bg-gradient-to-br from-gold/10 via-gold/5 to-midnight p-8 transition-all duration-500 hover:shadow-[0_0_40px_rgba(201,169,110,0.15)] md:p-10">
+            <div className="h-full rounded-2xl border-2 border-gold bg-gradient-to-br from-gold/10 via-gold/5 to-white p-8 shadow-sm transition-all duration-500 hover:shadow-[0_0_40px_rgba(201,169,110,0.15)] md:p-10">
               <div className="mb-6">
                 <span className="inline-block rounded-full bg-gold px-4 py-1 text-xs font-semibold uppercase tracking-wider text-midnight">
                   Grand
                 </span>
               </div>
-              <h3 className="heading-md text-2xl text-white">
+              <h3 className="heading-md text-2xl text-midnight">
                 Grand Celebration
               </h3>
               <p className="mt-2 font-accent text-lg italic text-gold/80">
                 Up to 60 guests &middot; Both villas
               </p>
               <div className="mt-6 h-px w-full bg-gradient-to-r from-gold/30 via-gold/10 to-transparent" />
-              <ul className="mt-6 space-y-3 text-sm text-white/70">
+              <ul className="mt-6 space-y-3 text-sm text-body-dark">
                 <li className="flex items-start gap-3">
                   <span className="mt-0.5 text-gold">&#10003;</span>
                   <span>Exclusive use of both Villa Ballena &amp; Villa Beluga</span>
@@ -307,14 +307,14 @@ function WeddingExperiences() {
   ];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-7xl px-6">
         <ScrollReveal>
           <div className="mb-16 text-center">
-            <h2 className="heading-lg text-3xl text-white md:text-4xl">
+            <h2 className="heading-lg text-3xl text-midnight md:text-4xl">
               Wedding Week Experiences
             </h2>
-            <p className="mt-4 text-base text-white/60">
+            <p className="mt-4 text-base text-body-dark">
               Create unforgettable memories beyond the big day
             </p>
           </div>
@@ -323,7 +323,7 @@ function WeddingExperiences() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {experiences.map((exp, i) => (
             <ScrollReveal key={exp.title} delay={i * 0.1}>
-              <div className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20">
+              <div className="group overflow-hidden rounded-xl border border-gray-200 shadow-sm transition-all duration-500 hover:border-gold/20">
                 <div className="aspect-[3/4] relative">
                   <Image src={exp.image} alt={exp.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" quality={75} />
                   <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-transparent" />

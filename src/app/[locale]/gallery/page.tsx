@@ -67,7 +67,7 @@ export default function GalleryPage() {
       </section>
 
       {/* ──────── Filter Bar ──────── */}
-      <section className="sticky top-0 z-30 border-b border-white/5 bg-midnight/95 backdrop-blur-md">
+      <section className="sticky top-0 z-30 border-b border-gray-200 bg-white/95 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex gap-2 overflow-x-auto py-4 scrollbar-hide">
             {filters.map((filter) => (
@@ -77,7 +77,7 @@ export default function GalleryPage() {
                 className={`shrink-0 rounded-full px-5 py-2 text-sm font-medium tracking-wide transition-all duration-300 ${
                   activeFilter === filter.key
                     ? 'bg-gold text-midnight'
-                    : 'border border-white/10 text-white/60 hover:border-gold/40 hover:text-gold'
+                    : 'border border-gray-200 text-body-dark/60 hover:border-gold/40 hover:text-gold'
                 }`}
               >
                 {filter.label}
@@ -88,14 +88,14 @@ export default function GalleryPage() {
       </section>
 
       {/* ──────── Grid ──────── */}
-      <section className="section-padding bg-midnight">
+      <section className="section-padding bg-cream">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {filtered.map((item, index) => (
               <button
                 key={`${item.src}-${index}`}
                 onClick={() => openLightbox(index)}
-                className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/30"
+                className="group relative aspect-[4/3] overflow-hidden rounded-xl border border-gray-200 shadow-sm transition-all duration-500 hover:border-gold/30"
               >
                 {/* Real image */}
                 <Image
