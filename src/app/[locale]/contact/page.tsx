@@ -63,13 +63,13 @@ export default function ContactPage() {
       <section className="relative flex h-[40vh] min-h-[320px] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/images/ballena/Ballena 36.jpg" alt="Villa Ballena terrace and pool at night" fill className="object-cover" priority quality={85} />
-          <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+          {/* No overlay — clean photo */}
         </div>
-        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center [text-shadow:0_2px_20px_rgba(0,0,0,0.7),0_4px_40px_rgba(0,0,0,0.5)]">
           <h1 className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl">
             {t('title')}
           </h1>
-          <p className="mt-4 font-accent text-lg italic text-gold/80 md:text-xl">
+          <p className="mt-4 font-accent text-lg italic text-gold md:text-xl">
             {t('subtitle')}
           </p>
         </div>

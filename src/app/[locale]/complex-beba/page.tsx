@@ -16,12 +16,12 @@ function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image src={heroImages.complexBeba} alt="Aerial panorama of Complex Beba" fill className="object-cover" priority quality={85} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+        {/* No overlay — clean photo */}
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center [text-shadow:0_2px_20px_rgba(0,0,0,0.7),0_4px_40px_rgba(0,0,0,0.5)]">
         <ScrollReveal>
-          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
+          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold md:text-xl">
             Svetvincenat, Istria
           </p>
         </ScrollReveal>
@@ -183,7 +183,7 @@ function IdealFor() {
             <ScrollReveal key={event.title} delay={i * 0.12}>
               <div className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20">
                 <div className={`aspect-[16/9] bg-gradient-to-br ${event.gradient} relative`}>
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/90 via-midnight/40 to-transparent" />
+                  {/* No overlay */}
                   <div className="absolute inset-0 flex flex-col justify-end p-8">
                     <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-gold/20 bg-gold/5">
                       <svg className="h-6 w-6 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -258,7 +258,7 @@ function VillaComparison() {
             <div className="rounded-2xl border border-white/5 bg-midnight/50 p-8">
               <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
                 <Image src="/images/ballena/Ballena 36.jpg" alt="Villa Ballena terrace and pool at night" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} />
-                <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent" />
+                {/* No overlay — clean villa photo */}
               </div>
               <h3 className="heading-md mt-6 text-lg text-gold">Villa Ballena</h3>
               <p className="mt-1 font-accent text-sm italic text-white/50">The Serene Wellness Retreat</p>
@@ -285,7 +285,7 @@ function VillaComparison() {
             <div className="rounded-2xl border border-white/5 bg-midnight/50 p-8">
               <div className="relative aspect-[16/9] overflow-hidden rounded-xl">
                 <Image src="/images/beluga/Beluga 36.jpg" alt="Villa Beluga pool and terrace at dusk" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} />
-                <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 via-transparent to-transparent" />
+                {/* No overlay — clean villa photo */}
               </div>
               <h3 className="heading-md mt-6 text-lg text-gold">Villa Beluga</h3>
               <p className="mt-1 font-accent text-sm italic text-white/50">The Entertainment &amp; Lifestyle Villa</p>

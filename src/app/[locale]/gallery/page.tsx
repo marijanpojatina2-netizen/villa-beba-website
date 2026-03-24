@@ -54,9 +54,9 @@ export default function GalleryPage() {
       <section className="relative flex h-[40vh] min-h-[320px] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/images/koridor/IMG_5216.jpg" alt="Corridor between villas with pool view" fill className="object-cover" priority quality={85} />
-          <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+          {/* No overlay — clean photo */}
         </div>
-        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center [text-shadow:0_2px_20px_rgba(0,0,0,0.7),0_4px_40px_rgba(0,0,0,0.5)]">
           <h1 className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl">
             {t('title')}
           </h1>
@@ -108,7 +108,7 @@ export default function GalleryPage() {
                 />
 
                 {/* Label */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/80 to-transparent p-4">
+                <div className="absolute inset-x-0 bottom-0 p-4 [text-shadow:0_2px_8px_rgba(0,0,0,0.9)]">
                   <p className="text-left text-xs font-medium uppercase tracking-wider text-white/70">
                     {item.alt}
                   </p>

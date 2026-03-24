@@ -20,11 +20,11 @@ function Hero() {
         priority
         quality={85}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-midnight/60 via-midnight/30 to-midnight/70" />
+      {/* No overlay — clean photo */}
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center [text-shadow:0_2px_20px_rgba(0,0,0,0.7),0_4px_40px_rgba(0,0,0,0.5)]">
+        <p className="mb-6 font-accent text-lg italic tracking-wide text-gold md:text-xl">
           Svetvincenat, Istria
         </p>
         <h1 className="heading-xl text-[clamp(2rem,7vw,4.5rem)] text-white">
@@ -122,10 +122,8 @@ function VillasSection() {
                 quality={80}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-midnight/70 via-midnight/20 to-transparent" />
-
-              {/* Content overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8">
+              {/* Content overlay — minimal bottom gradient for text readability */}
+              <div className="absolute inset-0 flex flex-col justify-end p-8 [text-shadow:0_2px_12px_rgba(0,0,0,0.8)]">
                 <h3 className="heading-lg text-2xl text-white md:text-3xl">
                   {villa.name}
                 </h3>
@@ -255,8 +253,7 @@ function ExperiencesTeaser() {
                   quality={75}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
+                <div className="absolute inset-0 flex flex-col justify-end p-6 [text-shadow:0_2px_12px_rgba(0,0,0,0.8)]">
                   <h3 className="font-heading text-lg font-bold uppercase tracking-wider text-white">
                     {exp.title}
                   </h3>
@@ -373,7 +370,7 @@ function LocationSection() {
         className="object-cover"
         quality={75}
       />
-      <div className="absolute inset-0 bg-midnight/40" />
+      {/* No overlay — clean photo */}
 
       <div className="relative z-10 mx-auto max-w-5xl px-6">
         <div className="mb-16 text-center">

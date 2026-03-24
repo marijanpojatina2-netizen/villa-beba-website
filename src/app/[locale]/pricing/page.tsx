@@ -16,12 +16,12 @@ function PricingHero() {
     <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image src="/images/ballena/Ballena 36.jpg" alt="Villa Ballena terrace and pool at night" fill className="object-cover" priority quality={85} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+        {/* No overlay — clean photo */}
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center [text-shadow:0_2px_20px_rgba(0,0,0,0.7),0_4px_40px_rgba(0,0,0,0.5)]">
         <ScrollReveal>
-          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
+          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold md:text-xl">
             Season 2026
           </p>
         </ScrollReveal>

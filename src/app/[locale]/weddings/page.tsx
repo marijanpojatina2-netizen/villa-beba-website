@@ -14,13 +14,13 @@ function WeddingHero() {
       {/* Hero background image */}
       <div className="absolute inset-0">
         <Image src="/images/ballena/Ballena 35-1.jpg" alt="Olive tree courtyard at Villa Ballena" fill className="object-cover" priority quality={85} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+        {/* No overlay — clean photo */}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center [text-shadow:0_2px_20px_rgba(0,0,0,0.7),0_4px_40px_rgba(0,0,0,0.5)]">
         <ScrollReveal>
-          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
+          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold md:text-xl">
             Svetvinčenat, Istria &middot; Croatia
           </p>
         </ScrollReveal>
@@ -326,8 +326,7 @@ function WeddingExperiences() {
               <div className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20">
                 <div className="aspect-[3/4] relative">
                   <Image src={exp.image} alt={exp.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" quality={75} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 [text-shadow:0_2px_12px_rgba(0,0,0,0.8)]">
                     <h3 className="font-heading text-lg font-bold uppercase tracking-wider text-white">
                       {exp.title}
                     </h3>

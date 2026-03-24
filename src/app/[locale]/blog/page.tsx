@@ -68,13 +68,13 @@ export default function BlogPage() {
       <section className="relative flex h-[40vh] min-h-[320px] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/images/beluga/Beluga 42.jpg" alt="Aerial view of Svetvinčenat village" fill className="object-cover" priority quality={85} />
-          <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+          {/* No overlay — clean photo */}
         </div>
-        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center [text-shadow:0_2px_20px_rgba(0,0,0,0.7),0_4px_40px_rgba(0,0,0,0.5)]">
           <h1 className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl">
             {t('title')}
           </h1>
-          <p className="mt-4 font-accent text-lg italic text-gold/80 md:text-xl">
+          <p className="mt-4 font-accent text-lg italic text-gold md:text-xl">
             {t('subtitle')}
           </p>
         </div>
@@ -98,7 +98,7 @@ export default function BlogPage() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     quality={75}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent" />
+                  {/* No overlay — clean blog photo */}
                   {/* Category tag */}
                   <div className="absolute left-4 top-4">
                     <span className="rounded-full bg-gold/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-midnight">

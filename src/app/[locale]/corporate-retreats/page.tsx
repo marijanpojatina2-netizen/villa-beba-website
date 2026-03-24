@@ -14,13 +14,13 @@ function CorporateHero() {
       {/* Hero background image */}
       <div className="absolute inset-0">
         <Image src="/images/ballena/Ballena 33.jpg" alt="Villa Ballena exterior at sunset" fill className="object-cover" priority quality={85} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+        {/* No overlay — clean photo */}
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center [text-shadow:0_2px_20px_rgba(0,0,0,0.7),0_4px_40px_rgba(0,0,0,0.5)]">
         <ScrollReveal>
-          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
+          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold md:text-xl">
             Svetvinčenat, Istria &middot; Croatia
           </p>
         </ScrollReveal>
@@ -269,8 +269,7 @@ function TeamBuilding() {
             <ScrollReveal key={act.title} delay={i * 0.1}>
               <div className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20">
                 <div className={`aspect-[3/4] bg-gradient-to-b ${act.gradient} relative`}>
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-transparent" />
-                  <div className="absolute inset-0 flex flex-col justify-end p-6">
+                  <div className="absolute inset-0 flex flex-col justify-end p-6 [text-shadow:0_2px_12px_rgba(0,0,0,0.8)]">
                     <h3 className="font-heading text-lg font-bold uppercase tracking-wider text-white">
                       {act.title}
                     </h3>

@@ -15,12 +15,12 @@ function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image src={heroImages.beluga} alt="Villa Beluga exterior with pool at dusk" fill className="object-cover" priority quality={85} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+        {/* No overlay — clean photo */}
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center [text-shadow:0_2px_20px_rgba(0,0,0,0.7),0_4px_40px_rgba(0,0,0,0.5)]">
         <ScrollReveal>
-          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
+          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold md:text-xl">
             Svetvincenat, Istria
           </p>
         </ScrollReveal>
@@ -92,7 +92,7 @@ function PhotoGallery() {
               <div className="group mb-4 break-inside-avoid overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20">
                 <div className={`${heights[i]} relative`}>
                   <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
+                  {/* No overlay — clean gallery photo */}
                   <div className="absolute bottom-4 left-4">
                     <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-wider text-white/60 backdrop-blur-sm">
                       {image.category}
@@ -127,7 +127,7 @@ function GameRoomSpotlight() {
       {/* Background feature image */}
       <div className="absolute inset-0">
         <Image src="/images/beluga/Beluga 10.jpg" alt="Villa Beluga game room" fill className="object-cover opacity-15" quality={75} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight via-midnight/90 to-midnight" />
+        {/* No heavy overlay on game room bg */}
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
@@ -191,7 +191,7 @@ function GlassTerrace() {
           <ScrollReveal direction="right">
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/5">
               <Image src="/images/beluga/Beluga 25.jpg" alt="Villa Beluga glass terrace" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" quality={85} />
-              <div className="absolute inset-0 bg-gradient-to-t from-midnight/40 via-transparent to-transparent" />
+              {/* No overlay — clean glass terrace photo */}
             </div>
           </ScrollReveal>
         </div>
