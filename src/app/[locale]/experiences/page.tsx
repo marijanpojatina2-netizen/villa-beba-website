@@ -4,7 +4,9 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import ScrollReveal from '@/components/animations/ScrollReveal';
+import { StaggerContainer, StaggerItem, HeadingSlide, FadeUp, ScaleCard } from '@/components/animations/MotionWrappers';
 import { experiences } from '@/lib/data';
 
 type Category = 'all' | 'gastronomy' | 'daytrip' | 'nature' | 'sports' | 'family' | 'culture';
@@ -40,7 +42,6 @@ const fallbackImages = [
 ];
 
 function getExperienceImage(title: string, index: number): string {
-  /* Check for exact or partial title match */
   for (const [key, src] of Object.entries(experienceImages)) {
     if (title.toLowerCase().includes(key.toLowerCase())) {
       return src;
@@ -55,25 +56,19 @@ function ExperiencesHero() {
     <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image src="/images/beluga/Beluga 13.jpg" alt="Stone wall terrace at Villa Beluga" fill className="object-cover" priority quality={85} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/20 to-navy/60" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <ScrollReveal>
-          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
-            Beyond the villa
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.15}>
-          <h1 className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            Istrian Experiences
-          </h1>
-        </ScrollReveal>
-        <ScrollReveal delay={0.3}>
-          <p className="mx-auto mt-6 max-w-xl text-sm uppercase tracking-[0.3em] text-white/50 md:text-base">
-            Your villa is the beginning. Istria is the adventure.
-          </p>
-        </ScrollReveal>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className="mb-6 font-accent text-lg italic tracking-wide text-gold/90 md:text-xl">
+          Beyond the villa
+        </motion.p>
+        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          Istrian Experiences
+        </motion.h1>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} className="mx-auto mt-6 max-w-xl text-sm uppercase tracking-[0.3em] text-white/60 md:text-base">
+          Your villa is the beginning. Istria is the adventure.
+        </motion.p>
       </div>
     </section>
   );
@@ -91,10 +86,10 @@ function ExperienceCards() {
   const categories: Category[] = ['all', 'gastronomy', 'daytrip', 'nature', 'sports', 'family', 'culture'];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-7xl px-6">
         {/* Filter buttons */}
-        <ScrollReveal>
+        <FadeUp>
           <div className="mb-12 flex flex-wrap items-center justify-center gap-3">
             {categories.map((cat) => (
               <button
@@ -102,21 +97,21 @@ function ExperienceCards() {
                 onClick={() => setActiveCategory(cat)}
                 className={`rounded-full px-5 py-2 text-xs font-medium uppercase tracking-wider transition-all duration-300 ${
                   activeCategory === cat
-                    ? 'bg-gold text-midnight'
-                    : 'border border-white/10 bg-white/5 text-white/60 hover:border-gold/30 hover:text-gold'
+                    ? 'bg-gold text-white'
+                    : 'border border-body-dark/10 bg-white text-body-dark/60 hover:border-gold/30 hover:text-gold'
                 }`}
               >
                 {categoryLabels[cat]}
               </button>
             ))}
           </div>
-        </ScrollReveal>
+        </FadeUp>
 
         {/* Cards grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredExperiences.map((exp, i) => (
-            <ScrollReveal key={exp.title} delay={(i % 3) * 0.1}>
-              <div className="group h-full overflow-hidden rounded-xl border border-white/5 bg-midnight-light/50 transition-all duration-500 hover:border-gold/20">
+            <ScaleCard key={exp.title} delay={(i % 3) * 0.1}>
+              <div className="group h-full overflow-hidden rounded-xl bg-white shadow-md transition-all duration-500 hover:shadow-lg">
                 {/* Image */}
                 <div className="aspect-[16/10] relative overflow-hidden">
                   <Image
@@ -126,18 +121,15 @@ function ExperienceCards() {
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     quality={75}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight-light/90 via-transparent to-transparent" />
-
                   {/* Distance badge */}
                   <div className="absolute right-4 top-4">
-                    <span className="rounded-full bg-midnight/80 px-3 py-1 text-xs tracking-wide text-gold backdrop-blur-sm">
+                    <span className="rounded-full bg-white/90 px-3 py-1 text-xs tracking-wide text-gold backdrop-blur-sm shadow-sm">
                       {exp.distance}
                     </span>
                   </div>
-
                   {/* Category tag */}
                   <div className="absolute left-4 top-4">
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-wider text-white/60 backdrop-blur-sm">
+                    <span className="rounded-full bg-white/80 px-3 py-1 text-[10px] uppercase tracking-wider text-body-dark/60 backdrop-blur-sm">
                       {categoryLabels[exp.category as Category] || exp.category}
                     </span>
                   </div>
@@ -145,25 +137,19 @@ function ExperienceCards() {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="heading-md text-lg text-white">
-                    {exp.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/60">
-                    {exp.description}
-                  </p>
+                  <h3 className="heading-md text-lg text-body-dark">{exp.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-body-dark/60">{exp.description}</p>
                   <div className="mt-4 flex items-center gap-2">
                     <span className="text-gold">
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
                       </svg>
                     </span>
-                    <span className="font-accent text-sm italic text-gold/70">
-                      We can arrange this for you
-                    </span>
+                    <span className="font-accent text-sm italic text-gold/80">We can arrange this for you</span>
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
+            </ScaleCard>
           ))}
         </div>
       </div>
@@ -174,7 +160,7 @@ function ExperienceCards() {
 /* ───────────────────────── CTA ──────────────────────────── */
 function ExperiencesCTA() {
   return (
-    <section className="relative overflow-hidden bg-midnight py-24">
+    <section className="relative overflow-hidden bg-navy py-24">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(201,169,110,0.08)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(201,169,110,0.06)_0%,transparent_50%)]" />
       <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
@@ -189,16 +175,15 @@ function ExperiencesCTA() {
             Tell us your interests and we will create your perfect itinerary
           </p>
         </ScrollReveal>
-        <ScrollReveal delay={0.15}>
+        <FadeUp delay={0.15}>
           <div className="mt-10">
-            <Link
-              href="/contact"
-              className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-semibold uppercase tracking-widest text-midnight transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)]"
-            >
-              Plan My Experiences
-            </Link>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }} className="inline-flex">
+              <Link href="/contact" className="inline-block rounded-full bg-gold px-10 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)]">
+                Plan My Experiences
+              </Link>
+            </motion.div>
           </div>
-        </ScrollReveal>
+        </FadeUp>
       </div>
     </section>
   );

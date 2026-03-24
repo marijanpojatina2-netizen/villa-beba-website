@@ -4,8 +4,11 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { submitContactForm } from '@/app/actions/contact';
+import ScrollReveal from '@/components/animations/ScrollReveal';
+import { FadeUp } from '@/components/animations/MotionWrappers';
 
 /* ─────────────────────── Types ─────────────────────── */
 
@@ -54,8 +57,8 @@ export default function ContactPage() {
   };
 
   const inputClasses =
-    'w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 transition-all duration-300 focus:border-gold/50 focus:outline-none focus:ring-1 focus:ring-gold/30';
-  const labelClasses = 'mb-2 block text-xs font-medium uppercase tracking-wider text-white/50';
+    'w-full rounded-lg border border-body-dark/10 bg-white px-4 py-3 text-sm text-body-dark placeholder:text-body-dark/30 transition-all duration-300 focus:border-gold/50 focus:outline-none focus:ring-1 focus:ring-gold/30';
+  const labelClasses = 'mb-2 block text-xs font-medium uppercase tracking-wider text-body-dark/50';
 
   return (
     <main>
@@ -63,110 +66,62 @@ export default function ContactPage() {
       <section className="relative flex h-[40vh] min-h-[320px] items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/images/ballena/Ballena 36.jpg" alt="Villa Ballena terrace and pool at night" fill className="object-cover" priority quality={85} />
-          <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/20 to-navy/60" />
         </div>
         <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-          <h1 className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl">
             {t('title')}
-          </h1>
-          <p className="mt-4 font-accent text-lg italic text-gold/80 md:text-xl">
+          </motion.h1>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.5 }} className="mt-4 font-accent text-lg italic text-gold/90 md:text-xl">
             {t('subtitle')}
-          </p>
+          </motion.p>
         </div>
       </section>
 
       {/* ──────── Two-Column Layout ──────── */}
-      <section className="section-padding bg-midnight">
+      <section className="section-padding bg-cream">
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
             {/* ── Left: Form ── */}
-            <div className="lg:col-span-3">
+            <FadeUp className="lg:col-span-3">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                 {/* Name & Email */}
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="name" className={labelClasses}>
-                      {t('name')} *
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      className={inputClasses}
-                      placeholder="John Smith"
-                      {...register('name', { required: true })}
-                    />
-                    {errors.name && (
-                      <p className="mt-1 text-xs text-red-400">Required</p>
-                    )}
+                    <label htmlFor="name" className={labelClasses}>{t('name')} *</label>
+                    <input id="name" type="text" className={inputClasses} placeholder="John Smith" {...register('name', { required: true })} />
+                    {errors.name && <p className="mt-1 text-xs text-red-500">Required</p>}
                   </div>
                   <div>
-                    <label htmlFor="email" className={labelClasses}>
-                      {t('email')} *
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      className={inputClasses}
-                      placeholder="john@example.com"
-                      {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-                    />
-                    {errors.email && (
-                      <p className="mt-1 text-xs text-red-400">Valid email required</p>
-                    )}
+                    <label htmlFor="email" className={labelClasses}>{t('email')} *</label>
+                    <input id="email" type="email" className={inputClasses} placeholder="john@example.com" {...register('email', { required: true, pattern: /^\S+@\S+$/i })} />
+                    {errors.email && <p className="mt-1 text-xs text-red-500">Valid email required</p>}
                   </div>
                 </div>
 
                 {/* Phone */}
                 <div>
-                  <label htmlFor="phone" className={labelClasses}>
-                    {t('phone')}
-                  </label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    className={inputClasses}
-                    placeholder="+385 91 525 1565"
-                    {...register('phone')}
-                  />
+                  <label htmlFor="phone" className={labelClasses}>{t('phone')}</label>
+                  <input id="phone" type="tel" className={inputClasses} placeholder="+385 91 525 1565" {...register('phone')} />
                 </div>
 
                 {/* Check-in & Check-out */}
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="checkIn" className={labelClasses}>
-                      {t('checkIn')}
-                    </label>
-                    <input
-                      id="checkIn"
-                      type="date"
-                      className={inputClasses}
-                      {...register('checkIn')}
-                    />
+                    <label htmlFor="checkIn" className={labelClasses}>{t('checkIn')}</label>
+                    <input id="checkIn" type="date" className={inputClasses} {...register('checkIn')} />
                   </div>
                   <div>
-                    <label htmlFor="checkOut" className={labelClasses}>
-                      {t('checkOut')}
-                    </label>
-                    <input
-                      id="checkOut"
-                      type="date"
-                      className={inputClasses}
-                      {...register('checkOut')}
-                    />
+                    <label htmlFor="checkOut" className={labelClasses}>{t('checkOut')}</label>
+                    <input id="checkOut" type="date" className={inputClasses} {...register('checkOut')} />
                   </div>
                 </div>
 
                 {/* Villa & Guests */}
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="villa" className={labelClasses}>
-                      {t('villaPreference')}
-                    </label>
-                    <select
-                      id="villa"
-                      className={inputClasses}
-                      {...register('villa')}
-                    >
+                    <label htmlFor="villa" className={labelClasses}>{t('villaPreference')}</label>
+                    <select id="villa" className={inputClasses} {...register('villa')}>
                       <option value="">{t('selectVilla')}</option>
                       <option value="ballena">Villa Ballena</option>
                       <option value="beluga">Villa Beluga</option>
@@ -174,45 +129,21 @@ export default function ContactPage() {
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="guests" className={labelClasses}>
-                      {t('guests')}
-                    </label>
-                    <input
-                      id="guests"
-                      type="number"
-                      min="1"
-                      max="18"
-                      className={inputClasses}
-                      placeholder="4"
-                      {...register('guests')}
-                    />
+                    <label htmlFor="guests" className={labelClasses}>{t('guests')}</label>
+                    <input id="guests" type="number" min="1" max="18" className={inputClasses} placeholder="4" {...register('guests')} />
                   </div>
                 </div>
 
                 {/* Message */}
                 <div>
-                  <label htmlFor="message" className={labelClasses}>
-                    {t('message')}
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    className={inputClasses}
-                    placeholder="Tell us about your trip..."
-                    {...register('message')}
-                  />
+                  <label htmlFor="message" className={labelClasses}>{t('message')}</label>
+                  <textarea id="message" rows={5} className={inputClasses} placeholder="Tell us about your trip..." {...register('message')} />
                 </div>
 
                 {/* How found */}
                 <div>
-                  <label htmlFor="howFound" className={labelClasses}>
-                    {t('howFound')}
-                  </label>
-                  <select
-                    id="howFound"
-                    className={inputClasses}
-                    {...register('howFound')}
-                  >
+                  <label htmlFor="howFound" className={labelClasses}>{t('howFound')}</label>
+                  <select id="howFound" className={inputClasses} {...register('howFound')}>
                     <option value="">Select...</option>
                     <option value="google">Google</option>
                     <option value="instagram">Instagram</option>
@@ -224,34 +155,35 @@ export default function ContactPage() {
                 </div>
 
                 {/* Submit */}
-                <button
+                <motion.button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="w-full rounded-full bg-gold px-10 py-4 text-sm font-semibold uppercase tracking-widest text-midnight transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] disabled:opacity-50 sm:w-auto"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                  className="w-full rounded-full bg-gold px-10 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] disabled:opacity-50 sm:w-auto"
                 >
                   {status === 'sending' ? t('sending') : t('send')}
-                </button>
+                </motion.button>
 
                 {/* Status messages */}
                 {status === 'success' && (
-                  <div className="rounded-lg border border-green-500/20 bg-green-500/10 p-4">
-                    <p className="text-sm text-green-400">{t('success')}</p>
+                  <div className="rounded-lg border border-green-500/20 bg-green-50 p-4">
+                    <p className="text-sm text-green-600">{t('success')}</p>
                   </div>
                 )}
                 {status === 'error' && (
-                  <div className="rounded-lg border border-red-500/20 bg-red-500/10 p-4">
-                    <p className="text-sm text-red-400">{t('error')}</p>
+                  <div className="rounded-lg border border-red-500/20 bg-red-50 p-4">
+                    <p className="text-sm text-red-600">{t('error')}</p>
                   </div>
                 )}
               </form>
-            </div>
+            </FadeUp>
 
             {/* ── Right: Contact Info ── */}
-            <div className="lg:col-span-2">
-              <div className="rounded-2xl border border-white/5 bg-midnight-light/50 p-8">
-                <h2 className="heading-md text-lg text-white">
-                  {t('directContact')}
-                </h2>
+            <ScrollReveal delay={0.2} className="lg:col-span-2">
+              <div className="rounded-2xl border border-body-dark/5 bg-white p-8 shadow-sm">
+                <h2 className="heading-md text-lg text-body-dark">{t('directContact')}</h2>
 
                 <div className="mt-8 space-y-6">
                   {/* Email */}
@@ -262,10 +194,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-white/40">Email</p>
-                      <a href="mailto:info@villa-beba.com" className="mt-1 block text-sm text-gold transition-colors hover:text-gold-light">
-                        info@villa-beba.com
-                      </a>
+                      <p className="text-xs font-medium uppercase tracking-wider text-body-dark/40">Email</p>
+                      <a href="mailto:info@villa-beba.com" className="mt-1 block text-sm text-gold transition-colors hover:text-gold-light">info@villa-beba.com</a>
                     </div>
                   </div>
 
@@ -277,10 +207,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-white/40">Phone</p>
-                      <a href="tel:+385915251565" className="mt-1 block text-sm text-gold transition-colors hover:text-gold-light">
-                        +385 91 525 1565
-                      </a>
+                      <p className="text-xs font-medium uppercase tracking-wider text-body-dark/40">Phone</p>
+                      <a href="tel:+385915251565" className="mt-1 block text-sm text-gold transition-colors hover:text-gold-light">+385 91 525 1565</a>
                     </div>
                   </div>
 
@@ -292,15 +220,8 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-white/40">WhatsApp</p>
-                      <a
-                        href="https://wa.me/385915251565"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-1 block text-sm text-gold transition-colors hover:text-gold-light"
-                      >
-                        +385 91 525 1565
-                      </a>
+                      <p className="text-xs font-medium uppercase tracking-wider text-body-dark/40">WhatsApp</p>
+                      <a href="https://wa.me/385915251565" target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-gold transition-colors hover:text-gold-light">+385 91 525 1565</a>
                     </div>
                   </div>
 
@@ -313,33 +234,29 @@ export default function ContactPage() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-xs font-medium uppercase tracking-wider text-white/40">Location</p>
-                      <p className="mt-1 text-sm text-white/70">
-                        {t('location')}
-                      </p>
+                      <p className="text-xs font-medium uppercase tracking-wider text-body-dark/40">Location</p>
+                      <p className="mt-1 text-sm text-body-dark/70">{t('location')}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Divider */}
-                <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                <div className="my-8 h-px w-full bg-gradient-to-r from-transparent via-body-dark/10 to-transparent" />
 
                 {/* Map placeholder */}
-                <div className="aspect-[4/3] overflow-hidden rounded-xl border border-white/5 bg-gradient-to-br from-[#0d1a2a] via-[#12203a] to-[#0a1628]">
+                <div className="aspect-[4/3] overflow-hidden rounded-xl border border-body-dark/5 bg-offwhite">
                   <div className="flex h-full items-center justify-center">
                     <div className="text-center">
-                      <svg className="mx-auto h-12 w-12 text-white/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                      <svg className="mx-auto h-12 w-12 text-body-dark/15" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
                       </svg>
-                      <p className="mt-3 text-xs uppercase tracking-wider text-white/30">
-                        Map Coming Soon
-                      </p>
+                      <p className="mt-3 text-xs uppercase tracking-wider text-body-dark/30">Map Coming Soon</p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>

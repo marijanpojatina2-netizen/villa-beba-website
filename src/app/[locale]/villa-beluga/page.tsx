@@ -4,8 +4,10 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import CountUp from '@/components/animations/CountUp';
+import { StaggerContainer, StaggerItem, HeadingSlide, FadeUp, ScaleCard } from '@/components/animations/MotionWrappers';
 import { villaCommon, villaBeluga } from '@/lib/data';
 import { heroImages, belugaGallery } from '@/lib/images';
 
@@ -15,35 +17,27 @@ function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image src={heroImages.beluga} alt="Villa Beluga exterior with pool at dusk" fill className="object-cover" priority quality={85} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/20 to-navy/60" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <ScrollReveal>
-          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
-            Svetvincenat, Istria
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.15}>
-          <h1 className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            Villa Beluga
-          </h1>
-        </ScrollReveal>
-        <ScrollReveal delay={0.3}>
-          <p className="mx-auto mt-6 max-w-lg font-accent text-xl italic text-gold/70 md:text-2xl">
-            The Entertainment &amp; Lifestyle Villa
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.45}>
-          <div className="mt-10 flex flex-col items-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">Discover</span>
-            <div className="animate-bounce">
-              <svg className="h-5 w-5 text-gold/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7" />
-              </svg>
-            </div>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className="mb-6 font-accent text-lg italic tracking-wide text-gold/90 md:text-xl">
+          Svetvincenat, Istria
+        </motion.p>
+        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          Villa Beluga
+        </motion.h1>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} className="mx-auto mt-6 max-w-lg font-accent text-xl italic text-gold/80 md:text-2xl">
+          The Entertainment &amp; Lifestyle Villa
+        </motion.p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.5 }} className="mt-10 flex flex-col items-center gap-2">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">Discover</span>
+          <div className="animate-bounce">
+            <svg className="h-5 w-5 text-gold/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7" />
+            </svg>
           </div>
-        </ScrollReveal>
+        </motion.div>
       </div>
     </section>
   );
@@ -52,7 +46,7 @@ function Hero() {
 /* ────────────────────── Introduction ──────────────────────── */
 function Introduction() {
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-4xl px-6">
         <ScrollReveal>
           <p className="font-accent text-2xl italic leading-relaxed text-gold md:text-3xl">
@@ -60,14 +54,16 @@ function Introduction() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <p className="mt-8 text-base leading-relaxed text-white/70 md:text-lg">
+          <p className="mt-8 text-base leading-relaxed text-body-dark/70 md:text-lg">
             Villa Beluga is the villa where everyone finds their thing &mdash; kids in the game room,
             parents on the glass terrace, teenagers on PlayStation. A 350m&sup2; designer residence built in 2021,
             where family-friendly meets sophisticated design. Four en-suite bedrooms, a fully equipped game room,
             and a glass-enclosed terrace make this the ultimate entertainment retreat in the heart of Istria.
           </p>
         </ScrollReveal>
-        <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
+        <FadeUp delay={0.3}>
+          <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
+        </FadeUp>
       </div>
     </section>
   );
@@ -78,29 +74,26 @@ function PhotoGallery() {
   const heights = ['aspect-[3/4]', 'aspect-[4/5]', 'aspect-[3/4]', 'aspect-[4/3]', 'aspect-[4/5]', 'aspect-[3/4]'];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-offwhite">
       <div className="mx-auto max-w-7xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
-            Gallery
-          </h2>
-        </ScrollReveal>
+        <HeadingSlide>
+          <h2 className="heading-lg mb-16 text-center text-3xl text-body-dark md:text-4xl">Gallery</h2>
+        </HeadingSlide>
 
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
           {belugaGallery.slice(0, 6).map((image, i) => (
-            <ScrollReveal key={image.src} delay={i * 0.1}>
-              <div className="group mb-4 break-inside-avoid overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20">
+            <ScaleCard key={image.src} delay={i * 0.1}>
+              <div className="group mb-4 break-inside-avoid overflow-hidden rounded-xl bg-white shadow-md transition-all duration-500 hover:shadow-lg">
                 <div className={`${heights[i]} relative`}>
                   <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
                   <div className="absolute bottom-4 left-4">
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-wider text-white/60 backdrop-blur-sm">
+                    <span className="rounded-full border border-white/80 bg-white/70 px-3 py-1 text-xs uppercase tracking-wider text-body-dark/70 backdrop-blur-sm">
                       {image.category}
                     </span>
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
+            </ScaleCard>
           ))}
         </div>
       </div>
@@ -111,41 +104,35 @@ function PhotoGallery() {
 /* ──────────────── The Entertainment Zone ───────────────────── */
 function GameRoomSpotlight() {
   const t = useTranslations('villa');
-
   const features = villaBeluga.unique.gameRoom;
   const icons = [
-    'M4 6h16M4 10h16M4 14h16M4 18h16', // billiard
-    'M13 10V3L4 14h7v7l9-11h-7z', // foosball
-    'M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z', // darts
-    'M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z', // playstation
-    'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10', // board games
-    'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z', // badminton
+    'M4 6h16M4 10h16M4 14h16M4 18h16',
+    'M13 10V3L4 14h7v7l9-11h-7z',
+    'M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    'M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z',
+    'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+    'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
   ];
 
   return (
-    <section className="relative section-padding bg-midnight overflow-hidden">
-      {/* Background feature image */}
+    <section className="relative section-padding bg-navy overflow-hidden">
       <div className="absolute inset-0">
-        <Image src="/images/beluga/Beluga 10.jpg" alt="Villa Beluga game room" fill className="object-cover opacity-15" quality={75} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight via-midnight/90 to-midnight" />
+        <Image src="/images/beluga/Beluga 10.jpg" alt="Villa Beluga game room" fill className="object-cover opacity-10" quality={75} />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/95 to-navy" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         <ScrollReveal>
-          <h2 className="heading-lg mb-4 text-center text-3xl text-white md:text-4xl">
-            {t('gameRoom')}
-          </h2>
+          <h2 className="heading-lg mb-4 text-center text-3xl text-white md:text-4xl">{t('gameRoom')}</h2>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
-          <p className="mx-auto mb-16 max-w-2xl text-center text-base leading-relaxed text-white/60 md:text-lg">
-            {t('gameRoomDesc')}
-          </p>
+          <p className="mx-auto mb-16 max-w-2xl text-center text-base leading-relaxed text-white/60 md:text-lg">{t('gameRoomDesc')}</p>
         </ScrollReveal>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerContainer className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
           {features.map((feature, i) => (
-            <ScrollReveal key={feature} delay={i * 0.1}>
-              <div className="group rounded-xl border border-white/5 bg-midnight-light/50 p-8 text-center transition-all duration-300 hover:border-gold/20 backdrop-blur-sm">
+            <StaggerItem key={feature}>
+              <div className="group rounded-xl border border-white/10 bg-white/5 p-8 text-center transition-all duration-300 hover:border-gold/30 backdrop-blur-sm">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-gold/20 bg-gold/5 transition-colors group-hover:bg-gold/10">
                   <svg className="h-7 w-7 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={icons[i]} />
@@ -153,9 +140,9 @@ function GameRoomSpotlight() {
                 </div>
                 <h3 className="heading-md text-sm text-white">{feature}</h3>
               </div>
-            </ScrollReveal>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -166,22 +153,20 @@ function GlassTerrace() {
   const t = useTranslations('villa');
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-5xl px-6">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <ScrollReveal direction="left">
             <div>
-              <h2 className="heading-lg text-3xl text-white md:text-4xl">
-                {t('glassTerrace')}
-              </h2>
-              <p className="mt-6 text-base leading-relaxed text-white/60 md:text-lg">
+              <h2 className="heading-lg text-3xl text-body-dark md:text-4xl">{t('glassTerrace')}</h2>
+              <p className="mt-6 text-base leading-relaxed text-body-dark/60 md:text-lg">
                 An enclosed glass terrace that transforms evening gatherings into something special.
                 Watch the sun set over Istrian hills while sheltered from the evening breeze.
                 Perfect for aperitivo hour, family dinners, or late-night conversations under the stars.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 {['Evening gatherings', 'Sheltered dining', 'Panoramic views'].map((tag) => (
-                  <span key={tag} className="rounded-full border border-gold/20 bg-gold/5 px-4 py-2 text-xs uppercase tracking-wider text-gold/80">
+                  <span key={tag} className="rounded-full border border-gold/20 bg-gold/5 px-4 py-2 text-xs uppercase tracking-wider text-gold">
                     {tag}
                   </span>
                 ))}
@@ -189,9 +174,8 @@ function GlassTerrace() {
             </div>
           </ScrollReveal>
           <ScrollReveal direction="right">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/5">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg">
               <Image src="/images/beluga/Beluga 25.jpg" alt="Villa Beluga glass terrace" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" quality={85} />
-              <div className="absolute inset-0 bg-gradient-to-t from-midnight/40 via-transparent to-transparent" />
             </div>
           </ScrollReveal>
         </div>
@@ -203,7 +187,6 @@ function GlassTerrace() {
 /* ──────────────── Premium Services ─────────────────────────── */
 function PremiumServices() {
   const t = useTranslations('villa');
-
   const serviceIcons = [
     'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253',
     'M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0A1.5 1.5 0 003 15.546',
@@ -213,28 +196,26 @@ function PremiumServices() {
   ];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-5xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-12 text-center text-3xl text-white md:text-4xl">
-            {t('premiumServices')}
-          </h2>
-        </ScrollReveal>
+        <HeadingSlide>
+          <h2 className="heading-lg mb-12 text-center text-3xl text-body-dark md:text-4xl">{t('premiumServices')}</h2>
+        </HeadingSlide>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <StaggerContainer className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.1}>
           {villaBeluga.unique.premiumServices.map((service, i) => (
-            <ScrollReveal key={service} delay={i * 0.1}>
-              <div className="flex items-start gap-4 rounded-xl border border-white/5 bg-midnight-light/50 p-6 transition-all duration-300 hover:border-gold/20">
+            <StaggerItem key={service}>
+              <div className="flex items-start gap-4 rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm transition-all duration-300 hover:border-gold/20 hover:shadow-md">
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold/20 bg-gold/5">
                   <svg className="h-5 w-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={serviceIcons[i]} />
                   </svg>
                 </div>
-                <p className="text-sm leading-relaxed text-white/70">{service}</p>
+                <p className="text-sm leading-relaxed text-body-dark/70">{service}</p>
               </div>
-            </ScrollReveal>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -244,7 +225,6 @@ function PremiumServices() {
 function Specifications() {
   const t = useTranslations('villa');
   const [activeTab, setActiveTab] = useState(0);
-
   const tabs = [
     { label: t('bedrooms'), key: 'bedrooms' },
     { label: 'Game Room', key: 'gameroom' },
@@ -253,126 +233,103 @@ function Specifications() {
   ];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-offwhite">
       <div className="mx-auto max-w-5xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-12 text-center text-3xl text-white md:text-4xl">
-            {t('specifications')}
-          </h2>
-        </ScrollReveal>
+        <HeadingSlide>
+          <h2 className="heading-lg mb-12 text-center text-3xl text-body-dark md:text-4xl">{t('specifications')}</h2>
+        </HeadingSlide>
 
-        {/* Tabs */}
-        <div className="mb-10 flex flex-wrap justify-center gap-2">
-          {tabs.map((tab, i) => (
-            <button
-              key={tab.key}
-              onClick={() => setActiveTab(i)}
-              className={`relative rounded-full px-6 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
-                activeTab === i
-                  ? 'bg-gold/10 text-gold'
-                  : 'text-white/50 hover:text-white/80'
-              }`}
-            >
-              {tab.label}
-              {activeTab === i && (
-                <span className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 bg-gold" />
-              )}
-            </button>
-          ))}
-        </div>
+        <FadeUp>
+          <div className="mb-10 flex flex-wrap justify-center gap-2">
+            {tabs.map((tab, i) => (
+              <button key={tab.key} onClick={() => setActiveTab(i)} className={`relative rounded-full px-6 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${activeTab === i ? 'bg-gold/10 text-gold' : 'text-body-dark/40 hover:text-body-dark/70'}`}>
+                {tab.label}
+                {activeTab === i && <span className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 bg-gold" />}
+              </button>
+            ))}
+          </div>
+        </FadeUp>
 
-        {/* Tab Content */}
-        <div className="rounded-2xl border border-white/5 bg-midnight/50 p-8">
+        <motion.div key={activeTab} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }} className="rounded-2xl border border-body-dark/5 bg-white p-8 shadow-sm">
           {activeTab === 0 && (
             <div className="grid gap-6 md:grid-cols-2">
               {villaBeluga.bedrooms.map((room) => (
-                <div key={room.name} className="rounded-xl border border-white/5 bg-midnight-light/50 p-6">
+                <div key={room.name} className="rounded-xl border border-body-dark/5 bg-cream p-6">
                   <h3 className="heading-md text-lg text-gold">{room.name}</h3>
-                  <p className="mt-2 text-sm text-white/60">{room.beds}</p>
-                  {room.enSuite && (
-                    <span className="mt-3 inline-block rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-xs text-gold/80">
-                      En-suite bathroom
-                    </span>
-                  )}
+                  <p className="mt-2 text-sm text-body-dark/60">{room.beds}</p>
+                  {room.enSuite && <span className="mt-3 inline-block rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-xs text-gold">En-suite bathroom</span>}
                 </div>
               ))}
-              <div className="rounded-xl border border-white/5 bg-midnight-light/50 p-6 md:col-span-2">
-                <div className="grid grid-cols-2 gap-4 text-sm text-white/60">
-                  <p><span className="text-gold">Bathrooms:</span> {villaCommon.bathrooms}</p>
-                  <p><span className="text-gold">Guest WCs:</span> {villaCommon.guestWCs}</p>
-                  <p><span className="text-gold">Max guests:</span> {villaCommon.maxGuests}</p>
+              <div className="rounded-xl border border-body-dark/5 bg-cream p-6 md:col-span-2">
+                <div className="grid grid-cols-2 gap-4 text-sm text-body-dark/60">
+                  <p><span className="text-gold font-medium">Bathrooms:</span> {villaCommon.bathrooms}</p>
+                  <p><span className="text-gold font-medium">Guest WCs:</span> {villaCommon.guestWCs}</p>
+                  <p><span className="text-gold font-medium">Max guests:</span> {villaCommon.maxGuests}</p>
                 </div>
               </div>
             </div>
           )}
-
           {activeTab === 1 && (
             <div className="grid gap-6 md:grid-cols-2">
               {villaBeluga.unique.gameRoom.map((item) => (
-                <div key={item} className="rounded-xl border border-white/5 bg-midnight-light/50 p-6">
+                <div key={item} className="rounded-xl border border-body-dark/5 bg-cream p-6">
                   <h3 className="heading-md text-lg text-gold">{item}</h3>
-                  <p className="mt-2 text-sm text-white/60">Available in the dedicated game room</p>
+                  <p className="mt-2 text-sm text-body-dark/60">Available in the dedicated game room</p>
                 </div>
               ))}
             </div>
           )}
-
           {activeTab === 2 && (
             <div className="grid gap-6 md:grid-cols-2">
               {Object.entries(villaCommon.outdoor).map(([key, value]) => (
-                <div key={key} className="rounded-xl border border-white/5 bg-midnight-light/50 p-6">
+                <div key={key} className="rounded-xl border border-body-dark/5 bg-cream p-6">
                   <h3 className="heading-md text-sm text-gold">{key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())}</h3>
-                  <p className="mt-2 text-sm text-white/60">{value}</p>
+                  <p className="mt-2 text-sm text-body-dark/60">{value}</p>
                 </div>
               ))}
-              <div className="rounded-xl border border-white/5 bg-midnight-light/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-cream p-6">
                 <h3 className="heading-md text-sm text-gold">Glass Terrace</h3>
-                <p className="mt-2 text-sm text-white/60">Enclosed glass terrace for evening gatherings</p>
+                <p className="mt-2 text-sm text-body-dark/60">Enclosed glass terrace for evening gatherings</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight-light/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-cream p-6">
                 <h3 className="heading-md text-sm text-gold">Loungers</h3>
-                <p className="mt-2 text-sm text-white/60">{villaBeluga.unique.loungers}</p>
+                <p className="mt-2 text-sm text-body-dark/60">{villaBeluga.unique.loungers}</p>
               </div>
             </div>
           )}
-
           {activeTab === 3 && (
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-white/5 bg-midnight-light/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-cream p-6">
                 <h3 className="heading-md text-sm text-gold">Climate</h3>
-                <p className="mt-2 text-sm text-white/60">{villaCommon.indoor.ac}</p>
-                <p className="mt-1 text-sm text-white/60">{villaCommon.indoor.heating}</p>
-                {villaCommon.indoor.fireplace && <p className="mt-1 text-sm text-white/60">Fireplace</p>}
+                <p className="mt-2 text-sm text-body-dark/60">{villaCommon.indoor.ac}</p>
+                <p className="mt-1 text-sm text-body-dark/60">{villaCommon.indoor.heating}</p>
+                {villaCommon.indoor.fireplace && <p className="mt-1 text-sm text-body-dark/60">Fireplace</p>}
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight-light/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-cream p-6">
                 <h3 className="heading-md text-sm text-gold">Entertainment</h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {villaCommon.indoor.entertainment.map((e) => (
-                    <span key={e} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
-                      {e}
-                    </span>
+                    <span key={e} className="rounded-full border border-body-dark/10 bg-white px-3 py-1 text-xs text-body-dark/60">{e}</span>
                   ))}
                 </div>
-                <p className="mt-2 text-sm text-white/50">WiFi: {villaCommon.indoor.wifi}</p>
+                <p className="mt-2 text-sm text-body-dark/50">WiFi: {villaCommon.indoor.wifi}</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight-light/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-cream p-6">
                 <h3 className="heading-md text-sm text-gold">Kitchen</h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {villaCommon.indoor.kitchen.map((k) => (
-                    <span key={k} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
-                      {k}
-                    </span>
+                    <span key={k} className="rounded-full border border-body-dark/10 bg-white px-3 py-1 text-xs text-body-dark/60">{k}</span>
                   ))}
                 </div>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight-light/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-cream p-6">
                 <h3 className="heading-md text-sm text-gold">Laundry & Security</h3>
-                <p className="mt-2 text-sm text-white/60">{villaCommon.indoor.laundry}</p>
-                {villaCommon.indoor.safe && <p className="mt-1 text-sm text-white/60">In-room safe</p>}
+                <p className="mt-2 text-sm text-body-dark/60">{villaCommon.indoor.laundry}</p>
+                {villaCommon.indoor.safe && <p className="mt-1 text-sm text-body-dark/60">In-room safe</p>}
               </div>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -381,7 +338,6 @@ function Specifications() {
 /* ─────────────── A Day at Villa Beluga ────────────────────── */
 function DayTimeline() {
   const t = useTranslations('villa');
-
   const timeSlots = [
     { time: '08:00', period: 'Morning', description: t('morning'), icon: 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z' },
     { time: '12:00', period: 'Midday', description: t('midday'), icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z' },
@@ -390,38 +346,31 @@ function DayTimeline() {
   ];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-4xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
-            {t('dayTitle', { villa: 'Villa Beluga' })}
-          </h2>
-        </ScrollReveal>
+        <HeadingSlide>
+          <h2 className="heading-lg mb-16 text-center text-3xl text-body-dark md:text-4xl">{t('dayTitle', { villa: 'Villa Beluga' })}</h2>
+        </HeadingSlide>
 
         <div className="relative">
-          {/* Gold timeline line */}
           <div className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-gold/60 via-gold/30 to-transparent md:block" />
-
           <div className="space-y-12">
             {timeSlots.map((slot, i) => (
               <ScrollReveal key={slot.period} delay={i * 0.15}>
                 <div className="relative flex items-start gap-8">
-                  {/* Timeline dot */}
                   <div className="relative z-10 hidden flex-shrink-0 md:block">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-midnight">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-white shadow-sm">
                       <svg className="h-5 w-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d={slot.icon} />
                       </svg>
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <div className="flex-1 rounded-xl border border-white/5 bg-midnight-light/50 p-6">
+                  <div className="flex-1 rounded-xl border border-body-dark/5 bg-cream p-6 shadow-sm">
                     <div className="flex items-center gap-3">
                       <span className="text-sm font-bold text-gold">{slot.time}</span>
-                      <span className="heading-md text-sm text-white/80">{slot.period}</span>
+                      <span className="heading-md text-sm text-body-dark/70">{slot.period}</span>
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-white/60">{slot.description}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-body-dark/60">{slot.description}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -436,7 +385,6 @@ function DayTimeline() {
 /* ──────────────── Practical Information ────────────────────── */
 function PracticalInfo() {
   const t = useTranslations('villa');
-
   const items = [
     { label: t('checkIn'), value: villaCommon.checkIn, icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
     { label: t('checkOut'), value: villaCommon.checkOut, icon: 'M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1' },
@@ -449,15 +397,12 @@ function PracticalInfo() {
   return (
     <section className="section-padding bg-cream">
       <div className="mx-auto max-w-5xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-12 text-center text-3xl text-body-dark md:text-4xl">
-            {t('practicalInfo')}
-          </h2>
-        </ScrollReveal>
-
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, i) => (
-            <ScrollReveal key={item.label} delay={i * 0.08}>
+        <HeadingSlide>
+          <h2 className="heading-lg mb-12 text-center text-3xl text-body-dark md:text-4xl">{t('practicalInfo')}</h2>
+        </HeadingSlide>
+        <StaggerContainer className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
+          {items.map((item) => (
+            <StaggerItem key={item.label}>
               <div className="rounded-xl border border-body-dark/10 bg-white p-6 transition-all duration-300 hover:border-gold/30 hover:shadow-lg">
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gold/10">
@@ -471,9 +416,9 @@ function PracticalInfo() {
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -482,25 +427,17 @@ function PracticalInfo() {
 /* ───────────────── Pricing Quick View ─────────────────────── */
 function PricingQuickView() {
   const t = useTranslations('villa');
-
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-navy">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <ScrollReveal>
           <p className="text-sm uppercase tracking-[0.3em] text-white/40">Starting from</p>
-          <p className="mt-4 text-gradient-gold text-5xl font-bold md:text-6xl lg:text-7xl font-heading">
-            {t('pricingTeaser')}
-          </p>
+          <p className="mt-4 text-gradient-gold text-5xl font-bold md:text-6xl lg:text-7xl font-heading">{t('pricingTeaser')}</p>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <Link
-            href="/pricing"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-gold transition-colors hover:text-gold-light"
-          >
+          <Link href="/pricing" className="mt-8 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-gold transition-colors hover:text-gold-light">
             {t('viewPricing')}
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </Link>
         </ScrollReveal>
       </div>
@@ -511,9 +448,8 @@ function PricingQuickView() {
 /* ──────────────────────── CTA ─────────────────────────────── */
 function CTASection() {
   const t = useTranslations('villa');
-
   return (
-    <section className="relative overflow-hidden bg-midnight-light py-24">
+    <section className="relative overflow-hidden bg-navy py-24">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(201,169,110,0.08)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(201,169,110,0.06)_0%,transparent_50%)]" />
       <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
@@ -521,28 +457,20 @@ function CTASection() {
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
         <ScrollReveal>
-          <h2 className="heading-lg text-3xl text-white md:text-4xl lg:text-5xl">
-            {t('bookVilla', { villa: 'Villa Beluga' })}
-          </h2>
+          <h2 className="heading-lg text-3xl text-white md:text-4xl lg:text-5xl">{t('bookVilla', { villa: 'Villa Beluga' })}</h2>
         </ScrollReveal>
-        <ScrollReveal delay={0.2}>
+        <FadeUp delay={0.2}>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href={villaBeluga.bookingLinks.crovillas}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full rounded-full bg-gold px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-midnight transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] sm:w-auto"
-            >
+            <motion.a href={villaBeluga.bookingLinks.crovillas} target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }} className="w-full rounded-full bg-gold px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] sm:w-auto">
               {t('bookVilla', { villa: 'Villa Beluga' })}
-            </a>
-            <Link
-              href="/contact"
-              className="w-full rounded-full border border-gold/40 px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-gold hover:text-midnight sm:w-auto"
-            >
-              {t('inquireDates')}
-            </Link>
+            </motion.a>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
+              <Link href="/contact" className="w-full rounded-full border border-gold/40 px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-gold hover:text-white sm:w-auto">
+                {t('inquireDates')}
+              </Link>
+            </motion.div>
           </div>
-        </ScrollReveal>
+        </FadeUp>
       </div>
     </section>
   );

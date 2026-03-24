@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { Menu, X, ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function Header() {
   const t = useTranslations('Header');
@@ -57,15 +58,15 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-midnight/95 backdrop-blur-md shadow-lg'
-            : 'bg-transparent'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm'
+            : 'bg-white/80 backdrop-blur-sm'
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
-              <span className="font-[family-name:var(--font-heading)] text-lg font-bold uppercase tracking-[0.2em] text-white">
+              <span className="font-[family-name:var(--font-heading)] text-lg font-bold uppercase tracking-[0.2em] text-body-dark">
                 Ballena <span className="text-gold">&amp;</span> Beluga
               </span>
             </Link>
@@ -80,7 +81,7 @@ export default function Header() {
                 onMouseEnter={() => setVillasOpen(true)}
                 onMouseLeave={() => setVillasOpen(false)}
               >
-                <button className="group relative flex items-center gap-1 text-sm font-medium uppercase tracking-wider text-white/80 transition-colors hover:text-gold">
+                <button className="group relative flex items-center gap-1 text-sm font-medium uppercase tracking-wider text-body-dark/70 transition-colors hover:text-gold">
                   {t('villas')}
                   <ChevronDown
                     size={14}
@@ -96,12 +97,12 @@ export default function Header() {
                       : 'pointer-events-none -translate-y-2 opacity-0'
                   }`}
                 >
-                  <div className="min-w-[200px] rounded-lg border border-white/10 bg-midnight/95 p-3 backdrop-blur-md shadow-xl">
+                  <div className="min-w-[200px] rounded-lg border border-body-dark/10 bg-white p-3 shadow-xl">
                     {villaLinks.map((link) => (
                       <Link
                         key={link.href}
                         href={link.href}
-                        className="block rounded-md px-4 py-2.5 text-sm text-white/80 transition-colors hover:bg-white/5 hover:text-gold"
+                        className="block rounded-md px-4 py-2.5 text-sm text-body-dark/70 transition-colors hover:bg-cream hover:text-gold"
                       >
                         {link.label}
                       </Link>
@@ -125,18 +126,18 @@ export default function Header() {
                   className={`px-1.5 py-0.5 uppercase tracking-wider transition-colors ${
                     locale === 'en'
                       ? 'text-gold font-semibold'
-                      : 'text-white/60 hover:text-white'
+                      : 'text-body-dark/40 hover:text-body-dark'
                   }`}
                 >
                   EN
                 </button>
-                <span className="text-white/30">|</span>
+                <span className="text-body-dark/20">|</span>
                 <button
                   onClick={() => switchLocale('de')}
                   className={`px-1.5 py-0.5 uppercase tracking-wider transition-colors ${
                     locale === 'de'
                       ? 'text-gold font-semibold'
-                      : 'text-white/60 hover:text-white'
+                      : 'text-body-dark/40 hover:text-body-dark'
                   }`}
                 >
                   DE
@@ -144,17 +145,19 @@ export default function Header() {
               </div>
 
               {/* Book Now Button */}
-              <Link
-                href="/contact"
-                className="hidden sm:inline-flex rounded-full border border-gold bg-gold/10 px-6 py-2 text-sm font-semibold uppercase tracking-wider text-gold transition-all duration-300 hover:bg-gold hover:text-midnight"
-              >
-                {t('bookNow')}
-              </Link>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
+                <Link
+                  href="/contact"
+                  className="hidden sm:inline-flex rounded-full bg-gold px-6 py-2 text-sm font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_20px_rgba(201,169,110,0.3)]"
+                >
+                  {t('bookNow')}
+                </Link>
+              </motion.div>
 
               {/* Mobile Hamburger */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 text-white"
+                className="lg:hidden p-2 text-body-dark"
                 aria-label="Toggle menu"
               >
                 {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -166,7 +169,7 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-midnight/98 backdrop-blur-lg transition-all duration-500 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-white/98 backdrop-blur-lg transition-all duration-500 lg:hidden ${
           mobileOpen
             ? 'pointer-events-auto opacity-100'
             : 'pointer-events-none opacity-0'
@@ -181,19 +184,19 @@ export default function Header() {
                 setMobileOpen(false);
               }}
               className={`uppercase tracking-wider transition-colors ${
-                locale === 'en' ? 'text-gold font-semibold' : 'text-white/60'
+                locale === 'en' ? 'text-gold font-semibold' : 'text-body-dark/40'
               }`}
             >
               EN
             </button>
-            <span className="text-white/30">|</span>
+            <span className="text-body-dark/20">|</span>
             <button
               onClick={() => {
                 switchLocale('de');
                 setMobileOpen(false);
               }}
               className={`uppercase tracking-wider transition-colors ${
-                locale === 'de' ? 'text-gold font-semibold' : 'text-white/60'
+                locale === 'de' ? 'text-gold font-semibold' : 'text-body-dark/40'
               }`}
             >
               DE
@@ -204,7 +207,7 @@ export default function Header() {
           <Link
             href="/"
             onClick={() => setMobileOpen(false)}
-            className="text-2xl font-[family-name:var(--font-heading)] uppercase tracking-[0.15em] text-white transition-colors hover:text-gold"
+            className="text-2xl font-[family-name:var(--font-heading)] uppercase tracking-[0.15em] text-body-dark transition-colors hover:text-gold"
           >
             {t('home')}
           </Link>
@@ -213,7 +216,7 @@ export default function Header() {
           <div className="flex flex-col items-center">
             <button
               onClick={() => setMobileVillasOpen(!mobileVillasOpen)}
-              className="flex items-center gap-2 text-2xl font-[family-name:var(--font-heading)] uppercase tracking-[0.15em] text-white transition-colors hover:text-gold"
+              className="flex items-center gap-2 text-2xl font-[family-name:var(--font-heading)] uppercase tracking-[0.15em] text-body-dark transition-colors hover:text-gold"
             >
               {t('villas')}
               <ChevronDown
@@ -235,7 +238,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-lg text-white/70 transition-colors hover:text-gold"
+                  className="text-lg text-body-dark/60 transition-colors hover:text-gold"
                 >
                   {link.label}
                 </Link>
@@ -248,7 +251,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-2xl font-[family-name:var(--font-heading)] uppercase tracking-[0.15em] text-white transition-colors hover:text-gold"
+              className="text-2xl font-[family-name:var(--font-heading)] uppercase tracking-[0.15em] text-body-dark transition-colors hover:text-gold"
             >
               {link.label}
             </Link>
@@ -258,7 +261,7 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={() => setMobileOpen(false)}
-            className="mt-6 rounded-full border border-gold bg-gold/10 px-8 py-3 text-base font-semibold uppercase tracking-wider text-gold transition-all duration-300 hover:bg-gold hover:text-midnight"
+            className="mt-6 rounded-full bg-gold px-8 py-3 text-base font-semibold uppercase tracking-wider text-white transition-all duration-300 hover:bg-gold-light"
           >
             {t('bookNow')}
           </Link>
@@ -283,7 +286,7 @@ function NavLink({
     <Link
       href={href}
       className={`group relative text-sm font-medium uppercase tracking-wider transition-colors ${
-        isActive ? 'text-gold' : 'text-white/80 hover:text-gold'
+        isActive ? 'text-gold' : 'text-body-dark/70 hover:text-gold'
       }`}
     >
       {label}

@@ -1,10 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { motion } from 'framer-motion';
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -19,67 +15,38 @@ export default function ScrollReveal({
   delay = 0,
   direction = 'up',
 }: ScrollRevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
-    if (prefersReducedMotion) {
-      gsap.set(el, { opacity: 1 });
-      return;
-    }
-
-    const fromVars: gsap.TweenVars = {
-      opacity: 0,
-      x: 0,
-      y: 0,
-    };
-
-    const toVars: gsap.TweenVars = {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      duration: 0.8,
-      delay,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        toggleActions: 'play none none none',
-      },
-    };
-
+  const getInitial = () => {
     switch (direction) {
-      case 'up':
-        fromVars.y = 40;
-        break;
       case 'left':
-        fromVars.x = 40;
-        break;
+        return { opacity: 0, x: 40 };
       case 'right':
-        fromVars.x = -40;
-        break;
+        return { opacity: 0, x: -40 };
+      case 'up':
+      default:
+        return { opacity: 0, y: 40 };
     }
+  };
 
-    gsap.fromTo(el, fromVars, toVars);
-
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => {
-        if (trigger.vars.trigger === el) {
-          trigger.kill();
-        }
-      });
-    };
-  }, [delay, direction]);
+  const getAnimate = () => {
+    switch (direction) {
+      case 'left':
+      case 'right':
+        return { opacity: 1, x: 0 };
+      case 'up':
+      default:
+        return { opacity: 1, y: 0 };
+    }
+  };
 
   return (
-    <div ref={ref} className={className} style={{ opacity: 0 }}>
+    <motion.div
+      initial={getInitial()}
+      whileInView={getAnimate()}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.7, delay, ease: 'easeOut' }}
+      className={className}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }

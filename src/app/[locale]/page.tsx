@@ -4,6 +4,10 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { heroImages, villaCards } from '@/lib/images';
+import { motion } from 'framer-motion';
+import ScrollReveal from '@/components/animations/ScrollReveal';
+import CountUp from '@/components/animations/CountUp';
+import { StaggerContainer, StaggerItem, ScaleCard, HeadingSlide, FadeUp } from '@/components/animations/MotionWrappers';
 
 /* ─────────────────────────── Hero ─────────────────────────── */
 function Hero() {
@@ -20,34 +24,58 @@ function Hero() {
         priority
         quality={85}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-midnight/60 via-midnight/30 to-midnight/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/20 to-navy/60" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
-          Svetvincenat, Istria
-        </p>
-        <h1 className="heading-xl text-[clamp(2rem,7vw,4.5rem)] text-white">
-          {t('title')}
-        </h1>
-        <a
-          href="#villas"
-          className="mt-10 inline-block rounded-full bg-gold px-10 py-4 text-sm font-semibold uppercase tracking-widest text-midnight transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)]"
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mb-6 font-accent text-lg italic tracking-wide text-gold/90 md:text-xl"
         >
-          {t('cta')}
-        </a>
+          Svetvincenat, Istria
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="heading-xl text-[clamp(2rem,7vw,4.5rem)] text-white"
+        >
+          {t('title')}
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.7 }}
+        >
+          <motion.a
+            href="#villas"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            className="mt-10 inline-block rounded-full bg-gold px-10 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)]"
+          >
+            {t('cta')}
+          </motion.a>
+        </motion.div>
       </div>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2">
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">Scroll</span>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.5 }}
+          className="flex flex-col items-center gap-2"
+        >
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">Scroll</span>
           <div className="animate-bounce">
             <svg className="h-5 w-5 text-gold/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7" />
             </svg>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -58,16 +86,22 @@ function Introduction() {
   const t = useTranslations('home');
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-4xl px-6 text-center">
-        <p className="font-accent text-xl italic text-gold md:text-2xl">
-          {t('introTitle')}
-        </p>
-        <p className="mt-8 text-base leading-relaxed text-white/70 md:text-lg">
-          {t('intro')}
-        </p>
+        <ScrollReveal>
+          <p className="font-accent text-xl italic text-gold md:text-2xl">
+            {t('introTitle')}
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.15}>
+          <p className="mt-8 text-base leading-relaxed text-body-dark/70 md:text-lg">
+            {t('intro')}
+          </p>
+        </ScrollReveal>
         {/* Gold divider */}
-        <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
+        <FadeUp delay={0.3}>
+          <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
+        </FadeUp>
       </div>
     </section>
   );
@@ -99,63 +133,66 @@ function VillasSection() {
   ];
 
   return (
-    <section id="villas" className="section-padding bg-midnight-light">
+    <section id="villas" className="section-padding bg-offwhite">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="heading-lg text-3xl text-white md:text-4xl">
+        <HeadingSlide className="mb-16 text-center">
+          <h2 className="heading-lg text-3xl text-body-dark md:text-4xl">
             {t('villasTitle')}
           </h2>
-        </div>
+        </HeadingSlide>
 
         <div className="grid gap-8 md:grid-cols-2">
-          {villas.map((villa) => (
-            <div
-              key={villa.name}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/5 transition-all duration-500 hover:border-gold/20"
-            >
-              {/* Villa image */}
-              <Image
-                src={villa.image}
-                alt={villa.imageAlt}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                quality={80}
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-midnight/70 via-midnight/20 to-transparent" />
-
-              {/* Content overlay */}
-              <div className="absolute inset-0 flex flex-col justify-end p-8">
-                <h3 className="heading-lg text-2xl text-white md:text-3xl">
-                  {villa.name}
-                </h3>
-                <p className="mt-2 font-accent text-lg italic text-gold/80">
-                  {villa.tagline}
-                </p>
-
-                {/* Features */}
-                <div className="mt-4 flex flex-wrap gap-3">
-                  {villa.features.map((feat) => (
-                    <span
-                      key={feat}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs tracking-wide text-white/60"
-                    >
-                      {feat}
-                    </span>
-                  ))}
+          {villas.map((villa, i) => (
+            <ScaleCard key={villa.name} delay={i * 0.15}>
+              <div className="group relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500 hover:shadow-xl">
+                {/* Villa image */}
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={villa.image}
+                    alt={villa.imageAlt}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    quality={80}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
                 </div>
 
-                <Link
-                  href={villa.href}
-                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-gold/40 px-6 py-3 text-sm font-medium uppercase tracking-wider text-gold transition-all duration-300 hover:bg-gold hover:text-midnight"
-                >
-                  {villa.cta}
-                  <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
+                {/* Content */}
+                <div className="p-8">
+                  <h3 className="heading-lg text-2xl text-body-dark md:text-3xl">
+                    {villa.name}
+                  </h3>
+                  <p className="mt-2 font-accent text-lg italic text-gold">
+                    {villa.tagline}
+                  </p>
+
+                  {/* Features */}
+                  <div className="mt-4 flex flex-wrap gap-3">
+                    {villa.features.map((feat) => (
+                      <span
+                        key={feat}
+                        className="rounded-full border border-body-dark/10 bg-cream px-3 py-1 text-xs tracking-wide text-body-dark/60"
+                      >
+                        {feat}
+                      </span>
+                    ))}
+                  </div>
+
+                  <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }} className="mt-6 inline-flex">
+                    <Link
+                      href={villa.href}
+                      className="inline-flex items-center gap-2 rounded-full border border-gold px-6 py-3 text-sm font-medium uppercase tracking-wider text-gold transition-all duration-300 hover:bg-gold hover:text-white"
+                    >
+                      {villa.cta}
+                      <svg className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  </motion.div>
+                </div>
               </div>
-            </div>
+            </ScaleCard>
           ))}
         </div>
       </div>
@@ -168,32 +205,40 @@ function NumbersStrip() {
   const t = useTranslations('home');
 
   const stats = [
-    { value: '350', label: t('area') },
-    { value: '4', label: t('enSuiteBedrooms') },
-    { value: '8x4m', label: t('heatedPool') },
-    { value: '2021', label: t('builtYear') },
-    { value: '300m', label: t('toVillage') },
-    { value: '18', label: t('maxGuests') },
+    { value: 350, suffix: '', label: t('area') },
+    { value: 4, suffix: '', label: t('enSuiteBedrooms') },
+    { value: 0, display: '8x4m', label: t('heatedPool') },
+    { value: 2021, suffix: '', label: t('builtYear') },
+    { value: 300, suffix: 'm', label: t('toVillage') },
+    { value: 18, suffix: '', label: t('maxGuests') },
   ];
 
   return (
-    <section className="border-y border-white/5 bg-midnight py-16">
+    <section className="border-y border-body-dark/5 bg-white py-16">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="mb-12 text-center heading-md text-xl text-white/80 md:text-2xl">
-          {t('numbersTitle')}
-        </h2>
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
+        <ScrollReveal>
+          <h2 className="mb-12 text-center heading-md text-xl text-body-dark/80 md:text-2xl">
+            {t('numbersTitle')}
+          </h2>
+        </ScrollReveal>
+        <StaggerContainer className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6" staggerDelay={0.1}>
           {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-3xl font-bold text-gold md:text-4xl font-heading">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-xs uppercase tracking-wider text-white/50">
-                {stat.label}
-              </p>
-            </div>
+            <StaggerItem key={stat.label}>
+              <div className="text-center">
+                {stat.display ? (
+                  <p className="text-3xl font-bold text-gold md:text-4xl font-heading">
+                    {stat.display}
+                  </p>
+                ) : (
+                  <CountUp end={stat.value} suffix={stat.suffix} className="text-3xl font-bold text-gold md:text-4xl font-heading" />
+                )}
+                <p className="mt-2 text-xs uppercase tracking-wider text-body-dark/50">
+                  {stat.label}
+                </p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -231,55 +276,56 @@ function ExperiencesTeaser() {
   ];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="heading-lg text-3xl text-white md:text-4xl">
+        <HeadingSlide className="mb-16 text-center">
+          <h2 className="heading-lg text-3xl text-body-dark md:text-4xl">
             {t('experiencesTitle')}
           </h2>
-        </div>
+        </HeadingSlide>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <StaggerContainer className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" staggerDelay={0.12}>
           {experiences.map((exp) => (
-            <div
-              key={exp.title}
-              className="group overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20"
-            >
-              {/* Experience image */}
-              <div className="relative aspect-[3/4]">
-                <Image
-                  src={exp.image}
-                  alt={exp.imageAlt}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  quality={75}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <h3 className="font-heading text-lg font-bold uppercase tracking-wider text-white">
-                    {exp.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/60">
-                    {exp.description}
-                  </p>
+            <StaggerItem key={exp.title}>
+              <div className="group overflow-hidden rounded-xl bg-white shadow-md transition-all duration-500 hover:shadow-lg">
+                {/* Experience image */}
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <Image
+                    src={exp.image}
+                    alt={exp.imageAlt}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    quality={75}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent" />
+                  <div className="absolute inset-0 flex flex-col justify-end p-6">
+                    <h3 className="font-heading text-lg font-bold uppercase tracking-wider text-body-dark">
+                      {exp.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-body-dark/60">
+                      {exp.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
-        <div className="mt-12 text-center">
-          <Link
-            href="/experiences"
-            className="inline-flex items-center gap-2 rounded-full border border-gold/40 px-8 py-3 text-sm font-medium uppercase tracking-wider text-gold transition-all duration-300 hover:bg-gold hover:text-midnight"
-          >
-            {t('experiencesCta')}
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
-        </div>
+        <FadeUp delay={0.2} className="mt-12 text-center">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }} className="inline-flex">
+            <Link
+              href="/experiences"
+              className="inline-flex items-center gap-2 rounded-full border border-gold px-8 py-3 text-sm font-medium uppercase tracking-wider text-gold transition-all duration-300 hover:bg-gold hover:text-white"
+            >
+              {t('experiencesCta')}
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </motion.div>
+        </FadeUp>
       </div>
     </section>
   );
@@ -308,45 +354,49 @@ function ReviewsSection() {
   ];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-4xl px-6 text-center">
-        <h2 className="heading-lg mb-16 text-3xl text-white md:text-4xl">
-          {t('reviewsTitle')}
-        </h2>
+        <HeadingSlide>
+          <h2 className="heading-lg mb-16 text-3xl text-body-dark md:text-4xl">
+            {t('reviewsTitle')}
+          </h2>
+        </HeadingSlide>
 
-        {/* Show first review (static for now) */}
-        <div className="relative">
-          {/* Gold quote marks */}
-          <span className="absolute -top-8 left-1/2 -translate-x-1/2 font-accent text-8xl leading-none text-gold/20 select-none">
-            &ldquo;
-          </span>
+        <ScrollReveal>
+          {/* Show first review (static for now) */}
+          <div className="relative">
+            {/* Gold quote marks */}
+            <span className="absolute -top-8 left-1/2 -translate-x-1/2 font-accent text-8xl leading-none text-gold/20 select-none">
+              &ldquo;
+            </span>
 
-          <blockquote className="relative z-10">
-            <p className="font-accent text-xl italic leading-relaxed text-white/80 md:text-2xl lg:text-3xl">
-              {reviews[0].quote}
-            </p>
-            <footer className="mt-8">
-              <p className="text-sm font-semibold uppercase tracking-wider text-gold">
-                {reviews[0].author}
+            <blockquote className="relative z-10">
+              <p className="font-accent text-xl italic leading-relaxed text-body-dark/70 md:text-2xl lg:text-3xl">
+                {reviews[0].quote}
               </p>
-              <p className="mt-1 text-xs tracking-wide text-white/40">
-                {reviews[0].origin}
-              </p>
-            </footer>
-          </blockquote>
+              <footer className="mt-8">
+                <p className="text-sm font-semibold uppercase tracking-wider text-gold">
+                  {reviews[0].author}
+                </p>
+                <p className="mt-1 text-xs tracking-wide text-body-dark/40">
+                  {reviews[0].origin}
+                </p>
+              </footer>
+            </blockquote>
 
-          {/* Dots indicator (static) */}
-          <div className="mt-10 flex items-center justify-center gap-2">
-            {reviews.map((_, i) => (
-              <span
-                key={i}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  i === 0 ? 'w-6 bg-gold' : 'w-2 bg-white/20'
-                }`}
-              />
-            ))}
+            {/* Dots indicator (static) */}
+            <div className="mt-10 flex items-center justify-center gap-2">
+              {reviews.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    i === 0 ? 'w-6 bg-gold' : 'w-2 bg-body-dark/15'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -373,36 +423,37 @@ function LocationSection() {
         className="object-cover"
         quality={75}
       />
-      <div className="absolute inset-0 bg-midnight/40" />
+      <div className="absolute inset-0 bg-white/30 backdrop-blur-[2px]" />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="heading-lg text-3xl text-white md:text-4xl">
-            {t('locationTitle')}
-          </h2>
-          <p className="mt-4 font-accent text-lg italic text-gold/80">
-            {t('locationSubtitle')}
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="mb-16 text-center">
+            <h2 className="heading-lg text-3xl text-body-dark md:text-4xl">
+              {t('locationTitle')}
+            </h2>
+            <p className="mt-4 font-accent text-lg italic text-gold">
+              {t('locationSubtitle')}
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+        <StaggerContainer className="grid grid-cols-2 gap-6 md:grid-cols-4" staggerDelay={0.1}>
           {distances.map((item) => (
-            <div
-              key={item.place}
-              className="rounded-xl border border-white/5 bg-midnight/50 p-6 text-center backdrop-blur-sm transition-all duration-300 hover:border-gold/20"
-            >
-              <span className="text-3xl" role="img" aria-label={item.place}>
-                {item.icon}
-              </span>
-              <p className="mt-4 text-2xl font-bold text-gold font-heading">
-                {item.distance}
-              </p>
-              <p className="mt-1 text-xs uppercase tracking-wider text-white/50">
-                {item.place}
-              </p>
-            </div>
+            <StaggerItem key={item.place}>
+              <div className="rounded-xl border border-body-dark/5 bg-white/90 p-6 text-center backdrop-blur-sm shadow-md transition-all duration-300 hover:shadow-lg hover:border-gold/30">
+                <span className="text-3xl" role="img" aria-label={item.place}>
+                  {item.icon}
+                </span>
+                <p className="mt-4 text-2xl font-bold text-gold font-heading">
+                  {item.distance}
+                </p>
+                <p className="mt-1 text-xs uppercase tracking-wider text-body-dark/50">
+                  {item.place}
+                </p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -413,7 +464,7 @@ function CTABanner() {
   const t = useTranslations('home');
 
   return (
-    <section className="relative overflow-hidden bg-midnight py-24">
+    <section className="relative overflow-hidden bg-navy py-24">
       {/* Decorative gold gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(201,169,110,0.08)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(201,169,110,0.06)_0%,transparent_50%)]" />
@@ -423,26 +474,34 @@ function CTABanner() {
       <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-        <h2 className="heading-lg text-3xl text-white md:text-4xl lg:text-5xl">
-          {t('ctaTitle')}
-        </h2>
+        <ScrollReveal>
+          <h2 className="heading-lg text-3xl text-white md:text-4xl lg:text-5xl">
+            {t('ctaTitle')}
+          </h2>
+        </ScrollReveal>
 
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            href="/contact"
-            className="w-full rounded-full bg-gold px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-midnight transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] sm:w-auto"
-          >
-            {t('ctaButton')}
-          </Link>
-          <a
-            href="https://wa.me/385915251565"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full rounded-full border border-gold/40 px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-gold hover:text-midnight sm:w-auto"
-          >
-            {t('ctaWhatsapp')}
-          </a>
-        </div>
+        <FadeUp delay={0.2}>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
+              <Link
+                href="/contact"
+                className="w-full rounded-full bg-gold px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] sm:w-auto"
+              >
+                {t('ctaButton')}
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
+              <a
+                href="https://wa.me/385915251565"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full rounded-full border border-gold/40 px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-gold hover:text-white sm:w-auto"
+              >
+                {t('ctaWhatsapp')}
+              </a>
+            </motion.div>
+          </div>
+        </FadeUp>
       </div>
     </section>
   );

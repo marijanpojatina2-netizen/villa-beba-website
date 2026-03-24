@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-midnight: #0D0D1A;
-  --color-midnight-light: #1A1A2E;
+  --color-midnight: #0f1829;
+  --color-midnight-light: #1a2540;
   --color-gold: #C9A96E;
   --color-gold-light: #D4B97E;
-  --color-cream: #FAF8F5;
-  --color-body-dark: #4A4A4A;
+  --color-cream: #FAF9F6;
+  --color-offwhite: #f5f4f0;
+  --color-body-dark: #2a2a2a;
   --color-body-light: #E0E0E0;
+  --color-navy: #0f1829;
 
   --font-heading: "Montserrat", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -19,8 +21,8 @@ html {
 }
 
 body {
-  background: var(--color-midnight);
-  color: #FFFFFF;
+  background: var(--color-cream);
+  color: var(--color-body-dark);
   font-family: var(--font-body);
 }
 
@@ -89,6 +91,27 @@ html.lenis, html.lenis body {
     padding-top: 8rem;
     padding-bottom: 8rem;
   }
+}
+
+/* ─── Light / Dark Section Helpers ─── */
+.light-section {
+  background-color: var(--color-cream);
+  color: var(--color-body-dark);
+}
+
+.light-section-alt {
+  background-color: var(--color-offwhite);
+  color: var(--color-body-dark);
+}
+
+.white-section {
+  background-color: #ffffff;
+  color: var(--color-body-dark);
+}
+
+.dark-section {
+  background-color: var(--color-navy);
+  color: #ffffff;
 }
 
 /* Reduced motion */

@@ -1,10 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { motion, useInView } from 'framer-motion';
 
 interface CountUpProps {
   end: number;
@@ -22,12 +19,13 @@ export default function CountUp({
   className,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
   const [display, setDisplay] = useState(0);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    if (!isInView || hasAnimated.current) return;
+    hasAnimated.current = true;
 
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
@@ -38,36 +36,35 @@ export default function CountUp({
       return;
     }
 
-    const counter = { value: 0 };
+    const startTime = performance.now();
+    const durationMs = duration * 1000;
 
-    const trigger = ScrollTrigger.create({
-      trigger: el,
-      start: 'top 85%',
-      onEnter: () => {
-        if (hasAnimated.current) return;
-        hasAnimated.current = true;
-
-        gsap.to(counter, {
-          value: end,
-          duration,
-          ease: 'power2.out',
-          onUpdate: () => {
-            setDisplay(Math.round(counter.value));
-          },
-        });
-      },
-    });
-
-    return () => {
-      trigger.kill();
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / durationMs, 1);
+      // easeOutQuad
+      const eased = 1 - (1 - progress) * (1 - progress);
+      setDisplay(Math.round(eased * end));
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
     };
-  }, [end, duration]);
+
+    requestAnimationFrame(animate);
+  }, [isInView, end, duration]);
 
   return (
-    <span ref={ref} className={className}>
+    <motion.span
+      ref={ref}
+      className={className}
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
       {prefix}
       {display}
       {suffix}
-    </span>
+    </motion.span>
   );
 }

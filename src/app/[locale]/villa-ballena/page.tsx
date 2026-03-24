@@ -4,8 +4,10 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { useState } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import ScrollReveal from '@/components/animations/ScrollReveal';
 import CountUp from '@/components/animations/CountUp';
+import { StaggerContainer, StaggerItem, HeadingSlide, FadeUp, ScaleCard } from '@/components/animations/MotionWrappers';
 import { villaCommon, villaBallena } from '@/lib/data';
 import { heroImages, ballenaGallery } from '@/lib/images';
 
@@ -15,35 +17,27 @@ function Hero() {
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image src={heroImages.ballena} alt="Villa Ballena pool at night" fill className="object-cover" priority quality={85} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-navy/20 to-navy/60" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <ScrollReveal>
-          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
-            Svetvincenat, Istria
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.15}>
-          <h1 className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            Villa Ballena
-          </h1>
-        </ScrollReveal>
-        <ScrollReveal delay={0.3}>
-          <p className="mx-auto mt-6 max-w-lg font-accent text-xl italic text-gold/70 md:text-2xl">
-            The Serene Wellness Retreat
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.45}>
-          <div className="mt-10 flex flex-col items-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">Discover</span>
-            <div className="animate-bounce">
-              <svg className="h-5 w-5 text-gold/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7" />
-              </svg>
-            </div>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }} className="mb-6 font-accent text-lg italic tracking-wide text-gold/90 md:text-xl">
+          Svetvincenat, Istria
+        </motion.p>
+        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }} className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
+          Villa Ballena
+        </motion.h1>
+        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.6 }} className="mx-auto mt-6 max-w-lg font-accent text-xl italic text-gold/80 md:text-2xl">
+          The Serene Wellness Retreat
+        </motion.p>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 0.5 }} className="mt-10 flex flex-col items-center gap-2">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">Discover</span>
+          <div className="animate-bounce">
+            <svg className="h-5 w-5 text-gold/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7" />
+            </svg>
           </div>
-        </ScrollReveal>
+        </motion.div>
       </div>
     </section>
   );
@@ -52,7 +46,7 @@ function Hero() {
 /* ────────────────────── Introduction ──────────────────────── */
 function Introduction() {
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-cream">
       <div className="mx-auto max-w-4xl px-6">
         <ScrollReveal>
           <p className="font-accent text-2xl italic leading-relaxed text-gold md:text-3xl">
@@ -60,14 +54,16 @@ function Introduction() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
-          <p className="mt-8 text-base leading-relaxed text-white/70 md:text-lg">
+          <p className="mt-8 text-base leading-relaxed text-body-dark/70 md:text-lg">
             Step onto your private terrace with coffee, then ease into a heated pool surrounded by nature.
             Villa Ballena is a 350m&sup2; designer residence built in 2021, where dark sophisticated interiors
             meet the warmth of Mediterranean living. Four en-suite bedrooms, a private Finnish sauna,
             and a biological pool with hydromassage create a sanctuary for those who seek both style and serenity.
           </p>
         </ScrollReveal>
-        <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
+        <FadeUp delay={0.3}>
+          <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
+        </FadeUp>
       </div>
     </section>
   );
@@ -78,29 +74,29 @@ function PhotoGallery() {
   const heights = ['aspect-[3/4]', 'aspect-[4/5]', 'aspect-[3/4]', 'aspect-[4/3]', 'aspect-[4/5]', 'aspect-[3/4]'];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-offwhite">
       <div className="mx-auto max-w-7xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
+        <HeadingSlide>
+          <h2 className="heading-lg mb-16 text-center text-3xl text-body-dark md:text-4xl">
             Gallery
           </h2>
-        </ScrollReveal>
+        </HeadingSlide>
 
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
           {ballenaGallery.slice(0, 6).map((image, i) => (
-            <ScrollReveal key={image.src} delay={i * 0.1}>
-              <div className="group mb-4 break-inside-avoid overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20">
+            <ScaleCard key={image.src} delay={i * 0.1}>
+              <div className="group mb-4 break-inside-avoid overflow-hidden rounded-xl bg-white shadow-md transition-all duration-500 hover:shadow-lg">
                 <div className={`${heights[i]} relative`}>
                   <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                   <div className="absolute bottom-4 left-4">
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-wider text-white/60 backdrop-blur-sm">
+                    <span className="rounded-full border border-white/80 bg-white/70 px-3 py-1 text-xs uppercase tracking-wider text-body-dark/70 backdrop-blur-sm">
                       {image.category}
                     </span>
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
+            </ScaleCard>
           ))}
         </div>
       </div>
@@ -121,54 +117,62 @@ function Specifications() {
   ];
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-white">
       <div className="mx-auto max-w-5xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-12 text-center text-3xl text-white md:text-4xl">
+        <HeadingSlide>
+          <h2 className="heading-lg mb-12 text-center text-3xl text-body-dark md:text-4xl">
             {t('specifications')}
           </h2>
-        </ScrollReveal>
+        </HeadingSlide>
 
         {/* Tabs */}
-        <div className="mb-10 flex flex-wrap justify-center gap-2">
-          {tabs.map((tab, i) => (
-            <button
-              key={tab.key}
-              onClick={() => setActiveTab(i)}
-              className={`relative rounded-full px-6 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
-                activeTab === i
-                  ? 'bg-gold/10 text-gold'
-                  : 'text-white/50 hover:text-white/80'
-              }`}
-            >
-              {tab.label}
-              {activeTab === i && (
-                <span className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 bg-gold" />
-              )}
-            </button>
-          ))}
-        </div>
+        <FadeUp>
+          <div className="mb-10 flex flex-wrap justify-center gap-2">
+            {tabs.map((tab, i) => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(i)}
+                className={`relative rounded-full px-6 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
+                  activeTab === i
+                    ? 'bg-gold/10 text-gold'
+                    : 'text-body-dark/40 hover:text-body-dark/70'
+                }`}
+              >
+                {tab.label}
+                {activeTab === i && (
+                  <span className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 bg-gold" />
+                )}
+              </button>
+            ))}
+          </div>
+        </FadeUp>
 
         {/* Tab Content */}
-        <div className="rounded-2xl border border-white/5 bg-midnight-light/50 p-8">
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="rounded-2xl border border-body-dark/5 bg-cream p-8"
+        >
           {activeTab === 0 && (
             <div className="grid gap-6 md:grid-cols-2">
               {villaBallena.bedrooms.map((room) => (
-                <div key={room.name} className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+                <div key={room.name} className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm">
                   <h3 className="heading-md text-lg text-gold">{room.name}</h3>
-                  <p className="mt-2 text-sm text-white/60">{room.beds}</p>
+                  <p className="mt-2 text-sm text-body-dark/60">{room.beds}</p>
                   {room.enSuite && (
-                    <span className="mt-3 inline-block rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-xs text-gold/80">
+                    <span className="mt-3 inline-block rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-xs text-gold">
                       En-suite bathroom
                     </span>
                   )}
                 </div>
               ))}
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6 md:col-span-2">
-                <div className="grid grid-cols-2 gap-4 text-sm text-white/60">
-                  <p><span className="text-gold">Bathrooms:</span> {villaCommon.bathrooms}</p>
-                  <p><span className="text-gold">Guest WCs:</span> {villaCommon.guestWCs}</p>
-                  <p><span className="text-gold">Max guests:</span> {villaCommon.maxGuests}</p>
+              <div className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm md:col-span-2">
+                <div className="grid grid-cols-2 gap-4 text-sm text-body-dark/60">
+                  <p><span className="text-gold font-medium">Bathrooms:</span> {villaCommon.bathrooms}</p>
+                  <p><span className="text-gold font-medium">Guest WCs:</span> {villaCommon.guestWCs}</p>
+                  <p><span className="text-gold font-medium">Max guests:</span> {villaCommon.maxGuests}</p>
                 </div>
               </div>
             </div>
@@ -176,27 +180,27 @@ function Specifications() {
 
           {activeTab === 1 && (
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-lg text-gold">Private Sauna</h3>
-                <p className="mt-2 text-sm text-white/60">{villaBallena.unique.sauna}</p>
-                <p className="mt-1 text-sm text-white/60">Wellness shower included</p>
+                <p className="mt-2 text-sm text-body-dark/60">{villaBallena.unique.sauna}</p>
+                <p className="mt-1 text-sm text-body-dark/60">Wellness shower included</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-lg text-gold">Heated Pool</h3>
-                <p className="mt-2 text-sm text-white/60">Size: {villaCommon.pool.size}</p>
-                <p className="mt-1 text-sm text-white/60">Depth: {villaCommon.pool.depth}</p>
-                <p className="mt-1 text-sm text-white/60">{villaCommon.pool.type}</p>
+                <p className="mt-2 text-sm text-body-dark/60">Size: {villaCommon.pool.size}</p>
+                <p className="mt-1 text-sm text-body-dark/60">Depth: {villaCommon.pool.depth}</p>
+                <p className="mt-1 text-sm text-body-dark/60">{villaCommon.pool.type}</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6 md:col-span-2">
+              <div className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm md:col-span-2">
                 <h3 className="heading-md text-lg text-gold">Pool Features</h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {villaCommon.pool.features.map((f) => (
-                    <span key={f} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                    <span key={f} className="rounded-full border border-body-dark/10 bg-cream px-3 py-1 text-xs text-body-dark/60">
                       {f}
                     </span>
                   ))}
                 </div>
-                <p className="mt-3 text-sm text-white/50">Season: {villaCommon.pool.season}</p>
+                <p className="mt-3 text-sm text-body-dark/50">Season: {villaCommon.pool.season}</p>
               </div>
             </div>
           )}
@@ -204,55 +208,55 @@ function Specifications() {
           {activeTab === 2 && (
             <div className="grid gap-6 md:grid-cols-2">
               {Object.entries(villaCommon.outdoor).map(([key, value]) => (
-                <div key={key} className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+                <div key={key} className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm">
                   <h3 className="heading-md text-sm text-gold">{key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())}</h3>
-                  <p className="mt-2 text-sm text-white/60">{value}</p>
+                  <p className="mt-2 text-sm text-body-dark/60">{value}</p>
                 </div>
               ))}
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-sm text-gold">Terrace</h3>
-                <p className="mt-2 text-sm text-white/60">{villaBallena.unique.terrace}</p>
+                <p className="mt-2 text-sm text-body-dark/60">{villaBallena.unique.terrace}</p>
               </div>
             </div>
           )}
 
           {activeTab === 3 && (
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-sm text-gold">Climate</h3>
-                <p className="mt-2 text-sm text-white/60">{villaCommon.indoor.ac}</p>
-                <p className="mt-1 text-sm text-white/60">{villaCommon.indoor.heating}</p>
-                {villaCommon.indoor.fireplace && <p className="mt-1 text-sm text-white/60">Fireplace</p>}
+                <p className="mt-2 text-sm text-body-dark/60">{villaCommon.indoor.ac}</p>
+                <p className="mt-1 text-sm text-body-dark/60">{villaCommon.indoor.heating}</p>
+                {villaCommon.indoor.fireplace && <p className="mt-1 text-sm text-body-dark/60">Fireplace</p>}
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-sm text-gold">Entertainment</h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {villaCommon.indoor.entertainment.map((e) => (
-                    <span key={e} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                    <span key={e} className="rounded-full border border-body-dark/10 bg-cream px-3 py-1 text-xs text-body-dark/60">
                       {e}
                     </span>
                   ))}
                 </div>
-                <p className="mt-2 text-sm text-white/50">WiFi: {villaCommon.indoor.wifi}</p>
+                <p className="mt-2 text-sm text-body-dark/50">WiFi: {villaCommon.indoor.wifi}</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-sm text-gold">Kitchen</h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {villaCommon.indoor.kitchen.map((k) => (
-                    <span key={k} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                    <span key={k} className="rounded-full border border-body-dark/10 bg-cream px-3 py-1 text-xs text-body-dark/60">
                       {k}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
+              <div className="rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm">
                 <h3 className="heading-md text-sm text-gold">Laundry & Security</h3>
-                <p className="mt-2 text-sm text-white/60">{villaCommon.indoor.laundry}</p>
-                {villaCommon.indoor.safe && <p className="mt-1 text-sm text-white/60">In-room safe</p>}
+                <p className="mt-2 text-sm text-body-dark/60">{villaCommon.indoor.laundry}</p>
+                {villaCommon.indoor.safe && <p className="mt-1 text-sm text-body-dark/60">In-room safe</p>}
               </div>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -270,13 +274,13 @@ function DayTimeline() {
   ];
 
   return (
-    <section className="section-padding bg-midnight-light">
+    <section className="section-padding bg-offwhite">
       <div className="mx-auto max-w-4xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
+        <HeadingSlide>
+          <h2 className="heading-lg mb-16 text-center text-3xl text-body-dark md:text-4xl">
             {t('dayTitle', { villa: 'Villa Ballena' })}
           </h2>
-        </ScrollReveal>
+        </HeadingSlide>
 
         <div className="relative">
           {/* Gold timeline line */}
@@ -288,7 +292,7 @@ function DayTimeline() {
                 <div className="relative flex items-start gap-8">
                   {/* Timeline dot */}
                   <div className="relative z-10 hidden flex-shrink-0 md:block">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-midnight">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-white shadow-sm">
                       <svg className="h-5 w-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d={slot.icon} />
                       </svg>
@@ -296,12 +300,12 @@ function DayTimeline() {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1 rounded-xl border border-white/5 bg-midnight/50 p-6">
+                  <div className="flex-1 rounded-xl border border-body-dark/5 bg-white p-6 shadow-sm">
                     <div className="flex items-center gap-3">
                       <span className="text-sm font-bold text-gold">{slot.time}</span>
-                      <span className="heading-md text-sm text-white/80">{slot.period}</span>
+                      <span className="heading-md text-sm text-body-dark/70">{slot.period}</span>
                     </div>
-                    <p className="mt-3 text-sm leading-relaxed text-white/60">{slot.description}</p>
+                    <p className="mt-3 text-sm leading-relaxed text-body-dark/60">{slot.description}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -329,15 +333,15 @@ function PracticalInfo() {
   return (
     <section className="section-padding bg-cream">
       <div className="mx-auto max-w-5xl px-6">
-        <ScrollReveal>
+        <HeadingSlide>
           <h2 className="heading-lg mb-12 text-center text-3xl text-body-dark md:text-4xl">
             {t('practicalInfo')}
           </h2>
-        </ScrollReveal>
+        </HeadingSlide>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, i) => (
-            <ScrollReveal key={item.label} delay={i * 0.08}>
+        <StaggerContainer className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" staggerDelay={0.08}>
+          {items.map((item) => (
+            <StaggerItem key={item.label}>
               <div className="rounded-xl border border-body-dark/10 bg-white p-6 transition-all duration-300 hover:border-gold/30 hover:shadow-lg">
                 <div className="flex items-start gap-4">
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gold/10">
@@ -351,9 +355,9 @@ function PracticalInfo() {
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
@@ -364,7 +368,7 @@ function PricingQuickView() {
   const t = useTranslations('villa');
 
   return (
-    <section className="section-padding bg-midnight">
+    <section className="section-padding bg-navy">
       <div className="mx-auto max-w-3xl px-6 text-center">
         <ScrollReveal>
           <p className="text-sm uppercase tracking-[0.3em] text-white/40">Starting from</p>
@@ -393,7 +397,7 @@ function CTASection() {
   const t = useTranslations('villa');
 
   return (
-    <section className="relative overflow-hidden bg-midnight-light py-24">
+    <section className="relative overflow-hidden bg-navy py-24">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(201,169,110,0.08)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(201,169,110,0.06)_0%,transparent_50%)]" />
       <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
@@ -405,24 +409,29 @@ function CTASection() {
             {t('bookVilla', { villa: 'Villa Ballena' })}
           </h2>
         </ScrollReveal>
-        <ScrollReveal delay={0.2}>
+        <FadeUp delay={0.2}>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
+            <motion.a
               href={villaBallena.bookingLinks.crovillas}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full rounded-full bg-gold px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-midnight transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] sm:w-auto"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+              className="w-full rounded-full bg-gold px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] sm:w-auto"
             >
               {t('bookVilla', { villa: 'Villa Ballena' })}
-            </a>
-            <Link
-              href="/contact"
-              className="w-full rounded-full border border-gold/40 px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-gold hover:text-midnight sm:w-auto"
-            >
-              {t('inquireDates')}
-            </Link>
+            </motion.a>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 17 }}>
+              <Link
+                href="/contact"
+                className="w-full rounded-full border border-gold/40 px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-gold hover:text-white sm:w-auto"
+              >
+                {t('inquireDates')}
+              </Link>
+            </motion.div>
           </div>
-        </ScrollReveal>
+        </FadeUp>
       </div>
     </section>
   );
