@@ -2,9 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import { useRef, useEffect } from 'react';
 import Image from 'next/image';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-/* ─────────────────────── Data ─────────────────────── */
+gsap.registerPlugin(ScrollTrigger);
 
 const blogPosts = [
   {
@@ -57,77 +60,72 @@ const blogPosts = [
   },
 ];
 
-/* ─────────────────────── Component ─────────────────────── */
-
 export default function BlogPage() {
   const t = useTranslations('blog');
+  const titleRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (titleRef.current) {
+        const lines = titleRef.current.querySelectorAll('.hero-line');
+        gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 });
+      }
+      if (gridRef.current) {
+        const cards = gridRef.current.querySelectorAll('.blog-card');
+        cards.forEach((card, i) => {
+          gsap.fromTo(card, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: i * 0.1, scrollTrigger: { trigger: card, start: 'top 88%' } });
+          const img = card.querySelector('img');
+          if (img) gsap.fromTo(img, { scale: 1.1 }, { scale: 1, scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true } });
+        });
+      }
+    });
+    return () => ctx.revert();
+  }, []);
 
   return (
     <main>
       {/* ──────── Hero ──────── */}
-      <section className="relative flex h-[40vh] min-h-[320px] items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <Image src="/images/beluga/Beluga 42.jpg" alt="Aerial view of Svetvinčenat village" fill className="object-cover" priority quality={85} />
-          <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
-        </div>
-        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-          <h1 className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl">
-            {t('title')}
-          </h1>
-          <p className="mt-4 font-accent text-lg italic text-gold/80 md:text-xl">
-            {t('subtitle')}
-          </p>
+      <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
+        <Image src="/images/beluga/Beluga 42.jpg" alt="Aerial view of Svetvincenat village" fill className="object-cover" priority quality={85} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+        <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
+          <div ref={titleRef} className="max-w-[90vw]">
+            <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">JOURNAL</h1></div>
+          </div>
+          <div className="absolute right-6 bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] text-right">
+            <p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">{t('subtitle')}</p>
+          </div>
         </div>
       </section>
 
       {/* ──────── Blog Grid ──────── */}
-      <section className="section-padding bg-midnight">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <section className="section-editorial bg-bg">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <p className="label-section mb-16 lg:mb-24">(ARTICLES)</p>
+          <div ref={gridRef} className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (
-              <article
-                key={post.slug}
-                className="group overflow-hidden rounded-2xl border border-white/5 transition-all duration-500 hover:border-gold/20"
-              >
-                {/* Image */}
+              <article key={post.slug} className="blog-card group overflow-hidden rounded-sm border border-line transition-all duration-500 hover:border-line-strong">
                 <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    quality={75}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/60 to-transparent" />
-                  {/* Category tag */}
+                  <Image src={post.image} alt={post.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" quality={75} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg/60 to-transparent" />
                   <div className="absolute left-4 top-4">
-                    <span className="rounded-full bg-gold/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-midnight">
+                    <span className="rounded-full border border-line bg-bg/60 px-3 py-1 text-[10px] font-heading uppercase tracking-widest text-text-muted backdrop-blur-sm">
                       {post.category}
                     </span>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="bg-midnight-light/50 p-6">
-                  <time className="text-xs tracking-wider text-white/40">
-                    {new Date(post.date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
+                <div className="bg-bg-elevated p-6">
+                  <time className="font-heading text-[0.6875rem] tracking-wider text-text-dim">
+                    {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                   </time>
-
-                  <h2 className="mt-3 heading-md text-base text-white transition-colors duration-300 group-hover:text-gold md:text-lg">
+                  <h2 className="mt-3 font-heading text-sm font-medium uppercase tracking-[0.08em] text-text transition-colors duration-300 group-hover:text-text-muted md:text-base">
                     {post.title}
                   </h2>
-
-                  <p className="mt-3 text-sm leading-relaxed text-white/50">
-                    {post.excerpt}
-                  </p>
-
+                  <p className="mt-3 text-sm leading-relaxed text-text-muted">{post.excerpt}</p>
                   <Link
                     href={`/blog/${post.slug}` as '/blog/truffle-season-in-istria'}
-                    className="mt-5 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-gold transition-all duration-300 hover:gap-3"
+                    className="mt-5 inline-flex items-center gap-2 font-heading text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-text transition-all duration-300 hover:gap-3"
                   >
                     {t('readMore')}
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

@@ -2,105 +2,136 @@
 
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import ScrollReveal from '@/components/animations/ScrollReveal';
-import CountUp from '@/components/animations/CountUp';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { villaCommon, villaBallena } from '@/lib/data';
 import { heroImages, ballenaGallery } from '@/lib/images';
 
-/* ─────────────────────────── Hero ─────────────────────────── */
-function Hero() {
-  return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
-        <Image src={heroImages.ballena} alt="Villa Ballena pool at night" fill className="object-cover" priority quality={85} />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/50 via-midnight/30 to-midnight/80" />
-      </div>
+gsap.registerPlugin(ScrollTrigger);
 
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <ScrollReveal>
-          <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
-            Svetvincenat, Istria
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.15}>
-          <h1 className="heading-xl text-4xl text-white sm:text-5xl md:text-6xl lg:text-7xl">
-            Villa Ballena
-          </h1>
-        </ScrollReveal>
-        <ScrollReveal delay={0.3}>
-          <p className="mx-auto mt-6 max-w-lg font-accent text-xl italic text-gold/70 md:text-2xl">
-            The Serene Wellness Retreat
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.45}>
-          <div className="mt-10 flex flex-col items-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">Discover</span>
-            <div className="animate-bounce">
-              <svg className="h-5 w-5 text-gold/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7" />
-              </svg>
+/* ═══════════════════════════════════════════════════════════
+   S1 — HERO
+   ═══════════════════════════════════════════════════════════ */
+function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (titleRef.current) {
+        const lines = titleRef.current.querySelectorAll('.hero-line');
+        gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 });
+      }
+    });
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="relative h-screen w-full overflow-hidden">
+      <Image src={heroImages.ballena} alt="Villa Ballena pool at night" fill className="object-cover" priority quality={90} />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+      <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
+        <div ref={titleRef} className="max-w-[90vw]">
+          <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">BALLENA</h1></div>
+        </div>
+        <div className="absolute right-6 bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] text-right">
+          <p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">The Serene Wellness Retreat</p>
+          <p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">Svetvincenat, Istria</p>
+        </div>
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">Scroll</span>
+          <div className="h-8 w-px bg-white/20 animate-pulse" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   S2 — INTRODUCTION
+   ═══════════════════════════════════════════════════════════ */
+function Introduction() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (imageRef.current) {
+        const img = imageRef.current.querySelector('img');
+        if (img) gsap.fromTo(img, { scale: 1.15 }, { scale: 1, scrollTrigger: { trigger: imageRef.current, start: 'top bottom', end: 'bottom top', scrub: true } });
+      }
+      if (textRef.current) gsap.fromTo(textRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: textRef.current, start: 'top 85%' } });
+    });
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="section-editorial bg-bg">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <p className="label-section mb-16 lg:mb-24">(THE VILLA)</p>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4">
+          <div className="hidden lg:block lg:col-span-3" />
+          <div ref={imageRef} className="lg:col-span-4 overflow-hidden rounded-sm">
+            <div className="relative aspect-[3/4]">
+              <Image src="/images/ballena/Ballena 11.jpg" alt="Villa Ballena interior living area" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
             </div>
           </div>
-        </ScrollReveal>
+          <div ref={textRef} className="lg:col-span-5 flex flex-col justify-start lg:pt-8 lg:pl-12">
+            <p className="display-md !not-italic !font-bold">Wake up to the scent of Istrian rosemary.</p>
+            <p className="mt-8 body-editorial">
+              Step onto your private terrace with coffee, then ease into a heated pool surrounded by nature.
+              Villa Ballena is a 350m&sup2; designer residence built in 2021, where dark sophisticated interiors
+              meet the warmth of Mediterranean living. Four en-suite bedrooms, a private Finnish sauna,
+              and a biological pool with hydromassage create a sanctuary for those who seek both style and serenity.
+            </p>
+            <Link href="/gallery" className="btn-editorial mt-8 w-fit">View Gallery</Link>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
 
-/* ────────────────────── Introduction ──────────────────────── */
-function Introduction() {
-  return (
-    <section className="section-padding bg-midnight">
-      <div className="mx-auto max-w-4xl px-6">
-        <ScrollReveal>
-          <p className="font-accent text-2xl italic leading-relaxed text-gold md:text-3xl">
-            Wake up to the scent of Istrian rosemary.
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.2}>
-          <p className="mt-8 text-base leading-relaxed text-white/70 md:text-lg">
-            Step onto your private terrace with coffee, then ease into a heated pool surrounded by nature.
-            Villa Ballena is a 350m&sup2; designer residence built in 2021, where dark sophisticated interiors
-            meet the warmth of Mediterranean living. Four en-suite bedrooms, a private Finnish sauna,
-            and a biological pool with hydromassage create a sanctuary for those who seek both style and serenity.
-          </p>
-        </ScrollReveal>
-        <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
-      </div>
-    </section>
-  );
-}
-
-/* ──────────────────── Photo Gallery Grid ──────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   S3 — EDITORIAL GALLERY
+   ═══════════════════════════════════════════════════════════ */
 function PhotoGallery() {
+  const sectionRef = useRef<HTMLElement>(null);
   const heights = ['aspect-[3/4]', 'aspect-[4/5]', 'aspect-[3/4]', 'aspect-[4/3]', 'aspect-[4/5]', 'aspect-[3/4]'];
 
-  return (
-    <section className="section-padding bg-midnight-light">
-      <div className="mx-auto max-w-7xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
-            Gallery
-          </h2>
-        </ScrollReveal>
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current) return;
+      const items = sectionRef.current.querySelectorAll('.gallery-item');
+      items.forEach((item, i) => {
+        gsap.fromTo(item, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: i * 0.1, scrollTrigger: { trigger: item, start: 'top 88%' } });
+        const img = item.querySelector('img');
+        if (img) gsap.fromTo(img, { scale: 1.1 }, { scale: 1, scrollTrigger: { trigger: item, start: 'top bottom', end: 'bottom top', scrub: true } });
+      });
+    });
+    return () => ctx.revert();
+  }, []);
 
+  return (
+    <section ref={sectionRef} className="section-editorial bg-bg-elevated">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <p className="label-section mb-16 lg:mb-24">(GALLERY)</p>
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
           {ballenaGallery.slice(0, 6).map((image, i) => (
-            <ScrollReveal key={image.src} delay={i * 0.1}>
-              <div className="group mb-4 break-inside-avoid overflow-hidden rounded-xl border border-white/5 transition-all duration-500 hover:border-gold/20">
-                <div className={`${heights[i]} relative`}>
-                  <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80" />
-                  <div className="absolute bottom-4 left-4">
-                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-wider text-white/60 backdrop-blur-sm">
-                      {image.category}
-                    </span>
-                  </div>
+            <div key={image.src} className="gallery-item mb-4 break-inside-avoid group overflow-hidden rounded-sm border border-line transition-all duration-500 hover:border-line-strong">
+              <div className={`${heights[i]} relative`}>
+                <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="rounded-full border border-line bg-bg/40 px-3 py-1 text-xs uppercase tracking-wider text-text-muted backdrop-blur-sm">
+                    {image.category}
+                  </span>
                 </div>
               </div>
-            </ScrollReveal>
+            </div>
           ))}
         </div>
       </div>
@@ -108,10 +139,13 @@ function PhotoGallery() {
   );
 }
 
-/* ─────────────────── Specifications Tabs ──────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   S4 — SPECIFICATIONS
+   ═══════════════════════════════════════════════════════════ */
 function Specifications() {
   const t = useTranslations('villa');
   const [activeTab, setActiveTab] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
 
   const tabs = [
     { label: t('bedrooms'), key: 'bedrooms' },
@@ -120,55 +154,54 @@ function Specifications() {
     { label: t('indoor'), key: 'indoor' },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current) return;
+      gsap.fromTo(sectionRef.current.querySelector('.spec-content'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' } });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="section-padding bg-midnight">
-      <div className="mx-auto max-w-5xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-12 text-center text-3xl text-white md:text-4xl">
-            {t('specifications')}
-          </h2>
-        </ScrollReveal>
+    <section ref={sectionRef} className="section-editorial bg-bg">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="flex items-center justify-between mb-16">
+          <p className="label-section">(SPECIFICATIONS)</p>
+        </div>
 
         {/* Tabs */}
-        <div className="mb-10 flex flex-wrap justify-center gap-2">
+        <div className="mb-10 flex flex-wrap gap-2">
           {tabs.map((tab, i) => (
             <button
               key={tab.key}
               onClick={() => setActiveTab(i)}
-              className={`relative rounded-full px-6 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
-                activeTab === i
-                  ? 'bg-gold/10 text-gold'
-                  : 'text-white/50 hover:text-white/80'
-              }`}
+              className={`btn-editorial !text-[0.625rem] !px-5 !py-2 ${activeTab === i ? '!bg-text !text-bg !border-text' : ''}`}
             >
               {tab.label}
-              {activeTab === i && (
-                <span className="absolute bottom-0 left-1/2 h-0.5 w-8 -translate-x-1/2 bg-gold" />
-              )}
             </button>
           ))}
         </div>
 
-        {/* Tab Content */}
-        <div className="rounded-2xl border border-white/5 bg-midnight-light/50 p-8">
+        {/* Content */}
+        <div className="spec-content rounded-sm border border-line bg-bg-elevated p-8">
           {activeTab === 0 && (
             <div className="grid gap-6 md:grid-cols-2">
               {villaBallena.bedrooms.map((room) => (
-                <div key={room.name} className="rounded-xl border border-white/5 bg-midnight/50 p-6">
-                  <h3 className="heading-md text-lg text-gold">{room.name}</h3>
-                  <p className="mt-2 text-sm text-white/60">{room.beds}</p>
+                <div key={room.name} className="rounded-sm border border-line bg-bg p-6">
+                  <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{room.name}</h3>
+                  <p className="mt-2 text-sm text-text-muted">{room.beds}</p>
                   {room.enSuite && (
-                    <span className="mt-3 inline-block rounded-full border border-gold/20 bg-gold/5 px-3 py-1 text-xs text-gold/80">
+                    <span className="mt-3 inline-block rounded-full border border-line px-3 py-1 text-xs text-text-muted">
                       En-suite bathroom
                     </span>
                   )}
                 </div>
               ))}
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6 md:col-span-2">
-                <div className="grid grid-cols-2 gap-4 text-sm text-white/60">
-                  <p><span className="text-gold">Bathrooms:</span> {villaCommon.bathrooms}</p>
-                  <p><span className="text-gold">Guest WCs:</span> {villaCommon.guestWCs}</p>
-                  <p><span className="text-gold">Max guests:</span> {villaCommon.maxGuests}</p>
+              <div className="rounded-sm border border-line bg-bg p-6 md:col-span-2">
+                <div className="grid grid-cols-2 gap-4 text-sm text-text-muted">
+                  <p><span className="text-text">Bathrooms:</span> {villaCommon.bathrooms}</p>
+                  <p><span className="text-text">Guest WCs:</span> {villaCommon.guestWCs}</p>
+                  <p><span className="text-text">Max guests:</span> {villaCommon.maxGuests}</p>
                 </div>
               </div>
             </div>
@@ -176,27 +209,27 @@ function Specifications() {
 
           {activeTab === 1 && (
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
-                <h3 className="heading-md text-lg text-gold">Private Sauna</h3>
-                <p className="mt-2 text-sm text-white/60">{villaBallena.unique.sauna}</p>
-                <p className="mt-1 text-sm text-white/60">Wellness shower included</p>
+              <div className="rounded-sm border border-line bg-bg p-6">
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Private Sauna</h3>
+                <p className="mt-2 text-sm text-text-muted">{villaBallena.unique.sauna}</p>
+                <p className="mt-1 text-sm text-text-muted">Wellness shower included</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
-                <h3 className="heading-md text-lg text-gold">Heated Pool</h3>
-                <p className="mt-2 text-sm text-white/60">Size: {villaCommon.pool.size}</p>
-                <p className="mt-1 text-sm text-white/60">Depth: {villaCommon.pool.depth}</p>
-                <p className="mt-1 text-sm text-white/60">{villaCommon.pool.type}</p>
+              <div className="rounded-sm border border-line bg-bg p-6">
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Heated Pool</h3>
+                <p className="mt-2 text-sm text-text-muted">Size: {villaCommon.pool.size}</p>
+                <p className="mt-1 text-sm text-text-muted">Depth: {villaCommon.pool.depth}</p>
+                <p className="mt-1 text-sm text-text-muted">{villaCommon.pool.type}</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6 md:col-span-2">
-                <h3 className="heading-md text-lg text-gold">Pool Features</h3>
+              <div className="rounded-sm border border-line bg-bg p-6 md:col-span-2">
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Pool Features</h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {villaCommon.pool.features.map((f) => (
-                    <span key={f} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                    <span key={f} className="rounded-full border border-line px-3 py-1 text-xs text-text-muted">
                       {f}
                     </span>
                   ))}
                 </div>
-                <p className="mt-3 text-sm text-white/50">Season: {villaCommon.pool.season}</p>
+                <p className="mt-3 text-sm text-text-dim">Season: {villaCommon.pool.season}</p>
               </div>
             </div>
           )}
@@ -204,51 +237,51 @@ function Specifications() {
           {activeTab === 2 && (
             <div className="grid gap-6 md:grid-cols-2">
               {Object.entries(villaCommon.outdoor).map(([key, value]) => (
-                <div key={key} className="rounded-xl border border-white/5 bg-midnight/50 p-6">
-                  <h3 className="heading-md text-sm text-gold">{key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())}</h3>
-                  <p className="mt-2 text-sm text-white/60">{value}</p>
+                <div key={key} className="rounded-sm border border-line bg-bg p-6">
+                  <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase())}</h3>
+                  <p className="mt-2 text-sm text-text-muted">{value}</p>
                 </div>
               ))}
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
-                <h3 className="heading-md text-sm text-gold">Terrace</h3>
-                <p className="mt-2 text-sm text-white/60">{villaBallena.unique.terrace}</p>
+              <div className="rounded-sm border border-line bg-bg p-6">
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Terrace</h3>
+                <p className="mt-2 text-sm text-text-muted">{villaBallena.unique.terrace}</p>
               </div>
             </div>
           )}
 
           {activeTab === 3 && (
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
-                <h3 className="heading-md text-sm text-gold">Climate</h3>
-                <p className="mt-2 text-sm text-white/60">{villaCommon.indoor.ac}</p>
-                <p className="mt-1 text-sm text-white/60">{villaCommon.indoor.heating}</p>
-                {villaCommon.indoor.fireplace && <p className="mt-1 text-sm text-white/60">Fireplace</p>}
+              <div className="rounded-sm border border-line bg-bg p-6">
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Climate</h3>
+                <p className="mt-2 text-sm text-text-muted">{villaCommon.indoor.ac}</p>
+                <p className="mt-1 text-sm text-text-muted">{villaCommon.indoor.heating}</p>
+                {villaCommon.indoor.fireplace && <p className="mt-1 text-sm text-text-muted">Fireplace</p>}
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
-                <h3 className="heading-md text-sm text-gold">Entertainment</h3>
+              <div className="rounded-sm border border-line bg-bg p-6">
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Entertainment</h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {villaCommon.indoor.entertainment.map((e) => (
-                    <span key={e} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                    <span key={e} className="rounded-full border border-line px-3 py-1 text-xs text-text-muted">
                       {e}
                     </span>
                   ))}
                 </div>
-                <p className="mt-2 text-sm text-white/50">WiFi: {villaCommon.indoor.wifi}</p>
+                <p className="mt-2 text-sm text-text-dim">WiFi: {villaCommon.indoor.wifi}</p>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
-                <h3 className="heading-md text-sm text-gold">Kitchen</h3>
+              <div className="rounded-sm border border-line bg-bg p-6">
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Kitchen</h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {villaCommon.indoor.kitchen.map((k) => (
-                    <span key={k} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
+                    <span key={k} className="rounded-full border border-line px-3 py-1 text-xs text-text-muted">
                       {k}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className="rounded-xl border border-white/5 bg-midnight/50 p-6">
-                <h3 className="heading-md text-sm text-gold">Laundry & Security</h3>
-                <p className="mt-2 text-sm text-white/60">{villaCommon.indoor.laundry}</p>
-                {villaCommon.indoor.safe && <p className="mt-1 text-sm text-white/60">In-room safe</p>}
+              <div className="rounded-sm border border-line bg-bg p-6">
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Laundry & Security</h3>
+                <p className="mt-2 text-sm text-text-muted">{villaCommon.indoor.laundry}</p>
+                {villaCommon.indoor.safe && <p className="mt-1 text-sm text-text-muted">In-room safe</p>}
               </div>
             </div>
           )}
@@ -258,54 +291,53 @@ function Specifications() {
   );
 }
 
-/* ─────────────── A Day at Villa Ballena ───────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   S5 — A DAY AT VILLA BALLENA
+   ═══════════════════════════════════════════════════════════ */
 function DayTimeline() {
   const t = useTranslations('villa');
+  const sectionRef = useRef<HTMLElement>(null);
 
   const timeSlots = [
-    { time: '08:00', period: 'Morning', description: t('morning'), icon: 'M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z' },
-    { time: '12:00', period: 'Midday', description: t('midday'), icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z' },
-    { time: '15:00', period: 'Afternoon', description: t('afternoon'), icon: 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7' },
-    { time: '20:00', period: 'Evening', description: t('evening'), icon: 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z' },
+    { time: '08:00', period: 'Morning', description: t('morning') },
+    { time: '12:00', period: 'Midday', description: t('midday') },
+    { time: '15:00', period: 'Afternoon', description: t('afternoon') },
+    { time: '20:00', period: 'Evening', description: t('evening') },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current) return;
+      const items = sectionRef.current.querySelectorAll('.timeline-item');
+      gsap.fromTo(items, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'power2.out', scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' } });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="section-padding bg-midnight-light">
-      <div className="mx-auto max-w-4xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
-            {t('dayTitle', { villa: 'Villa Ballena' })}
-          </h2>
-        </ScrollReveal>
+    <section ref={sectionRef} className="section-editorial bg-bg-elevated">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <p className="label-section mb-16 lg:mb-24">(A DAY AT BALLENA)</p>
 
-        <div className="relative">
-          {/* Gold timeline line */}
-          <div className="absolute left-6 top-0 hidden h-full w-px bg-gradient-to-b from-gold/60 via-gold/30 to-transparent md:block" />
-
-          <div className="space-y-12">
-            {timeSlots.map((slot, i) => (
-              <ScrollReveal key={slot.period} delay={i * 0.15}>
-                <div className="relative flex items-start gap-8">
-                  {/* Timeline dot */}
-                  <div className="relative z-10 hidden flex-shrink-0 md:block">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-midnight">
-                      <svg className="h-5 w-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d={slot.icon} />
-                      </svg>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4">
+          <div className="lg:col-span-5">
+            <h2 className="display-lg">{t('dayTitle', { villa: 'Villa Ballena' })}</h2>
+          </div>
+          <div className="lg:col-span-7">
+            <div className="space-y-0">
+              {timeSlots.map((slot) => (
+                <div key={slot.period} className="timeline-item border-t border-line py-8">
+                  <div className="flex items-baseline gap-6">
+                    <span className="font-heading text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-text-dim w-16">{slot.time}</span>
+                    <div>
+                      <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{slot.period}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-text-muted">{slot.description}</p>
                     </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 rounded-xl border border-white/5 bg-midnight/50 p-6">
-                    <div className="flex items-center gap-3">
-                      <span className="text-sm font-bold text-gold">{slot.time}</span>
-                      <span className="heading-md text-sm text-white/80">{slot.period}</span>
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-white/60">{slot.description}</p>
                   </div>
                 </div>
-              </ScrollReveal>
-            ))}
+              ))}
+              <div className="border-t border-line" />
+            </div>
           </div>
         </div>
       </div>
@@ -313,45 +345,41 @@ function DayTimeline() {
   );
 }
 
-/* ──────────────── Practical Information ────────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   S6 — PRACTICAL INFORMATION
+   ═══════════════════════════════════════════════════════════ */
 function PracticalInfo() {
   const t = useTranslations('villa');
+  const sectionRef = useRef<HTMLElement>(null);
 
   const items = [
-    { label: t('checkIn'), value: villaCommon.checkIn, icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
-    { label: t('checkOut'), value: villaCommon.checkOut, icon: 'M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1' },
-    { label: t('deposit'), value: villaCommon.deposit, icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z' },
-    { label: t('included'), value: villaCommon.included.join(', '), icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z' },
-    { label: t('petsAllowed'), value: villaCommon.pets, icon: 'M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
-    { label: 'Living Space', value: `${villaCommon.area} on ${villaCommon.grounds} grounds`, icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' },
+    { label: t('checkIn'), value: villaCommon.checkIn },
+    { label: t('checkOut'), value: villaCommon.checkOut },
+    { label: t('deposit'), value: villaCommon.deposit },
+    { label: t('included'), value: villaCommon.included.join(', ') },
+    { label: t('petsAllowed'), value: villaCommon.pets },
+    { label: 'Living Space', value: `${villaCommon.area} on ${villaCommon.grounds} grounds` },
   ];
 
-  return (
-    <section className="section-padding bg-cream">
-      <div className="mx-auto max-w-5xl px-6">
-        <ScrollReveal>
-          <h2 className="heading-lg mb-12 text-center text-3xl text-body-dark md:text-4xl">
-            {t('practicalInfo')}
-          </h2>
-        </ScrollReveal>
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current) return;
+      const cards = sectionRef.current.querySelectorAll('.info-card');
+      gsap.fromTo(cards, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' } });
+    });
+    return () => ctx.revert();
+  }, []);
 
+  return (
+    <section ref={sectionRef} className="section-editorial bg-bg">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <p className="label-section mb-16 lg:mb-24">(PRACTICAL INFO)</p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, i) => (
-            <ScrollReveal key={item.label} delay={i * 0.08}>
-              <div className="rounded-xl border border-body-dark/10 bg-white p-6 transition-all duration-300 hover:border-gold/30 hover:shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gold/10">
-                    <svg className="h-5 w-5 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase tracking-wider text-body-dark">{item.label}</p>
-                    <p className="mt-1 text-sm text-body-dark/70">{item.value}</p>
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
+          {items.map((item) => (
+            <div key={item.label} className="info-card rounded-sm border border-line bg-bg-elevated p-6 transition-all duration-300 hover:border-line-strong">
+              <p className="font-heading text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-text-dim">{item.label}</p>
+              <p className="mt-2 text-sm text-text-muted">{item.value}</p>
+            </div>
           ))}
         </div>
       </div>
@@ -359,76 +387,68 @@ function PracticalInfo() {
   );
 }
 
-/* ───────────────── Pricing Quick View ─────────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   S7 — PRICING TEASER
+   ═══════════════════════════════════════════════════════════ */
 function PricingQuickView() {
   const t = useTranslations('villa');
 
   return (
-    <section className="section-padding bg-midnight">
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        <ScrollReveal>
-          <p className="text-sm uppercase tracking-[0.3em] text-white/40">Starting from</p>
-          <p className="mt-4 text-gradient-gold text-5xl font-bold md:text-6xl lg:text-7xl font-heading">
-            {t('pricingTeaser')}
-          </p>
-        </ScrollReveal>
-        <ScrollReveal delay={0.2}>
-          <Link
-            href="/pricing"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-gold transition-colors hover:text-gold-light"
-          >
+    <section className="bg-bg">
+      <div className="line-h" />
+      <div className="py-32 lg:py-48">
+        <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
+          <p className="label-section mb-6">(PRICING)</p>
+          <p className="font-heading text-[0.6875rem] uppercase tracking-[0.3em] text-text-dim">Starting from</p>
+          <p className="mt-4 display-lg">{t('pricingTeaser')}</p>
+          <Link href="/pricing" className="btn-editorial mt-10 inline-flex items-center gap-2">
             {t('viewPricing')}
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
-        </ScrollReveal>
+        </div>
       </div>
+      <div className="line-h" />
     </section>
   );
 }
 
-/* ──────────────────────── CTA ─────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════
+   S8 — CTA
+   ═══════════════════════════════════════════════════════════ */
 function CTASection() {
   const t = useTranslations('villa');
 
   return (
-    <section className="relative overflow-hidden bg-midnight-light py-24">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(201,169,110,0.08)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_50%,rgba(201,169,110,0.06)_0%,transparent_50%)]" />
-      <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-
-      <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
-        <ScrollReveal>
-          <h2 className="heading-lg text-3xl text-white md:text-4xl lg:text-5xl">
-            {t('bookVilla', { villa: 'Villa Ballena' })}
-          </h2>
-        </ScrollReveal>
-        <ScrollReveal delay={0.2}>
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+    <section className="bg-bg">
+      <div className="py-32 lg:py-48">
+        <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
+          <h2 className="display-lg">{t('bookVilla', { villa: 'Villa Ballena' })}</h2>
+          <p className="mt-6 micro-italic">Limited summer 2026 availability</p>
+          <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href={villaBallena.bookingLinks.crovillas}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full rounded-full bg-gold px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-midnight transition-all duration-300 hover:bg-gold-light hover:shadow-[0_0_30px_rgba(201,169,110,0.3)] sm:w-auto"
+              className="btn-editorial"
             >
               {t('bookVilla', { villa: 'Villa Ballena' })}
             </a>
-            <Link
-              href="/contact"
-              className="w-full rounded-full border border-gold/40 px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-gold hover:text-midnight sm:w-auto"
-            >
+            <Link href="/contact" className="btn-editorial">
               {t('inquireDates')}
             </Link>
           </div>
-        </ScrollReveal>
+        </div>
       </div>
+      <div className="line-h" />
     </section>
   );
 }
 
-/* ═══════════════════ VILLA BALLENA PAGE ═══════════════════════ */
+/* ═══════════════════════════════════════════════════════════
+   VILLA BALLENA PAGE
+   ═══════════════════════════════════════════════════════════ */
 export default function VillaBallenaPage() {
   return (
     <main>
