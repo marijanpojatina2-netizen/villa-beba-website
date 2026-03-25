@@ -20,10 +20,11 @@ function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // More dramatic hero compression on scroll
       if (sectionRef.current) {
         gsap.to(sectionRef.current, {
-          scale: 0.92, borderRadius: '24px',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top top', end: 'bottom top', scrub: true },
+          scale: 0.75, borderRadius: '32px', opacity: 0.6,
+          scrollTrigger: { trigger: sectionRef.current, start: 'top top', end: '80% top', scrub: true },
         });
       }
       if (titleRef.current) {
@@ -38,14 +39,15 @@ function Hero() {
     <section ref={sectionRef} className="relative h-screen w-full overflow-hidden" style={{ transformOrigin: 'center top' }}>
       <Image src={heroImages.homepage} alt="Villa Ballena and Villa Beluga aerial view at dusk" fill className="object-cover" priority quality={90} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
-      <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
+      {/* Content — title positioned higher on mobile so it's always visible */}
+      <div className="absolute inset-0 flex flex-col justify-center pb-20 sm:justify-end px-6 sm:pb-12 lg:px-10 lg:pb-16">
         <div ref={titleRef} className="max-w-[90vw]">
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">BALLENA</h1></div>
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">&amp; BELUGA</h1></div>
         </div>
-        <div className="absolute right-6 bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] text-right">
+        <div className="mt-6 sm:mt-0 sm:absolute sm:right-6 sm:bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] sm:text-right">
           <p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">{t('title')}</p>
-          <p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">Svetvincenat, Istria</p>
+          <p className="mt-2 sm:mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">Svetvincenat, Istria</p>
         </div>
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">Scroll</span>
@@ -135,30 +137,35 @@ function Stats() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-editorial bg-bg relative min-h-[80vh]">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="relative grid grid-cols-2 lg:grid-cols-12 gap-y-20 lg:gap-y-32">
-          <div className="col-span-1 lg:col-span-4 lg:row-start-2">
+    <section ref={sectionRef} className="section-editorial bg-bg relative">
+      <div className="mx-auto max-w-[1000px] px-6 lg:px-10">
+        {/* Desktop: 2x2 compact grid. Mobile: 2 columns */}
+        <div className="grid grid-cols-2 gap-x-8 gap-y-16 lg:gap-x-16 lg:gap-y-20">
+          {/* 700 m² */}
+          <div>
             <div className="flex items-baseline gap-2">
-              <span className="stat-number display-hero text-[clamp(4rem,10vw,8rem)] text-text/90" data-target="700">0</span>
-              <span className="font-accent text-2xl italic text-text-muted">m&sup2;</span>
+              <span className="stat-number font-display text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="700">0</span>
+              <span className="font-accent text-xl italic text-text-muted">m&sup2;</span>
             </div>
             <p className="mt-2 text-sm text-text-dim leading-relaxed">of meticulously designed<br />living space.</p>
           </div>
-          <div className="col-span-1 lg:col-span-4 lg:col-start-6">
+          {/* 60% */}
+          <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number display-hero text-[clamp(4rem,10vw,8rem)] text-text/90" data-target="60">0</span>
-              <span className="font-accent text-3xl italic text-text-muted">%</span>
+              <span className="stat-number font-display text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="60">0</span>
+              <span className="font-accent text-xl italic text-text-muted">%</span>
             </div>
             <p className="mt-2 text-sm text-text-dim leading-relaxed">green spaces<br />for tranquility & wellness.</p>
           </div>
-          <div className="col-span-1 lg:col-span-3 lg:col-start-10">
-            <span className="stat-number display-hero text-[clamp(4rem,10vw,8rem)] text-text/90" data-target="8">0</span>
-            <p className="mt-2 text-sm text-text-dim leading-relaxed">exclusive bedrooms,<br />each tailored for comfort<br />& elegance.</p>
+          {/* 8 bedrooms */}
+          <div>
+            <span className="stat-number font-display text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="8">0</span>
+            <p className="mt-2 text-sm text-text-dim leading-relaxed">exclusive bedrooms,<br />tailored for comfort.</p>
           </div>
-          <div className="col-span-2 lg:col-span-4 lg:col-start-5 lg:row-start-2">
-            <span className="display-hero text-[clamp(3rem,8vw,7rem)] text-text/90 font-display italic">24/7</span>
-            <p className="mt-2 text-sm text-text-dim leading-relaxed">concierge services, meeting<br />every need effortlessly.</p>
+          {/* 24/7 */}
+          <div>
+            <span className="font-display text-[clamp(3rem,7vw,5.5rem)] font-bold italic text-text/90">24/7</span>
+            <p className="mt-2 text-sm text-text-dim leading-relaxed">concierge services,<br />every need effortlessly.</p>
           </div>
         </div>
       </div>

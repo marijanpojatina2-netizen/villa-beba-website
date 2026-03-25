@@ -111,23 +111,41 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Right — Book a Visit + Hamburger */}
-            <div className="flex items-center gap-4 z-10">
+            {/* Right — Language (mobile) + Book a Visit + Hamburger */}
+            <div className="flex items-center gap-3 sm:gap-4 z-10">
+              {/* Mobile language switcher */}
+              <div className="flex sm:hidden items-center gap-2 text-[0.625rem] font-heading tracking-[0.12em]">
+                <button
+                  onClick={() => switchLocale('en')}
+                  className={`uppercase transition-colors duration-300 ${locale === 'en' ? 'text-text' : 'text-text-dim'}`}
+                >
+                  EN
+                </button>
+                <span className="text-text-dim">/</span>
+                <button
+                  onClick={() => switchLocale('de')}
+                  className={`uppercase transition-colors duration-300 ${locale === 'de' ? 'text-text' : 'text-text-dim'}`}
+                >
+                  DE
+                </button>
+              </div>
+
+              {/* Book Now — hidden on small mobile, small on medium, normal on desktop */}
               <Link
                 href="/contact"
-                className="btn-editorial-filled hidden sm:inline-flex"
+                className="btn-editorial-filled hidden md:inline-flex"
               >
                 {t('bookNow')}
               </Link>
 
-              {/* Hamburger */}
+              {/* Hamburger — larger tap target, more visible lines */}
               <button
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="relative flex flex-col items-center justify-center w-10 h-10 gap-[5px]"
+                className="relative flex flex-col items-center justify-center w-11 h-11 gap-[6px] sm:w-10 sm:h-10 sm:gap-[5px]"
                 aria-label="Toggle menu"
               >
-                <span className={`block h-[1px] w-6 bg-text transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[3px]' : ''}`} />
-                <span className={`block h-[1px] w-6 bg-text transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[3px]' : ''}`} />
+                <span className={`block h-[1.5px] w-7 sm:w-6 bg-text transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[4px]' : ''}`} />
+                <span className={`block h-[1.5px] w-7 sm:w-6 bg-text transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-[4px]' : ''}`} />
               </button>
             </div>
           </div>

@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── V5 Editorial Color System ── */
-  --color-bg: #0a0a0a;
-  --color-bg-elevated: #111111;
-  --color-bg-subtle: #1a1a1a;
+  /* ── V6 Refined Color System — warm exclusive, not dead black ── */
+  --color-bg: #12110f;
+  --color-bg-elevated: #1a1816;
+  --color-bg-subtle: #211f1c;
   --color-text: #F5F5F0;
   --color-text-muted: rgba(245, 245, 240, 0.5);
   --color-text-dim: rgba(245, 245, 240, 0.3);
@@ -14,9 +14,10 @@
   --color-gold-light: #D4B97E;
 
   /* Legacy aliases (prevent breakage in existing components) */
-  --color-midnight: #0a0a0a;
-  --color-midnight-light: #111111;
+  --color-midnight: #12110f;
+  --color-midnight-light: #1a1816;
   --color-cream: #F5F5F0;
+  --color-bg-warm: #1e1c18;
   --color-body-dark: #F5F5F0;
   --color-body-light: rgba(245, 245, 240, 0.5);
 
