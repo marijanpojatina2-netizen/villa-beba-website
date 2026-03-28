@@ -39,14 +39,14 @@ function Hero() {
     <section ref={sectionRef} className="relative h-screen w-full overflow-hidden" style={{ transformOrigin: 'center top' }}>
       <Image src={heroImages.homepage} alt="Villa Ballena and Villa Beluga aerial view at dusk" fill className="object-cover" priority quality={90} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
-      {/* Content — title + subtitle stacked, left-aligned */}
-      <div className="absolute inset-0 flex flex-col justify-center pb-20 sm:justify-end px-6 sm:pb-16 lg:px-10 lg:pb-20">
+      {/* Content — title lower on screen, subtitle below */}
+      <div className="absolute inset-0 flex flex-col justify-end px-6 pb-24 sm:pb-20 lg:px-10 lg:pb-24">
         <div ref={titleRef} className="max-w-[90vw]">
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">BALLENA</h1></div>
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">&amp; BELUGA</h1></div>
         </div>
         {/* Subtitle — below title, left-aligned, larger */}
-        <div className="mt-6 lg:mt-8 max-w-[500px]">
+        <div className="mt-5 lg:mt-6 max-w-[500px]">
           <p className="font-accent text-base italic leading-relaxed text-white/80 lg:text-xl">{t('title')}</p>
           <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/50 font-body lg:text-sm">Svetvincenat, Istria</p>
         </div>
@@ -128,26 +128,26 @@ function About() {
         <div ref={statsRef} className="mt-16 lg:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 lg:gap-x-12">
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold text-text/90" data-target="700">0</span>
+              <span className="stat-number font-display text-[clamp(3rem,6vw,4.5rem)] font-bold text-text/90" data-target="700">0</span>
               <span className="font-accent text-lg italic text-text-muted">m&sup2;</span>
             </div>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">living space</p>
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold text-text/90" data-target="60">0</span>
+              <span className="stat-number font-display text-[clamp(3rem,6vw,4.5rem)] font-bold text-text/90" data-target="60">0</span>
               <span className="font-accent text-lg italic text-text-muted">%</span>
             </div>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">green spaces</p>
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold text-text/90" data-target="8">0</span>
+              <span className="stat-number font-display text-[clamp(3rem,6vw,4.5rem)] font-bold text-text/90" data-target="8">0</span>
             </div>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">exclusive bedrooms</p>
           </div>
           <div>
-            <span className="font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold italic text-text/90">24/7</span>
+            <span className="font-display text-[clamp(3rem,6vw,4.5rem)] font-bold italic text-text/90">24/7</span>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">concierge services</p>
           </div>
         </div>
@@ -194,10 +194,7 @@ function VillasShowcase() {
           {villas.map((villa) => (
             <Link key={villa.name} href={villa.href} className="villa-card group block">
               <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
-                <Image src={villa.image} alt={villa.imageAlt} fill className="object-cover transition-transform duration-700" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
-                <div className="absolute inset-0 flex items-end p-8 lg:p-12">
-                  <h2 className="display-lg text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.5)]">{villa.name.split(' ')[1]?.toUpperCase()}</h2>
-                </div>
+                <Image src={villa.image} alt={villa.imageAlt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
               <div className="mt-6 flex items-start justify-between">
                 <div>
@@ -278,24 +275,24 @@ function ValuesGrid() {
     <section ref={sectionRef} className="relative min-h-[80vh] flex items-center overflow-hidden">
       <Image src="/images/beluga/Beluga 25.jpg" alt="Villa Beluga glass terrace interior" fill className="object-cover" quality={80} />
       <div className="absolute inset-0 bg-black/65" />
-      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10 py-20 w-full">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10 py-20 w-full text-white">
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
           {values.slice(0, 2).map((v) => (
             <div key={v.num} className="value-item col-span-1 lg:col-span-3">
-              <h3 className="display-md text-white whitespace-pre-line !text-xl lg:!text-2xl">{v.title}</h3>
-              <p className="mt-3 text-[0.8125rem] text-white/50 leading-relaxed">{v.desc}</p>
-              <p className="mt-4 text-white/30 text-sm">({v.num})</p>
+              <h3 className="font-display font-normal italic whitespace-pre-line text-xl lg:text-2xl text-white">{v.title}</h3>
+              <p className="mt-3 text-[0.8125rem] text-white/70 leading-relaxed">{v.desc}</p>
+              <p className="mt-4 text-white/40 text-sm">({v.num})</p>
             </div>
           ))}
           <div className="value-item col-span-2 lg:col-span-5 lg:col-start-8 lg:row-span-2 flex flex-col justify-start">
-            <p className="body-editorial text-white/60 !max-w-none">At Villa Ballena & Beluga, we believe that a home is more than a physical space — it is a reflection of your aspirations, well-being, and values.</p>
-            <p className="mt-6 body-editorial text-white/50 !max-w-none">Our mission is to immerse you in a lifestyle that balances refined aesthetics, architectural excellence, and a profound sense of community.</p>
+            <p className="text-[0.9375rem] leading-[1.85] text-white/70 font-light">At Villa Ballena & Beluga, we believe that a home is more than a physical space — it is a reflection of your aspirations, well-being, and values.</p>
+            <p className="mt-6 text-[0.9375rem] leading-[1.85] text-white/60 font-light">Our mission is to immerse you in a lifestyle that balances refined aesthetics, architectural excellence, and a profound sense of community.</p>
           </div>
           {values.slice(2).map((v) => (
             <div key={v.num} className="value-item col-span-1 lg:col-span-2">
-              <h3 className="display-md text-white whitespace-pre-line !text-lg lg:!text-xl">{v.title}</h3>
-              <p className="mt-3 text-[0.75rem] text-white/50 leading-relaxed">{v.desc}</p>
-              <p className="mt-4 text-white/30 text-sm">({v.num})</p>
+              <h3 className="font-display font-normal italic whitespace-pre-line text-lg lg:text-xl text-white">{v.title}</h3>
+              <p className="mt-3 text-[0.75rem] text-white/70 leading-relaxed">{v.desc}</p>
+              <p className="mt-4 text-white/40 text-sm">({v.num})</p>
             </div>
           ))}
         </div>
