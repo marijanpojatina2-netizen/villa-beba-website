@@ -39,15 +39,16 @@ function Hero() {
     <section ref={sectionRef} className="relative h-screen w-full overflow-hidden" style={{ transformOrigin: 'center top' }}>
       <Image src={heroImages.homepage} alt="Villa Ballena and Villa Beluga aerial view at dusk" fill className="object-cover" priority quality={90} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
-      {/* Content — title positioned higher on mobile so it's always visible */}
-      <div className="absolute inset-0 flex flex-col justify-center pb-20 sm:justify-end px-6 sm:pb-12 lg:px-10 lg:pb-16">
+      {/* Content — title + subtitle stacked, left-aligned */}
+      <div className="absolute inset-0 flex flex-col justify-center pb-20 sm:justify-end px-6 sm:pb-16 lg:px-10 lg:pb-20">
         <div ref={titleRef} className="max-w-[90vw]">
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">BALLENA</h1></div>
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">&amp; BELUGA</h1></div>
         </div>
-        <div className="mt-6 sm:mt-0 sm:absolute sm:right-6 sm:bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] sm:text-right">
-          <p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">{t('title')}</p>
-          <p className="mt-2 sm:mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">Svetvincenat, Istria</p>
+        {/* Subtitle — below title, left-aligned, larger */}
+        <div className="mt-6 lg:mt-8 max-w-[500px]">
+          <p className="font-accent text-base italic leading-relaxed text-white/80 lg:text-xl">{t('title')}</p>
+          <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/50 font-body lg:text-sm">Svetvincenat, Istria</p>
         </div>
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">Scroll</span>
@@ -67,6 +68,7 @@ function About() {
   const imageRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const bigTextRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -78,6 +80,19 @@ function About() {
       if (bigTextRef.current) {
         const lines = bigTextRef.current.querySelectorAll('.reveal-line');
         gsap.fromTo(lines, { y: '110%' }, { y: '0%', duration: 0.9, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: bigTextRef.current, start: 'top 80%' } });
+      }
+      if (statsRef.current) {
+        const counters = statsRef.current.querySelectorAll('.stat-number');
+        counters.forEach((counter) => {
+          const target = parseInt(counter.getAttribute('data-target') || '0', 10);
+          if (isNaN(target) || target === 0) return;
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: target, duration: 1.5, ease: 'power2.out',
+            scrollTrigger: { trigger: counter, start: 'top 85%' },
+            onUpdate: () => { counter.textContent = Math.round(obj.val).toString(); },
+          });
+        });
       }
     });
     return () => ctx.revert();
@@ -100,72 +115,39 @@ function About() {
             <Link href="/about" className="btn-editorial mt-8 w-fit">Learn More</Link>
           </div>
         </div>
-        <div ref={bigTextRef} className="mt-20 lg:mt-32 max-w-[600px]">
+        <div ref={bigTextRef} className="mt-16 lg:mt-24 max-w-[600px]">
           <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic">Timeless</p></div>
           <div className="overflow-hidden"><p className="reveal-line display-lg">Design.</p></div>
           <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic font-bold">Wellness-</p></div>
           <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic font-bold">Focused</p></div>
           <div className="overflow-hidden"><p className="reveal-line display-lg">Living.</p></div>
         </div>
-      </div>
-    </section>
-  );
-}
 
-/* ═══════════════════════════════════════════════════════════
-   S3 — STATS (Scattered Rolling Counters)
-   ═══════════════════════════════════════════════════════════ */
-function Stats() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (!sectionRef.current) return;
-      const counters = sectionRef.current.querySelectorAll('.stat-number');
-      counters.forEach((counter) => {
-        const target = parseInt(counter.getAttribute('data-target') || '0', 10);
-        if (isNaN(target) || target === 0) return;
-        const obj = { val: 0 };
-        gsap.to(obj, {
-          val: target, duration: 1.5, ease: 'power2.out',
-          scrollTrigger: { trigger: counter, start: 'top 85%' },
-          onUpdate: () => { counter.textContent = Math.round(obj.val).toString(); },
-        });
-      });
-    });
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section ref={sectionRef} className="section-editorial bg-bg relative">
-      <div className="mx-auto max-w-[1000px] px-6 lg:px-10">
-        {/* Desktop: 2x2 compact grid. Mobile: 2 columns */}
-        <div className="grid grid-cols-2 gap-x-8 gap-y-16 lg:gap-x-16 lg:gap-y-20">
-          {/* 700 m² */}
-          <div>
-            <div className="flex items-baseline gap-2">
-              <span className="stat-number font-display text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="700">0</span>
-              <span className="font-accent text-xl italic text-text-muted">m&sup2;</span>
-            </div>
-            <p className="mt-2 text-sm text-text-dim leading-relaxed">of meticulously designed<br />living space.</p>
-          </div>
-          {/* 60% */}
+        {/* Stats — directly below big text, 4 in one row on desktop */}
+        <div ref={statsRef} className="mt-16 lg:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 lg:gap-x-12">
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number font-display text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="60">0</span>
-              <span className="font-accent text-xl italic text-text-muted">%</span>
+              <span className="stat-number font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold text-text/90" data-target="700">0</span>
+              <span className="font-accent text-lg italic text-text-muted">m&sup2;</span>
             </div>
-            <p className="mt-2 text-sm text-text-dim leading-relaxed">green spaces<br />for tranquility & wellness.</p>
+            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">living space</p>
           </div>
-          {/* 8 bedrooms */}
           <div>
-            <span className="stat-number font-display text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="8">0</span>
-            <p className="mt-2 text-sm text-text-dim leading-relaxed">exclusive bedrooms,<br />tailored for comfort.</p>
+            <div className="flex items-baseline gap-1">
+              <span className="stat-number font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold text-text/90" data-target="60">0</span>
+              <span className="font-accent text-lg italic text-text-muted">%</span>
+            </div>
+            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">green spaces</p>
           </div>
-          {/* 24/7 */}
           <div>
-            <span className="font-display text-[clamp(3rem,7vw,5.5rem)] font-bold italic text-text/90">24/7</span>
-            <p className="mt-2 text-sm text-text-dim leading-relaxed">concierge services,<br />every need effortlessly.</p>
+            <div className="flex items-baseline gap-1">
+              <span className="stat-number font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold text-text/90" data-target="8">0</span>
+            </div>
+            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">exclusive bedrooms</p>
+          </div>
+          <div>
+            <span className="font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold italic text-text/90">24/7</span>
+            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">concierge services</p>
           </div>
         </div>
       </div>
@@ -366,7 +348,7 @@ function Amenities() {
    ═══════════════════════════════════════════════════════════ */
 function Reviews() {
   return (
-    <section className="bg-bg py-32 lg:py-48">
+    <section className="bg-bg py-20 lg:py-28">
       <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
         <span className="block font-display text-8xl leading-none text-text-dim/20 select-none mb-4">&ldquo;</span>
         <blockquote>
@@ -390,7 +372,7 @@ function CTA() {
   return (
     <section className="bg-bg">
       <div className="line-h" />
-      <div className="py-32 lg:py-48">
+      <div className="py-20 lg:py-28">
         <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
           <h2 className="display-lg">Book Your Stay</h2>
           <p className="mt-6 micro-italic">Limited summer 2026 availability — secure your dates today</p>
@@ -413,7 +395,6 @@ export default function HomePage() {
     <main>
       <Hero />
       <About />
-      <Stats />
       <VillasShowcase />
       <Beliefs />
       <ValuesGrid />
