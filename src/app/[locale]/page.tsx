@@ -39,8 +39,8 @@ function Hero() {
     <section ref={sectionRef} className="relative h-screen w-full overflow-hidden" style={{ transformOrigin: 'center top' }}>
       <Image src={heroImages.homepage} alt="Villa Ballena and Villa Beluga aerial view at dusk" fill className="object-cover" priority quality={90} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
-      {/* Content — title lower on screen, subtitle below */}
-      <div className="absolute inset-0 flex flex-col justify-end px-6 pb-24 sm:pb-20 lg:px-10 lg:pb-24">
+      {/* Content — title in bottom third of screen */}
+      <div className="absolute inset-0 flex flex-col justify-end px-6 pb-[15vh] sm:pb-[12vh] lg:px-10 lg:pb-[10vh]">
         <div ref={titleRef} className="max-w-[90vw]">
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">BALLENA</h1></div>
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">&amp; BELUGA</h1></div>
