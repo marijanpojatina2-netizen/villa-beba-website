@@ -163,16 +163,14 @@ function ExperienceCards() {
    ═══════════════════════════════════════════════════════════ */
 function ExperiencesCTA() {
   return (
-    <section className="bg-bg">
-      <div className="line-h" />
+    <section className="bg-[#1B2A4A] text-white">
       <div className="py-32 lg:py-48">
         <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
-          <h2 className="display-lg">Let Us Curate<br />Your Istrian Adventure</h2>
-          <p className="mt-6 micro-italic">Tell us your interests and we will create your perfect itinerary</p>
-          <Link href="/contact" className="btn-editorial mt-12">Plan My Experiences</Link>
+          <h2 className="display-lg !text-white">Let Us Curate<br />Your Istrian Adventure</h2>
+          <p className="mt-6 font-accent text-sm italic text-white/60">Tell us your interests and we will create your perfect itinerary</p>
+          <Link href="/contact" className="btn-editorial mt-12 !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]">Plan My Experiences</Link>
         </div>
       </div>
-      <div className="line-h" />
     </section>
   );
 }

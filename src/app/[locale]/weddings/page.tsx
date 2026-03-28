@@ -221,10 +221,10 @@ function WeddingExperiences() {
             <div key={exp.title} className="exp-card group overflow-hidden rounded-sm border border-line transition-all duration-500 hover:border-line-strong">
               <div className="aspect-[3/4] relative overflow-hidden">
                 <Image src={exp.image} alt={exp.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" quality={75} />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{exp.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-text-muted">{exp.description}</p>
+                  <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-white">{exp.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/70">{exp.description}</p>
                 </div>
               </div>
             </div>
@@ -240,19 +240,17 @@ function WeddingExperiences() {
    ═══════════════════════════════════════════════════════════ */
 function WeddingCTA() {
   return (
-    <section className="bg-bg">
-      <div className="line-h" />
+    <section className="bg-[#1B2A4A] text-white">
       <div className="py-32 lg:py-48">
         <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
-          <h2 className="display-lg">Begin Your Forever</h2>
-          <p className="mt-6 micro-italic">Limited dates available for 2026 wedding season</p>
+          <h2 className="display-lg !text-white">Begin Your Forever</h2>
+          <p className="mt-6 font-accent text-sm italic text-white/60">Limited dates available for 2026 wedding season</p>
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/contact" className="btn-editorial">Request Wedding Package</Link>
-            <a href="https://wa.me/385915251565" target="_blank" rel="noopener noreferrer" className="btn-editorial">WhatsApp Us</a>
+            <Link href="/contact" className="btn-editorial !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]">Request Wedding Package</Link>
+            <a href="https://wa.me/385915251565" target="_blank" rel="noopener noreferrer" className="btn-editorial !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]">WhatsApp Us</a>
           </div>
         </div>
       </div>
-      <div className="line-h" />
     </section>
   );
 }

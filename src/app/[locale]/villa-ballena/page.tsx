@@ -421,27 +421,26 @@ function CTASection() {
   const t = useTranslations('villa');
 
   return (
-    <section className="bg-bg">
+    <section className="bg-[#1B2A4A] text-white">
       <div className="py-32 lg:py-48">
         <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
-          <h2 className="display-lg">{t('bookVilla', { villa: 'Villa Ballena' })}</h2>
-          <p className="mt-6 micro-italic">Limited summer 2026 availability</p>
+          <h2 className="display-lg !text-white">{t('bookVilla', { villa: 'Villa Ballena' })}</h2>
+          <p className="mt-6 font-accent text-sm italic text-white/60">Limited summer 2026 availability</p>
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href={villaBallena.bookingLinks.crovillas}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-editorial"
+              className="btn-editorial !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]"
             >
               {t('bookVilla', { villa: 'Villa Ballena' })}
             </a>
-            <Link href="/contact" className="btn-editorial">
+            <Link href="/contact" className="btn-editorial !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]">
               {t('inquireDates')}
             </Link>
           </div>
         </div>
       </div>
-      <div className="line-h" />
     </section>
   );
 }

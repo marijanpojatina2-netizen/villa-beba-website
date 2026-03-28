@@ -309,21 +309,19 @@ function CTASection() {
   const t = useTranslations('complex');
 
   return (
-    <section className="bg-bg">
-      <div className="line-h" />
+    <section className="bg-[#1B2A4A] text-white">
       <div className="py-32 lg:py-48">
         <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
-          <p className="label-section mb-6">{t('maxGuests')}</p>
-          <h2 className="display-lg">{t('bookComplex')}</h2>
+          <p className="label-section mb-6 !text-white/40">{t('maxGuests')}</p>
+          <h2 className="display-lg !text-white">{t('bookComplex')}</h2>
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <a href={complexBeba.bookingLink} target="_blank" rel="noopener noreferrer" className="btn-editorial">
+            <a href={complexBeba.bookingLink} target="_blank" rel="noopener noreferrer" className="btn-editorial !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]">
               {t('bookComplex')}
             </a>
-            <Link href="/contact" className="btn-editorial">Get in Touch</Link>
+            <Link href="/contact" className="btn-editorial !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]">Get in Touch</Link>
           </div>
         </div>
       </div>
-      <div className="line-h" />
     </section>
   );
 }

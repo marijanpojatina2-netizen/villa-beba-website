@@ -1,25 +1,29 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── V6 Refined Color System — warm exclusive, not dead black ── */
-  --color-bg: #12110f;
-  --color-bg-elevated: #1a1816;
-  --color-bg-subtle: #211f1c;
-  --color-text: #F5F5F0;
-  --color-text-muted: rgba(245, 245, 240, 0.5);
-  --color-text-dim: rgba(245, 245, 240, 0.3);
-  --color-line: rgba(255, 255, 255, 0.12);
-  --color-line-strong: rgba(255, 255, 255, 0.25);
+  /* ── V7 Light Editorial — beige base, navy/black/white fonts ── */
+  --color-bg: #F5F0E8;
+  --color-bg-elevated: #EDE8DF;
+  --color-bg-subtle: #E5DFD4;
+  --color-text: #1B2A4A;
+  --color-text-muted: rgba(27, 42, 74, 0.55);
+  --color-text-dim: rgba(27, 42, 74, 0.3);
+  --color-line: rgba(27, 42, 74, 0.12);
+  --color-line-strong: rgba(27, 42, 74, 0.25);
   --color-gold: #C9A96E;
   --color-gold-light: #D4B97E;
 
-  /* Legacy aliases (prevent breakage in existing components) */
-  --color-midnight: #12110f;
-  --color-midnight-light: #1a1816;
-  --color-cream: #F5F5F0;
-  --color-bg-warm: #1e1c18;
-  --color-body-dark: #F5F5F0;
-  --color-body-light: rgba(245, 245, 240, 0.5);
+  /* Dark surface — for hero overlays, footer, menu overlay */
+  --color-dark: #1B2A4A;
+  --color-dark-elevated: #243558;
+
+  /* Legacy aliases */
+  --color-midnight: #1B2A4A;
+  --color-midnight-light: #243558;
+  --color-cream: #F5F0E8;
+  --color-bg-warm: #EAE4D9;
+  --color-body-dark: #1B2A4A;
+  --color-body-light: rgba(27, 42, 74, 0.55);
 
   /* ── Fonts ── */
   --font-display: "Playfair Display", serif;
@@ -33,7 +37,7 @@
    ═══════════════════════════════════════════════════════════ */
 
 html {
-  scroll-behavior: auto; /* Lenis handles smooth scroll */
+  scroll-behavior: auto;
 }
 
 body {
@@ -63,7 +67,6 @@ html.lenis, html.lenis body {
    EDITORIAL TYPOGRAPHY
    ═══════════════════════════════════════════════════════════ */
 
-/* Hero display — MASSIVE serif like "ELYSE" */
 .display-hero {
   font-family: var(--font-display);
   font-weight: 900;
@@ -73,7 +76,6 @@ html.lenis, html.lenis body {
   color: var(--color-text);
 }
 
-/* Large section headings */
 .display-lg {
   font-family: var(--font-display);
   font-weight: 700;
@@ -83,7 +85,6 @@ html.lenis, html.lenis body {
   color: var(--color-text);
 }
 
-/* Medium italic display */
 .display-md {
   font-family: var(--font-display);
   font-weight: 400;
@@ -93,7 +94,6 @@ html.lenis, html.lenis body {
   color: var(--color-text);
 }
 
-/* Section labels — "(ABOUT)", "(OUR VILLAS)" */
 .label-section {
   font-family: var(--font-accent);
   font-size: 0.8125rem;
@@ -103,7 +103,6 @@ html.lenis, html.lenis body {
   color: var(--color-text-muted);
 }
 
-/* Body editorial text */
 .body-editorial {
   font-family: var(--font-body);
   font-weight: 300;
@@ -113,7 +112,6 @@ html.lenis, html.lenis body {
   max-width: 40ch;
 }
 
-/* Micro italic text */
 .micro-italic {
   font-family: var(--font-accent);
   font-style: italic;
@@ -122,7 +120,7 @@ html.lenis, html.lenis body {
   color: var(--color-text-muted);
 }
 
-/* Legacy heading utilities (keep for inner pages during migration) */
+/* Legacy heading utilities */
 .heading-xl {
   font-family: var(--font-display);
   font-weight: 900;
@@ -151,7 +149,7 @@ html.lenis, html.lenis body {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   EDITORIAL BUTTONS
+   EDITORIAL BUTTONS — dark outline on light bg
    ═══════════════════════════════════════════════════════════ */
 
 .btn-editorial {
@@ -178,7 +176,7 @@ html.lenis, html.lenis body {
   border-color: var(--color-text);
 }
 
-/* Filled variant (BOOK A VISIT pill) */
+/* Filled variant — navy pill */
 .btn-editorial-filled {
   display: inline-flex;
   align-items: center;
@@ -202,11 +200,35 @@ html.lenis, html.lenis body {
   color: var(--color-text);
 }
 
+/* Light button — for use on dark sections (hero, footer) */
+.btn-editorial-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #F5F0E8;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0, 0.25, 1);
+}
+.btn-editorial-light:hover {
+  background: #F5F0E8;
+  color: var(--color-dark);
+  border-color: #F5F0E8;
+}
+
 /* ═══════════════════════════════════════════════════════════
    UTILITY CLASSES
    ═══════════════════════════════════════════════════════════ */
 
-/* Thin separator lines */
 .line-h {
   height: 1px;
   width: 100%;
@@ -218,7 +240,6 @@ html.lenis, html.lenis body {
   background: var(--color-line);
 }
 
-/* Editorial section spacing */
 .section-editorial {
   padding-top: 10rem;
   padding-bottom: 10rem;
@@ -230,7 +251,6 @@ html.lenis, html.lenis body {
   }
 }
 
-/* Legacy section padding */
 .section-padding {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -242,7 +262,6 @@ html.lenis, html.lenis body {
   }
 }
 
-/* Text reveal mask */
 .reveal-mask {
   overflow: hidden;
   display: block;
@@ -251,7 +270,6 @@ html.lenis, html.lenis body {
   display: block;
 }
 
-/* Gold gradient text */
 .text-gradient-gold {
   background: linear-gradient(135deg, #C9A96E, #D4B97E, #C9A96E);
   -webkit-background-clip: text;
@@ -259,7 +277,6 @@ html.lenis, html.lenis body {
   background-clip: text;
 }
 
-/* Rolling counter container */
 .counter-digit {
   overflow: hidden;
   display: inline-flex;

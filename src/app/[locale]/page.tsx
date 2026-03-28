@@ -366,17 +366,17 @@ function Amenities() {
    ═══════════════════════════════════════════════════════════ */
 function Reviews() {
   return (
-    <section className="bg-bg py-32 lg:py-48">
+    <section className="bg-[#1B2A4A] py-32 lg:py-48">
       <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
-        <span className="block font-display text-8xl leading-none text-text-dim/20 select-none mb-4">&ldquo;</span>
+        <span className="block font-display text-8xl leading-none text-white/10 select-none mb-4">&ldquo;</span>
         <blockquote>
-          <p className="font-accent text-xl italic leading-relaxed text-text/80 lg:text-3xl lg:leading-relaxed">
+          <p className="font-accent text-xl italic leading-relaxed text-white/80 lg:text-3xl lg:leading-relaxed">
             An absolutely stunning property. The attention to detail, the pool, the views — everything exceeded our expectations.
           </p>
         </blockquote>
         <footer className="mt-10">
-          <p className="font-heading text-[0.6875rem] font-medium uppercase tracking-[0.2em] text-text-muted">Sarah & James</p>
-          <p className="mt-1 text-[0.75rem] text-text-dim">London, UK</p>
+          <p className="font-heading text-[0.6875rem] font-medium uppercase tracking-[0.2em] text-white/50">Sarah & James</p>
+          <p className="mt-1 text-[0.75rem] text-white/30">London, UK</p>
         </footer>
       </div>
     </section>
@@ -388,7 +388,7 @@ function Reviews() {
    ═══════════════════════════════════════════════════════════ */
 function CTA() {
   return (
-    <section className="bg-bg">
+    <section className="bg-bg-elevated">
       <div className="line-h" />
       <div className="py-32 lg:py-48">
         <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">

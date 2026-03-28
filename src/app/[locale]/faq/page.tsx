@@ -93,16 +93,14 @@ export default function FAQPage() {
       </section>
 
       {/* ──────── CTA ──────── */}
-      <section className="bg-bg">
-        <div className="line-h" />
+      <section className="bg-[#1B2A4A] text-white">
         <div className="py-32 lg:py-48">
           <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
-            <p className="display-md">Still have questions?</p>
-            <p className="mt-4 body-editorial mx-auto">Our team is happy to help with any questions about the villas, availability, or planning your Istrian experience.</p>
-            <Link href="/contact" className="btn-editorial mt-10">Contact Us</Link>
+            <p className="display-md !text-white">Still have questions?</p>
+            <p className="mt-4 text-sm leading-relaxed text-white/60 mx-auto max-w-[540px]">Our team is happy to help with any questions about the villas, availability, or planning your Istrian experience.</p>
+            <Link href="/contact" className="btn-editorial mt-10 !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]">Contact Us</Link>
           </div>
         </div>
-        <div className="line-h" />
       </section>
     </main>
   );

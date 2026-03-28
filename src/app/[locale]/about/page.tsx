@@ -105,18 +105,16 @@ export default function AboutPage() {
       </section>
 
       {/* ──────── CTA ──────── */}
-      <section className="bg-bg">
-        <div className="line-h" />
+      <section className="bg-[#1B2A4A] text-white">
         <div className="py-32 lg:py-48">
           <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
-            <p className="display-md">Experience our philosophy firsthand</p>
-            <p className="mt-6 body-editorial mx-auto !max-w-lg">
+            <p className="display-md !text-white">Experience our philosophy firsthand</p>
+            <p className="mt-6 text-sm leading-relaxed text-white/60 mx-auto max-w-lg">
               Whether you seek a quiet wellness retreat or a lively family celebration, Villa Ballena and Villa Beluga await you in the heart of Istria.
             </p>
-            <Link href="/contact" className="btn-editorial mt-10">Get in Touch</Link>
+            <Link href="/contact" className="btn-editorial mt-10 !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]">Get in Touch</Link>
           </div>
         </div>
-        <div className="line-h" />
       </section>
     </main>
   );

@@ -205,19 +205,17 @@ function WhatsIncluded() {
    ═══════════════════════════════════════════════════════════ */
 function PricingCTA() {
   return (
-    <section className="bg-bg">
-      <div className="line-h" />
+    <section className="bg-[#1B2A4A] text-white">
       <div className="py-32 lg:py-48">
         <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
-          <h2 className="display-lg">Ready to Book?</h2>
-          <p className="mt-6 micro-italic">Limited summer 2026 availability &mdash; secure your dates today</p>
+          <h2 className="display-lg !text-white">Ready to Book?</h2>
+          <p className="mt-6 font-accent text-sm italic text-white/60">Limited summer 2026 availability &mdash; secure your dates today</p>
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/contact" className="btn-editorial">Check Availability</Link>
-            <a href="https://wa.me/385915251565" target="_blank" rel="noopener noreferrer" className="btn-editorial">WhatsApp Us</a>
+            <Link href="/contact" className="btn-editorial !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]">Check Availability</Link>
+            <a href="https://wa.me/385915251565" target="_blank" rel="noopener noreferrer" className="btn-editorial !border-white/30 !text-white hover:!bg-white hover:!text-[#1B2A4A]">WhatsApp Us</a>
           </div>
         </div>
       </div>
-      <div className="line-h" />
     </section>
   );
 }
