@@ -79,10 +79,11 @@ html.lenis, html.lenis body {
 .display-lg {
   font-family: var(--font-display);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.05;
   letter-spacing: -0.01em;
   font-size: clamp(2rem, 6vw, 5rem);
   color: var(--color-text);
+  padding-bottom: 0.1em;
 }
 
 .display-md {
