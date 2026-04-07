@@ -84,7 +84,7 @@ function Introduction() {
           <div className="hidden lg:block lg:col-span-3" />
           <div ref={imageRef} className="lg:col-span-4 overflow-hidden rounded-sm">
             <div className="relative aspect-[3/4]">
-              <Image src="/images/beluga/Copy of IMG_5164.jpg" alt="Villa Beluga interior" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
+              <Image src="/images/beluga/img_5164.jpg" alt="Villa Beluga interior" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@ function GameRoomSpotlight() {
   return (
     <section ref={sectionRef} className="relative section-editorial bg-bg overflow-hidden">
       <div className="absolute inset-0">
-        <Image src="/images/beluga/Beluga 10.jpg" alt="Villa Beluga game room" fill className="object-cover opacity-10" quality={75} />
+        <Image src="/images/beluga/beluga-10.jpg" alt="Villa Beluga game room" fill className="object-cover opacity-10" quality={75} />
         <div className="absolute inset-0 bg-gradient-to-b from-bg via-bg/90 to-bg" />
       </div>
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -222,7 +222,7 @@ function GlassTerrace() {
             </div>
           </div>
           <div ref={imageRef} className="relative aspect-[4/3] overflow-hidden rounded-sm border border-line">
-            <Image src="/images/beluga/Beluga 25.jpg" alt="Villa Beluga glass terrace" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" quality={85} />
+            <Image src="/images/beluga/beluga-25.jpg" alt="Villa Beluga glass terrace" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" quality={85} />
           </div>
         </div>
       </div>

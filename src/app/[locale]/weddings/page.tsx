@@ -28,7 +28,7 @@ function WeddingHero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      <Image src="/images/beluga/Beluga 33.jpg" alt="Villa Beluga evening ambiance for weddings" fill className="object-cover" priority quality={85} />
+      <Image src="/images/beluga/beluga-33.jpg" alt="Villa Beluga evening ambiance for weddings" fill className="object-cover" priority quality={85} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
         <div ref={titleRef} className="max-w-[90vw]">
@@ -190,10 +190,10 @@ function WeddingExperiences() {
   const sectionRef = useRef<HTMLElement>(null);
 
   const expList = [
-    { title: 'Wine Tasting', description: 'A curated private tasting at renowned Istrian wineries. Toast your love with Malvazija and Teran among the vineyards.', image: '/images/experiences/wine tasting.jpg' },
+    { title: 'Wine Tasting', description: 'A curated private tasting at renowned Istrian wineries. Toast your love with Malvazija and Teran among the vineyards.', image: '/images/experiences/wine-tasting.jpg' },
     { title: 'Truffle Hunting', description: 'An unforgettable pre-wedding adventure through ancient oak forests, guided by local hunters and their truffle dogs.', image: '/images/experiences/tartufi.jpg' },
-    { title: 'Rovinj Excursion', description: 'Explore the pastel-colored streets of Rovinj. Perfect for couple portraits, bridal party outings, or a rehearsal dinner by the harbor.', image: '/images/experiences/Rovinj.jpg' },
-    { title: 'Cooking Class', description: 'Bond with your wedding party over handmade pasta, fresh truffles, and Istrian olive oil in a private chef-led cooking class.', image: '/images/experiences/cooking class.jpg' },
+    { title: 'Rovinj Excursion', description: 'Explore the pastel-colored streets of Rovinj. Perfect for couple portraits, bridal party outings, or a rehearsal dinner by the harbor.', image: '/images/experiences/rovinj.jpg' },
+    { title: 'Cooking Class', description: 'Bond with your wedding party over handmade pasta, fresh truffles, and Istrian olive oil in a private chef-led cooking class.', image: '/images/experiences/cooking-class.jpg' },
   ];
 
   useEffect(() => {

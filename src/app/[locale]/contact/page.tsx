@@ -72,7 +72,7 @@ export default function ContactPage() {
     <main>
       {/* ──────── Hero ──────── */}
       <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
-        <Image src="/images/ballena/Ballena 36.jpg" alt="Villa Ballena terrace and pool at night" fill className="object-cover" priority quality={85} />
+        <Image src="/images/ballena/ballena-36.jpg" alt="Villa Ballena terrace and pool at night" fill className="object-cover" priority quality={85} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
           <div ref={titleRef} className="max-w-[90vw]">

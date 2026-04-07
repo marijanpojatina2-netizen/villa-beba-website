@@ -16,7 +16,7 @@ const blogPosts = [
     excerpt: 'Discover when and where to find the prized white and black truffles of Istria. From forest hunts with trained dogs to gourmet dining experiences.',
     category: 'Experiences',
     date: '2026-02-15',
-    image: '/images/ballena/Ballena 35-1.jpg',
+    image: '/images/ballena/ballena-35-1.jpg',
   },
   {
     slug: 'rovinj-gem-of-the-adriatic',
@@ -24,7 +24,7 @@ const blogPosts = [
     excerpt: 'Just 23 km from our villas, Rovinj enchants with its pastel harbor and winding cobblestone streets. A perfect day trip from Svetvincenat.',
     category: 'Destination',
     date: '2026-02-01',
-    image: '/images/beluga/Beluga 42.jpg',
+    image: '/images/beluga/beluga-42.jpg',
   },
   {
     slug: 'best-beaches-near-svetvincenat',
@@ -32,7 +32,7 @@ const blogPosts = [
     excerpt: 'Crystal-clear Adriatic waters await at hidden coves and sandy shores. Our guide to the finest beaches within a short drive of the villas.',
     category: 'Destination',
     date: '2026-01-20',
-    image: '/images/beluga/Beluga 25.jpg',
+    image: '/images/beluga/beluga-25.jpg',
   },
   {
     slug: 'istrian-wine-journey',
@@ -40,7 +40,7 @@ const blogPosts = [
     excerpt: 'Malvazija, Teran, and Muskat — Istrian wines are making waves worldwide. Explore the cellars and vineyards that make this region special.',
     category: 'Experiences',
     date: '2026-01-10',
-    image: '/images/beluga/Beluga 13.jpg',
+    image: '/images/beluga/beluga-13.jpg',
   },
   {
     slug: 'planning-the-perfect-istrian-wedding',
@@ -48,7 +48,7 @@ const blogPosts = [
     excerpt: 'From medieval castles to poolside ceremonies under the stars, Istria offers the dreamiest wedding backdrop in the Mediterranean.',
     category: 'Events',
     date: '2025-12-28',
-    image: '/images/ballena/Ballena 42.jpg',
+    image: '/images/ballena/ballena-42.jpg',
   },
   {
     slug: 'family-friendly-activities-central-istria',
@@ -56,7 +56,7 @@ const blogPosts = [
     excerpt: 'Keep the whole family entertained with water parks, medieval villages, and outdoor adventures. Istria is a paradise for families of all ages.',
     category: 'Seasonal',
     date: '2025-12-15',
-    image: '/images/beluga/Beluga 36.jpg',
+    image: '/images/beluga/beluga-36.jpg',
   },
 ];
 
@@ -87,7 +87,7 @@ export default function BlogPage() {
     <main>
       {/* ──────── Hero ──────── */}
       <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
-        <Image src="/images/beluga/Beluga 42.jpg" alt="Aerial view of Svetvincenat village" fill className="object-cover" priority quality={85} />
+        <Image src="/images/beluga/beluga-42.jpg" alt="Aerial view of Svetvincenat village" fill className="object-cover" priority quality={85} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
           <div ref={titleRef} className="max-w-[90vw]">
