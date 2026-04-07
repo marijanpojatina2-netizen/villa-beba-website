@@ -167,7 +167,7 @@ export default function Header() {
         className="fixed inset-0 z-40 bg-[#1B2A4A] opacity-0 pointer-events-none"
         style={{ willChange: 'opacity' }}
       >
-        <div className="flex h-full flex-col justify-center px-10 lg:px-20">
+        <div className="flex h-full flex-col justify-center px-10 lg:px-20 pt-20 lg:pt-24 pb-10 overflow-y-auto">
           <div ref={menuLinksRef} className="flex flex-col gap-0">
             {allNavLinks.map((link) => (
               <div key={link.href} className="menu-link border-b border-white/10">
