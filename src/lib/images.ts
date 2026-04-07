@@ -15,8 +15,8 @@ export const heroImages = {
 };
 
 export const villaCards = {
-  ballena: '/images/ballena/Ballena 36.jpg',          // Moody dark elegance
-  beluga: '/images/beluga/Beluga 36.jpg',             // Warm vibrant evening
+  ballena: '/images/ballena/Ballena 5.jpg',            // Exterior daytime, blue sky
+  beluga: '/images/koridor/Bijela/IMG_4847.jpg',       // Beluga exterior daytime, green grass
 };
 
 export const ballenaGallery = [
