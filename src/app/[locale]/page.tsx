@@ -106,7 +106,7 @@ function About() {
           <div className="hidden lg:block lg:col-span-3" />
           <div ref={imageRef} className="lg:col-span-4 overflow-hidden rounded-sm">
             <div className="relative aspect-[3/4]">
-              <Image src="/images/ballena/ballena-aerial-pool.jpg" alt="Aerial view of Villa Ballena pool and terrace" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
+              <Image src="/images/koridor/Bijela/DJI_0146.jpg" alt="Aerial view of villa pool and terrace from drone" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
             </div>
           </div>
           <div ref={textRef} className="lg:col-span-5 flex flex-col justify-start lg:pt-8 lg:pl-12">
