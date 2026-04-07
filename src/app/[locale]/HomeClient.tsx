@@ -15,6 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
    ═══════════════════════════════════════════════════════════ */
 function Hero() {
   const t = useTranslations('hero');
+  const tc = useTranslations('common');
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
 
@@ -51,7 +52,7 @@ function Hero() {
           <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/50 font-body lg:text-sm">Svetvincenat, Istria</p>
         </div>
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">Scroll</span>
+          <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">{tc('scroll')}</span>
           <div className="h-8 w-px bg-white/20 animate-pulse" />
         </div>
       </div>
@@ -112,15 +113,15 @@ function About() {
           <div ref={textRef} className="lg:col-span-5 flex flex-col justify-start lg:pt-8 lg:pl-12">
             <p className="body-editorial">{t('intro')}</p>
             <p className="mt-6 micro-italic">{t('introTitle')}</p>
-            <Link href="/about" className="btn-editorial mt-8 w-fit">Learn More</Link>
+            <Link href="/about" className="btn-editorial mt-8 w-fit">{t('aboutLearnMore')}</Link>
           </div>
         </div>
         <div ref={bigTextRef} className="mt-16 lg:mt-24 max-w-[600px]">
-          <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic">Timeless</p></div>
-          <div className="overflow-hidden"><p className="reveal-line display-lg">Design.</p></div>
-          <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic font-bold">Wellness-</p></div>
-          <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic font-bold">Focused</p></div>
-          <div className="overflow-hidden"><p className="reveal-line display-lg">Living.</p></div>
+          <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic">{t('bigText1')}</p></div>
+          <div className="overflow-hidden"><p className="reveal-line display-lg">{t('bigText2')}</p></div>
+          <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic font-bold">{t('bigText3')}</p></div>
+          <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic font-bold">{t('bigText4')}</p></div>
+          <div className="overflow-hidden"><p className="reveal-line display-lg">{t('bigText5')}</p></div>
         </div>
 
         {/* Stats — directly below big text, 4 in one row on desktop, bigger numbers */}
@@ -130,24 +131,24 @@ function About() {
               <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="700">0</span>
               <span className="font-accent text-xl italic text-text-muted">m&sup2;</span>
             </div>
-            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">living space</p>
+            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statLivingSpace')}</p>
           </div>
           <div>
             <div className="flex items-baseline gap-1">
               <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="60">0</span>
               <span className="font-accent text-xl italic text-text-muted">%</span>
             </div>
-            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">green spaces</p>
+            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statGreenSpaces')}</p>
           </div>
           <div>
             <div className="flex items-baseline gap-1">
               <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="8">0</span>
             </div>
-            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">exclusive bedrooms</p>
+            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statBedrooms')}</p>
           </div>
           <div>
             <span className="font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold italic text-text/90">24/7</span>
-            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">concierge services</p>
+            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statConcierge')}</p>
           </div>
         </div>
       </div>
@@ -200,7 +201,7 @@ function VillasShowcase() {
                   <h3 className="font-heading text-sm uppercase tracking-[0.12em] text-text">{villa.name}</h3>
                   <p className="mt-1 micro-italic">{villa.tagline}</p>
                 </div>
-                <span className="btn-editorial text-[0.6rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300">Explore</span>
+                <span className="btn-editorial text-[0.6rem] opacity-0 group-hover:opacity-100 transition-opacity duration-300">{t('villaExplore')}</span>
               </div>
             </Link>
           ))}
@@ -214,6 +215,7 @@ function VillasShowcase() {
    S5 — BELIEFS
    ═══════════════════════════════════════════════════════════ */
 function Beliefs() {
+  const t = useTranslations('home');
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -236,11 +238,11 @@ function Beliefs() {
           </div>
           <div>
             <div ref={textRef}>
-              <div className="overflow-hidden"><p className="reveal-line display-lg">A Vision of</p></div>
-              <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic">Inspired Living</p></div>
+              <div className="overflow-hidden"><p className="reveal-line display-lg">{t('beliefsVision1')}</p></div>
+              <div className="overflow-hidden"><p className="reveal-line display-lg font-display italic">{t('beliefsVision2')}</p></div>
             </div>
-            <p className="mt-10 body-editorial">To inspire and nurture an enriched lifestyle that harmonizes beauty, wellness, and cultural connection, creating a sanctuary that feels like home.</p>
-            <Link href="/contact" className="btn-editorial mt-10 w-fit">Book a Visit</Link>
+            <p className="mt-10 body-editorial">{t('beliefsText')}</p>
+            <Link href="/contact" className="btn-editorial mt-10 w-fit">{t('beliefsButton')}</Link>
           </div>
         </div>
       </div>
@@ -252,10 +254,12 @@ function Beliefs() {
    S5b — BLOG PREVIEW
    ═══════════════════════════════════════════════════════════ */
 function BlogPreview() {
+  const t = useTranslations('home');
+
   const blogPosts = [
-    { slug: 'truffle-season-in-istria', title: 'Truffle Season in Istria', excerpt: 'Discover when and where to find the prized white and black truffles of Istria.', category: 'Experiences', image: '/images/experiences/tartufi.jpg' },
-    { slug: 'rovinj-gem-of-the-adriatic', title: 'Rovinj: Gem of the Adriatic', excerpt: 'Just 23 km from our villas, Rovinj enchants with its pastel harbor and cobblestone streets.', category: 'Destination', image: '/images/experiences/rovinj.jpg' },
-    { slug: 'istrian-wine-journey', title: 'Istrian Wine Journey', excerpt: 'Malvazija, Teran, and Muskat — Istrian wines are making waves worldwide.', category: 'Experiences', image: '/images/experiences/wine-tasting.jpg' },
+    { slug: 'truffle-season-in-istria', title: t('blogTruffleTitle'), excerpt: t('blogTruffleExcerpt'), category: t.raw('blogTruffleTitle') ? 'Experiences' : 'Experiences', image: '/images/experiences/tartufi.jpg' },
+    { slug: 'rovinj-gem-of-the-adriatic', title: t('blogRovinjTitle'), excerpt: t('blogRovinjExcerpt'), category: 'Destination', image: '/images/experiences/rovinj.jpg' },
+    { slug: 'istrian-wine-journey', title: t('blogWineTitle'), excerpt: t('blogWineExcerpt'), category: 'Experiences', image: '/images/experiences/wine-tasting.jpg' },
   ];
 
   return (
@@ -263,7 +267,7 @@ function BlogPreview() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex items-center justify-between mb-12">
           <p className="label-section">(JOURNAL)</p>
-          <Link href="/blog" className="btn-editorial !text-[0.6rem]">View All</Link>
+          <Link href="/blog" className="btn-editorial !text-[0.6rem]">{t('blogViewAll')}</Link>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {blogPosts.map((post) => (
@@ -290,13 +294,14 @@ function BlogPreview() {
    S6 — VALUES GRID OVER PHOTO
    ═══════════════════════════════════════════════════════════ */
 function ValuesGrid() {
+  const t = useTranslations('home');
   const sectionRef = useRef<HTMLElement>(null);
   const values = [
-    { num: '1', title: 'Privacy &\nSeclusion', desc: 'Spaces designed to nurture the mind, body, and soul.' },
-    { num: '2', title: 'Design\nExcellence', desc: 'Privacy and personal growth at the forefront.' },
-    { num: '3', title: 'Istrian\nAuthenticity', desc: 'Celebrate local artistry, history, and traditions.' },
-    { num: '4', title: 'Warm\nHospitality', desc: 'A welcoming environment that fosters relationships.' },
-    { num: '5', title: 'Nature &\nWellness', desc: 'Luxury that respects our environment.' },
+    { num: '1', title: t('value1Title'), desc: t('value1Desc') },
+    { num: '2', title: t('value2Title'), desc: t('value2Desc') },
+    { num: '3', title: t('value3Title'), desc: t('value3Desc') },
+    { num: '4', title: t('value4Title'), desc: t('value4Desc') },
+    { num: '5', title: t('value5Title'), desc: t('value5Desc') },
   ];
 
   useEffect(() => {
@@ -322,8 +327,8 @@ function ValuesGrid() {
             </div>
           ))}
           <div className="value-item col-span-2 lg:col-span-5 lg:col-start-8 lg:row-span-2 flex flex-col justify-start">
-            <p className="body-editorial !text-white/90 !max-w-none">At Villa Ballena & Beluga, we believe that a home is more than a physical space — it is a reflection of your aspirations, well-being, and values.</p>
-            <p className="mt-6 body-editorial !text-white/80 !max-w-none">Our mission is to immerse you in a lifestyle that balances refined aesthetics, architectural excellence, and a profound sense of community.</p>
+            <p className="body-editorial !text-white/90 !max-w-none">{t('valuesBody1')}</p>
+            <p className="mt-6 body-editorial !text-white/80 !max-w-none">{t('valuesBody2')}</p>
           </div>
           {values.slice(2).map((v) => (
             <div key={v.num} className="value-item col-span-1 lg:col-span-2">
@@ -342,6 +347,7 @@ function ValuesGrid() {
    S7 — AMENITIES (Overlapping Images)
    ═══════════════════════════════════════════════════════════ */
 function Amenities() {
+  const t = useTranslations('home');
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -360,9 +366,9 @@ function Amenities() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="amenity-text">
-            <h2 className="display-lg"><span className="font-bold">Wellness-</span><br /><span className="font-bold">Centered</span><br /><span className="italic">Amenities</span></h2>
-            <p className="mt-8 body-editorial">From private saunas to heated biological pools, our amenities are designed to enhance your well-being and foster a sense of harmony.</p>
-            <Link href="/villa-ballena" className="btn-editorial mt-8 w-fit">Learn More</Link>
+            <h2 className="display-lg"><span className="font-bold">{t('amenitiesTitle1')}</span><br /><span className="font-bold">{t('amenitiesTitle2')}</span><br /><span className="italic">{t('amenitiesTitle3')}</span></h2>
+            <p className="mt-8 body-editorial">{t('amenitiesText')}</p>
+            <Link href="/villa-ballena" className="btn-editorial mt-8 w-fit">{t('amenitiesLearnMore')}</Link>
           </div>
           <div className="relative h-[500px] lg:h-[600px]">
             <div className="amenity-img absolute top-0 right-0 w-[65%] h-[70%] overflow-hidden rounded-sm">
@@ -382,18 +388,19 @@ function Amenities() {
    S8 — REVIEWS
    ═══════════════════════════════════════════════════════════ */
 function Reviews() {
+  const t = useTranslations('home');
   return (
     <section className="bg-bg py-20 lg:py-28">
       <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
         <span className="block font-display text-8xl leading-none text-text-dim/20 select-none mb-4">&ldquo;</span>
         <blockquote>
           <p className="font-accent text-xl italic leading-relaxed text-text/80 lg:text-3xl lg:leading-relaxed">
-            An absolutely stunning property. The attention to detail, the pool, the views — everything exceeded our expectations.
+            {t('reviewQuote')}
           </p>
         </blockquote>
         <footer className="mt-10">
-          <p className="font-heading text-[0.6875rem] font-medium uppercase tracking-[0.2em] text-text-muted">Sarah & James</p>
-          <p className="mt-1 text-[0.75rem] text-text-dim">London, UK</p>
+          <p className="font-heading text-[0.6875rem] font-medium uppercase tracking-[0.2em] text-text-muted">{t('reviewAuthor')}</p>
+          <p className="mt-1 text-[0.75rem] text-text-dim">{t('reviewLocation')}</p>
         </footer>
       </div>
     </section>
@@ -404,16 +411,18 @@ function Reviews() {
    S9 — CTA
    ═══════════════════════════════════════════════════════════ */
 function CTA() {
+  const t = useTranslations('home');
+  const tc = useTranslations('common');
   return (
     <section className="bg-bg">
       <div className="line-h" />
       <div className="py-20 lg:py-28">
         <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
-          <h2 className="display-lg">Book Your Stay</h2>
-          <p className="mt-6 micro-italic">Limited summer 2026 availability — secure your dates today</p>
+          <h2 className="display-lg">{t('ctaTitleHome')}</h2>
+          <p className="mt-6 micro-italic">{t('ctaSubtitle')}</p>
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/contact" className="btn-editorial">Book a Visit</Link>
-            <a href="https://wa.me/385915251565" target="_blank" rel="noopener noreferrer" className="btn-editorial">WhatsApp Us</a>
+            <Link href="/contact" className="btn-editorial">{tc('bookAVisit')}</Link>
+            <a href="https://wa.me/385915251565" target="_blank" rel="noopener noreferrer" className="btn-editorial">{tc('whatsappUs')}</a>
           </div>
         </div>
       </div>

@@ -56,15 +56,15 @@ export default function Header() {
 
   const allNavLinks = [
     { href: '/' as const, label: t('home') },
-    { href: '/villa-ballena' as const, label: 'Villa Ballena' },
-    { href: '/villa-beluga' as const, label: 'Villa Beluga' },
-    { href: '/complex-beba' as const, label: 'Complex BeBa' },
+    { href: '/villa-ballena' as const, label: t('villaBallena') },
+    { href: '/villa-beluga' as const, label: t('villaBeluga') },
+    { href: '/complex-beba' as const, label: t('villaComplex') },
     { href: '/experiences' as const, label: t('experiences') },
     { href: '/weddings' as const, label: t('weddings') },
     { href: '/pricing' as const, label: t('pricing') },
-    { href: '/gallery' as const, label: 'Gallery' },
-    { href: '/blog' as const, label: 'Blog' },
-    { href: '/about' as const, label: 'About' },
+    { href: '/gallery' as const, label: t('gallery') },
+    { href: '/blog' as const, label: t('blog') },
+    { href: '/about' as const, label: t('about') },
     { href: '/contact' as const, label: t('contact') },
   ];
 

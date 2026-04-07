@@ -6,7 +6,6 @@ import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { faqItems } from '@/lib/data';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +15,8 @@ export default function FAQPage() {
   const titleRef = useRef<HTMLDivElement>(null);
   const accordionRef = useRef<HTMLDivElement>(null);
   const toggle = (index: number) => { setOpenIndex(openIndex === index ? null : index); };
+
+  const faqData = Array.from({ length: 12 }, (_, i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
 
   useEffect(() => { const ctx = gsap.context(() => {
     if (titleRef.current) { const lines = titleRef.current.querySelectorAll('.hero-line'); gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 }); }
@@ -34,7 +35,7 @@ export default function FAQPage() {
       </section>
 
       <section className="section-editorial bg-bg"><div className="mx-auto max-w-[900px] px-6 lg:px-10"><p className="label-section mb-16">(QUESTIONS)</p><div ref={accordionRef} className="divide-y divide-line">
-        {faqItems.map((item, index) => (
+        {faqData.map((item, index) => (
           <div key={index} className="faq-item group">
             <button onClick={() => toggle(index)} className="flex w-full items-center justify-between py-8 text-left transition-colors duration-300" aria-expanded={openIndex === index}>
               <span className={`pr-8 font-display text-lg font-bold leading-snug transition-colors duration-300 md:text-xl ${openIndex === index ? 'text-text' : 'text-text-muted group-hover:text-text'}`}>{item.q}</span>
@@ -45,7 +46,7 @@ export default function FAQPage() {
         ))}
       </div></div></section>
 
-      <section className="bg-bg"><div className="line-h" /><div className="py-32 lg:py-48"><div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center"><p className="display-md">Still have questions?</p><p className="mt-4 body-editorial mx-auto">Our team is happy to help with any questions about the villas, availability, or planning your Istrian experience.</p><Link href="/contact" className="btn-editorial mt-10">Contact Us</Link></div></div><div className="line-h" /></section>
+      <section className="bg-bg"><div className="line-h" /><div className="py-32 lg:py-48"><div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center"><p className="display-md">{t('stillHaveQuestions')}</p><p className="mt-4 body-editorial mx-auto">{t('stillHaveQuestionsBody')}</p><Link href="/contact" className="btn-editorial mt-10">{t('contactUs')}</Link></div></div><div className="line-h" /></section>
     </main>
   );
 }
