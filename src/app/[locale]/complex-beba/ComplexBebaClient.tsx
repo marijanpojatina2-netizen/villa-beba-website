@@ -13,6 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Hero() {
   const t = useTranslations('complex');
+  const tc = useTranslations('common');
   const titleRef = useRef<HTMLDivElement>(null);
   useEffect(() => { const ctx = gsap.context(() => { if (titleRef.current) { const lines = titleRef.current.querySelectorAll('.hero-line'); gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 }); } }); return () => ctx.revert(); }, []);
   return (
@@ -29,7 +30,7 @@ function Hero() {
           <p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">Svetvincenat, Istria</p>
         </div>
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">Scroll</span>
+          <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">{tc('scroll')}</span>
           <div className="h-8 w-px bg-white/20 animate-pulse" />
         </div>
       </div>
@@ -42,13 +43,14 @@ function Introduction() {
   const textRef = useRef<HTMLDivElement>(null);
   useEffect(() => { const ctx = gsap.context(() => { if (textRef.current) gsap.fromTo(textRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: textRef.current, start: 'top 85%' } }); }); return () => ctx.revert(); }, []);
   return (
-    <section className="section-editorial bg-bg"><div className="mx-auto max-w-[1400px] px-6 lg:px-10"><p className="label-section mb-16 lg:mb-24">(THE ESTATE)</p><div ref={textRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8"><div className="lg:col-span-5"><p className="display-md !not-italic !font-bold">The ultimate Istrian experience</p></div><div className="lg:col-span-6 lg:col-start-7"><p className="body-editorial !max-w-none">{t('intro')}</p></div></div></div></section>
+    <section className="section-editorial bg-bg"><div className="mx-auto max-w-[1400px] px-6 lg:px-10"><p className="label-section mb-16 lg:mb-24">(THE ESTATE)</p><div ref={textRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8"><div className="lg:col-span-5"><p className="display-md !not-italic !font-bold">{t('theUltimate')}</p></div><div className="lg:col-span-6 lg:col-start-7"><p className="body-editorial !max-w-none">{t('intro')}</p></div></div></div></section>
   );
 }
 
 function KeyStats() {
+  const t = useTranslations('complex');
   const sectionRef = useRef<HTMLElement>(null);
-  const stats = [{ end: 18, suffix: '', label: 'Guests' }, { end: 8, suffix: '', label: 'Bedrooms' }, { end: 2, suffix: '', label: 'Pools' }, { end: 700, suffix: ' m\u00B2', label: 'Living Space' }];
+  const stats = [{ end: 18, suffix: '', label: t('statGuests') }, { end: 8, suffix: '', label: t('statBedrooms') }, { end: 2, suffix: '', label: t('statPools') }, { end: 700, suffix: ' m\u00B2', label: t('statLivingSpace') }];
   useEffect(() => { const ctx = gsap.context(() => { if (!sectionRef.current) return; const counters = sectionRef.current.querySelectorAll('.stat-number'); counters.forEach((counter) => { const target = parseInt(counter.getAttribute('data-target') || '0', 10); if (isNaN(target) || target === 0) return; const obj = { val: 0 }; gsap.to(obj, { val: target, duration: 1.5, ease: 'power2.out', scrollTrigger: { trigger: counter, start: 'top 85%' }, onUpdate: () => { counter.textContent = Math.round(obj.val).toString(); } }); }); }); return () => ctx.revert(); }, []);
   return (
     <section ref={sectionRef} className="border-t border-b border-line bg-bg-elevated py-20"><div className="mx-auto max-w-[1400px] px-6 lg:px-10"><div className="grid grid-cols-2 gap-8 md:grid-cols-4">{stats.map((stat) => (<div key={stat.label} className="text-center"><span className="stat-number display-hero text-[clamp(3rem,8vw,6rem)] text-text/90" data-target={stat.end}>0</span>{stat.suffix && <span className="font-accent text-xl italic text-text-muted">{stat.suffix}</span>}<p className="mt-2 font-heading text-[0.6875rem] uppercase tracking-[0.15em] text-text-dim">{stat.label}</p></div>))}</div></div></section>
@@ -68,10 +70,10 @@ function IdealFor() {
   const t = useTranslations('complex');
   const sectionRef = useRef<HTMLElement>(null);
   const events = [
-    { title: t('weddings'), description: 'Host up to 60 guests across both properties with private catering, decorations, and event coordination.' },
-    { title: t('retreats'), description: 'Team-building in a Mediterranean setting with 125 Mbit/s WiFi, flexible workspaces, and AV-ready areas.' },
-    { title: t('reunions'), description: 'Bring the whole family together with 8 bedrooms, 2 pools, and endless entertainment for all ages.' },
-    { title: t('celebrations'), description: 'Birthdays, anniversaries, and milestones deserve an extraordinary setting in the heart of Istria.' },
+    { title: t('weddings'), description: t('weddingsDesc') },
+    { title: t('retreats'), description: t('retreatsDesc') },
+    { title: t('reunions'), description: t('reunionsDesc') },
+    { title: t('celebrations'), description: t('celebrationsDesc') },
   ];
   useEffect(() => { const ctx = gsap.context(() => { if (!sectionRef.current) return; const items = sectionRef.current.querySelectorAll('.event-card'); items.forEach((item, i) => { gsap.fromTo(item, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: i * 0.12, scrollTrigger: { trigger: item, start: 'top 88%' } }); }); }); return () => ctx.revert(); }, []);
   return (
@@ -83,9 +85,9 @@ function CombinedFeatures() {
   const t = useTranslations('complex');
   const sectionRef = useRef<HTMLElement>(null);
   const features = [
-    { title: 'Outdoor Dining for 24+', description: 'Two fully equipped outdoor kitchens with gas BBQ, covered terraces, and seating for the entire group.' },
-    { title: 'Two Heated Pools', description: 'Each villa has its own 8x4m heated biological pool with hydromassage. That is 64m\u00B2 of pool space.' },
-    { title: 'Wellness + Entertainment', description: 'Villa Ballena brings the sauna and wellness shower. Villa Beluga brings the game room and glass terrace. Together, the best of both worlds.' },
+    { title: t('outdoorDining'), description: t('outdoorDiningDesc') },
+    { title: t('twoHeatedPools'), description: t('twoHeatedPoolsDesc') },
+    { title: t('wellnessEntertainment'), description: t('wellnessEntertainmentDesc') },
   ];
   useEffect(() => { const ctx = gsap.context(() => { if (!sectionRef.current) return; const items = sectionRef.current.querySelectorAll('.feature-card'); gsap.fromTo(items, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.15, scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' } }); }); return () => ctx.revert(); }, []);
   return (
@@ -94,17 +96,18 @@ function CombinedFeatures() {
 }
 
 function VillaComparison() {
+  const t = useTranslations('complex');
   const sectionRef = useRef<HTMLElement>(null);
   useEffect(() => { const ctx = gsap.context(() => { if (!sectionRef.current) return; const cards = sectionRef.current.querySelectorAll('.villa-compare'); cards.forEach((card, i) => { gsap.fromTo(card, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: i * 0.2, scrollTrigger: { trigger: card, start: 'top 85%' } }); const img = card.querySelector('img'); if (img) gsap.fromTo(img, { scale: 1.1 }, { scale: 1, scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true } }); }); }); return () => ctx.revert(); }, []);
   return (
-    <section ref={sectionRef} className="section-editorial bg-bg-elevated"><div className="mx-auto max-w-[1400px] px-6 lg:px-10"><p className="label-section mb-16 lg:mb-24">(TWO PERSONALITIES)</p><h2 className="display-lg mb-16">Two Personalities, One Estate</h2><div className="grid gap-8 md:grid-cols-2"><div className="villa-compare rounded-sm border border-line bg-bg p-8"><div className="relative aspect-[16/9] overflow-hidden rounded-sm"><Image src="/images/ballena/ballena-5.jpg" alt="Villa Ballena exterior daytime" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} /></div><h3 className="mt-6 font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Villa Ballena</h3><p className="mt-1 micro-italic">The Serene Wellness Retreat</p><div className="mt-4 flex flex-wrap gap-2">{['Private sauna', 'Wellness shower', 'Dark interiors'].map((tag) => (<span key={tag} className="rounded-full border border-line px-3 py-1 text-xs text-text-muted">{tag}</span>))}</div><Link href="/villa-ballena" className="btn-editorial mt-6 w-fit !text-[0.6rem]">Explore Ballena</Link></div><div className="villa-compare rounded-sm border border-line bg-bg p-8"><div className="relative aspect-[16/9] overflow-hidden rounded-sm"><Image src="/images/beluga/img_4847.jpg" alt="Villa Beluga exterior daytime" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} /></div><h3 className="mt-6 font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Villa Beluga</h3><p className="mt-1 micro-italic">The Entertainment &amp; Lifestyle Villa</p><div className="mt-4 flex flex-wrap gap-2">{['Game room', 'Glass terrace', 'Family-friendly'].map((tag) => (<span key={tag} className="rounded-full border border-line px-3 py-1 text-xs text-text-muted">{tag}</span>))}</div><Link href="/villa-beluga" className="btn-editorial mt-6 w-fit !text-[0.6rem]">Explore Beluga</Link></div></div></div></section>
+    <section ref={sectionRef} className="section-editorial bg-bg-elevated"><div className="mx-auto max-w-[1400px] px-6 lg:px-10"><p className="label-section mb-16 lg:mb-24">(TWO PERSONALITIES)</p><h2 className="display-lg mb-16">{t('twoPersonalitiesTitle')}</h2><div className="grid gap-8 md:grid-cols-2"><div className="villa-compare rounded-sm border border-line bg-bg p-8"><div className="relative aspect-[16/9] overflow-hidden rounded-sm"><Image src="/images/ballena/ballena-5.jpg" alt="Villa Ballena exterior daytime" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} /></div><h3 className="mt-6 font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Villa Ballena</h3><p className="mt-1 micro-italic">{t('ballenaTagline')}</p><div className="mt-4 flex flex-wrap gap-2">{[t('ballenaTag1'), t('ballenaTag2'), t('ballenaTag3')].map((tag) => (<span key={tag} className="rounded-full border border-line px-3 py-1 text-xs text-text-muted">{tag}</span>))}</div><Link href="/villa-ballena" className="btn-editorial mt-6 w-fit !text-[0.6rem]">{t('exploreBallena')}</Link></div><div className="villa-compare rounded-sm border border-line bg-bg p-8"><div className="relative aspect-[16/9] overflow-hidden rounded-sm"><Image src="/images/beluga/img_4847.jpg" alt="Villa Beluga exterior daytime" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} /></div><h3 className="mt-6 font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Villa Beluga</h3><p className="mt-1 micro-italic">{t('belugaTagline')}</p><div className="mt-4 flex flex-wrap gap-2">{[t('belugaTag1'), t('belugaTag2'), t('belugaTag3')].map((tag) => (<span key={tag} className="rounded-full border border-line px-3 py-1 text-xs text-text-muted">{tag}</span>))}</div><Link href="/villa-beluga" className="btn-editorial mt-6 w-fit !text-[0.6rem]">{t('exploreBeluga')}</Link></div></div></div></section>
   );
 }
 
 function CTASection() {
   const t = useTranslations('complex');
   return (
-    <section className="bg-bg"><div className="line-h" /><div className="py-32 lg:py-48"><div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center"><p className="label-section mb-6">{t('maxGuests')}</p><h2 className="display-lg">{t('bookComplex')}</h2><div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"><a href={complexBeba.bookingLink} target="_blank" rel="noopener noreferrer" className="btn-editorial">{t('bookComplex')}</a><Link href="/contact" className="btn-editorial">Get in Touch</Link></div></div></div><div className="line-h" /></section>
+    <section className="bg-bg"><div className="line-h" /><div className="py-32 lg:py-48"><div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center"><p className="label-section mb-6">{t('maxGuests')}</p><h2 className="display-lg">{t('bookComplex')}</h2><div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"><a href={complexBeba.bookingLink} target="_blank" rel="noopener noreferrer" className="btn-editorial">{t('bookComplex')}</a><Link href="/contact" className="btn-editorial">{t('getInTouch')}</Link></div></div></div><div className="line-h" /></section>
   );
 }
 

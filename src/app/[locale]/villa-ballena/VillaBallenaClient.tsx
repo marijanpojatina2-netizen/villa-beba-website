@@ -15,6 +15,8 @@ gsap.registerPlugin(ScrollTrigger);
    S1 — HERO
    ═══════════════════════════════════════════════════════════ */
 function Hero() {
+  const t = useTranslations('villaBallena');
+  const tc = useTranslations('common');
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
 
@@ -37,11 +39,11 @@ function Hero() {
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">BALLENA</h1></div>
         </div>
         <div className="absolute right-6 bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] text-right">
-          <p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">The Serene Wellness Retreat</p>
+          <p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">{t('heroSubtitle')}</p>
           <p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">Svetvincenat, Istria</p>
         </div>
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-          <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">Scroll</span>
+          <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">{tc('scroll')}</span>
           <div className="h-8 w-px bg-white/20 animate-pulse" />
         </div>
       </div>
@@ -50,6 +52,8 @@ function Hero() {
 }
 
 function Introduction() {
+  const t = useTranslations('villaBallena');
+  const tv = useTranslations('villa');
   const sectionRef = useRef<HTMLElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -77,14 +81,11 @@ function Introduction() {
             </div>
           </div>
           <div ref={textRef} className="lg:col-span-5 flex flex-col justify-start lg:pt-8 lg:pl-12">
-            <p className="display-md !not-italic !font-bold">Wake up to the scent of Istrian rosemary.</p>
+            <p className="display-md !not-italic !font-bold">{t('introHeading')}</p>
             <p className="mt-8 body-editorial">
-              Step onto your private terrace with coffee, then ease into a heated pool surrounded by nature.
-              Villa Ballena is a 350m&sup2; designer residence built in 2021, where dark sophisticated interiors
-              meet the warmth of Mediterranean living. Four en-suite bedrooms, a private Finnish sauna,
-              and a biological pool with hydromassage create a sanctuary for those who seek both style and serenity.
+              {t('introText')}
             </p>
-            <Link href="/gallery" className="btn-editorial mt-8 w-fit">View Gallery</Link>
+            <Link href="/gallery" className="btn-editorial mt-8 w-fit">{tv('viewGallery')}</Link>
           </div>
         </div>
       </div>
@@ -158,14 +159,14 @@ function Specifications() {
                 <div key={room.name} className="rounded-sm border border-line bg-bg p-6">
                   <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{room.name}</h3>
                   <p className="mt-2 text-sm text-text-muted">{room.beds}</p>
-                  {room.enSuite && (<span className="mt-3 inline-block rounded-full border border-line px-3 py-1 text-xs text-text-muted">En-suite bathroom</span>)}
+                  {room.enSuite && (<span className="mt-3 inline-block rounded-full border border-line px-3 py-1 text-xs text-text-muted">{t('enSuiteBathroom')}</span>)}
                 </div>
               ))}
               <div className="rounded-sm border border-line bg-bg p-6 md:col-span-2">
                 <div className="grid grid-cols-2 gap-4 text-sm text-text-muted">
-                  <p><span className="text-text">Bathrooms:</span> {villaCommon.bathrooms}</p>
-                  <p><span className="text-text">Guest WCs:</span> {villaCommon.guestWCs}</p>
-                  <p><span className="text-text">Max guests:</span> {villaCommon.maxGuests}</p>
+                  <p><span className="text-text">{t('bathrooms')}:</span> {villaCommon.bathrooms}</p>
+                  <p><span className="text-text">{t('guestWCs')}:</span> {villaCommon.guestWCs}</p>
+                  <p><span className="text-text">{t('maxGuests')}:</span> {villaCommon.maxGuests}</p>
                 </div>
               </div>
             </div>
@@ -173,22 +174,22 @@ function Specifications() {
           {activeTab === 1 && (
             <div className="grid gap-6 md:grid-cols-2">
               <div className="rounded-sm border border-line bg-bg p-6">
-                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Private Sauna</h3>
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{t('privateSauna')}</h3>
                 <p className="mt-2 text-sm text-text-muted">{villaBallena.unique.sauna}</p>
-                <p className="mt-1 text-sm text-text-muted">Wellness shower included</p>
+                <p className="mt-1 text-sm text-text-muted">{t('wellnessShowerIncluded')}</p>
               </div>
               <div className="rounded-sm border border-line bg-bg p-6">
-                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Heated Pool</h3>
-                <p className="mt-2 text-sm text-text-muted">Size: {villaCommon.pool.size}</p>
-                <p className="mt-1 text-sm text-text-muted">Depth: {villaCommon.pool.depth}</p>
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{t('heatedPool')}</h3>
+                <p className="mt-2 text-sm text-text-muted">{t('size')}: {villaCommon.pool.size}</p>
+                <p className="mt-1 text-sm text-text-muted">{t('depth')}: {villaCommon.pool.depth}</p>
                 <p className="mt-1 text-sm text-text-muted">{villaCommon.pool.type}</p>
               </div>
               <div className="rounded-sm border border-line bg-bg p-6 md:col-span-2">
-                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Pool Features</h3>
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{t('poolFeatures')}</h3>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {villaCommon.pool.features.map((f) => (<span key={f} className="rounded-full border border-line px-3 py-1 text-xs text-text-muted">{f}</span>))}
                 </div>
-                <p className="mt-3 text-sm text-text-dim">Season: {villaCommon.pool.season}</p>
+                <p className="mt-3 text-sm text-text-dim">{t('season')}: {villaCommon.pool.season}</p>
               </div>
             </div>
           )}
@@ -201,7 +202,7 @@ function Specifications() {
                 </div>
               ))}
               <div className="rounded-sm border border-line bg-bg p-6">
-                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Terrace</h3>
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{t('terrace')}</h3>
                 <p className="mt-2 text-sm text-text-muted">{villaBallena.unique.terrace}</p>
               </div>
             </div>
@@ -209,28 +210,28 @@ function Specifications() {
           {activeTab === 3 && (
             <div className="grid gap-6 md:grid-cols-2">
               <div className="rounded-sm border border-line bg-bg p-6">
-                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Climate</h3>
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{t('climate')}</h3>
                 <p className="mt-2 text-sm text-text-muted">{villaCommon.indoor.ac}</p>
                 <p className="mt-1 text-sm text-text-muted">{villaCommon.indoor.heating}</p>
-                {villaCommon.indoor.fireplace && <p className="mt-1 text-sm text-text-muted">Fireplace</p>}
+                {villaCommon.indoor.fireplace && <p className="mt-1 text-sm text-text-muted">{t('fireplace')}</p>}
               </div>
               <div className="rounded-sm border border-line bg-bg p-6">
-                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Entertainment</h3>
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{t('entertainment')}</h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {villaCommon.indoor.entertainment.map((e) => (<span key={e} className="rounded-full border border-line px-3 py-1 text-xs text-text-muted">{e}</span>))}
                 </div>
                 <p className="mt-2 text-sm text-text-dim">WiFi: {villaCommon.indoor.wifi}</p>
               </div>
               <div className="rounded-sm border border-line bg-bg p-6">
-                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Kitchen</h3>
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{t('kitchen')}</h3>
                 <div className="mt-2 flex flex-wrap gap-2">
                   {villaCommon.indoor.kitchen.map((k) => (<span key={k} className="rounded-full border border-line px-3 py-1 text-xs text-text-muted">{k}</span>))}
                 </div>
               </div>
               <div className="rounded-sm border border-line bg-bg p-6">
-                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Laundry & Security</h3>
+                <h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{t('laundryAndSecurity')}</h3>
                 <p className="mt-2 text-sm text-text-muted">{villaCommon.indoor.laundry}</p>
-                {villaCommon.indoor.safe && <p className="mt-1 text-sm text-text-muted">In-room safe</p>}
+                {villaCommon.indoor.safe && <p className="mt-1 text-sm text-text-muted">{t('inRoomSafe')}</p>}
               </div>
             </div>
           )}
@@ -244,10 +245,10 @@ function DayTimeline() {
   const t = useTranslations('villa');
   const sectionRef = useRef<HTMLElement>(null);
   const timeSlots = [
-    { time: '08:00', period: 'Morning', description: t('morning') },
-    { time: '12:00', period: 'Midday', description: t('midday') },
-    { time: '15:00', period: 'Afternoon', description: t('afternoon') },
-    { time: '20:00', period: 'Evening', description: t('evening') },
+    { time: '08:00', period: t('morningPeriod'), description: t('morning') },
+    { time: '12:00', period: t('middayPeriod'), description: t('midday') },
+    { time: '15:00', period: t('afternoonPeriod'), description: t('afternoon') },
+    { time: '20:00', period: t('eveningPeriod'), description: t('evening') },
   ];
 
   useEffect(() => {
@@ -296,7 +297,7 @@ function PracticalInfo() {
     { label: t('deposit'), value: villaCommon.deposit },
     { label: t('included'), value: villaCommon.included.join(', ') },
     { label: t('petsAllowed'), value: villaCommon.pets },
-    { label: 'Living Space', value: `${villaCommon.area} on ${villaCommon.grounds} grounds` },
+    { label: t('livingSpace'), value: `${villaCommon.area} / ${villaCommon.grounds}` },
   ];
 
   useEffect(() => {
@@ -333,7 +334,7 @@ function PricingQuickView() {
       <div className="py-32 lg:py-48">
         <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
           <p className="label-section mb-6">(PRICING)</p>
-          <p className="font-heading text-[0.6875rem] uppercase tracking-[0.3em] text-text-dim">Starting from</p>
+          <p className="font-heading text-[0.6875rem] uppercase tracking-[0.3em] text-text-dim">{t('startingFrom')}</p>
           <p className="mt-4 display-lg">{t('pricingTeaser')}</p>
           <Link href="/pricing" className="btn-editorial mt-10 inline-flex items-center gap-2">
             {t('viewPricing')}
@@ -355,7 +356,7 @@ function CTASection() {
       <div className="py-32 lg:py-48">
         <div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center">
           <h2 className="display-lg">{t('bookVilla', { villa: 'Villa Ballena' })}</h2>
-          <p className="mt-6 micro-italic">Limited summer 2026 availability</p>
+          <p className="mt-6 micro-italic">{t('limitedAvailability')}</p>
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a href={villaBallena.bookingLinks.crovillas} target="_blank" rel="noopener noreferrer" className="btn-editorial">{t('bookVilla', { villa: 'Villa Ballena' })}</a>
             <Link href="/contact" className="btn-editorial">{t('inquireDates')}</Link>

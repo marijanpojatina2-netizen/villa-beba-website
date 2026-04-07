@@ -27,10 +27,10 @@ export default function Footer() {
 
           <div className="flex flex-wrap gap-x-8 gap-y-3">
             {[
-              { href: '/villa-ballena' as const, label: 'Villa Ballena' },
-              { href: '/villa-beluga' as const, label: 'Villa Beluga' },
+              { href: '/villa-ballena' as const, label: t('ballena') },
+              { href: '/villa-beluga' as const, label: t('beluga') },
               { href: '/experiences' as const, label: t('experiences') },
-              { href: '/weddings' as const, label: 'Weddings' },
+              { href: '/weddings' as const, label: t('weddings') },
               { href: '/pricing' as const, label: t('pricing') },
               { href: '/contact' as const, label: t('contact') },
             ].map((link) => (
@@ -70,7 +70,7 @@ export default function Footer() {
             &copy; {year} Ballena & Beluga. {t('rights')}
           </p>
           <p className="font-accent italic text-[0.75rem] text-white/40">
-            Svetvincenat, Istria, Croatia
+            {t('location')}
           </p>
         </div>
       </div>
