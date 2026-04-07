@@ -26,7 +26,7 @@
   --font-heading: "Montserrat", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-accent: "Cormorant Garamond", serif;
-  --font-hero: "DM Serif Display", serif;
+  --font-hero: "Bodoni Moda", serif;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -76,9 +76,9 @@ html.lenis, html.lenis body {
 
 /* Large section headings */
 .display-lg {
-  font-family: var(--font-display);
-  font-weight: 700;
-  line-height: 1.1;
+  font-family: var(--font-hero);
+  font-weight: 400;
+  line-height: 1.12;
   letter-spacing: -0.01em;
   font-size: clamp(2rem, 6vw, 5rem);
   color: var(--color-text);
@@ -149,6 +149,9 @@ html.lenis, html.lenis body {
 }
 .font-display {
   font-family: var(--font-display);
+}
+.font-hero {
+  font-family: var(--font-hero);
 }
 
 /* ═══════════════════════════════════════════════════════════

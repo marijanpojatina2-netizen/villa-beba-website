@@ -39,8 +39,8 @@ function Hero() {
     <section ref={sectionRef} className="relative h-screen w-full overflow-hidden" style={{ transformOrigin: 'center top' }}>
       <Image src={heroImages.homepage} alt="Villa Ballena and Villa Beluga aerial view at dusk" fill className="object-cover" priority quality={90} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
-      {/* Content — title + subtitle stacked, left-aligned */}
-      <div className="absolute inset-0 flex flex-col justify-center pb-20 sm:justify-end px-6 sm:pb-16 lg:px-10 lg:pb-20">
+      {/* Content — title in bottom third */}
+      <div className="absolute inset-0 flex flex-col justify-end px-6 pb-[12vh] sm:pb-[10vh] lg:px-10 lg:pb-[8vh]">
         <div ref={titleRef} className="max-w-[90vw]">
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">BALLENA</h1></div>
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">&amp; BELUGA</h1></div>
@@ -99,14 +99,14 @@ function About() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-editorial bg-bg relative">
+    <section ref={sectionRef} className="py-16 lg:py-24 bg-bg relative">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="label-section mb-16 lg:mb-24">(ABOUT)</p>
+        <p className="label-section mb-12 lg:mb-16">(ABOUT)</p>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4">
           <div className="hidden lg:block lg:col-span-3" />
           <div ref={imageRef} className="lg:col-span-4 overflow-hidden rounded-sm">
             <div className="relative aspect-[3/4]">
-              <Image src="/images/ballena/Ballena 11.jpg" alt="Villa Ballena interior living area" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
+              <Image src="/images/ballena/ballena-aerial-pool.jpg" alt="Aerial view of Villa Ballena pool and terrace" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
             </div>
           </div>
           <div ref={textRef} className="lg:col-span-5 flex flex-col justify-start lg:pt-8 lg:pl-12">
@@ -123,30 +123,30 @@ function About() {
           <div className="overflow-hidden"><p className="reveal-line display-lg">Living.</p></div>
         </div>
 
-        {/* Stats — directly below big text, 4 in one row on desktop */}
-        <div ref={statsRef} className="mt-16 lg:mt-20 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 lg:gap-x-12">
+        {/* Stats — directly below big text, 4 in one row on desktop, bigger numbers */}
+        <div ref={statsRef} className="mt-12 lg:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-x-12">
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold text-text/90" data-target="700">0</span>
-              <span className="font-accent text-lg italic text-text-muted">m&sup2;</span>
+              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="700">0</span>
+              <span className="font-accent text-xl italic text-text-muted">m&sup2;</span>
             </div>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">living space</p>
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold text-text/90" data-target="60">0</span>
-              <span className="font-accent text-lg italic text-text-muted">%</span>
+              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="60">0</span>
+              <span className="font-accent text-xl italic text-text-muted">%</span>
             </div>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">green spaces</p>
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold text-text/90" data-target="8">0</span>
+              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="8">0</span>
             </div>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">exclusive bedrooms</p>
           </div>
           <div>
-            <span className="font-display text-[clamp(2.5rem,5vw,3.5rem)] font-bold italic text-text/90">24/7</span>
+            <span className="font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold italic text-text/90">24/7</span>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">concierge services</p>
           </div>
         </div>
@@ -181,9 +181,9 @@ function VillasShowcase() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-editorial bg-bg">
+    <section ref={sectionRef} className="py-16 lg:py-24 bg-bg">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="flex items-center justify-between mb-16">
+        <div className="flex items-center justify-between mb-12">
           <p className="label-section">(OUR VILLAS)</p>
           <div className="flex items-center gap-3 text-[0.6875rem] font-heading tracking-wider text-text-dim">
             <span className="text-text">(1)</span><span>(2)</span>
@@ -193,10 +193,7 @@ function VillasShowcase() {
           {villas.map((villa) => (
             <Link key={villa.name} href={villa.href} className="villa-card group block">
               <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
-                <Image src={villa.image} alt={villa.imageAlt} fill className="object-cover transition-transform duration-700" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
-                <div className="absolute inset-0 flex items-end p-8 lg:p-12">
-                  <h2 className="display-lg text-white [text-shadow:0_2px_20px_rgba(0,0,0,0.5)]">{villa.name.split(' ')[1]?.toUpperCase()}</h2>
-                </div>
+                <Image src={villa.image} alt={villa.imageAlt} fill className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
               <div className="mt-6 flex items-start justify-between">
                 <div>
@@ -230,9 +227,9 @@ function Beliefs() {
   }, []);
 
   return (
-    <section className="section-editorial bg-bg">
+    <section className="py-16 lg:py-24 bg-bg">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="flex justify-end mb-16"><p className="label-section">(OUR BELIEFS)</p></div>
+        <div className="flex justify-end mb-12"><p className="label-section">(OUR BELIEFS)</p></div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
             <Image src="/images/beluga/Beluga 35.jpg" alt="Villa Beluga living room interior" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
@@ -321,7 +318,7 @@ function Amenities() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="section-editorial bg-bg overflow-hidden">
+    <section ref={sectionRef} className="py-16 lg:py-24 bg-bg overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="amenity-text">
