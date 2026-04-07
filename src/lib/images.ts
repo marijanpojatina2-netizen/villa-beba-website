@@ -4,7 +4,7 @@
 export const heroImages = {
   homepage: '/images/ballena/Ballena 42.jpg',        // Drone shot both villas at dusk
   ballena: '/images/ballena/Ballena 1.jpg',             // Exterior daytime front view
-  beluga: '/images/beluga/Beluga 36.jpg',             // Exterior with pool at dusk
+  beluga: '/images/beluga/Beluga 2.jpg',               // Beluga exterior daytime
   complexBeba: '/images/beluga/Beluga 39.jpg',          // Complex Beba aerial/exterior
   weddings: '/images/ballena/Ballena 35-1.jpg',       // Olive tree courtyard at dusk
   corporate: '/images/ballena/Ballena 33.jpg',        // Exterior at sunset
@@ -65,22 +65,56 @@ export const ballenaGallery = [
 ];
 
 export const belugaGallery = [
-  { src: '/images/beluga/Beluga 1.jpg', alt: 'Villa Beluga exterior daytime', category: 'exterior' },
-  { src: '/images/beluga/Beluga 36.jpg', alt: 'Villa Beluga pool and terrace at dusk', category: 'exterior' },
-  { src: '/images/beluga/Beluga 35.jpg', alt: 'Villa Beluga outdoor dining at night', category: 'exterior' },
-  { src: '/images/beluga/Beluga 9.jpg', alt: 'Villa Beluga covered terrace with pool', category: 'pool' },
-  { src: '/images/beluga/Beluga 25.jpg', alt: 'Villa Beluga rooftop terrace', category: 'exterior' },
-  { src: '/images/beluga/Copy of DJI_0146.jpg', alt: 'Villa Beluga aerial view', category: 'exterior' },
-  { src: '/images/beluga/Beluga 11.jpg', alt: 'Villa Beluga living room', category: 'interior' },
-  { src: '/images/beluga/Beluga 10.jpg', alt: 'Villa Beluga game room', category: 'interior' },
-  { src: '/images/beluga/Beluga 15.jpg', alt: 'Villa Beluga glass terrace lounge', category: 'interior' },
-  { src: '/images/beluga/Beluga 17.jpg', alt: 'Villa Beluga bedroom', category: 'bedroom' },
-  { src: '/images/beluga/Beluga 14.jpg', alt: 'Villa Beluga kitchen area', category: 'interior' },
-  { src: '/images/beluga/Beluga 13.jpg', alt: 'Villa Beluga stone wall terrace', category: 'exterior' },
-  { src: '/images/beluga/Beluga 26.jpg', alt: 'Villa Beluga poolside loungers', category: 'pool' },
-  { src: '/images/beluga/Beluga 27.jpg', alt: 'Villa Beluga wooden terrace', category: 'exterior' },
-  { src: '/images/beluga/Beluga 42.jpg', alt: 'Aerial view Svetvinčenat village', category: 'exterior' },
-  { src: '/images/beluga/Beluga 21.jpg', alt: 'Villa Beluga modern bathroom', category: 'interior' },
+  { src: '/images/beluga/Beluga 1.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 2.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 3.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 4.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 5.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 6.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 7.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Beluga 8.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Beluga 9.jpg', alt: 'Beluga', category: 'pool' },
+  { src: '/images/beluga/Beluga 10.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Beluga 11.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Beluga 12.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Beluga 13.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 14.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Beluga 15.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Beluga 16.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Beluga 17.jpg', alt: 'Beluga', category: 'bedroom' },
+  { src: '/images/beluga/Beluga 18.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Beluga 21.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Beluga 25.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 26.jpg', alt: 'Beluga', category: 'pool' },
+  { src: '/images/beluga/Beluga 27.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 31.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 33.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 34.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 35.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 36.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 37.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 38.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 39.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 40.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Beluga 42.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Copy of DJI_0146.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Copy of IMG_4759.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_4778.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Copy of IMG_4789.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_4847.jpg', alt: 'Beluga', category: 'exterior' },
+  { src: '/images/beluga/Copy of IMG_4876.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_4884.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_4903.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_4910.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_4958crop.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_4968.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_4979.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_4986.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_5002.jpg', alt: 'Beluga', category: 'bedroom' },
+  { src: '/images/beluga/Copy of IMG_5164.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_5223.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_5228.jpg', alt: 'Beluga', category: 'interior' },
+  { src: '/images/beluga/Copy of IMG_5240.jpg', alt: 'Beluga', category: 'exterior' },
 ];
 
 export const allGalleryImages = [
