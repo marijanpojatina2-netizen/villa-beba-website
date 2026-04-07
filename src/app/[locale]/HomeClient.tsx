@@ -316,18 +316,18 @@ function ValuesGrid() {
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
           {values.slice(0, 2).map((v) => (
             <div key={v.num} className="value-item col-span-1 lg:col-span-3">
-              <h3 className="display-md text-white whitespace-pre-line !text-xl lg:!text-2xl">{v.title}</h3>
+              <h3 className="display-md !text-white whitespace-pre-line !text-xl lg:!text-2xl">{v.title}</h3>
               <p className="mt-3 text-[0.8125rem] text-white/90 leading-relaxed">{v.desc}</p>
               <p className="mt-4 text-white/60 text-sm">({v.num})</p>
             </div>
           ))}
           <div className="value-item col-span-2 lg:col-span-5 lg:col-start-8 lg:row-span-2 flex flex-col justify-start">
-            <p className="body-editorial text-white/90 !max-w-none">At Villa Ballena & Beluga, we believe that a home is more than a physical space — it is a reflection of your aspirations, well-being, and values.</p>
-            <p className="mt-6 body-editorial text-white/80 !max-w-none">Our mission is to immerse you in a lifestyle that balances refined aesthetics, architectural excellence, and a profound sense of community.</p>
+            <p className="body-editorial !text-white/90 !max-w-none">At Villa Ballena & Beluga, we believe that a home is more than a physical space — it is a reflection of your aspirations, well-being, and values.</p>
+            <p className="mt-6 body-editorial !text-white/80 !max-w-none">Our mission is to immerse you in a lifestyle that balances refined aesthetics, architectural excellence, and a profound sense of community.</p>
           </div>
           {values.slice(2).map((v) => (
             <div key={v.num} className="value-item col-span-1 lg:col-span-2">
-              <h3 className="display-md text-white whitespace-pre-line !text-lg lg:!text-xl">{v.title}</h3>
+              <h3 className="display-md !text-white whitespace-pre-line !text-lg lg:!text-xl">{v.title}</h3>
               <p className="mt-3 text-[0.75rem] text-white/90 leading-relaxed">{v.desc}</p>
               <p className="mt-4 text-white/60 text-sm">({v.num})</p>
             </div>
