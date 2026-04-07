@@ -249,6 +249,44 @@ function Beliefs() {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   S5b — BLOG PREVIEW
+   ═══════════════════════════════════════════════════════════ */
+function BlogPreview() {
+  const blogPosts = [
+    { slug: 'truffle-season-in-istria', title: 'Truffle Season in Istria', excerpt: 'Discover when and where to find the prized white and black truffles of Istria.', category: 'Experiences', image: '/images/experiences/tartufi.jpg' },
+    { slug: 'rovinj-gem-of-the-adriatic', title: 'Rovinj: Gem of the Adriatic', excerpt: 'Just 23 km from our villas, Rovinj enchants with its pastel harbor and cobblestone streets.', category: 'Destination', image: '/images/experiences/rovinj.jpg' },
+    { slug: 'istrian-wine-journey', title: 'Istrian Wine Journey', excerpt: 'Malvazija, Teran, and Muskat — Istrian wines are making waves worldwide.', category: 'Experiences', image: '/images/experiences/wine-tasting.jpg' },
+  ];
+
+  return (
+    <section className="py-16 lg:py-24 bg-bg-elevated">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <div className="flex items-center justify-between mb-12">
+          <p className="label-section">(JOURNAL)</p>
+          <Link href="/blog" className="btn-editorial !text-[0.6rem]">View All</Link>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {blogPosts.map((post) => (
+            <Link key={post.slug} href={`/blog/${post.slug}` as '/blog/truffle-season-in-istria'} className="group block">
+              <div className="relative aspect-[16/10] overflow-hidden rounded-sm border border-line transition-all duration-500 group-hover:border-line-strong">
+                <Image src={post.image} alt={post.title} fill className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" quality={60} sizes="(max-width: 768px) 100vw, 33vw" />
+                <div className="absolute left-4 top-4">
+                  <span className="rounded-full border border-white/20 bg-black/40 px-3 py-1 text-[10px] font-heading uppercase tracking-widest text-white/80 backdrop-blur-sm">
+                    {post.category}
+                  </span>
+                </div>
+              </div>
+              <h3 className="mt-4 font-heading text-sm font-medium uppercase tracking-[0.08em] text-text transition-colors duration-300 group-hover:text-text-muted">{post.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-text-muted">{post.excerpt}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
    S6 — VALUES GRID OVER PHOTO
    ═══════════════════════════════════════════════════════════ */
 function ValuesGrid() {
@@ -279,19 +317,19 @@ function ValuesGrid() {
           {values.slice(0, 2).map((v) => (
             <div key={v.num} className="value-item col-span-1 lg:col-span-3">
               <h3 className="display-md text-white whitespace-pre-line !text-xl lg:!text-2xl">{v.title}</h3>
-              <p className="mt-3 text-[0.8125rem] text-white/50 leading-relaxed">{v.desc}</p>
-              <p className="mt-4 text-white/30 text-sm">({v.num})</p>
+              <p className="mt-3 text-[0.8125rem] text-white/90 leading-relaxed">{v.desc}</p>
+              <p className="mt-4 text-white/60 text-sm">({v.num})</p>
             </div>
           ))}
           <div className="value-item col-span-2 lg:col-span-5 lg:col-start-8 lg:row-span-2 flex flex-col justify-start">
-            <p className="body-editorial text-white/60 !max-w-none">At Villa Ballena & Beluga, we believe that a home is more than a physical space — it is a reflection of your aspirations, well-being, and values.</p>
-            <p className="mt-6 body-editorial text-white/50 !max-w-none">Our mission is to immerse you in a lifestyle that balances refined aesthetics, architectural excellence, and a profound sense of community.</p>
+            <p className="body-editorial text-white/90 !max-w-none">At Villa Ballena & Beluga, we believe that a home is more than a physical space — it is a reflection of your aspirations, well-being, and values.</p>
+            <p className="mt-6 body-editorial text-white/80 !max-w-none">Our mission is to immerse you in a lifestyle that balances refined aesthetics, architectural excellence, and a profound sense of community.</p>
           </div>
           {values.slice(2).map((v) => (
             <div key={v.num} className="value-item col-span-1 lg:col-span-2">
               <h3 className="display-md text-white whitespace-pre-line !text-lg lg:!text-xl">{v.title}</h3>
-              <p className="mt-3 text-[0.75rem] text-white/50 leading-relaxed">{v.desc}</p>
-              <p className="mt-4 text-white/30 text-sm">({v.num})</p>
+              <p className="mt-3 text-[0.75rem] text-white/90 leading-relaxed">{v.desc}</p>
+              <p className="mt-4 text-white/60 text-sm">({v.num})</p>
             </div>
           ))}
         </div>
@@ -394,6 +432,7 @@ export default function HomePage() {
       <About />
       <VillasShowcase />
       <Beliefs />
+      <BlogPreview />
       <ValuesGrid />
       <Amenities />
       <Reviews />
