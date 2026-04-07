@@ -91,6 +91,51 @@ export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
   };
 }
 
+export function getArticleSchema({
+  title,
+  description,
+  slug,
+  datePublished,
+  image,
+  locale = 'en',
+}: {
+  title: string;
+  description: string;
+  slug: string;
+  datePublished: string;
+  image?: string;
+  locale?: string;
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    url: `${BASE_URL}/${locale}/blog/${slug}`,
+    datePublished,
+    dateModified: datePublished,
+    author: {
+      '@type': 'Organization',
+      name: 'Villa Ballena & Villa Beluga',
+      url: BASE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Villa Ballena & Villa Beluga',
+      url: BASE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE_URL}/favicon.ico`,
+      },
+    },
+    image: image ? `${BASE_URL}${image}` : `${BASE_URL}/images/ballena/ballena-42.jpg`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${BASE_URL}/${locale}/blog/${slug}`,
+    },
+  };
+}
+
 export function getFAQSchema(items: { q: string; a: string }[]) {
   return {
     '@context': 'https://schema.org',
