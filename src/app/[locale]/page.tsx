@@ -232,7 +232,7 @@ function Beliefs() {
         <div className="flex justify-end mb-12"><p className="label-section">(OUR BELIEFS)</p></div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-            <Image src="/images/beluga/Beluga 35.jpg" alt="Villa Beluga living room interior" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
+            <Image src="/images/koridor/Bijela/IMG_4778.jpg" alt="Villa exterior with lush garden" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
           </div>
           <div>
             <div ref={textRef}>
@@ -328,10 +328,10 @@ function Amenities() {
           </div>
           <div className="relative h-[500px] lg:h-[600px]">
             <div className="amenity-img absolute top-0 right-0 w-[65%] h-[70%] overflow-hidden rounded-sm">
-              <Image src="/images/ballena/Ballena 10.jpg" alt="Villa Ballena covered terrace" fill className="object-cover" quality={80} sizes="40vw" />
+              <Image src="/images/koridor/Plava/IMG_5140.jpg" alt="Villa interior wellness area" fill className="object-cover" quality={80} sizes="40vw" />
             </div>
             <div className="amenity-img absolute bottom-0 left-0 w-[55%] h-[55%] overflow-hidden rounded-sm z-10 border border-line">
-              <Image src="/images/ballena/Ballena 38.jpg" alt="Villa Ballena pool at dusk" fill className="object-cover" quality={80} sizes="35vw" />
+              <Image src="/images/ballena/Copy of IMG_5118.jpg" alt="Villa Ballena bedroom interior" fill className="object-cover" quality={80} sizes="35vw" />
             </div>
           </div>
         </div>
