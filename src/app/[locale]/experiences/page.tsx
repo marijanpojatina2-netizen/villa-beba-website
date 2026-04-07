@@ -23,21 +23,23 @@ const categoryLabels: Record<Category, string> = {
 };
 
 const experienceImages: Record<string, string> = {
-  'Wine Tasting': '/images/beluga/Beluga 13.jpg',
-  'Truffle Hunting': '/images/ballena/Ballena 35-1.jpg',
-  'Rovinj': '/images/beluga/Beluga 42.jpg',
-  'Beaches': '/images/beluga/Beluga 25.jpg',
+  'Wine Tasting': '/images/experiences/wine tasting.jpg',
+  'Truffle Hunting': '/images/experiences/tartufi.jpg',
+  'Cooking Class': '/images/experiences/cooking class.jpg',
+  'Rovinj': '/images/experiences/Rovinj.jpg',
+  'Pula Arena': '/images/experiences/pula-arena.jpg',
+  'Brijuni': '/images/experiences/brijuni_iz_zraka2.jpg',
+  'Motovun': '/images/experiences/Motovun.jpg',
+  'Beach': '/images/experiences/istarske plaze.jpg',
+  'Istralandia': '/images/experiences/istralandia.jpg',
+  'Kaštel': '/images/experiences/kaštel morosini.jpg',
 };
 
 const fallbackImages = [
-  '/images/ballena/Ballena 42.jpg',
-  '/images/beluga/Beluga 36.jpg',
-  '/images/ballena/Ballena 36.jpg',
-  '/images/beluga/Beluga 35.jpg',
-  '/images/ballena/Ballena 38.jpg',
-  '/images/beluga/Beluga 27.jpg',
-  '/images/ballena/Ballena 23.jpg',
-  '/images/beluga/Beluga 9.jpg',
+  '/images/experiences/Rovinj.jpg',
+  '/images/experiences/wine tasting.jpg',
+  '/images/experiences/Motovun.jpg',
+  '/images/experiences/tartufi.jpg',
 ];
 
 function getExperienceImage(title: string, index: number): string {
