@@ -84,7 +84,7 @@ function Introduction() {
           <div className="hidden lg:block lg:col-span-3" />
           <div ref={imageRef} className="lg:col-span-4 overflow-hidden rounded-sm">
             <div className="relative aspect-[3/4]">
-              <Image src="/images/beluga/Beluga 35.jpg" alt="Villa Beluga interior" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
+              <Image src="/images/beluga/Copy of IMG_5164.jpg" alt="Villa Beluga interior" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
             </div>
           </div>
         </div>
@@ -118,9 +118,9 @@ function PhotoGallery() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className="label-section mb-16 lg:mb-24">(GALLERY)</p>
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-          {belugaGallery.slice(0, 6).map((image, i) => (
+          {belugaGallery.map((image, i) => (
             <div key={image.src} className="gallery-item mb-4 break-inside-avoid group overflow-hidden rounded-sm border border-line transition-all duration-500 hover:border-line-strong">
-              <div className={`${heights[i]} relative`}>
+              <div className={`${heights[i % heights.length]} relative`}>
                 <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
                 <div className="absolute bottom-4 left-4">
