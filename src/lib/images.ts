@@ -5,7 +5,7 @@ export const heroImages = {
   homepage: '/images/ballena/Ballena 42.jpg',        // Drone shot both villas at dusk
   ballena: '/images/ballena/Ballena 38.jpg',          // Pool at night, cinematic
   beluga: '/images/beluga/Beluga 36.jpg',             // Exterior with pool at dusk
-  complexBeba: '/images/beluga/Beluga 42.jpg',        // Aerial panorama of location
+  complexBeba: '/images/beluga/Beluga 39.jpg',          // Complex Beba aerial/exterior
   weddings: '/images/ballena/Ballena 35-1.jpg',       // Olive tree courtyard at dusk
   corporate: '/images/ballena/Ballena 33.jpg',        // Exterior at sunset
   experiences: '/images/beluga/Beluga 13.jpg',        // Stone wall terrace, Mediterranean
