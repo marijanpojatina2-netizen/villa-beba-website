@@ -46,7 +46,7 @@ export default function AboutPage() {
     <main>
       {/* ──────── Hero ──────── */}
       <section className="relative h-[70vh] min-h-[500px] w-full overflow-hidden">
-        <Image src="/images/ballena/Ballena 35-1.jpg" alt="Olive tree courtyard at Villa Ballena" fill className="object-cover" priority quality={85} />
+        <Image src="/images/beluga/Beluga 14.jpg" alt="Villa Beluga kitchen and living area" fill className="object-cover" priority quality={85} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
           <div ref={titleRef} className="max-w-[90vw]">

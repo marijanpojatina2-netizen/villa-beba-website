@@ -62,7 +62,7 @@ export default function GalleryPage() {
     <main>
       {/* ──────── Hero ──────── */}
       <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
-        <Image src="/images/koridor/IMG_5216.jpg" alt="Corridor between villas with pool view" fill className="object-cover" priority quality={85} />
+        <Image src="/images/beluga/Copy of IMG_4910.jpg" alt="Villa Beluga interior" fill className="object-cover" priority quality={85} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
           <div ref={titleRef} className="max-w-[90vw]">
@@ -110,7 +110,7 @@ export default function GalleryPage() {
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-bg/80 to-transparent p-4">
-                  <p className="text-left text-xs font-medium uppercase tracking-wider text-text-muted">{item.alt}</p>
+                  <p className="text-left text-xs font-medium uppercase tracking-wider text-text-muted">{'villa' in item ? (item as { villa: string }).villa === 'ballena' ? 'Ballena' : (item as { villa: string }).villa === 'beluga' ? 'Beluga' : 'Complex' : ''}</p>
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center bg-bg/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <span className="btn-editorial !text-[0.6rem]">View</span>
