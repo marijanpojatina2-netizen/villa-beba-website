@@ -190,10 +190,10 @@ function WeddingExperiences() {
   const sectionRef = useRef<HTMLElement>(null);
 
   const expList = [
-    { title: 'Wine Tasting', description: 'A curated private tasting at renowned Istrian wineries. Toast your love with Malvazija and Teran among the vineyards.', image: '/images/beluga/Beluga 13.jpg' },
-    { title: 'Truffle Hunting', description: 'An unforgettable pre-wedding adventure through ancient oak forests, guided by local hunters and their truffle dogs.', image: '/images/ballena/Ballena 35-1.jpg' },
-    { title: 'Rovinj Excursion', description: 'Explore the pastel-colored streets of Rovinj. Perfect for couple portraits, bridal party outings, or a rehearsal dinner by the harbor.', image: '/images/beluga/Beluga 42.jpg' },
-    { title: 'Cooking Class', description: 'Bond with your wedding party over handmade pasta, fresh truffles, and Istrian olive oil in a private chef-led cooking class.', image: '/images/beluga/Beluga 35.jpg' },
+    { title: 'Wine Tasting', description: 'A curated private tasting at renowned Istrian wineries. Toast your love with Malvazija and Teran among the vineyards.', image: '/images/experiences/wine tasting.jpg' },
+    { title: 'Truffle Hunting', description: 'An unforgettable pre-wedding adventure through ancient oak forests, guided by local hunters and their truffle dogs.', image: '/images/experiences/tartufi.jpg' },
+    { title: 'Rovinj Excursion', description: 'Explore the pastel-colored streets of Rovinj. Perfect for couple portraits, bridal party outings, or a rehearsal dinner by the harbor.', image: '/images/experiences/Rovinj.jpg' },
+    { title: 'Cooking Class', description: 'Bond with your wedding party over handmade pasta, fresh truffles, and Istrian olive oil in a private chef-led cooking class.', image: '/images/experiences/cooking class.jpg' },
   ];
 
   useEffect(() => {
@@ -266,7 +266,6 @@ export default function WeddingsPage() {
       <WeddingHero />
       <WhyIstria />
       <WeddingPackages />
-      <WeddingPricingTable />
       <WeddingExperiences />
       <WeddingCTA />
     </main>
