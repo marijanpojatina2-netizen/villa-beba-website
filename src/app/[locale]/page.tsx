@@ -107,7 +107,7 @@ function About() {
           <div className="hidden lg:block lg:col-span-3" />
           <div ref={imageRef} className="lg:col-span-4 overflow-hidden rounded-sm">
             <div className="relative aspect-[3/4]">
-              <Image src="/images/koridor/Bijela/DJI_0146.jpg" alt="Aerial view of villa pool and terrace from drone" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
+              <Image src="/images/beluga/dji_0146.jpg" alt="Aerial view of villa pool and terrace from drone" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
             </div>
           </div>
           <div ref={textRef} className="lg:col-span-5 flex flex-col justify-start lg:pt-8 lg:pl-12">
@@ -233,7 +233,7 @@ function Beliefs() {
         <div className="flex justify-end mb-12"><p className="label-section">(OUR BELIEFS)</p></div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
-            <Image src="/images/koridor/Bijela/IMG_4778.jpg" alt="Villa exterior with lush garden" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
+            <Image src="/images/beluga/img_4778.jpg" alt="Villa exterior with lush garden" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
           </div>
           <div>
             <div ref={textRef}>
@@ -273,7 +273,7 @@ function ValuesGrid() {
 
   return (
     <section ref={sectionRef} className="relative min-h-[80vh] flex items-center overflow-hidden">
-      <Image src="/images/beluga/Beluga 25.jpg" alt="Villa Beluga glass terrace interior" fill className="object-cover" quality={80} />
+      <Image src="/images/beluga/beluga-25.jpg" alt="Villa Beluga glass terrace interior" fill className="object-cover" quality={80} />
       <div className="absolute inset-0 bg-black/65" />
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10 py-20 w-full text-white">
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6">
@@ -329,10 +329,10 @@ function Amenities() {
           </div>
           <div className="relative h-[500px] lg:h-[600px]">
             <div className="amenity-img absolute top-0 right-0 w-[65%] h-[70%] overflow-hidden rounded-sm">
-              <Image src="/images/koridor/Plava/IMG_5140.jpg" alt="Villa interior wellness area" fill className="object-cover" quality={80} sizes="40vw" />
+              <Image src="/images/ballena/img_5140.jpg" alt="Villa interior wellness area" fill className="object-cover" quality={80} sizes="40vw" />
             </div>
             <div className="amenity-img absolute bottom-0 left-0 w-[55%] h-[55%] overflow-hidden rounded-sm z-10 border border-line">
-              <Image src="/images/ballena/Copy of IMG_5118.jpg" alt="Villa Ballena bedroom interior" fill className="object-cover" quality={80} sizes="35vw" />
+              <Image src="/images/ballena/img_5118.jpg" alt="Villa Ballena bedroom interior" fill className="object-cover" quality={80} sizes="35vw" />
             </div>
           </div>
         </div>

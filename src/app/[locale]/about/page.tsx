@@ -46,7 +46,7 @@ export default function AboutPage() {
     <main>
       {/* ──────── Hero ──────── */}
       <section className="relative h-[70vh] min-h-[500px] w-full overflow-hidden">
-        <Image src="/images/beluga/Beluga 14.jpg" alt="Villa Beluga kitchen and living area" fill className="object-cover" priority quality={85} />
+        <Image src="/images/beluga/beluga-14.jpg" alt="Villa Beluga kitchen and living area" fill className="object-cover" priority quality={85} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
         <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
           <div ref={titleRef} className="max-w-[90vw]">
@@ -71,7 +71,7 @@ export default function AboutPage() {
             <div className="lg:col-span-2" />
             <div ref={storyImageRef} className="lg:col-span-5 overflow-hidden rounded-sm border border-line">
               <div className="relative aspect-[4/3]">
-                <Image src="/images/ballena/Ballena 42.jpg" alt="Aerial view of both villas at dusk" fill className="object-cover" quality={80} />
+                <Image src="/images/ballena/ballena-42.jpg" alt="Aerial view of both villas at dusk" fill className="object-cover" quality={80} />
               </div>
             </div>
           </div>

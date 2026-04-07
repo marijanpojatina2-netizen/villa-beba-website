@@ -23,24 +23,24 @@ const categoryLabels: Record<Category, string> = {
 };
 
 const experienceImages: Record<string, string> = {
-  'Wine Tasting': '/images/experiences/wine tasting.jpg',
+  'Wine Tasting': '/images/experiences/wine-tasting.jpg',
   'Truffle Hunting': '/images/experiences/tartufi.jpg',
-  'Cooking Class': '/images/experiences/cooking class.jpg',
-  'Rovinj': '/images/experiences/Rovinj.jpg',
+  'Cooking Class': '/images/experiences/cooking-class.jpg',
+  'Rovinj': '/images/experiences/rovinj.jpg',
   'Pula Arena': '/images/experiences/pula-arena.jpg',
   'Brijuni': '/images/experiences/brijuni_iz_zraka2.jpg',
-  'Motovun': '/images/experiences/Motovun.jpg',
-  'Beach': '/images/experiences/istarske plaze.jpg',
+  'Motovun': '/images/experiences/motovun.jpg',
+  'Beach': '/images/experiences/istarske-plaze.jpg',
   'Istralandia': '/images/experiences/istralandia.jpg',
-  'Kaštel': '/images/experiences/kaštel morosini.jpg',
+  'Kaštel': '/images/experiences/kastel-morosini.jpg',
   'Olive Oil': '/images/experiences/maslinici.jpg',
   'Tennis': '/images/experiences/tenis.jpg',
 };
 
 const fallbackImages = [
-  '/images/experiences/Rovinj.jpg',
-  '/images/experiences/wine tasting.jpg',
-  '/images/experiences/Motovun.jpg',
+  '/images/experiences/rovinj.jpg',
+  '/images/experiences/wine-tasting.jpg',
+  '/images/experiences/motovun.jpg',
   '/images/experiences/tartufi.jpg',
 ];
 

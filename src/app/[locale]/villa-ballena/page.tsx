@@ -76,7 +76,7 @@ function Introduction() {
           <div className="hidden lg:block lg:col-span-3" />
           <div ref={imageRef} className="lg:col-span-4 overflow-hidden rounded-sm">
             <div className="relative aspect-[3/4]">
-              <Image src="/images/ballena/Ballena 7.jpg" alt="Villa Ballena interior" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
+              <Image src="/images/ballena/ballena-7.jpg" alt="Villa Ballena interior" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 33vw" />
             </div>
           </div>
           <div ref={textRef} className="lg:col-span-5 flex flex-col justify-start lg:pt-8 lg:pl-12">
