@@ -63,6 +63,7 @@ export default function Header() {
     { href: '/weddings' as const, label: t('weddings') },
     { href: '/pricing' as const, label: t('pricing') },
     { href: '/gallery' as const, label: 'Gallery' },
+    { href: '/blog' as const, label: 'Blog' },
     { href: '/about' as const, label: 'About' },
     { href: '/contact' as const, label: t('contact') },
   ];
@@ -157,10 +158,11 @@ export default function Header() {
       {/* ── Full-Screen Menu Overlay — starts below header ── */}
       <div
         ref={menuRef}
-        className="fixed top-16 lg:top-20 left-0 right-0 bottom-0 z-40 bg-bg opacity-0 pointer-events-none"
+        data-lenis-prevent
+        className="fixed top-16 lg:top-20 left-0 right-0 bottom-0 z-40 bg-bg opacity-0 pointer-events-none overflow-y-auto overscroll-contain"
         style={{ willChange: 'opacity' }}
       >
-        <div className="flex h-full flex-col justify-start px-10 lg:px-20 pt-8 pb-10 overflow-y-auto">
+        <div className="flex min-h-full flex-col justify-start px-10 lg:px-20 pt-8 pb-10">
           <div ref={menuLinksRef} className="flex flex-col gap-0">
             {allNavLinks.map((link) => (
               <div key={link.href} className="menu-link border-b border-line">
