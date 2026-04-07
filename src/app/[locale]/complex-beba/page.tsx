@@ -272,7 +272,7 @@ function VillaComparison() {
         <div className="grid gap-8 md:grid-cols-2">
           <div className="villa-compare rounded-sm border border-line bg-bg p-8">
             <div className="relative aspect-[16/9] overflow-hidden rounded-sm">
-              <Image src="/images/ballena/Ballena 36.jpg" alt="Villa Ballena terrace and pool at night" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} />
+              <Image src="/images/ballena/Ballena 5.jpg" alt="Villa Ballena exterior daytime" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} />
             </div>
             <h3 className="mt-6 font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Villa Ballena</h3>
             <p className="mt-1 micro-italic">The Serene Wellness Retreat</p>
@@ -285,7 +285,7 @@ function VillaComparison() {
           </div>
           <div className="villa-compare rounded-sm border border-line bg-bg p-8">
             <div className="relative aspect-[16/9] overflow-hidden rounded-sm">
-              <Image src="/images/beluga/Beluga 36.jpg" alt="Villa Beluga pool and terrace at dusk" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} />
+              <Image src="/images/koridor/Bijela/IMG_4847.jpg" alt="Villa Beluga exterior daytime" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" quality={80} />
             </div>
             <h3 className="mt-6 font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">Villa Beluga</h3>
             <p className="mt-1 micro-italic">The Entertainment &amp; Lifestyle Villa</p>
