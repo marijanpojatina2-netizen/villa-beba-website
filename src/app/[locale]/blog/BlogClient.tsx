@@ -17,12 +17,9 @@ export default function BlogPage() {
   const gridRef = useRef<HTMLDivElement>(null);
 
   const blogPosts = [
-    { slug: 'truffle-season-in-istria', title: t('post0Title'), excerpt: t('post0Excerpt'), category: t('post0Category'), date: '2026-02-15', image: '/images/ballena/ballena-35-1.jpg' },
-    { slug: 'rovinj-gem-of-the-adriatic', title: t('post1Title'), excerpt: t('post1Excerpt'), category: t('post1Category'), date: '2026-02-01', image: '/images/beluga/beluga-42.jpg' },
-    { slug: 'best-beaches-near-svetvincenat', title: t('post2Title'), excerpt: t('post2Excerpt'), category: t('post2Category'), date: '2026-01-20', image: '/images/beluga/beluga-25.jpg' },
-    { slug: 'istrian-wine-journey', title: t('post3Title'), excerpt: t('post3Excerpt'), category: t('post3Category'), date: '2026-01-10', image: '/images/beluga/beluga-13.jpg' },
-    { slug: 'planning-the-perfect-istrian-wedding', title: t('post4Title'), excerpt: t('post4Excerpt'), category: t('post4Category'), date: '2025-12-28', image: '/images/ballena/ballena-42.jpg' },
-    { slug: 'family-friendly-activities-central-istria', title: t('post5Title'), excerpt: t('post5Excerpt'), category: t('post5Category'), date: '2025-12-15', image: '/images/beluga/beluga-36.jpg' },
+    { slug: 'why-istria-luxury-villa-holiday', title: t('post0Title'), excerpt: t('post0Excerpt'), category: t('post0Category'), date: '2026-03-15', image: '/images/ballena/ballena-42.jpg' },
+    { slug: 'istrian-food-guide-truffles-olive-oil-wine', title: t('post1Title'), excerpt: t('post1Excerpt'), category: t('post1Category'), date: '2026-03-01', image: '/images/ballena/ballena-35-1.jpg' },
+    { slug: 'things-to-do-near-svetvincenat-istria', title: t('post2Title'), excerpt: t('post2Excerpt'), category: t('post2Category'), date: '2026-02-15', image: '/images/beluga/beluga-42.jpg' },
   ];
 
   useEffect(() => { const ctx = gsap.context(() => {
@@ -49,7 +46,7 @@ export default function BlogPage() {
               <time className="font-heading text-[0.6875rem] tracking-wider text-text-dim">{new Date(post.date).toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' })}</time>
               <h2 className="mt-3 font-heading text-sm font-medium uppercase tracking-[0.08em] text-text transition-colors duration-300 group-hover:text-text-muted md:text-base">{post.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-text-muted">{post.excerpt}</p>
-              <Link href={`/blog/${post.slug}` as '/blog/truffle-season-in-istria'} className="mt-5 inline-flex items-center gap-2 font-heading text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-text transition-all duration-300 hover:gap-3">{t('readMore')}<svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></Link>
+              <Link href={`/blog/${post.slug}` as '/blog/why-istria-luxury-villa-holiday'} className="mt-5 inline-flex items-center gap-2 font-heading text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-text transition-all duration-300 hover:gap-3">{t('readMore')}<svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg></Link>
             </div>
           </article>
         ))}

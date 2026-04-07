@@ -4,12 +4,36 @@ import BlogPostContent from './BlogPostClient';
 const baseUrl = 'https://www.villabeba.com';
 
 const blogPosts = [
-  { slug: 'truffle-season-in-istria', title: 'Truffle Season in Istria: A Complete Guide', category: 'Experiences', date: '2026-02-15', image: '/images/ballena/ballena-35-1.jpg', titleDE: 'Trüffelsaison in Istrien: Ein vollständiger Leitfaden', descDE: 'Entdecken Sie wann und wo Sie die kostbaren weißen und schwarzen Trüffel Istriens finden.', descEN: 'Discover when and where to find the prized white and black truffles of Istria.' },
-  { slug: 'rovinj-gem-of-the-adriatic', title: 'Rovinj: The Gem of the Adriatic Coast', category: 'Destination', date: '2026-02-01', image: '/images/beluga/beluga-42.jpg', titleDE: 'Rovinj: Das Juwel der Adriaküste', descDE: 'Nur 23 km von unseren Villen entfernt besticht Rovinj mit seinem pastellfarbenen Hafen.', descEN: 'Just 23 km from our villas, Rovinj enchants with its pastel harbor and cobblestone streets.' },
-  { slug: 'best-beaches-near-svetvincenat', title: 'Best Beaches Near Svetvincenat', category: 'Destination', date: '2026-01-20', image: '/images/beluga/beluga-25.jpg', titleDE: 'Die besten Strände nahe Svetvincenat', descDE: 'Kristallklares Adriawasser erwartet Sie an versteckten Buchten.', descEN: 'Crystal-clear Adriatic waters await at hidden coves and sandy shores.' },
-  { slug: 'istrian-wine-journey', title: 'Istrian Wine: A Journey Through Vineyards', category: 'Experiences', date: '2026-01-10', image: '/images/beluga/beluga-13.jpg', titleDE: 'Istrischer Wein: Eine Reise durch die Weinberge', descDE: 'Malvazija, Teran und Muskat — istrische Weine erobern die Welt.', descEN: 'Malvazija, Teran, and Muskat — Istrian wines are making waves worldwide.' },
-  { slug: 'planning-the-perfect-istrian-wedding', title: 'Planning the Perfect Istrian Wedding', category: 'Events', date: '2025-12-28', image: '/images/ballena/ballena-42.jpg', titleDE: 'Die perfekte Hochzeit in Istrien planen', descDE: 'Von mittelalterlichen Burgen bis zu Zeremonien unter Sternen am Pool.', descEN: 'From medieval castles to poolside ceremonies under the stars.' },
-  { slug: 'family-friendly-activities-central-istria', title: 'Family-Friendly Activities in Central Istria', category: 'Seasonal', date: '2025-12-15', image: '/images/beluga/beluga-36.jpg', titleDE: 'Familienfreundliche Aktivitäten in Zentralistrien', descDE: 'Unterhalten Sie die ganze Familie mit Wasserparks und mittelalterlichen Dörfern.', descEN: 'Keep the whole family entertained with water parks and medieval villages.' },
+  {
+    slug: 'why-istria-luxury-villa-holiday',
+    title: "Why Istria Is Croatia's Best-Kept Secret for a Luxury Villa Holiday",
+    titleDE: 'Warum Istrien Kroatiens bestgehuetetes Geheimnis fuer einen Luxus-Villenurlaub ist',
+    descEN: "Discover why Istria — Croatia's green peninsula — is the ultimate destination for a private luxury villa escape, from truffle forests to medieval villages.",
+    descDE: 'Entdecken Sie, warum Istrien — Kroatiens gruene Halbinsel — das ultimative Ziel fuer einen privaten Luxus-Villaurlaub ist.',
+    category: 'Destination',
+    date: '2026-03-15',
+    image: '/images/ballena/ballena-42.jpg',
+  },
+  {
+    slug: 'istrian-food-guide-truffles-olive-oil-wine',
+    title: "A Food Lover's Guide to Istria: Truffles, Olive Oil, and the Best Meal You've Never Had",
+    titleDE: 'Ein Feinschmecker-Guide fuer Istrien: Trueffel, Olivenoel und das beste Essen, das Sie noch nie hatten',
+    descEN: "Explore Istria's extraordinary food scene — from world-class truffles and award-winning olive oils to family-run konobas.",
+    descDE: 'Erkunden Sie Istriens aussergewoehnliche Kueche — von Weltklasse-Trueffeln und preisgekroenten Olivenoelen bis zu familiengefuehrten Konobas.',
+    category: 'Food & Wine',
+    date: '2026-03-01',
+    image: '/images/ballena/ballena-35-1.jpg',
+  },
+  {
+    slug: 'things-to-do-near-svetvincenat-istria',
+    title: 'Beyond the Villa: 10 Unforgettable Experiences in Istria',
+    titleDE: 'Jenseits der Villa: 10 unvergessliche Erlebnisse in Istrien',
+    descEN: "From truffle hunting to Roman amphitheaters — the best things to do near Svetvincenat, Istria, all within an hour of your luxury villa.",
+    descDE: 'Von der Trueffelsuche bis zum roemischen Amphitheater — die besten Aktivitaeten nahe Svetvincenat, alle innerhalb einer Stunde.',
+    category: 'Experiences',
+    date: '2026-02-15',
+    image: '/images/beluga/beluga-42.jpg',
+  },
 ];
 
 export async function generateStaticParams() {
@@ -63,7 +87,7 @@ export default async function BlogPostPage({
   const breadcrumb = getBreadcrumbSchema([
     { name: isDE ? 'Startseite' : 'Home', url: `/${locale}` },
     { name: 'Journal', url: `/${locale}/blog` },
-    { name: post.title, url: `/${locale}/blog/${slug}` },
+    { name: isDE ? post.titleDE : post.title, url: `/${locale}/blog/${slug}` },
   ]);
 
   return (
