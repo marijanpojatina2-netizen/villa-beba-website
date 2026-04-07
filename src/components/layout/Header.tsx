@@ -152,13 +152,13 @@ export default function Header() {
         </div>
       </header>
 
-      {/* ── Full-Screen Menu Overlay ── */}
+      {/* ── Full-Screen Menu Overlay — starts below header ── */}
       <div
         ref={menuRef}
-        className="fixed inset-0 z-40 bg-bg opacity-0 pointer-events-none"
+        className="fixed top-16 lg:top-20 left-0 right-0 bottom-0 z-40 bg-bg opacity-0 pointer-events-none"
         style={{ willChange: 'opacity' }}
       >
-        <div className="flex h-full flex-col justify-center px-10 lg:px-20 pt-20 lg:pt-24 pb-10 overflow-y-auto">
+        <div className="flex h-full flex-col justify-start px-10 lg:px-20 pt-8 pb-10 overflow-y-auto">
           <div ref={menuLinksRef} className="flex flex-col gap-0">
             {allNavLinks.map((link) => (
               <div key={link.href} className="menu-link border-b border-line">
