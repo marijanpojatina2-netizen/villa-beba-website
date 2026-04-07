@@ -33,6 +33,8 @@ const experienceImages: Record<string, string> = {
   'Beach': '/images/experiences/istarske plaze.jpg',
   'Istralandia': '/images/experiences/istralandia.jpg',
   'Kaštel': '/images/experiences/kaštel morosini.jpg',
+  'Olive Oil': '/images/experiences/maslinici.jpg',
+  'Tennis': '/images/experiences/tenis.jpg',
 };
 
 const fallbackImages = [
@@ -67,7 +69,7 @@ function ExperiencesHero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
-      <Image src="/images/beluga/Beluga 13.jpg" alt="Stone wall terrace at Villa Beluga" fill className="object-cover" priority quality={85} />
+      <Image src="/images/experiences/hero.jpg" alt="Istrian experiences landscape" fill className="object-cover" priority quality={85} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
         <div ref={titleRef} className="max-w-[90vw]">
