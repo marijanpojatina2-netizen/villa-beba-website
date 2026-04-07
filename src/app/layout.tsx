@@ -1,4 +1,4 @@
-import { Montserrat, Inter, Cormorant_Garamond, Playfair_Display, DM_Serif_Display } from 'next/font/google';
+import { Montserrat, Inter, Cormorant_Garamond, Playfair_Display, Bodoni_Moda } from 'next/font/google';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -31,9 +31,9 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 });
 
-const dmSerif = DM_Serif_Display({
+const bodoni = Bodoni_Moda({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['400', '700', '900'],
   style: ['normal', 'italic'],
   variable: '--font-hero',
   display: 'swap',
@@ -41,7 +41,7 @@ const dmSerif = DM_Serif_Display({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className={`${playfair.variable} ${montserrat.variable} ${inter.variable} ${cormorant.variable} ${dmSerif.variable}`}>
+    <html className={`${playfair.variable} ${montserrat.variable} ${inter.variable} ${cormorant.variable} ${bodoni.variable}`}>
       <body className="bg-bg font-body text-text antialiased">
         {children}
       </body>
