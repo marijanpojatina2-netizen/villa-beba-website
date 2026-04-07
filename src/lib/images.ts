@@ -3,7 +3,7 @@
 
 export const heroImages = {
   homepage: '/images/ballena/Ballena 42.jpg',        // Drone shot both villas at dusk
-  ballena: '/images/ballena/Ballena 38.jpg',          // Pool at night, cinematic
+  ballena: '/images/ballena/Ballena 1.jpg',             // Exterior daytime front view
   beluga: '/images/beluga/Beluga 36.jpg',             // Exterior with pool at dusk
   complexBeba: '/images/beluga/Beluga 39.jpg',          // Complex Beba aerial/exterior
   weddings: '/images/ballena/Ballena 35-1.jpg',       // Olive tree courtyard at dusk
@@ -20,22 +20,48 @@ export const villaCards = {
 };
 
 export const ballenaGallery = [
-  { src: '/images/ballena/Ballena 1.jpg', alt: 'Villa Ballena exterior with pool', category: 'exterior' },
-  { src: '/images/ballena/Ballena 33.jpg', alt: 'Villa Ballena exterior at sunset', category: 'exterior' },
-  { src: '/images/ballena/Ballena 36.jpg', alt: 'Villa Ballena terrace and pool at night', category: 'exterior' },
-  { src: '/images/ballena/Ballena 38.jpg', alt: 'Villa Ballena pool at dusk', category: 'pool' },
-  { src: '/images/ballena/Ballena 10.jpg', alt: 'Villa Ballena covered terrace with pool', category: 'pool' },
-  { src: '/images/ballena/Ballena 35-1.jpg', alt: 'Villa Ballena olive tree courtyard', category: 'exterior' },
-  { src: '/images/ballena/Ballena 11.jpg', alt: 'Villa Ballena interior living area', category: 'interior' },
-  { src: '/images/ballena/Ballena 17.jpg', alt: 'Villa Ballena dining area', category: 'interior' },
-  { src: '/images/ballena/Ballena 15.jpg', alt: 'Villa Ballena lounge area', category: 'interior' },
-  { src: '/images/ballena/Copy of IMG_5058.jpg', alt: 'Villa Ballena bedroom', category: 'bedroom' },
-  { src: '/images/ballena/Copy of IMG_5040.jpg', alt: 'Villa Ballena bedroom with red accents', category: 'bedroom' },
-  { src: '/images/ballena/Ballena 20.jpg', alt: 'Villa Ballena modern bathroom', category: 'interior' },
-  { src: '/images/ballena/Ballena 22.jpg', alt: 'Villa Ballena sauna area', category: 'wellness' },
-  { src: '/images/ballena/Ballena 23.jpg', alt: 'Villa Ballena outdoor dining', category: 'exterior' },
-  { src: '/images/ballena/Ballena 34.jpg', alt: 'Villa Ballena poolside terrace', category: 'pool' },
-  { src: '/images/ballena/Ballena 42.jpg', alt: 'Aerial view both villas at dusk', category: 'exterior' },
+  { src: '/images/ballena/Ballena 1.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 2.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 3.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 4.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 5.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 6.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 7.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 8.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 9.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 10.jpg', alt: 'Ballena', category: 'pool' },
+  { src: '/images/ballena/Ballena 11.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 12.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 13.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 14.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 15.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 16.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 17.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 20.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 21.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Ballena 22.jpg', alt: 'Ballena', category: 'wellness' },
+  { src: '/images/ballena/Ballena 23.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 30.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 32.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 33.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 34.jpg', alt: 'Ballena', category: 'pool' },
+  { src: '/images/ballena/Ballena 35.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 35-1.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 36.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 37.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 38.jpg', alt: 'Ballena', category: 'pool' },
+  { src: '/images/ballena/Ballena 39.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 40.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Ballena 42.jpg', alt: 'Ballena', category: 'exterior' },
+  { src: '/images/ballena/Copy of IMG_5011.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Copy of IMG_5023.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Copy of IMG_5040.jpg', alt: 'Ballena', category: 'bedroom' },
+  { src: '/images/ballena/Copy of IMG_5058.jpg', alt: 'Ballena', category: 'bedroom' },
+  { src: '/images/ballena/Copy of IMG_5085.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Copy of IMG_5103.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Copy of IMG_5118.jpg', alt: 'Ballena', category: 'bedroom' },
+  { src: '/images/ballena/Copy of IMG_5140.jpg', alt: 'Ballena', category: 'interior' },
+  { src: '/images/ballena/Copy of IMG_5247.jpg', alt: 'Ballena', category: 'exterior' },
 ];
 
 export const belugaGallery = [
