@@ -85,19 +85,6 @@ function Introduction() {
 function PhotoGallery() {
   const sectionRef = useRef<HTMLElement>(null);
   const heights = ['aspect-[3/4]', 'aspect-[4/5]', 'aspect-[3/4]', 'aspect-[4/3]', 'aspect-[4/5]', 'aspect-[3/4]'];
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (!sectionRef.current) return;
-      const items = sectionRef.current.querySelectorAll('.gallery-item');
-      items.forEach((item, i) => {
-        gsap.fromTo(item, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: i * 0.1, scrollTrigger: { trigger: item, start: 'top 88%' } });
-        const img = item.querySelector('img');
-        if (img) gsap.fromTo(img, { scale: 1.1 }, { scale: 1, scrollTrigger: { trigger: item, start: 'top bottom', end: 'bottom top', scrub: true } });
-      });
-    });
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section ref={sectionRef} className="section-editorial bg-bg-elevated">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -106,7 +93,7 @@ function PhotoGallery() {
           {belugaGallery.map((image, i) => (
             <div key={image.src} className="gallery-item mb-4 break-inside-avoid group overflow-hidden rounded-sm border border-line transition-all duration-500 hover:border-line-strong">
               <div className={`${heights[i % heights.length]} relative`}>
-                <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" loading={i < 6 ? 'eager' : 'lazy'} quality={60} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
                 <div className="absolute bottom-4 left-4">
                   <span className="rounded-full border border-line bg-bg/40 px-3 py-1 text-xs uppercase tracking-wider text-text-muted backdrop-blur-sm">{image.category}</span>
