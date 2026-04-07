@@ -257,9 +257,9 @@ function BlogPreview() {
   const t = useTranslations('home');
 
   const blogPosts = [
-    { slug: 'truffle-season-in-istria', title: t('blogTruffleTitle'), excerpt: t('blogTruffleExcerpt'), category: t.raw('blogTruffleTitle') ? 'Experiences' : 'Experiences', image: '/images/experiences/tartufi.jpg' },
-    { slug: 'rovinj-gem-of-the-adriatic', title: t('blogRovinjTitle'), excerpt: t('blogRovinjExcerpt'), category: 'Destination', image: '/images/experiences/rovinj.jpg' },
-    { slug: 'istrian-wine-journey', title: t('blogWineTitle'), excerpt: t('blogWineExcerpt'), category: 'Experiences', image: '/images/experiences/wine-tasting.jpg' },
+    { slug: 'why-istria-luxury-villa-holiday', title: t('blogPost0Title'), excerpt: t('blogPost0Excerpt'), category: 'Destination', image: '/images/ballena/ballena-42.jpg' },
+    { slug: 'istrian-food-guide-truffles-olive-oil-wine', title: t('blogPost1Title'), excerpt: t('blogPost1Excerpt'), category: 'Food & Wine', image: '/images/ballena/ballena-35-1.jpg' },
+    { slug: 'things-to-do-near-svetvincenat-istria', title: t('blogPost2Title'), excerpt: t('blogPost2Excerpt'), category: 'Experiences', image: '/images/beluga/beluga-42.jpg' },
   ];
 
   return (
@@ -271,7 +271,7 @@ function BlogPreview() {
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {blogPosts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}` as '/blog/truffle-season-in-istria'} className="group block">
+            <Link key={post.slug} href={`/blog/${post.slug}` as '/blog/why-istria-luxury-villa-holiday'} className="group block">
               <div className="relative aspect-[16/10] overflow-hidden rounded-sm border border-line transition-all duration-500 group-hover:border-line-strong">
                 <Image src={post.image} alt={post.title} fill className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" loading="lazy" quality={60} sizes="(max-width: 768px) 100vw, 33vw" />
                 <div className="absolute left-4 top-4">
