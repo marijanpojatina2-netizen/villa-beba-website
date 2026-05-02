@@ -17,6 +17,12 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
       return;
     }
 
+    // Skip Lenis on mobile (<768px). Native mobile scroll is already smooth,
+    // and Lenis adds CPU/battery cost without UX gain on touch devices.
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
