@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, usePathname, useRouter } from '@/i18n/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -16,6 +16,10 @@ export default function Header() {
   const [villasOpen, setVillasOpen] = useState(false);
   const [mobileVillasOpen, setMobileVillasOpen] = useState(false);
 
+  const hamburgerBtnRef = useRef<HTMLButtonElement>(null);
+  const mobileOverlayRef = useRef<HTMLDivElement>(null);
+  const villasBtnRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -30,6 +34,63 @@ export default function Header() {
       document.body.style.overflow = '';
     };
   }, [mobileOpen]);
+
+  // Mobile menu a11y: ESC closes, focus trap, restore focus on close
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const overlay = mobileOverlayRef.current;
+    if (!overlay) return;
+    const trigger = hamburgerBtnRef.current;
+
+    const getFocusables = () =>
+      Array.from(
+        overlay.querySelectorAll<HTMLElement>(
+          'a, button, [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((el) => !el.hasAttribute('disabled'));
+
+    const focusFirst = setTimeout(() => getFocusables()[0]?.focus(), 50);
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setMobileOpen(false);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const fs = getFocusables();
+      if (fs.length === 0) return;
+      const first = fs[0];
+      const last = fs[fs.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKey);
+    return () => {
+      clearTimeout(focusFirst);
+      document.removeEventListener('keydown', onKey);
+      trigger?.focus();
+    };
+  }, [mobileOpen]);
+
+  // Villas dropdown a11y: ESC closes and returns focus to trigger
+  useEffect(() => {
+    if (!villasOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setVillasOpen(false);
+        villasBtnRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [villasOpen]);
 
   const switchLocale = useCallback(
     (newLocale: string) => {
@@ -80,7 +141,15 @@ export default function Header() {
                 onMouseEnter={() => setVillasOpen(true)}
                 onMouseLeave={() => setVillasOpen(false)}
               >
-                <button className="group relative flex items-center gap-1 text-sm font-medium uppercase tracking-wider text-white/80 transition-colors hover:text-gold">
+                <button
+                  ref={villasBtnRef}
+                  type="button"
+                  onClick={() => setVillasOpen((v) => !v)}
+                  aria-expanded={villasOpen}
+                  aria-haspopup="true"
+                  aria-controls="villas-dropdown"
+                  className="group relative flex items-center gap-1 text-sm font-medium uppercase tracking-wider text-white/80 transition-colors hover:text-gold"
+                >
                   {t('villas')}
                   <ChevronDown
                     size={14}
@@ -90,6 +159,7 @@ export default function Header() {
                 </button>
 
                 <div
+                  id="villas-dropdown"
                   className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${
                     villasOpen
                       ? 'pointer-events-auto translate-y-0 opacity-100'
@@ -153,9 +223,13 @@ export default function Header() {
 
               {/* Mobile Hamburger */}
               <button
+                ref={hamburgerBtnRef}
+                type="button"
                 onClick={() => setMobileOpen(!mobileOpen)}
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-menu"
+                aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
                 className="lg:hidden p-2 text-white"
-                aria-label="Toggle menu"
               >
                 {mobileOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -166,6 +240,11 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
+        ref={mobileOverlayRef}
+        id="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
         className={`fixed inset-0 z-40 bg-midnight/98 backdrop-blur-lg transition-all duration-500 lg:hidden ${
           mobileOpen
             ? 'pointer-events-auto opacity-100'
