@@ -12,6 +12,8 @@ interface CountUpProps {
   suffix?: string;
   prefix?: string;
   className?: string;
+  'aria-hidden'?: boolean;
+  'aria-label'?: string;
 }
 
 export default function CountUp({
@@ -20,6 +22,8 @@ export default function CountUp({
   suffix = '',
   prefix = '',
   className,
+  'aria-hidden': ariaHidden,
+  'aria-label': ariaLabel,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const [display, setDisplay] = useState(0);
@@ -64,7 +68,12 @@ export default function CountUp({
   }, [end, duration]);
 
   return (
-    <span ref={ref} className={className}>
+    <span
+      ref={ref}
+      className={className}
+      aria-hidden={ariaHidden}
+      aria-label={ariaLabel}
+    >
       {prefix}
       {display}
       {suffix}

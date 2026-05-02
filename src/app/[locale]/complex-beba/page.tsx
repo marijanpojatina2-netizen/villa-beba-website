@@ -88,10 +88,17 @@ function KeyStats() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((stat) => (
             <ScrollReveal key={stat.label}>
-              <div className="text-center">
-                <CountUp end={stat.end} suffix={stat.suffix} className="text-4xl font-bold text-gold md:text-5xl font-heading" />
-                <p className="mt-2 text-xs uppercase tracking-wider text-white/50">{stat.label}</p>
-              </div>
+              <dl
+                className="flex flex-col text-center"
+                aria-label={`${stat.end}${stat.suffix} ${stat.label}`}
+              >
+                <dd className="order-1 text-4xl font-bold text-gold md:text-5xl font-heading">
+                  <CountUp end={stat.end} suffix={stat.suffix} aria-hidden />
+                </dd>
+                <dt className="order-2 mt-2 text-xs uppercase tracking-wider text-white/50">
+                  {stat.label}
+                </dt>
+              </dl>
             </ScrollReveal>
           ))}
         </div>
