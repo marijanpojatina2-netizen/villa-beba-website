@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { heroImages, villaCards } from '@/lib/images';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { getVacationRentalSchema } from '@/lib/schema';
 
 /* ─────────────────────────── Hero ─────────────────────────── */
 function Hero() {
@@ -463,6 +465,8 @@ function CTABanner() {
 export default function HomePage() {
   return (
     <main>
+      <JsonLd data={getVacationRentalSchema('ballena')} />
+      <JsonLd data={getVacationRentalSchema('beluga')} />
       <Hero />
       <Introduction />
       <VillasSection />

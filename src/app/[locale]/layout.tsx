@@ -7,6 +7,7 @@ import { Header, Footer } from '@/components/layout';
 import SmoothScroll from '@/components/animations/SmoothScroll';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import { getLocalBusinessSchema } from '@/lib/schema';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -104,10 +105,7 @@ export default async function LocaleLayout({
     >
       <body className="bg-midnight font-body text-white antialiased">
         <NextIntlClientProvider messages={messages}>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }}
-          />
+          <JsonLd data={getLocalBusinessSchema()} />
           <SmoothScroll>
             <Header />
             {children}

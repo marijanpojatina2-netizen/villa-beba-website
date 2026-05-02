@@ -8,6 +8,8 @@ import ScrollReveal from '@/components/animations/ScrollReveal';
 import CountUp from '@/components/animations/CountUp';
 import { villaCommon, villaBallena } from '@/lib/data';
 import { heroImages, ballenaGallery } from '@/lib/images';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { getVacationRentalSchema } from '@/lib/schema';
 
 /* ─────────────────────────── Hero ─────────────────────────── */
 function Hero() {
@@ -432,6 +434,7 @@ function CTASection() {
 export default function VillaBallenaPage() {
   return (
     <main>
+      <JsonLd data={getVacationRentalSchema('ballena')} />
       <Hero />
       <Introduction />
       <PhotoGallery />
