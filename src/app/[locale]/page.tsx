@@ -447,6 +447,13 @@ function CTABanner() {
             {t('ctaWhatsapp')}
           </a>
         </div>
+
+        <Link
+          href="/faq"
+          className="mt-6 inline-block text-xs uppercase tracking-wider text-white/50 transition-colors hover:text-gold"
+        >
+          {t('ctaFaqLink')}
+        </Link>
       </div>
     </section>
   );
