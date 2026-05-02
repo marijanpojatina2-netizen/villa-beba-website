@@ -464,6 +464,64 @@ function CTABanner() {
   );
 }
 
+/* ────────────────────── Gallery Teaser ──────────────────────── */
+function GalleryTeaser() {
+  const t = useTranslations('home');
+
+  const teaserImages = [
+    { src: '/images/ballena/Ballena 38.jpg', alt: 'Villa Ballena pool at dusk' },
+    { src: '/images/beluga/Beluga 25.jpg', alt: 'Villa Beluga glass terrace' },
+    { src: '/images/ballena/Ballena 35-1.jpg', alt: 'Olive tree courtyard at Villa Ballena' },
+    { src: '/images/beluga/Beluga 36.jpg', alt: 'Villa Beluga pool and terrace at dusk' },
+    { src: '/images/ballena/Ballena 11.jpg', alt: 'Villa Ballena interior living area' },
+    { src: '/images/koridor/IMG_5216.jpg', alt: 'Corridor between Villa Ballena and Villa Beluga' },
+  ];
+
+  return (
+    <section className="section-padding bg-midnight">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-12 text-center">
+          <h2 className="heading-lg text-3xl text-white md:text-4xl">
+            {t('galleryTeaserTitle')}
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-3 md:gap-3">
+          {teaserImages.map((img) => (
+            <Link
+              key={img.src}
+              href="/gallery"
+              className="group relative aspect-square overflow-hidden rounded-lg border border-white/5"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                quality={75}
+                sizes="(max-width: 768px) 50vw, 33vw"
+              />
+              <div className="absolute inset-0 bg-midnight/0 transition-colors duration-300 group-hover:bg-midnight/20" />
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/gallery"
+            className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-8 py-3 text-sm font-semibold uppercase tracking-wider text-gold transition-all duration-300 hover:border-terracotta hover:bg-terracotta hover:text-cream"
+          >
+            {t('galleryTeaserCta')}
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ═══════════════════════ HOME PAGE ═══════════════════════════ */
 export default function HomePage() {
   return (
@@ -474,6 +532,7 @@ export default function HomePage() {
       <Introduction />
       <VillasSection />
       <NumbersStrip />
+      <GalleryTeaser />
       <ExperiencesTeaser />
       <ReviewsSection />
       <LocationSection />
