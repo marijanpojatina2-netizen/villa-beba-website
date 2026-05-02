@@ -164,7 +164,7 @@ export default function GalleryPage() {
               alt={filtered[lightboxIndex].alt}
               fill
               className="object-cover"
-              quality={90}
+              quality={85}
               sizes="(max-width: 1024px) 90vw, 80vw"
               priority
             />
