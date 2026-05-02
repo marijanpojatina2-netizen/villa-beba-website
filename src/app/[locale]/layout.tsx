@@ -1,3 +1,4 @@
+import { Montserrat, Inter, Cormorant_Garamond } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
@@ -6,7 +7,28 @@ import { Header, Footer } from '@/components/layout';
 import SmoothScroll from '@/components/animations/SmoothScroll';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import { getLocalBusinessSchema } from '@/lib/schema';
-import SetLang from '@/components/layout/SetLang';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['700'],
+  variable: '--font-heading',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400'],
+  style: ['normal', 'italic'],
+  variable: '--font-accent',
+  display: 'swap',
+});
 
 export function generateStaticParams() {
   return [{ locale: 'en' }, { locale: 'de' }];
@@ -76,18 +98,24 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      <SetLang />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }}
-      />
-      <SmoothScroll>
-        <Header />
-        {children}
-        <Footer />
-        <WhatsAppButton />
-      </SmoothScroll>
-    </NextIntlClientProvider>
+    <html
+      lang={locale}
+      className={`${montserrat.variable} ${inter.variable} ${cormorant.variable}`}
+    >
+      <body className="bg-midnight font-body text-white antialiased">
+        <NextIntlClientProvider messages={messages}>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }}
+          />
+          <SmoothScroll>
+            <Header />
+            {children}
+            <Footer />
+            <WhatsAppButton />
+          </SmoothScroll>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }
