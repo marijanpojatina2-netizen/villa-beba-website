@@ -2,6 +2,12 @@ import type { MetadataRoute } from 'next';
 
 const BASE_URL = 'https://www.villabeba.com';
 
+// Bump this when significant site content changes. Per-route dates would
+// be better, but they require sourcing real modification timestamps —
+// using new Date() per entry tells Google "everything changed just now"
+// which dilutes the freshness signal across the whole site.
+const LAST_UPDATED = new Date('2026-05-02');
+
 const routes = [
   '',
   '/villa-ballena',
@@ -35,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const route of routes) {
       entries.push({
         url: `${BASE_URL}/${locale}${route}`,
-        lastModified: new Date(),
+        lastModified: LAST_UPDATED,
         changeFrequency: route === '' ? 'weekly' : 'monthly',
         priority: route === '' ? 1.0 : route.includes('villa') ? 0.9 : 0.7,
         alternates: {
@@ -50,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const slug of blogSlugs) {
       entries.push({
         url: `${BASE_URL}/${locale}/blog/${slug}`,
-        lastModified: new Date(),
+        lastModified: LAST_UPDATED,
         changeFrequency: 'monthly',
         priority: 0.5,
         alternates: {
