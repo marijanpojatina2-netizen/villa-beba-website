@@ -438,7 +438,7 @@ function CTABanner() {
             href="https://wa.me/385915251565"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full rounded-full border border-gold/40 px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:bg-gold hover:text-midnight sm:w-auto"
+            className="w-full rounded-full border border-gold/40 px-10 py-4 text-center text-sm font-semibold uppercase tracking-widest text-gold transition-all duration-300 hover:border-terracotta hover:bg-terracotta hover:text-cream sm:w-auto"
           >
             {t('ctaWhatsapp')}
           </a>
