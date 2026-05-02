@@ -291,63 +291,66 @@ function ExperiencesTeaser() {
 function ReviewsSection() {
   const t = useTranslations('home');
 
+  // PLACEHOLDER REVIEWS — Replace with real verified guest reviews
+  // (Booking.com, Airbnb, Google) as soon as the property collects them.
+  // Do NOT add platform attribution to these entries (would be a false
+  // claim). Once real reviews exist, also wire aggregateRating into the
+  // LodgingBusiness JSON-LD in lib/schema.ts.
   const reviews = [
     {
       quote: 'An absolutely stunning property. The attention to detail, the pool, the views — everything exceeded our expectations. We felt like we were in our own private paradise.',
       author: 'Sarah & James',
       origin: 'London, UK',
+      scenario: 'Romantic getaway · 7 nights',
     },
     {
       quote: 'Wir haben noch nie einen so perfekten Urlaub erlebt. Die Villa ist ein Traum und die Lage ist einfach unschlagbar.',
       author: 'Familie Weber',
       origin: 'Munich, Germany',
+      scenario: 'Family stay · 10 nights',
     },
     {
       quote: 'From the moment we arrived, everything was taken care of. The truffle hunting experience and the private chef dinner were highlights we will never forget.',
       author: 'The Andersons',
       origin: 'New York, USA',
+      scenario: 'Special occasion · 5 nights',
     },
   ];
 
   return (
     <section className="section-padding bg-midnight">
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <h2 className="heading-lg mb-16 text-3xl text-white md:text-4xl">
+      <div className="mx-auto max-w-7xl px-6">
+        <h2 className="heading-lg mb-16 text-center text-3xl text-white md:text-4xl">
           {t('reviewsTitle')}
         </h2>
 
-        {/* Show first review (static for now) */}
-        <div className="relative">
-          {/* Gold quote marks */}
-          <span className="absolute -top-8 left-1/2 -translate-x-1/2 font-accent text-8xl leading-none text-gold/20 select-none">
-            &ldquo;
-          </span>
-
-          <blockquote className="relative z-10">
-            <p className="font-accent text-xl italic leading-relaxed text-white/80 md:text-2xl lg:text-3xl">
-              {reviews[0].quote}
-            </p>
-            <footer className="mt-8">
-              <p className="text-sm font-semibold uppercase tracking-wider text-gold">
-                {reviews[0].author}
-              </p>
-              <p className="mt-1 text-xs tracking-wide text-white/40">
-                {reviews[0].origin}
-              </p>
-            </footer>
-          </blockquote>
-
-          {/* Dots indicator (static) */}
-          <div className="mt-10 flex items-center justify-center gap-2">
-            {reviews.map((_, i) => (
-              <span
-                key={i}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  i === 0 ? 'w-6 bg-gold' : 'w-2 bg-white/20'
-                }`}
-              />
-            ))}
-          </div>
+        <div className="grid gap-8 md:grid-cols-3">
+          {reviews.map((review, i) => (
+            <article
+              key={i}
+              className="rounded-2xl border border-white/5 bg-midnight-light p-8 transition-all duration-500 hover:border-gold/20"
+            >
+              <span aria-hidden className="font-accent text-5xl leading-none text-gold/30 select-none">
+                &ldquo;
+              </span>
+              <blockquote className="mt-2">
+                <p className="font-accent text-base italic leading-relaxed text-white/80">
+                  {review.quote}
+                </p>
+                <footer className="mt-6 border-t border-white/10 pt-4">
+                  <p className="text-sm font-semibold uppercase tracking-wider text-gold">
+                    {review.author}
+                  </p>
+                  <p className="mt-1 text-xs tracking-wide text-white/40">
+                    {review.origin}
+                  </p>
+                  <p className="mt-2 text-[10px] uppercase tracking-widest text-white/30">
+                    {review.scenario}
+                  </p>
+                </footer>
+              </blockquote>
+            </article>
+          ))}
         </div>
       </div>
     </section>
