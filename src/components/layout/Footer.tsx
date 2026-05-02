@@ -3,6 +3,7 @@
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { CONTACT } from '@/lib/contact';
 
 export default function Footer() {
   const t = useTranslations('Footer');
@@ -61,20 +62,20 @@ export default function Footer() {
             <ul className="mt-6 space-y-4">
               <li>
                 <a
-                  href="mailto:info@villabeba.com"
+                  href={`mailto:${CONTACT.email}`}
                   className="flex items-center gap-3 text-sm text-white/60 transition-colors hover:text-gold"
                 >
                   <Mail size={16} className="flex-shrink-0 text-gold/60" />
-                  info@villabeba.com
+                  {CONTACT.email}
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+385XXXXXXXX"
+                  href={`tel:${CONTACT.phoneE164}`}
                   className="flex items-center gap-3 text-sm text-white/60 transition-colors hover:text-gold"
                 >
                   <Phone size={16} className="flex-shrink-0 text-gold/60" />
-                  +385 XX XXX XXXX
+                  {CONTACT.phoneDisplay}
                 </a>
               </li>
               <li>
