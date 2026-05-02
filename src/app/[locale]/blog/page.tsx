@@ -18,14 +18,14 @@ const blogPosts = [
   {
     slug: 'rovinj-gem-of-the-adriatic',
     title: 'Rovinj: The Gem of the Adriatic Coast',
-    excerpt: 'Just 23 km from our villas, Rovinj enchants with its pastel harbor and winding cobblestone streets. A perfect day trip from Svetvincenat.',
+    excerpt: 'Just 23 km from our villas, Rovinj enchants with its pastel harbor and winding cobblestone streets. A perfect day trip from Svetvinčenat.',
     category: 'Destination',
     date: '2026-02-01',
     image: '/images/beluga/Beluga 42.jpg',
   },
   {
     slug: 'best-beaches-near-svetvincenat',
-    title: 'Best Beaches Near Svetvincenat',
+    title: 'Best Beaches Near Svetvinčenat',
     excerpt: 'Crystal-clear Adriatic waters await at hidden coves and sandy shores. Our guide to the finest beaches within a short drive of the villas.',
     category: 'Destination',
     date: '2026-01-20',

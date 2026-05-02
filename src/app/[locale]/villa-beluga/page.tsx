@@ -21,7 +21,7 @@ function Hero() {
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
         <ScrollReveal>
           <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
-            Svetvincenat, Istria
+            Svetvinčenat, Istria
           </p>
         </ScrollReveal>
         <ScrollReveal delay={0.15}>

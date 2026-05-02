@@ -20,7 +20,7 @@ const blogPosts = [
   },
   {
     slug: 'best-beaches-near-svetvincenat',
-    title: 'Best Beaches Near Svetvincenat',
+    title: 'Best Beaches Near Svetvinčenat',
     category: 'Destination',
     date: '2026-01-20',
     gradient: 'from-[#0d2a1a] via-[#153d28] to-[#081a10]',
@@ -93,7 +93,7 @@ function BlogPostContent({ slug }: { slug: string }) {
         <div className="mx-auto max-w-3xl px-6">
           <article className="prose prose-invert max-w-none">
             <p className="text-lg leading-relaxed text-white/70">
-              The rolling hills of Istria, dotted with centuries-old olive groves and vineyards, have long been a sanctuary for those who seek an authentic Mediterranean experience. Nestled in the heart of this peninsula, the medieval village of Svetvincenat offers a gateway to a world where time seems to slow, where every meal tells a story, and where the landscape itself becomes a companion to your journey.
+              The rolling hills of Istria, dotted with centuries-old olive groves and vineyards, have long been a sanctuary for those who seek an authentic Mediterranean experience. Nestled in the heart of this peninsula, the medieval village of Svetvinčenat offers a gateway to a world where time seems to slow, where every meal tells a story, and where the landscape itself becomes a companion to your journey.
             </p>
 
             <div className="my-10 h-px w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
