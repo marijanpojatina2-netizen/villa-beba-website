@@ -11,8 +11,10 @@
   --color-body-dark: #4A4A4A;
   --color-body-light: #E0E0E0;
 
-  --font-heading: "Montserrat", sans-serif;
-  --font-body: "Inter", sans-serif;
+  /* Outfit (loaded via next/font) serves both heading + body — same family,
+     differentiated by weight. Cormorant Garamond is the editorial accent. */
+  --font-heading: "Outfit", sans-serif;
+  --font-body: "Outfit", sans-serif;
   --font-accent: "Cormorant Garamond", serif;
 }
 

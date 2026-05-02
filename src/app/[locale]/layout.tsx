@@ -1,4 +1,4 @@
-import { Montserrat, Inter, Cormorant_Garamond } from 'next/font/google';
+import { Outfit, Cormorant_Garamond } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
@@ -9,16 +9,11 @@ import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import { getLocalBusinessSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/seo/JsonLd';
 
-const montserrat = Montserrat({
+// Outfit serves both heading (700, uppercase tracking) and body (300/400/500).
+// Cormorant Garamond remains the editorial-italic accent.
+const outfit = Outfit({
   subsets: ['latin'],
-  weight: ['700'],
-  variable: '--font-heading',
-  display: 'swap',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500'],
+  weight: ['300', '400', '500', '700'],
   variable: '--font-body',
   display: 'swap',
 });
@@ -101,7 +96,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${montserrat.variable} ${inter.variable} ${cormorant.variable}`}
+      className={`${outfit.variable} ${cormorant.variable}`}
     >
       <body className="bg-midnight font-body text-white antialiased">
         <NextIntlClientProvider messages={messages}>
