@@ -44,8 +44,10 @@
     "locationTitle": "Ihre Basis in Istrien",
     "locationSubtitle": "Svetvinčenat — wo Trüffelwälder auf mittelalterlichen Charme treffen",
     "ctaTitle": "Bereit für Istrien?",
+    "ctaPriceLabel": "Investition ab €600/Nacht",
     "ctaButton": "Verfügbarkeit prüfen",
-    "ctaWhatsapp": "WhatsApp"
+    "ctaWhatsapp": "WhatsApp",
+    "ctaFaqLink": "Fragen? Zum FAQ"
   },
   "villa": {
     "specifications": "Ausstattung",

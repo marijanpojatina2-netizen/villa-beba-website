@@ -427,6 +427,10 @@ function CTABanner() {
           {t('ctaTitle')}
         </h2>
 
+        <p className="mt-5 font-accent text-base italic text-gold/70 md:text-lg">
+          {t('ctaPriceLabel')}
+        </p>
+
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="/contact"

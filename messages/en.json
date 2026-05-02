@@ -44,8 +44,10 @@
     "locationTitle": "Your Istrian Base",
     "locationSubtitle": "Svetvinčenat — where truffle forests meet medieval charm",
     "ctaTitle": "Ready to Experience Istria?",
+    "ctaPriceLabel": "Investment from €600/night",
     "ctaButton": "Check Availability",
-    "ctaWhatsapp": "WhatsApp Us"
+    "ctaWhatsapp": "WhatsApp Us",
+    "ctaFaqLink": "Questions? See FAQ"
   },
   "villa": {
     "specifications": "Specifications",
