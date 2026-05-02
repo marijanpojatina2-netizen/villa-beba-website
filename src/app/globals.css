@@ -91,6 +91,18 @@ html.lenis, html.lenis body {
   }
 }
 
+/* Keyboard focus indicator — gold ring on dark midnight bg */
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline-offset: 4px;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
