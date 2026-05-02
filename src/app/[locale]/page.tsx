@@ -25,7 +25,7 @@ function Hero() {
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
         <p className="mb-6 font-accent text-lg italic tracking-wide text-gold/80 md:text-xl">
-          Svetvincenat, Istria
+          Svetvinčenat, Istria
         </p>
         <h1 className="heading-xl text-[clamp(2rem,7vw,4.5rem)] text-white">
           {t('title')}
@@ -220,7 +220,7 @@ function ExperiencesTeaser() {
       title: 'Rovinj Day Trip',
       description: 'Just 23 km away, this pastel-colored coastal gem is the jewel of the Adriatic.',
       image: '/images/beluga/Beluga 42.jpg',
-      imageAlt: 'Aerial view of Svetvincenat village near Rovinj',
+      imageAlt: 'Aerial view of Svetvinčenat village near Rovinj',
     },
     {
       title: 'Al Fresco Dining',
