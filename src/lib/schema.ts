@@ -23,10 +23,6 @@ export function getLocalBusinessSchema() {
       longitude: 13.8781,
     },
     priceRange: '€600 - €1,000/night',
-    starRating: {
-      '@type': 'Rating',
-      ratingValue: '5',
-    },
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Private Heated Pool', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'WiFi', value: true },
