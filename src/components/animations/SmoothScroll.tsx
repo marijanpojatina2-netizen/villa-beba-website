@@ -52,20 +52,20 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
       };
     };
 
-    const idle =
-      'requestIdleCallback' in window
-        ? (window as typeof window & {
-            requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number;
-          }).requestIdleCallback(startLenis, { timeout: 2000 })
-        : window.setTimeout(startLenis, 1000);
+    type IdleHandle = { kind: 'idle'; id: number } | { kind: 'timeout'; id: ReturnType<typeof setTimeout> };
+    const win = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+    const handle: IdleHandle = win.requestIdleCallback
+      ? { kind: 'idle', id: win.requestIdleCallback(startLenis, { timeout: 2000 }) }
+      : { kind: 'timeout', id: setTimeout(startLenis, 1000) };
 
     return () => {
-      if ('cancelIdleCallback' in window) {
-        (window as typeof window & {
-          cancelIdleCallback: (handle: number) => void;
-        }).cancelIdleCallback(idle);
-      } else {
-        clearTimeout(idle);
+      if (handle.kind === 'idle' && win.cancelIdleCallback) {
+        win.cancelIdleCallback(handle.id);
+      } else if (handle.kind === 'timeout') {
+        clearTimeout(handle.id);
       }
       cleanup?.();
     };
