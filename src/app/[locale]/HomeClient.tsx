@@ -22,10 +22,10 @@ function Hero() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
-      // More dramatic hero compression on scroll
+      // Softer hero compression on scroll — luxury hospitality feel
       if (sectionRef.current) {
         gsap.to(sectionRef.current, {
-          scale: 0.75, borderRadius: '32px', opacity: 0.6,
+          scale: 0.92, borderRadius: '24px', opacity: 0.85,
           scrollTrigger: { trigger: sectionRef.current, start: 'top top', end: '80% top', scrub: true },
         });
       }
