@@ -83,10 +83,16 @@ function About() {
         gsap.fromTo(lines, { y: '110%' }, { y: '0%', duration: 0.9, stagger: 0.12, ease: 'power3.out', scrollTrigger: { trigger: bigTextRef.current, start: 'top 80%' } });
       }
       if (statsRef.current) {
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const counters = statsRef.current.querySelectorAll('.stat-number');
         counters.forEach((counter) => {
           const target = parseInt(counter.getAttribute('data-target') || '0', 10);
           if (isNaN(target) || target === 0) return;
+          // Skip the count-up animation when motion is reduced — leave SSR
+          // final value untouched. Otherwise reset to 0 right before scroll
+          // trigger fires so the JS animation starts from 0.
+          if (reducedMotion) return;
+          counter.textContent = '0';
           const obj = { val: 0 };
           gsap.to(obj, {
             val: target, duration: 1.5, ease: 'power2.out',
@@ -128,21 +134,21 @@ function About() {
         <div ref={statsRef} className="mt-12 lg:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-x-12">
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="700">0</span>
+              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="700">700</span>
               <span className="font-accent text-xl italic text-text-muted">m&sup2;</span>
             </div>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statLivingSpace')}</p>
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="60">0</span>
+              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="60">60</span>
               <span className="font-accent text-xl italic text-text-muted">%</span>
             </div>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statGreenSpaces')}</p>
           </div>
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="8">0</span>
+              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="8">8</span>
             </div>
             <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statBedrooms')}</p>
           </div>
