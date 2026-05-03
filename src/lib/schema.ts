@@ -19,8 +19,8 @@ export function getLocalBusinessSchema() {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 45.0544,
-      longitude: 13.8781,
+      latitude: CONTACT.geo.lat,
+      longitude: CONTACT.geo.lng,
     },
     priceRange: '€600 - €1,000/night',
     amenityFeature: [
