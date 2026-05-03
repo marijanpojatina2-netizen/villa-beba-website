@@ -18,8 +18,8 @@ export default function BlogPage() {
 
   const blogPosts = [
     { slug: 'why-istria-luxury-villa-holiday', title: t('post0Title'), excerpt: t('post0Excerpt'), category: t('post0Category'), date: '2026-03-15', image: '/images/ballena/ballena-42.jpg' },
-    { slug: 'istrian-food-guide-truffles-olive-oil-wine', title: t('post1Title'), excerpt: t('post1Excerpt'), category: t('post1Category'), date: '2026-03-01', image: '/images/ballena/ballena-35-1.jpg' },
-    { slug: 'things-to-do-near-svetvincenat-istria', title: t('post2Title'), excerpt: t('post2Excerpt'), category: t('post2Category'), date: '2026-02-15', image: '/images/beluga/beluga-42.jpg' },
+    { slug: 'istrian-food-guide-truffles-olive-oil-wine', title: t('post1Title'), excerpt: t('post1Excerpt'), category: t('post1Category'), date: '2026-03-01', image: '/images/experiences/tartufi.jpg' },
+    { slug: 'things-to-do-near-svetvincenat-istria', title: t('post2Title'), excerpt: t('post2Excerpt'), category: t('post2Category'), date: '2026-02-15', image: '/images/experiences/pula-arena.jpg' },
   ];
 
   useEffect(() => { const ctx = gsap.context(() => {
