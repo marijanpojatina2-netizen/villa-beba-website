@@ -304,6 +304,28 @@ html.lenis, html.lenis body {
    ACCESSIBILITY
    ═══════════════════════════════════════════════════════════ */
 
+/* Keyboard focus ring — navy on cream gives ~10:1 contrast and stays
+   readable on the dark menu/footer overlays. */
+*:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline-offset: 4px;
+}
+
+/* Inverted ring for dark surfaces (menu overlay, footer) where the
+   navy default would visually merge with the background. */
+.bg-\[\#1B2A4A\] *:focus-visible,
+.bg-dark *:focus-visible,
+.bg-midnight *:focus-visible,
+.bg-midnight-light *:focus-visible {
+  outline-color: var(--color-bg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
