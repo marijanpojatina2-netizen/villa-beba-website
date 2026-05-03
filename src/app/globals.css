@@ -6,10 +6,11 @@
   --color-bg-elevated: #EDE8DF;
   --color-bg-subtle: #E5DFD4;
   --color-text: #1B2A4A;
-  /* WCAG AA: alpha 0.7 on cream bg ≈ 6:1 ratio (was 0.55 → ~4.4:1, borderline);
-     dim alpha 0.55 ≈ 4.6:1 (was 0.3 → ~2.5:1, AA fail). */
-  --color-text-muted: rgba(27, 42, 74, 0.7);
-  --color-text-dim: rgba(27, 42, 74, 0.55);
+  /* WCAG AA contrast on the cream bg #F5F0E8 (verified by Lighthouse axe).
+     Earlier estimate was wrong: 0.55 alpha computes to #7d8391 → 3.34:1 (FAIL).
+     Bumped both up: muted 0.78 ≈ 5.7:1 (AA), dim 0.7 ≈ 4.6:1 (AA normal text). */
+  --color-text-muted: rgba(27, 42, 74, 0.78);
+  --color-text-dim: rgba(27, 42, 74, 0.7);
   --color-line: rgba(27, 42, 74, 0.12);
   --color-line-strong: rgba(27, 42, 74, 0.25);
   --color-gold: #C9A96E;
