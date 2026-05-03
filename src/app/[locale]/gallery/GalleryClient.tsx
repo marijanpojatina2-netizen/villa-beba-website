@@ -39,8 +39,8 @@ export default function GalleryPage() {
   const goNext = useCallback(() => setLightboxIndex((prev) => (prev !== null ? (prev + 1) % filtered.length : null)), [filtered.length]);
   const goPrev = useCallback(() => setLightboxIndex((prev) => (prev !== null ? (prev - 1 + filtered.length) % filtered.length : null)), [filtered.length]);
 
-  useEffect(() => { const ctx = gsap.context(() => { if (titleRef.current) { const lines = titleRef.current.querySelectorAll('.hero-line'); gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 }); } }); return () => ctx.revert(); }, []);
-  useEffect(() => { if (!gridRef.current) return; const ctx = gsap.context(() => { const items = gridRef.current!.querySelectorAll('.gallery-thumb'); gsap.fromTo(items, { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.02, ease: 'power2.out' }); }); return () => ctx.revert(); }, [activeFilter]);
+  useEffect(() => { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; const ctx = gsap.context(() => { if (titleRef.current) { const lines = titleRef.current.querySelectorAll('.hero-line'); gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 }); } }); return () => ctx.revert(); }, []);
+  useEffect(() => { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; if (!gridRef.current) return; const ctx = gsap.context(() => { const items = gridRef.current!.querySelectorAll('.gallery-thumb'); gsap.fromTo(items, { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.02, ease: 'power2.out' }); }); return () => ctx.revert(); }, [activeFilter]);
 
   return (
     <main>

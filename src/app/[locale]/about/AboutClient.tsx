@@ -23,12 +23,15 @@ export default function AboutPage() {
     { title: t('value4Title'), description: t('value4Desc') },
   ];
 
-  useEffect(() => { const ctx = gsap.context(() => {
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = gsap.context(() => {
     if (titleRef.current) { const lines = titleRef.current.querySelectorAll('.hero-line'); gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 }); }
     if (storyImageRef.current) { const img = storyImageRef.current.querySelector('img'); if (img) gsap.fromTo(img, { scale: 1.15 }, { scale: 1, scrollTrigger: { trigger: storyImageRef.current, start: 'top bottom', end: 'bottom top', scrub: true } }); }
     if (storyTextRef.current) gsap.fromTo(storyTextRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: storyTextRef.current, start: 'top 85%' } });
     if (valuesRef.current) { const items = valuesRef.current.querySelectorAll('.value-card'); gsap.fromTo(items, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.1, scrollTrigger: { trigger: valuesRef.current, start: 'top 70%' } }); }
-  }); return () => ctx.revert(); }, []);
+    }); return () => ctx.revert();
+  }, []);
 
   return (
     <main>

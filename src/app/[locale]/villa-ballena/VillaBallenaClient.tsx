@@ -21,6 +21,7 @@ function Hero() {
   const titleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (titleRef.current) {
         const lines = titleRef.current.querySelectorAll('.hero-line');
@@ -59,6 +60,7 @@ function Introduction() {
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (imageRef.current) {
         const img = imageRef.current.querySelector('img');
@@ -134,6 +136,7 @@ function Specifications() {
   ];
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (!sectionRef.current) return;
       gsap.fromTo(sectionRef.current.querySelector('.spec-content'), { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' } });
@@ -252,6 +255,7 @@ function DayTimeline() {
   ];
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (!sectionRef.current) return;
       const items = sectionRef.current.querySelectorAll('.timeline-item');
@@ -301,6 +305,7 @@ function PracticalInfo() {
   ];
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (!sectionRef.current) return;
       const cards = sectionRef.current.querySelectorAll('.info-card');

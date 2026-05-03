@@ -16,6 +16,7 @@ function Hero() {
   const tc = useTranslations('common');
   const titleRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (titleRef.current) {
         const lines = titleRef.current.querySelectorAll('.hero-line');
@@ -52,6 +53,7 @@ function Introduction() {
   const imageRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (imageRef.current) { const img = imageRef.current.querySelector('img'); if (img) gsap.fromTo(img, { scale: 1.15 }, { scale: 1, scrollTrigger: { trigger: imageRef.current, start: 'top bottom', end: 'bottom top', scrub: true } }); }
       if (textRef.current) gsap.fromTo(textRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: textRef.current, start: 'top 85%' } });
@@ -111,6 +113,7 @@ function GameRoomSpotlight() {
   const sectionRef = useRef<HTMLElement>(null);
   const features = villaBeluga.unique.gameRoom;
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (!sectionRef.current) return;
       const items = sectionRef.current.querySelectorAll('.game-item');
@@ -150,6 +153,7 @@ function GlassTerrace() {
   const imageRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (imageRef.current) { const img = imageRef.current.querySelector('img'); if (img) gsap.fromTo(img, { scale: 1.1 }, { scale: 1, scrollTrigger: { trigger: imageRef.current, start: 'top bottom', end: 'bottom top', scrub: true } }); }
       if (textRef.current) gsap.fromTo(textRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: textRef.current, start: 'top 85%' } });
@@ -231,6 +235,7 @@ function DayTimeline() {
     { time: '20:00', period: t('eveningPeriod'), description: tv('eveningBeluga') },
   ];
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => { if (!sectionRef.current) return; const items = sectionRef.current.querySelectorAll('.timeline-item'); gsap.fromTo(items, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'power2.out', scrollTrigger: { trigger: sectionRef.current, start: 'top 70%' } }); });
     return () => ctx.revert();
   }, []);
@@ -262,6 +267,7 @@ function PracticalInfo() {
     { label: t('petsAllowed'), value: villaCommon.pets }, { label: t('livingSpace'), value: `${villaCommon.area} on ${villaCommon.grounds} grounds` },
   ];
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => { if (!sectionRef.current) return; const cards = sectionRef.current.querySelectorAll('.info-card'); gsap.fromTo(cards, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' } }); });
     return () => ctx.revert();
   }, []);

@@ -22,10 +22,13 @@ export default function BlogPage() {
     { slug: 'things-to-do-near-svetvincenat-istria', title: t('post2Title'), excerpt: t('post2Excerpt'), category: t('post2Category'), date: '2026-02-15', image: '/images/experiences/pula-arena.jpg' },
   ];
 
-  useEffect(() => { const ctx = gsap.context(() => {
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = gsap.context(() => {
     if (titleRef.current) { const lines = titleRef.current.querySelectorAll('.hero-line'); gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 }); }
     if (gridRef.current) { const cards = gridRef.current.querySelectorAll('.blog-card'); cards.forEach((card, i) => { gsap.fromTo(card, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, delay: i * 0.1, scrollTrigger: { trigger: card, start: 'top 88%' } }); const img = card.querySelector('img'); if (img) gsap.fromTo(img, { scale: 1.1 }, { scale: 1, scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true } }); }); }
-  }); return () => ctx.revert(); }, []);
+    }); return () => ctx.revert();
+  }, []);
 
   return (
     <main>

@@ -18,10 +18,13 @@ export default function FAQPage() {
 
   const faqData = Array.from({ length: 12 }, (_, i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
 
-  useEffect(() => { const ctx = gsap.context(() => {
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = gsap.context(() => {
     if (titleRef.current) { const lines = titleRef.current.querySelectorAll('.hero-line'); gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 }); }
     if (accordionRef.current) { const items = accordionRef.current.querySelectorAll('.faq-item'); gsap.fromTo(items, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.06, ease: 'power2.out', scrollTrigger: { trigger: accordionRef.current, start: 'top 75%' } }); }
-  }); return () => ctx.revert(); }, []);
+    }); return () => ctx.revert();
+  }, []);
 
   return (
     <main>
