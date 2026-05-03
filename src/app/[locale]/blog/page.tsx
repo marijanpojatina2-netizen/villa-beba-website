@@ -8,8 +8,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
   const title = isDE ? 'Journal | Istrien Reisetipps & Erlebnisse' : 'Journal | Istria Travel Tips & Experiences';
   const description = isDE
-    ? 'Reisetipps, lokale Erlebnisse und Reisefuehrer fuer Istrien — vom Team hinter Villa Ballena & Villa Beluga in Svetvincenat.'
-    : 'Travel tips, local experiences, and guides to Istria — from the team behind Villa Ballena & Villa Beluga in Svetvincenat.';
+    ? 'Reisetipps, lokale Erlebnisse und Reisefuehrer fuer Istrien — vom Team hinter Villa Ballena & Villa Beluga in Svetvinčenat.'
+    : 'Travel tips, local experiences, and guides to Istria — from the team behind Villa Ballena & Villa Beluga in Svetvinčenat.';
   return {
     title, description,
     keywords: isDE ? ['Istrien Blog', 'Reisetipps Kroatien', 'Istrien Reisefuehrer'] : ['Istria blog', 'Croatia travel tips', 'Istria travel guide'],

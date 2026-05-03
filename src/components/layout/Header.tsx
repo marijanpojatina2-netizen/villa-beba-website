@@ -292,7 +292,7 @@ export default function Header() {
               <span>—</span>
               <button onClick={() => { switchLocale('de'); setMenuOpen(false); }} className={`uppercase ${locale === 'de' ? 'text-white' : 'hover:text-white/60'}`}>DE</button>
             </div>
-            <span className="font-accent italic text-sm text-white/40">Svetvincenat, Istria</span>
+            <span className="font-accent italic text-sm text-white/40">Svetvinčenat, Istria</span>
           </div>
         </div>
       </div>

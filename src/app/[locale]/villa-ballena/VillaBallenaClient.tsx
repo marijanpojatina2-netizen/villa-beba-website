@@ -40,7 +40,7 @@ function Hero() {
         </div>
         <div className="absolute right-6 bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] text-right">
           <p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">{t('heroSubtitle')}</p>
-          <p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">Svetvincenat, Istria</p>
+          <p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">Svetvinčenat, Istria</p>
         </div>
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">{tc('scroll')}</span>

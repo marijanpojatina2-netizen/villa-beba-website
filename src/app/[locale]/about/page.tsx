@@ -8,8 +8,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
   const title = isDE ? 'Ueber uns | Die Geschichte von Villa Ballena & Beluga' : 'About Us | The Story of Villa Ballena & Beluga';
   const description = isDE
-    ? 'Erfahren Sie die Geschichte und Philosophie hinter Villa Ballena & Villa Beluga in Svetvincenat, Istrien, Kroatien.'
-    : 'Discover the story and philosophy behind Villa Ballena & Villa Beluga in Svetvincenat, Istria, Croatia.';
+    ? 'Erfahren Sie die Geschichte und Philosophie hinter Villa Ballena & Villa Beluga in Svetvinčenat, Istrien, Kroatien.'
+    : 'Discover the story and philosophy behind Villa Ballena & Villa Beluga in Svetvinčenat, Istria, Croatia.';
   return {
     title, description,
     keywords: isDE ? ['Ueber uns Villa Istrien', 'Geschichte Villa Kroatien'] : ['about villa Istria', 'villa story Croatia'],

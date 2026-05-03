@@ -52,7 +52,7 @@ function Hero() {
         {/* Subtitle — below title, left-aligned, larger */}
         <div className="mt-6 lg:mt-8 max-w-[500px]">
           <p className="font-accent text-base italic leading-relaxed text-white/80 lg:text-xl">{t('title')}</p>
-          <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/50 font-body lg:text-sm">Svetvincenat, Istria</p>
+          <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/50 font-body lg:text-sm">Svetvinčenat, Istria</p>
         </div>
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
           <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">{tc('scroll')}</span>

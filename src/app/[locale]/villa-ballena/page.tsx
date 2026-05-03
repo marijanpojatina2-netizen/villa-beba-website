@@ -15,15 +15,15 @@ export async function generateMetadata({
     ? 'Villa Ballena | Wellness-Villa mit Sauna & Pool in Istrien'
     : 'Villa Ballena | Wellness Villa with Sauna & Pool in Istria';
   const description = isDE
-    ? 'Villa Ballena — 350 m2 Designervilla mit privater Sauna, beheiztem Biopool und 4 Schlafzimmern in Svetvincenat, Istrien. Ab 600 Euro/Nacht.'
-    : 'Villa Ballena — 350 sqm designer villa with private sauna, heated biological pool & 4 en-suite bedrooms in Svetvincenat, Istria. From 600 Euro/night.';
+    ? 'Villa Ballena — 350 m2 Designervilla mit privater Sauna, beheiztem Biopool und 4 Schlafzimmern in Svetvinčenat, Istrien. Ab 600 Euro/Nacht.'
+    : 'Villa Ballena — 350 sqm designer villa with private sauna, heated biological pool & 4 en-suite bedrooms in Svetvinčenat, Istria. From 600 Euro/night.';
 
   return {
     title,
     description,
     keywords: isDE
-      ? ['Villa Ballena', 'Wellnessvilla Istrien', 'Sauna Villa Kroatien', 'Luxusvilla Svetvincenat']
-      : ['Villa Ballena', 'wellness villa Istria', 'sauna villa Croatia', 'luxury villa Svetvincenat'],
+      ? ['Villa Ballena', 'Wellnessvilla Istrien', 'Sauna Villa Kroatien', 'Luxusvilla Svetvinčenat']
+      : ['Villa Ballena', 'wellness villa Istria', 'sauna villa Croatia', 'luxury villa Svetvinčenat'],
     openGraph: {
       title,
       description,

@@ -15,15 +15,15 @@ export async function generateMetadata({
     ? 'Villa Beluga | Entertainment-Villa mit Spielzimmer & Glasveranda in Istrien'
     : 'Villa Beluga | Entertainment Villa with Game Room & Glass Terrace in Istria';
   const description = isDE
-    ? 'Villa Beluga — 350 m2 Designervilla mit Spielzimmer, Glasveranda, beheiztem Pool und 4 Schlafzimmern in Svetvincenat, Istrien. Ab 600 Euro/Nacht.'
-    : 'Villa Beluga — 350 sqm designer villa with game room, glass terrace, heated pool & 4 en-suite bedrooms in Svetvincenat, Istria. From 600 Euro/night.';
+    ? 'Villa Beluga — 350 m2 Designervilla mit Spielzimmer, Glasveranda, beheiztem Pool und 4 Schlafzimmern in Svetvinčenat, Istrien. Ab 600 Euro/Nacht.'
+    : 'Villa Beluga — 350 sqm designer villa with game room, glass terrace, heated pool & 4 en-suite bedrooms in Svetvinčenat, Istria. From 600 Euro/night.';
 
   return {
     title,
     description,
     keywords: isDE
-      ? ['Villa Beluga', 'Ferienvilla Istrien', 'Spielzimmer Villa Kroatien', 'Familienvilla Svetvincenat']
-      : ['Villa Beluga', 'entertainment villa Istria', 'game room villa Croatia', 'family villa Svetvincenat'],
+      ? ['Villa Beluga', 'Ferienvilla Istrien', 'Spielzimmer Villa Kroatien', 'Familienvilla Svetvinčenat']
+      : ['Villa Beluga', 'entertainment villa Istria', 'game room villa Croatia', 'family villa Svetvinčenat'],
     openGraph: {
       title,
       description,

@@ -8,8 +8,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
   const title = isDE ? 'Hochzeit in Istrien | Hochzeitslocation Villa Ballena & Beluga' : 'Wedding in Istria | Wedding Venue Villa Ballena & Beluga';
   const description = isDE
-    ? 'Heiraten Sie in Istrien: Luxusvillen mit privatem Pool, bis zu 60 Gaeste, Catering & Hochzeitsplanung in Svetvincenat, Kroatien.'
-    : 'Get married in Istria: luxury villas with private pool, up to 60 guests, catering & wedding planning in Svetvincenat, Croatia.';
+    ? 'Heiraten Sie in Istrien: Luxusvillen mit privatem Pool, bis zu 60 Gaeste, Catering & Hochzeitsplanung in Svetvinčenat, Kroatien.'
+    : 'Get married in Istria: luxury villas with private pool, up to 60 guests, catering & wedding planning in Svetvinčenat, Croatia.';
   return {
     title, description,
     keywords: isDE ? ['Hochzeit Istrien', 'Hochzeitslocation Kroatien', 'Villa Hochzeit'] : ['wedding Istria', 'wedding venue Croatia', 'villa wedding'],

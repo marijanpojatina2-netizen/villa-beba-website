@@ -15,8 +15,8 @@ export async function generateMetadata({
     ? 'Luxusvillen in Istrien | Privater Pool & Sauna'
     : 'Luxury Villas in Istria | Private Pool & Sauna';
   const description = isDE
-    ? 'Villa Ballena & Villa Beluga — zwei Designervillen in Svetvincenat, Istrien. 4 Schlafzimmer, beheizter Pool, Sauna & Spielzimmer. Ab 600 Euro/Nacht.'
-    : 'Villa Ballena & Villa Beluga — two designer villas in Svetvincenat, Istria. 4 bedrooms, heated pool, sauna & game room. From 600 Euro/night. Book direct.';
+    ? 'Villa Ballena & Villa Beluga — zwei Designervillen in Svetvinčenat, Istrien. 4 Schlafzimmer, beheizter Pool, Sauna & Spielzimmer. Ab 600 Euro/Nacht.'
+    : 'Villa Ballena & Villa Beluga — two designer villas in Svetvinčenat, Istria. 4 bedrooms, heated pool, sauna & game room. From 600 Euro/night. Book direct.';
 
   return {
     title,

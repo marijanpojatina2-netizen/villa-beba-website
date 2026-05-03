@@ -8,8 +8,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
   const title = isDE ? 'Firmenretreat in Istrien | Team-Offsite Villa Ballena & Beluga' : 'Corporate Retreat in Istria | Team Offsite Villa Ballena & Beluga';
   const description = isDE
-    ? 'Firmenretreat in Kroatien: 2 Luxusvillen, 18 Gaeste, High-Speed WiFi, Teambuilding-Aktivitaeten in Svetvincenat, Istrien.'
-    : 'Corporate retreat in Croatia: 2 luxury villas, 18 guests, high-speed WiFi, team-building activities in Svetvincenat, Istria.';
+    ? 'Firmenretreat in Kroatien: 2 Luxusvillen, 18 Gaeste, High-Speed WiFi, Teambuilding-Aktivitaeten in Svetvinčenat, Istrien.'
+    : 'Corporate retreat in Croatia: 2 luxury villas, 18 guests, high-speed WiFi, team-building activities in Svetvinčenat, Istria.';
   return {
     title, description,
     keywords: isDE ? ['Firmenretreat Kroatien', 'Team-Offsite Istrien', 'Corporate Villa'] : ['corporate retreat Croatia', 'team offsite Istria', 'corporate villa'],
