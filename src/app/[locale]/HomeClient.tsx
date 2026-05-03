@@ -112,7 +112,7 @@ function About() {
   return (
     <section ref={sectionRef} className="py-16 lg:py-24 bg-bg relative">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <p className="label-section mb-12 lg:mb-16">(ABOUT)</p>
+        <h2 className="label-section mb-12 lg:mb-16">(ABOUT)</h2>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4">
           <div className="hidden lg:block lg:col-span-3" />
           <div ref={imageRef} className="lg:col-span-4 overflow-hidden rounded-sm">
@@ -196,7 +196,7 @@ function VillasShowcase() {
     <section ref={sectionRef} className="py-16 lg:py-24 bg-bg">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex items-center justify-between mb-12">
-          <p className="label-section">(OUR VILLAS)</p>
+          <h2 className="label-section">(OUR VILLAS)</h2>
           <div className="flex items-center gap-3 text-[0.6875rem] font-heading tracking-wider text-text-dim">
             <span className="text-text">(1)</span><span>(2)</span>
           </div>
@@ -243,7 +243,7 @@ function Beliefs() {
   return (
     <section className="py-16 lg:py-24 bg-bg">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="flex justify-end mb-12"><p className="label-section">(OUR BELIEFS)</p></div>
+        <div className="flex justify-end mb-12"><h2 className="label-section">(OUR BELIEFS)</h2></div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
             <Image src="/images/beluga/img_4778.jpg" alt="Villa exterior with lush garden" fill className="object-cover" quality={85} sizes="(max-width: 1024px) 100vw, 50vw" />
@@ -278,7 +278,7 @@ function BlogPreview() {
     <section className="py-16 lg:py-24 bg-bg-elevated">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex items-center justify-between mb-12">
-          <p className="label-section">(JOURNAL)</p>
+          <h2 className="label-section">(JOURNAL)</h2>
           <Link href="/blog" className="btn-editorial !text-[0.6rem]">{t('blogViewAll')}</Link>
         </div>
         <div className="grid gap-6 md:grid-cols-3">

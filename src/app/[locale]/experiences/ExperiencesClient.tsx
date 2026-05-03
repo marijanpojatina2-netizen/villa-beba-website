@@ -42,7 +42,12 @@ function ExperiencesHero() {
       <Image src="/images/experiences/hero.jpg" alt="Istrian experiences landscape" fill className="object-cover" priority quality={85} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       <div className="absolute inset-0 flex flex-col justify-end px-6 pb-12 lg:px-10 lg:pb-16">
-        <div ref={titleRef} className="max-w-[90vw]"><div className="overflow-hidden"><h1 className="hero-line display-hero text-white">{t('heroTitle1')}</h1></div><div className="overflow-hidden"><h1 className="hero-line display-hero text-white italic">{t('heroTitle2')}</h1></div></div>
+        <div ref={titleRef} className="max-w-[90vw]">
+          <h1 className="display-hero text-white">
+            <span className="block overflow-hidden"><span className="hero-line block">{t('heroTitle1')}</span></span>
+            <span className="block overflow-hidden"><span className="hero-line block italic">{t('heroTitle2')}</span></span>
+          </h1>
+        </div>
         <div className="absolute right-6 bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] text-right"><p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">{t('heroSubtitle')}</p><p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">{t('heroBody')}</p></div>
       </div>
     </section>
