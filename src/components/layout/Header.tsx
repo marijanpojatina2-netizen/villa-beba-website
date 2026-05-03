@@ -15,6 +15,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuLinksRef = useRef<HTMLDivElement>(null);
+  const hamburgerBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -26,6 +27,51 @@ export default function Header() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  // a11y: ESC closes the menu, Tab traps focus inside the open overlay,
+  // closing the menu returns focus to the hamburger trigger.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const overlay = menuRef.current;
+    if (!overlay) return;
+    const trigger = hamburgerBtnRef.current;
+
+    const getFocusables = () =>
+      Array.from(
+        overlay.querySelectorAll<HTMLElement>(
+          'a, button, [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((el) => !el.hasAttribute('disabled'));
+
+    const focusFirst = setTimeout(() => getFocusables()[0]?.focus(), 50);
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setMenuOpen(false);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const fs = getFocusables();
+      if (fs.length === 0) return;
+      const first = fs[0];
+      const last = fs[fs.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKey);
+    return () => {
+      clearTimeout(focusFirst);
+      document.removeEventListener('keydown', onKey);
+      trigger?.focus();
+    };
   }, [menuOpen]);
 
   useEffect(() => {
@@ -152,9 +198,13 @@ export default function Header() {
               </Link>
 
               <button
+                ref={hamburgerBtnRef}
+                type="button"
                 onClick={() => setMenuOpen(!menuOpen)}
+                aria-expanded={menuOpen}
+                aria-controls="primary-menu"
+                aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 className="relative flex flex-col items-center justify-center w-11 h-11 gap-[6px] sm:w-10 sm:h-10 sm:gap-[5px]"
-                aria-label="Toggle menu"
               >
                 <span className={`block h-[1.5px] w-7 sm:w-6 transition-all duration-300 ${lineClass} ${menuOpen ? 'rotate-45 translate-y-[4px]' : ''}`} />
                 <span className={`block h-[1.5px] w-7 sm:w-6 transition-all duration-300 ${lineClass} ${menuOpen ? '-rotate-45 -translate-y-[4px]' : ''}`} />
@@ -167,6 +217,10 @@ export default function Header() {
       {/* ── Full-Screen Menu Overlay — starts below header ── */}
       <div
         ref={menuRef}
+        id="primary-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Site navigation"
         data-lenis-prevent
         className="fixed top-16 lg:top-20 left-0 right-0 bottom-0 z-40 bg-[#1B2A4A] opacity-0 pointer-events-none overflow-y-auto overscroll-contain"
         style={{ willChange: 'opacity' }}
