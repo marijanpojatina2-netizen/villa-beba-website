@@ -1,0 +1,10 @@
+{
+  "name": "villa-beba-seo",
+  "description": "Comprehensive SEO toolkit for the Villa Ballena & Beluga website — covers technical SEO, structured data, Core Web Vitals, content quality, and luxury-hospitality-specific patterns (Google Travel, hotel/lodging schema).",
+  "version": "0.1.0",
+  "author": {
+    "name": "Villa Ballena & Beluga"
+  },
+  "homepage": "https://github.com/marijanpojatina2-netizen/villa-beba-website",
+  "repository": "https://github.com/marijanpojatina2-netizen/villa-beba-website"
+}

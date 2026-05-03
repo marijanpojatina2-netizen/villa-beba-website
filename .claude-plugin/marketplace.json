@@ -1,0 +1,13 @@
+{
+  "name": "villa-beba",
+  "owner": {
+    "name": "Villa Ballena & Beluga"
+  },
+  "plugins": [
+    {
+      "name": "villa-beba-seo",
+      "source": "./plugins/villa-beba-seo",
+      "description": "SEO audit toolkit tailored to the v7-light luxury-hospitality build (Next 16 + next-intl + Tailwind v4)."
+    }
+  ]
+}

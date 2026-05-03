@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/check-image-alt.mjs",
+            "description": "Warn if a new <Image> JSX has empty or single-word alt"
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/check-meta-length.mjs",
+            "description": "Warn if title >60 char or description >160 char in generateMetadata"
+          },
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/hooks/check-image-case.mjs",
+            "description": "Warn if a new image path under /images/ has uppercase letters"
+          }
+        ]
+      }
+    ]
+  }
+}
