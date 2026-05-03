@@ -1,3 +1,5 @@
+import { CONTACT } from './contact';
+
 const BASE_URL = 'https://www.villabeba.com';
 
 export function getLocalBusinessSchema() {
@@ -7,8 +9,8 @@ export function getLocalBusinessSchema() {
     name: 'Villa Ballena & Villa Beluga',
     description: 'Two luxury designer villas in Svetvinčenat, Istria, Croatia. Private pools, sauna, game room, 4 en-suite bedrooms each.',
     url: BASE_URL,
-    telephone: '+385XXXXXXXX',
-    email: 'info@villabeba.com',
+    telephone: CONTACT.phoneE164,
+    email: CONTACT.email,
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Svetvinčenat',
