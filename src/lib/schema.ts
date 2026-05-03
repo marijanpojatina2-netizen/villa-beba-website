@@ -23,6 +23,16 @@ export function getLocalBusinessSchema() {
       longitude: CONTACT.geo.lng,
     },
     priceRange: '€600 - €1,000/night',
+    // Hotel-vertical fields for Google Hotel Search rich result eligibility.
+    image: [
+      `${BASE_URL}/og/home.jpg`,
+      `${BASE_URL}/og/villa-ballena.jpg`,
+      `${BASE_URL}/og/villa-beluga.jpg`,
+    ],
+    numberOfRooms: 8,        // 4 en-suite bedrooms × 2 villas
+    checkinTime: '16:00',    // industry-standard luxury villa default; confirm with operator
+    checkoutTime: '10:00',
+    paymentAccepted: 'Cash, Credit Card, Bank Transfer',
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Private Heated Pool', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Sauna', value: true },
