@@ -270,8 +270,8 @@ function BlogPreview() {
 
   const blogPosts = [
     { slug: 'why-istria-luxury-villa-holiday', title: t('blogPost0Title'), excerpt: t('blogPost0Excerpt'), category: 'Destination', image: '/images/ballena/ballena-42.jpg' },
-    { slug: 'istrian-food-guide-truffles-olive-oil-wine', title: t('blogPost1Title'), excerpt: t('blogPost1Excerpt'), category: 'Food & Wine', image: '/images/ballena/ballena-35-1.jpg' },
-    { slug: 'things-to-do-near-svetvincenat-istria', title: t('blogPost2Title'), excerpt: t('blogPost2Excerpt'), category: 'Experiences', image: '/images/beluga/beluga-42.jpg' },
+    { slug: 'istrian-food-guide-truffles-olive-oil-wine', title: t('blogPost1Title'), excerpt: t('blogPost1Excerpt'), category: 'Food & Wine', image: '/images/experiences/tartufi.jpg' },
+    { slug: 'things-to-do-near-svetvincenat-istria', title: t('blogPost2Title'), excerpt: t('blogPost2Excerpt'), category: 'Experiences', image: '/images/experiences/pula-arena.jpg' },
   ];
 
   return (

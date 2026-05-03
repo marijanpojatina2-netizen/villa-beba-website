@@ -22,7 +22,7 @@ const blogPosts = [
     descDE: 'Erkunden Sie Istriens aussergewoehnliche Kueche — von Weltklasse-Trueffeln und preisgekroenten Olivenoelen bis zu familiengefuehrten Konobas.',
     category: 'Food & Wine',
     date: '2026-03-01',
-    image: '/images/ballena/ballena-35-1.jpg',
+    image: '/images/experiences/tartufi.jpg',
   },
   {
     slug: 'things-to-do-near-svetvincenat-istria',
@@ -32,7 +32,7 @@ const blogPosts = [
     descDE: 'Von der Trueffelsuche bis zum roemischen Amphitheater — die besten Aktivitaeten nahe Svetvinčenat, alle innerhalb einer Stunde.',
     category: 'Experiences',
     date: '2026-02-15',
-    image: '/images/beluga/beluga-42.jpg',
+    image: '/images/experiences/pula-arena.jpg',
   },
 ];
 
