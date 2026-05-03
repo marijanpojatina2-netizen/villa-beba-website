@@ -45,7 +45,7 @@ export default async function Page({
   const { locale } = await params;
   const isDE = locale === 'de';
 
-  const vacationRental = getVacationRentalSchema('ballena');
+  const vacationRental = getVacationRentalSchema('ballena', locale);
   const breadcrumb = getBreadcrumbSchema([
     { name: isDE ? 'Startseite' : 'Home', url: `/${locale}` },
     { name: 'Villa Ballena', url: `/${locale}/villa-ballena` },

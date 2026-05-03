@@ -33,8 +33,12 @@ export function getLocalBusinessSchema() {
   };
 }
 
-export function getVacationRentalSchema(villa: 'ballena' | 'beluga') {
+export function getVacationRentalSchema(
+  villa: 'ballena' | 'beluga',
+  locale: string = 'en',
+) {
   const isBalena = villa === 'ballena';
+  const slug = isBalena ? 'villa-ballena' : 'villa-beluga';
   return {
     '@context': 'https://schema.org',
     '@type': 'VacationRental',
@@ -42,7 +46,7 @@ export function getVacationRentalSchema(villa: 'ballena' | 'beluga') {
     description: isBalena
       ? 'Luxury wellness villa with private sauna, heated pool, and 4 en-suite bedrooms in Istria, Croatia.'
       : 'Luxury entertainment villa with game room, glass terrace, heated pool, and 4 en-suite bedrooms in Istria, Croatia.',
-    url: `${BASE_URL}/en/${isBalena ? 'villa-ballena' : 'villa-beluga'}`,
+    url: `${BASE_URL}/${locale}/${slug}`,
     numberOfBedrooms: 4,
     numberOfBathroomsTotal: 4,
     floorSize: {

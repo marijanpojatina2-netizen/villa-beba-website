@@ -45,7 +45,7 @@ export default async function Page({
   const { locale } = await params;
   const isDE = locale === 'de';
 
-  const vacationRental = getVacationRentalSchema('beluga');
+  const vacationRental = getVacationRentalSchema('beluga', locale);
   const breadcrumb = getBreadcrumbSchema([
     { name: isDE ? 'Startseite' : 'Home', url: `/${locale}` },
     { name: 'Villa Beluga', url: `/${locale}/villa-beluga` },
