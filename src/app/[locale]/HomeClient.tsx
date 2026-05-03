@@ -134,32 +134,34 @@ function About() {
           <div className="overflow-hidden"><p className="reveal-line display-lg">{t('bigText5')}</p></div>
         </div>
 
-        {/* Stats — directly below big text, 4 in one row on desktop, bigger numbers */}
+        {/* Stats — directly below big text, 4 in one row on desktop, bigger numbers.
+            Semantic <dl><dt><dd> with aria-hidden on the animating digits so screen readers
+            don't hear them count up; an aria-label on the <dl> conveys the full stat once. */}
         <div ref={statsRef} className="mt-12 lg:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-x-12">
-          <div>
-            <div className="flex items-baseline gap-1">
-              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="700">700</span>
-              <span className="font-accent text-xl italic text-text-muted">m&sup2;</span>
-            </div>
-            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statLivingSpace')}</p>
-          </div>
-          <div>
-            <div className="flex items-baseline gap-1">
-              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="60">60</span>
-              <span className="font-accent text-xl italic text-text-muted">%</span>
-            </div>
-            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statGreenSpaces')}</p>
-          </div>
-          <div>
-            <div className="flex items-baseline gap-1">
-              <span className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="8">8</span>
-            </div>
-            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statBedrooms')}</p>
-          </div>
-          <div>
-            <span className="font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold italic text-text/90">24/7</span>
-            <p className="mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statConcierge')}</p>
-          </div>
+          <dl className="flex flex-col" aria-label={`700 m² ${t('statLivingSpace')}`}>
+            <dd className="order-1 flex items-baseline gap-1">
+              <span aria-hidden="true" className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="700">700</span>
+              <span aria-hidden="true" className="font-accent text-xl italic text-text-muted">m&sup2;</span>
+            </dd>
+            <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statLivingSpace')}</dt>
+          </dl>
+          <dl className="flex flex-col" aria-label={`60% ${t('statGreenSpaces')}`}>
+            <dd className="order-1 flex items-baseline gap-1">
+              <span aria-hidden="true" className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="60">60</span>
+              <span aria-hidden="true" className="font-accent text-xl italic text-text-muted">%</span>
+            </dd>
+            <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statGreenSpaces')}</dt>
+          </dl>
+          <dl className="flex flex-col" aria-label={`8 ${t('statBedrooms')}`}>
+            <dd className="order-1 flex items-baseline gap-1">
+              <span aria-hidden="true" className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="8">8</span>
+            </dd>
+            <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statBedrooms')}</dt>
+          </dl>
+          <dl className="flex flex-col" aria-label={`24/7 ${t('statConcierge')}`}>
+            <dd className="order-1 font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold italic text-text/90">24/7</dd>
+            <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statConcierge')}</dt>
+          </dl>
         </div>
       </div>
     </section>
