@@ -135,11 +135,42 @@ export default function Header() {
 
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="flex h-16 items-center justify-between lg:h-20">
-            <Link href="/" className="flex-shrink-0 z-10">
-              <span className={`font-heading text-[0.6875rem] font-medium uppercase tracking-[0.25em] transition-colors duration-700 ${textClass}`}>
-                Ballena & Beluga
-              </span>
-            </Link>
+            <div className="flex items-center gap-10 lg:gap-14 z-10">
+              <Link href="/" className="flex-shrink-0">
+                <span className={`font-heading text-[0.6875rem] font-medium uppercase tracking-[0.25em] transition-colors duration-700 ${textClass}`}>
+                  Ballena & Beluga
+                </span>
+              </Link>
+
+              {/* Primary nav (lg+ only) — top conversion destinations.
+                  Hamburger continues to expose the full menu for everything else. */}
+              <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
+                <Link
+                  href="/villa-ballena"
+                  className={`font-heading text-[0.6875rem] font-medium uppercase tracking-[0.18em] transition-colors duration-700 ${textClass} hover:opacity-70`}
+                >
+                  {t('villaBallena')}
+                </Link>
+                <Link
+                  href="/villa-beluga"
+                  className={`font-heading text-[0.6875rem] font-medium uppercase tracking-[0.18em] transition-colors duration-700 ${textClass} hover:opacity-70`}
+                >
+                  {t('villaBeluga')}
+                </Link>
+                <Link
+                  href="/experiences"
+                  className={`font-heading text-[0.6875rem] font-medium uppercase tracking-[0.18em] transition-colors duration-700 ${textClass} hover:opacity-70`}
+                >
+                  {t('experiences')}
+                </Link>
+                <Link
+                  href="/pricing"
+                  className={`font-heading text-[0.6875rem] font-medium uppercase tracking-[0.18em] transition-colors duration-700 ${textClass} hover:opacity-70`}
+                >
+                  {t('pricing')}
+                </Link>
+              </nav>
+            </div>
 
             {/* Center — Language Switcher (desktop) */}
             <div className={`hidden sm:flex items-center gap-3 text-[0.6875rem] font-heading tracking-[0.15em] transition-colors duration-700`}>
