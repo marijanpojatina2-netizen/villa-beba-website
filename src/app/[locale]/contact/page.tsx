@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title, description,
     keywords: isDE ? ['Kontakt Villa Istrien', 'Buchung Villa Kroatien'] : ['contact villa Istria', 'book villa Croatia'],
-    openGraph: { title, description, images: [{ url: `${baseUrl}/images/ballena/ballena-36.jpg`, width: 1200, height: 630 }] },
+    openGraph: { title, description, images: [{ url: `${baseUrl}/og/contact.jpg`, width: 1200, height: 630 }] },
     twitter: { card: 'summary_large_image' as const, title, description },
     alternates: { canonical: `${baseUrl}/${locale}/contact`, languages: { en: `${baseUrl}/en/contact`, de: `${baseUrl}/de/contact` } },
   };

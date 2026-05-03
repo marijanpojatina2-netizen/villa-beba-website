@@ -28,7 +28,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      images: [{ url: `${baseUrl}/images/ballena/ballena-42.jpg`, width: 1200, height: 630 }],
+      images: [{ url: `${baseUrl}/og/home.jpg`, width: 1200, height: 630 }],
     },
     twitter: { card: 'summary_large_image' as const, title, description },
     alternates: {

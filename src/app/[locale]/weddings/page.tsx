@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title, description,
     keywords: isDE ? ['Hochzeit Istrien', 'Hochzeitslocation Kroatien', 'Villa Hochzeit'] : ['wedding Istria', 'wedding venue Croatia', 'villa wedding'],
-    openGraph: { title, description, images: [{ url: `${baseUrl}/images/beluga/beluga-33.jpg`, width: 1200, height: 630 }] },
+    openGraph: { title, description, images: [{ url: `${baseUrl}/og/weddings.jpg`, width: 1200, height: 630 }] },
     twitter: { card: 'summary_large_image' as const, title, description },
     alternates: { canonical: `${baseUrl}/${locale}/weddings`, languages: { en: `${baseUrl}/en/weddings`, de: `${baseUrl}/de/weddings` } },
   };
