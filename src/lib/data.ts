@@ -165,4 +165,5 @@ export const faqItems = [
   { q: 'Does Villa Ballena have a sauna?', a: 'Yes, a private Finnish sauna + wellness shower in the basement.' },
   { q: 'How far is the nearest restaurant?', a: 'Pizzeria Grimani is 600m walk. Village center with cafés is 300m.' },
   { q: 'What\'s the WiFi speed?', a: '125 Mbit/s throughout both properties.' },
+  { q: 'What\'s your cancellation policy?', a: 'Cancellation terms vary by season, length of stay, and time before arrival. Contact us directly with your dates and we will share the policy applicable to your booking.' },
 ];

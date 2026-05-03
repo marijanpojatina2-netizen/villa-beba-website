@@ -412,7 +412,8 @@
     "notInc4": "Flughafentransfer",
     "notInc4Note": "Flughafen Pula, 33 km",
     "ctaTitle": "Bereit zu buchen?",
-    "ctaSubtitle": "Begrenzte Verfügbarkeit Sommer 2026 — sichern Sie sich Ihre Termine"
+    "ctaSubtitle": "Begrenzte Verfügbarkeit Sommer 2026 — sichern Sie sich Ihre Termine",
+    "cancellationLink": "Brauchen Sie Flexibilität? Stornierungsbedingungen ansehen →"
   },
   "gallery": {
     "title": "Galerie",
@@ -580,7 +581,9 @@
     "q10": "Wie weit ist das nächste Restaurant?",
     "a10": "Pizzeria Grimani ist 600m zu Fuß. Dorfzentrum mit Cafés ist 300m.",
     "q11": "Wie schnell ist das WLAN?",
-    "a11": "125 Mbit/s in beiden Villen."
+    "a11": "125 Mbit/s in beiden Villen.",
+    "q12": "Wie sind die Stornierungsbedingungen?",
+    "a12": "Die Stornierungsbedingungen variieren je nach Saison, Aufenthaltsdauer und Vorlaufzeit. Kontaktieren Sie uns direkt mit Ihren Daten und wir teilen Ihnen die für Ihre Buchung geltenden Bedingungen mit."
   },
   "about": {
     "title": "Unsere Geschichte",

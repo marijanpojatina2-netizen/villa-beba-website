@@ -16,7 +16,18 @@ export default function FAQPage() {
   const accordionRef = useRef<HTMLDivElement>(null);
   const toggle = (index: number) => { setOpenIndex(openIndex === index ? null : index); };
 
-  const faqData = Array.from({ length: 12 }, (_, i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
+  const faqData = Array.from({ length: 13 }, (_, i) => ({ q: t(`q${i}`), a: t(`a${i}`) }));
+  // Cancellation lives at the last index; keep this in sync if the FAQ list grows.
+  const cancellationIndex = 12;
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.location.hash === '#cancellation') {
+      setOpenIndex(cancellationIndex);
+      const el = document.getElementById('cancellation');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, []);
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -39,7 +50,7 @@ export default function FAQPage() {
 
       <section className="section-editorial bg-bg"><div className="mx-auto max-w-[900px] px-6 lg:px-10"><p className="label-section mb-16">(QUESTIONS)</p><div ref={accordionRef} className="divide-y divide-line">
         {faqData.map((item, index) => (
-          <div key={index} className="faq-item group">
+          <div key={index} id={index === cancellationIndex ? 'cancellation' : undefined} className="faq-item group scroll-mt-24">
             <button onClick={() => toggle(index)} className="flex w-full items-center justify-between py-8 text-left transition-colors duration-300" aria-expanded={openIndex === index}>
               <span className={`pr-8 font-display text-lg font-bold leading-snug transition-colors duration-300 md:text-xl ${openIndex === index ? 'text-text' : 'text-text-muted group-hover:text-text'}`}>{item.q}</span>
               <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${openIndex === index ? 'border-line-strong text-text' : 'border-line text-text-dim group-hover:border-line-strong'}`}><svg className={`h-4 w-4 transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg></span>

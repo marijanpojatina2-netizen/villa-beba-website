@@ -412,7 +412,8 @@
     "notInc4": "Airport transfer",
     "notInc4Note": "Pula Airport, 33 km",
     "ctaTitle": "Ready to Book?",
-    "ctaSubtitle": "Limited summer 2026 availability — secure your dates today"
+    "ctaSubtitle": "Limited summer 2026 availability — secure your dates today",
+    "cancellationLink": "Need flexibility? See our cancellation terms →"
   },
   "gallery": {
     "title": "Gallery",
@@ -580,7 +581,9 @@
     "q10": "How far is the nearest restaurant?",
     "a10": "Pizzeria Grimani is 600m walk. Village center with cafés is 300m.",
     "q11": "What's the WiFi speed?",
-    "a11": "125 Mbit/s throughout both properties."
+    "a11": "125 Mbit/s throughout both properties.",
+    "q12": "What's your cancellation policy?",
+    "a12": "Cancellation terms vary by season, length of stay, and time before arrival. Contact us directly with your dates and we'll share the policy applicable to your booking."
   },
   "about": {
     "title": "Our Story",
