@@ -16,6 +16,13 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    // Respect users who request reduced motion at the OS level.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    // Skip Lenis on mobile (≤768px). Native scroll is smoother + cheaper there:
+    // it benefits from momentum, GPU compositing, and battery-friendly idle.
+    // Smooth-wheel JS adds a per-frame cost that hurts INP on low-power devices
+    // and offers little perceived value on touch input.
+    if (window.matchMedia('(max-width: 768px)').matches) return;
 
     const lenis = new Lenis({
       duration: 1.2,
