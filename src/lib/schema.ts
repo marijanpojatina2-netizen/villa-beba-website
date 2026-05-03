@@ -25,10 +25,17 @@ export function getLocalBusinessSchema() {
     priceRange: '€600 - €1,000/night',
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Private Heated Pool', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'WiFi', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Sauna', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Game Room', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Glass Terrace', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Outdoor Dining', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'BBQ Area', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'High-Speed WiFi', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Air Conditioning', value: true },
-      { '@type': 'LocationFeatureSpecification', name: 'Parking', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Free Private Parking', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Pet Friendly', value: true },
+      { '@type': 'LocationFeatureSpecification', name: '24/7 Concierge', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'En-Suite Bedrooms', value: true },
     ],
   };
 }
