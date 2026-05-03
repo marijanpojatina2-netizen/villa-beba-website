@@ -8,9 +8,13 @@ import SmoothScroll from '@/components/animations/SmoothScroll';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
 import { getLocalBusinessSchema } from '@/lib/schema';
 
+// Font weights/styles trimmed from a `rg`-verified usage scan: 900 weight
+// is unused on both Playfair and Bodoni; Montserrat 700 is unused (only
+// 400/500 appear); Cormorant normal style is unused (every callsite has
+// the `italic` className). Saves ~7 woff2 cuts on first load (~150-200 KB).
 const playfair = Playfair_Display({
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
+  weight: ['400', '700'],
   style: ['normal', 'italic'],
   variable: '--font-display',
   display: 'swap',
@@ -18,7 +22,7 @@ const playfair = Playfair_Display({
 
 const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['400', '500'],
   variable: '--font-heading',
   display: 'swap',
 });
@@ -33,14 +37,14 @@ const inter = Inter({
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
   weight: ['300', '400'],
-  style: ['normal', 'italic'],
+  style: ['italic'],
   variable: '--font-accent',
   display: 'swap',
 });
 
 const bodoni = Bodoni_Moda({
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
+  weight: ['400', '700'],
   style: ['normal', 'italic'],
   variable: '--font-hero',
   display: 'swap',
