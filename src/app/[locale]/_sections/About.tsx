@@ -74,28 +74,29 @@ export default function About() {
 
         <div ref={statsRef} className="mt-12 lg:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 lg:gap-x-12">
           <dl className="flex flex-col" aria-label={`700 m² ${t('statLivingSpace')}`}>
+            {/* DOM source order must be dt → dd (axe rule); flex `order-*` flips visually. */}
+            <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statLivingSpace')}</dt>
             <dd className="order-1 flex items-baseline gap-1">
               <span aria-hidden="true" className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="700">700</span>
               <span aria-hidden="true" className="font-accent text-xl italic text-text-muted">m&sup2;</span>
             </dd>
-            <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statLivingSpace')}</dt>
           </dl>
           <dl className="flex flex-col" aria-label={`60% ${t('statGreenSpaces')}`}>
+            <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statGreenSpaces')}</dt>
             <dd className="order-1 flex items-baseline gap-1">
               <span aria-hidden="true" className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="60">60</span>
               <span aria-hidden="true" className="font-accent text-xl italic text-text-muted">%</span>
             </dd>
-            <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statGreenSpaces')}</dt>
           </dl>
           <dl className="flex flex-col" aria-label={`8 ${t('statBedrooms')}`}>
+            <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statBedrooms')}</dt>
             <dd className="order-1 flex items-baseline gap-1">
               <span aria-hidden="true" className="stat-number font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold text-text/90" data-target="8">8</span>
             </dd>
-            <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statBedrooms')}</dt>
           </dl>
           <dl className="flex flex-col" aria-label={`24/7 ${t('statConcierge')}`}>
-            <dd className="order-1 font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold italic text-text/90">24/7</dd>
             <dt className="order-2 mt-1 text-[0.8125rem] text-text-dim leading-relaxed">{t('statConcierge')}</dt>
+            <dd className="order-1 font-hero text-[clamp(3.5rem,8vw,6rem)] font-bold italic text-text/90">24/7</dd>
           </dl>
         </div>
       </div>
