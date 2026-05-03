@@ -43,8 +43,10 @@ function Hero() {
       {/* Content — title in bottom third */}
       <div className="absolute inset-0 flex flex-col justify-end px-6 pb-[12vh] sm:pb-[10vh] lg:px-10 lg:pb-[8vh]">
         <div ref={titleRef} className="max-w-[90vw]">
-          <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">BALLENA</h1></div>
-          <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">&amp; BELUGA</h1></div>
+          <h1 className="display-hero text-white">
+            <span className="block overflow-hidden"><span className="hero-line block">BALLENA</span></span>
+            <span className="block overflow-hidden"><span className="hero-line block">&amp; BELUGA</span></span>
+          </h1>
         </div>
         {/* Subtitle — below title, left-aligned, larger */}
         <div className="mt-6 lg:mt-8 max-w-[500px]">
