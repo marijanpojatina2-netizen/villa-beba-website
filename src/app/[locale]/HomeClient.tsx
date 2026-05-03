@@ -20,6 +20,7 @@ function Hero() {
   const titleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       // More dramatic hero compression on scroll
       if (sectionRef.current) {
@@ -74,6 +75,7 @@ function About() {
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (imageRef.current) {
         const img = imageRef.current.querySelector('img');
@@ -177,6 +179,7 @@ function VillasShowcase() {
   ];
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (!sectionRef.current) return;
       const cards = sectionRef.current.querySelectorAll('.villa-card');
@@ -227,6 +230,7 @@ function Beliefs() {
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (textRef.current) {
         const lines = textRef.current.querySelectorAll('.reveal-line');
@@ -313,6 +317,7 @@ function ValuesGrid() {
   ];
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (!sectionRef.current) return;
       const items = sectionRef.current.querySelectorAll('.value-item');
@@ -359,6 +364,7 @@ function Amenities() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
       if (!sectionRef.current) return;
       const text = sectionRef.current.querySelector('.amenity-text');

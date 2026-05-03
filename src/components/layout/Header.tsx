@@ -76,12 +76,23 @@ export default function Header() {
 
   useEffect(() => {
     if (!menuRef.current || !menuLinksRef.current) return;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (menuOpen) {
-      gsap.to(menuRef.current, { opacity: 1, pointerEvents: 'auto', duration: 0.5, ease: 'power2.out' });
-      const links = menuLinksRef.current.querySelectorAll('.menu-link');
-      gsap.fromTo(links, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'power3.out', delay: 0.2 });
+      if (reducedMotion) {
+        gsap.set(menuRef.current, { opacity: 1, pointerEvents: 'auto' });
+        const links = menuLinksRef.current.querySelectorAll('.menu-link');
+        gsap.set(links, { y: 0, opacity: 1 });
+      } else {
+        gsap.to(menuRef.current, { opacity: 1, pointerEvents: 'auto', duration: 0.5, ease: 'power2.out' });
+        const links = menuLinksRef.current.querySelectorAll('.menu-link');
+        gsap.fromTo(links, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'power3.out', delay: 0.2 });
+      }
     } else {
-      gsap.to(menuRef.current, { opacity: 0, pointerEvents: 'none', duration: 0.4, ease: 'power2.in' });
+      if (reducedMotion) {
+        gsap.set(menuRef.current, { opacity: 0, pointerEvents: 'none' });
+      } else {
+        gsap.to(menuRef.current, { opacity: 0, pointerEvents: 'none', duration: 0.4, ease: 'power2.in' });
+      }
     }
   }, [menuOpen]);
 
