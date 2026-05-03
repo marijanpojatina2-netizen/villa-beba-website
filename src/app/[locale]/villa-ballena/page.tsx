@@ -12,8 +12,8 @@ export async function generateMetadata({
   const isDE = locale === 'de';
 
   const title = isDE
-    ? 'Villa Ballena | Wellness-Villa mit Sauna & Pool in Istrien'
-    : 'Villa Ballena | Wellness Villa with Sauna & Pool in Istria';
+    ? 'Villa Ballena · Wellness-Villa mit Sauna in Istrien'
+    : 'Villa Ballena · Wellness Villa with Sauna in Istria';
   const description = isDE
     ? 'Villa Ballena — 350 m2 Designervilla mit privater Sauna, beheiztem Biopool und 4 Schlafzimmern in Svetvinčenat, Istrien. Ab 600 Euro/Nacht.'
     : 'Villa Ballena — 350 sqm designer villa with private sauna, heated biological pool & 4 en-suite bedrooms in Svetvinčenat, Istria. From 600 Euro/night.';

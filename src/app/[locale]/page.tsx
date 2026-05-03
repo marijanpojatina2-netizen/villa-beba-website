@@ -11,9 +11,10 @@ export async function generateMetadata({
   const { locale } = await params;
   const isDE = locale === 'de';
 
+  // Layout template adds " | Villa Ballena & Beluga" automatically — keep page-specific copy only.
   const title = isDE
-    ? 'Luxusvillen in Istrien | Privater Pool & Sauna'
-    : 'Luxury Villas in Istria | Private Pool & Sauna';
+    ? 'Luxusvillen in Istrien · Privater Pool & Sauna'
+    : 'Luxury Villas in Istria · Private Pool & Sauna';
   const description = isDE
     ? 'Villa Ballena & Villa Beluga — zwei Designervillen in Svetvinčenat, Istrien. 4 Schlafzimmer, beheizter Pool, Sauna & Spielzimmer. Ab 600 Euro/Nacht.'
     : 'Villa Ballena & Villa Beluga — two designer villas in Svetvinčenat, Istria. 4 bedrooms, heated pool, sauna & game room. From 600 Euro/night. Book direct.';

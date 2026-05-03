@@ -7,7 +7,7 @@ const baseUrl = 'https://www.villabeba.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isDE = locale === 'de';
-  const title = isDE ? 'FAQ | Haeufige Fragen zu Villa Ballena & Beluga' : 'FAQ | Frequently Asked Questions — Villa Ballena & Beluga';
+  const title = isDE ? 'FAQ · Häufige Fragen zur Buchung' : 'FAQ · Frequently Asked Questions';
   const description = isDE
     ? 'Antworten auf haeufige Fragen zu Villa Ballena & Villa Beluga: Check-in, Haustiere, Pool, Ausstattung und mehr.'
     : 'Answers to frequently asked questions about Villa Ballena & Villa Beluga: check-in, pets, pool, amenities and more.';

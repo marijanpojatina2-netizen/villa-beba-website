@@ -6,7 +6,7 @@ const baseUrl = 'https://www.villabeba.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isDE = locale === 'de';
-  const title = isDE ? 'Erlebnisse in Istrien | Wein, Trüffel, Ausflüge' : 'Istrian Experiences | Wine, Truffles, Day Trips';
+  const title = isDE ? 'Erlebnisse in Istrien · Wein, Trüffel, Ausflüge' : 'Istrian Experiences · Wine, Truffles, Day Trips';
   const description = isDE
     ? 'Entdecken Sie die besten Erlebnisse in Istrien: Weinverkostungen, Trüffeljagd, Rovinj-Ausflüge und mehr — arrangiert von Villa Ballena & Beluga.'
     : 'Discover the best Istrian experiences: wine tastings, truffle hunting, Rovinj day trips and more — arranged by Villa Ballena & Beluga.';

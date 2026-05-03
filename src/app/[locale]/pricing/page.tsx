@@ -6,7 +6,7 @@ const baseUrl = 'https://www.villabeba.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isDE = locale === 'de';
-  const title = isDE ? 'Preise | Villa Ballena & Beluga — Ab 600 Euro/Nacht' : 'Pricing | Villa Ballena & Beluga — From 600 Euro/Night';
+  const title = isDE ? 'Preise & Verfügbarkeit 2026 · Ab 600 €/Nacht' : 'Pricing & Availability 2026 · From €600/Night';
   const description = isDE
     ? 'Transparente Preise fuer Villa Ballena & Villa Beluga in Istrien. Standard-, Hochzeits- und Firmentarife ab 600 Euro/Nacht.'
     : 'Transparent pricing for Villa Ballena & Villa Beluga in Istria. Standard, wedding, and corporate rates from 600 Euro/night.';

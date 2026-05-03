@@ -6,7 +6,7 @@ const baseUrl = 'https://www.villabeba.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isDE = locale === 'de';
-  const title = isDE ? 'Journal | Istrien Reisetipps & Erlebnisse' : 'Journal | Istria Travel Tips & Experiences';
+  const title = isDE ? 'Journal · Reisetipps & Erlebnisse aus Istrien' : 'Journal · Istria Travel Tips & Experiences';
   const description = isDE
     ? 'Reisetipps, lokale Erlebnisse und Reisefuehrer fuer Istrien — vom Team hinter Villa Ballena & Villa Beluga in Svetvinčenat.'
     : 'Travel tips, local experiences, and guides to Istria — from the team behind Villa Ballena & Villa Beluga in Svetvinčenat.';

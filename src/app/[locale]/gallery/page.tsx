@@ -6,7 +6,7 @@ const baseUrl = 'https://www.villabeba.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isDE = locale === 'de';
-  const title = isDE ? 'Galerie | Villa Ballena & Beluga Fotos' : 'Gallery | Villa Ballena & Beluga Photos';
+  const title = isDE ? 'Fotogalerie · Villen, Pools & Innenräume' : 'Photo Gallery · Villas, Pools & Interiors';
   const description = isDE
     ? 'Bildergalerie von Villa Ballena & Villa Beluga — Pools, Innenraeume, Schlafzimmer und Aussenansichten unserer Luxusvillen in Istrien.'
     : 'Photo gallery of Villa Ballena & Villa Beluga — pools, interiors, bedrooms, and exteriors of our luxury villas in Istria.';

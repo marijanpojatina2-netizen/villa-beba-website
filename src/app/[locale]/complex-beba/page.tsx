@@ -8,8 +8,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
 
   const title = isDE
-    ? 'Complex BeBa | Beide Villen zusammen buchen — 18 Gaeste, 2 Pools'
-    : 'Complex BeBa | Book Both Villas Together — 18 Guests, 2 Pools';
+    ? 'Complex BeBa · Beide Villen — 18 Gäste, 2 Pools'
+    : 'Complex BeBa · Both Villas — 18 Guests, 2 Pools';
   const description = isDE
     ? 'Buchen Sie Villa Ballena & Villa Beluga zusammen als Complex BeBa. 700 m2, 8 Schlafzimmer, 2 Pools, Sauna & Spielzimmer in Istrien.'
     : 'Book Villa Ballena & Villa Beluga together as Complex BeBa. 700 sqm, 8 bedrooms, 2 pools, sauna & game room in Istria, Croatia.';

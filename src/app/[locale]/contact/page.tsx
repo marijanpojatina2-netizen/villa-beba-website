@@ -6,7 +6,7 @@ const baseUrl = 'https://www.villabeba.com';
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isDE = locale === 'de';
-  const title = isDE ? 'Kontakt | Villa Ballena & Beluga buchen' : 'Contact | Book Villa Ballena & Beluga';
+  const title = isDE ? 'Kontakt · Buchen Sie direkt in Istrien' : 'Contact · Book Direct in Istria';
   const description = isDE
     ? 'Kontaktieren Sie uns fuer Buchungen und Anfragen. Villa Ballena & Villa Beluga in Svetvinčenat, Istrien. Telefon, E-Mail oder WhatsApp.'
     : 'Contact us for bookings and inquiries. Villa Ballena & Villa Beluga in Svetvinčenat, Istria. Phone, email or WhatsApp.';
