@@ -39,7 +39,7 @@ function Hero() {
 
   return (
     <section ref={sectionRef} className="relative h-screen w-full overflow-hidden" style={{ transformOrigin: 'center top' }}>
-      <Image src={heroImages.homepage} alt="Villa Ballena and Villa Beluga aerial view at dusk" fill className="object-cover" priority quality={90} />
+      <Image src={heroImages.homepage} alt="Villa Ballena and Villa Beluga aerial view at dusk" fill className="object-cover" priority quality={80} sizes="100vw" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       {/* Content — title in bottom third */}
       <div className="absolute inset-0 flex flex-col justify-end px-6 pb-[12vh] sm:pb-[10vh] lg:px-10 lg:pb-[8vh]">

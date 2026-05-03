@@ -5,7 +5,9 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
   images: {
-    formats: ['image/webp'],
+    // AVIF first (~20-30% smaller than WebP for photographs). Browsers that
+    // don't accept it fall through to WebP via the Accept header.
+    formats: ['image/avif', 'image/webp'],
     qualities: [75, 80, 85],
   },
   async headers() {

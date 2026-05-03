@@ -20,33 +20,54 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     // Skip Lenis on mobile (≤768px). Native scroll is smoother + cheaper there:
     // it benefits from momentum, GPU compositing, and battery-friendly idle.
-    // Smooth-wheel JS adds a per-frame cost that hurts INP on low-power devices
-    // and offers little perceived value on touch input.
     if (window.matchMedia('(max-width: 768px)').matches) return;
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
+    let cleanup: (() => void) | undefined;
 
-    lenisRef.current = lenis;
+    // Defer Lenis init until the browser is idle. This keeps the main thread
+    // clear during LCP and hydration — the smooth-scroll experience is a
+    // post-load enhancement, not a critical-path feature. Falls back to a
+    // 1s setTimeout for browsers without requestIdleCallback (Safari < 17).
+    const startLenis = () => {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
 
-    // Sync Lenis scroll position with GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
+      lenisRef.current = lenis;
+      lenis.on('scroll', ScrollTrigger.update);
 
-    // Use GSAP's ticker to drive Lenis instead of rAF
-    const tickerCallback = (time: number) => {
-      lenis.raf(time * 1000);
+      const tickerCallback = (time: number) => {
+        lenis.raf(time * 1000);
+      };
+
+      gsap.ticker.add(tickerCallback);
+      gsap.ticker.lagSmoothing(0);
+
+      cleanup = () => {
+        gsap.ticker.remove(tickerCallback);
+        lenis.destroy();
+        lenisRef.current = null;
+      };
     };
 
-    gsap.ticker.add(tickerCallback);
-    gsap.ticker.lagSmoothing(0);
+    const idle =
+      'requestIdleCallback' in window
+        ? (window as typeof window & {
+            requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number;
+          }).requestIdleCallback(startLenis, { timeout: 2000 })
+        : window.setTimeout(startLenis, 1000);
 
     return () => {
-      gsap.ticker.remove(tickerCallback);
-      lenis.destroy();
-      lenisRef.current = null;
+      if ('cancelIdleCallback' in window) {
+        (window as typeof window & {
+          cancelIdleCallback: (handle: number) => void;
+        }).cancelIdleCallback(idle);
+      } else {
+        clearTimeout(idle);
+      }
+      cleanup?.();
     };
   }, []);
 
