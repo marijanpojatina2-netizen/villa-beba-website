@@ -81,6 +81,10 @@ export async function generateMetadata({
       languages: {
         en: 'https://www.villabeba.com/en',
         de: 'https://www.villabeba.com/de',
+        // Fallback for unmapped languages (Italian guests — biggest
+        // Istria tourist segment — Croatians without locale switch,
+        // French, etc.). Points at /en since EN is the default.
+        'x-default': 'https://www.villabeba.com/en',
       },
     },
     openGraph: {
