@@ -294,7 +294,7 @@ function PricingQuickView() {
 function CTASection() {
   const t = useTranslations('villa');
   return (
-    <section className="bg-bg"><div className="py-32 lg:py-48"><div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center"><h2 className="display-lg">{t('bookVilla', { villa: 'Villa Beluga' })}</h2><p className="mt-6 micro-italic">{t('limitedAvailability')}</p><div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"><a href={villaBeluga.bookingLinks.crovillas} target="_blank" rel="noopener noreferrer" className="btn-editorial">{t('bookVilla', { villa: 'Villa Beluga' })}</a><Link href="/contact" className="btn-editorial">{t('inquireDates')}</Link></div></div></div><div className="line-h" /></section>
+    <section className="bg-bg"><div className="py-32 lg:py-48"><div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center"><h2 className="display-lg">{t('bookVilla', { villa: 'Villa Beluga' })}</h2><p className="mt-6 micro-italic">{t('limitedAvailability')}</p><div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"><Link href="/contact?villa=beluga" className="btn-editorial">{t('bookVilla', { villa: 'Villa Beluga' })}</Link></div></div></div><div className="line-h" /></section>
   );
 }
 

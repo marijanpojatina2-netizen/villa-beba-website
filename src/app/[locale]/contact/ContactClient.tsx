@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import gsap from 'gsap';
@@ -17,9 +18,15 @@ interface ContactFormData {
 
 export default function ContactPage() {
   const t = useTranslations('contact');
+  const searchParams = useSearchParams();
+  // Prefill villa selector when guest arrives from a /villa-ballena, /villa-beluga,
+  // or /complex-beba "Book Now" CTA — the link adds ?villa=ballena|beluga|both.
+  const villaParam = searchParams.get('villa') || '';
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const titleRef = useRef<HTMLDivElement>(null);
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormData>({
+    defaultValues: { villa: villaParam },
+  });
 
   useEffect(() => { if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; const ctx = gsap.context(() => { if (titleRef.current) { const lines = titleRef.current.querySelectorAll('.hero-line'); gsap.fromTo(lines, { y: '110%', opacity: 0 }, { y: '0%', opacity: 1, duration: 1.2, stagger: 0.15, ease: 'power3.out', delay: 0.3 }); } }); return () => ctx.revert(); }, []);
 

@@ -363,8 +363,7 @@ function CTASection() {
           <h2 className="display-lg">{t('bookVilla', { villa: 'Villa Ballena' })}</h2>
           <p className="mt-6 micro-italic">{t('limitedAvailability')}</p>
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <a href={villaBallena.bookingLinks.crovillas} target="_blank" rel="noopener noreferrer" className="btn-editorial">{t('bookVilla', { villa: 'Villa Ballena' })}</a>
-            <Link href="/contact" className="btn-editorial">{t('inquireDates')}</Link>
+            <Link href="/contact?villa=ballena" className="btn-editorial">{t('bookVilla', { villa: 'Villa Ballena' })}</Link>
           </div>
         </div>
       </div>

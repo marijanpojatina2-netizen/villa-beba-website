@@ -109,7 +109,7 @@ function VillaComparison() {
 function CTASection() {
   const t = useTranslations('complex');
   return (
-    <section className="bg-bg"><div className="line-h" /><div className="py-32 lg:py-48"><div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center"><p className="label-section mb-6">{t('maxGuests')}</p><h2 className="display-lg">{t('bookComplex')}</h2><div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"><a href={complexBeba.bookingLink} target="_blank" rel="noopener noreferrer" className="btn-editorial">{t('bookComplex')}</a><Link href="/contact" className="btn-editorial">{t('getInTouch')}</Link></div></div></div><div className="line-h" /></section>
+    <section className="bg-bg"><div className="line-h" /><div className="py-32 lg:py-48"><div className="mx-auto max-w-[900px] px-6 lg:px-10 text-center"><p className="label-section mb-6">{t('maxGuests')}</p><h2 className="display-lg">{t('bookComplex')}</h2><div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"><Link href="/contact?villa=both" className="btn-editorial">{t('bookComplex')}</Link></div></div></div><div className="line-h" /></section>
   );
 }
 
