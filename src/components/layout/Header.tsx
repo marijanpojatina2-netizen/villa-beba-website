@@ -208,27 +208,14 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Right — Lang (mobile) + Book Now + Hamburger */}
+            {/* Right — Book Now + Hamburger.
+                EN/DE language switcher lives inside the hamburger menu on
+                mobile (see line ~289 below) — keeping it here too made the
+                logo collide with the locale buttons on phones (≤ sm). */}
             <div className="flex items-center gap-3 sm:gap-4 z-10">
-              <div className={`flex sm:hidden items-center gap-2 text-[0.625rem] font-heading tracking-[0.12em] transition-colors duration-700`}>
-                <button
-                  onClick={() => switchLocale('en')}
-                  className={`uppercase ${locale === 'en' ? textClass : menuOpen ? 'text-white/40' : scrolled ? 'text-[#1B2A4A]/30' : 'text-white/40'}`}
-                >
-                  EN
-                </button>
-                <span className={menuOpen ? 'text-white/40' : scrolled ? 'text-[#1B2A4A]/30' : 'text-white/40'}>/</span>
-                <button
-                  onClick={() => switchLocale('de')}
-                  className={`uppercase ${locale === 'de' ? textClass : menuOpen ? 'text-white/40' : scrolled ? 'text-[#1B2A4A]/30' : 'text-white/40'}`}
-                >
-                  DE
-                </button>
-              </div>
-
               <Link
                 href="/contact"
-                className={`inline-flex items-center justify-center gap-0.5 rounded-full px-3 py-1.5 sm:px-5 sm:py-2 text-[0.5625rem] sm:text-[0.625rem] font-heading font-medium uppercase tracking-[0.15em] transition-all duration-700 ${
+                className={`inline-flex items-center justify-center gap-0.5 whitespace-nowrap rounded-full px-3 py-1.5 sm:px-5 sm:py-2 text-[0.5625rem] sm:text-[0.625rem] font-heading font-medium uppercase tracking-[0.15em] transition-all duration-700 ${
                   menuOpen
                     ? 'border border-white text-white hover:bg-white hover:text-[#1B2A4A]'
                     : scrolled
