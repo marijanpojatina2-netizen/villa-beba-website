@@ -210,9 +210,16 @@ export function getArticleSchema({
       '@type': 'Organization',
       name: 'Villa Ballena & Villa Beluga',
       url: BASE_URL,
+      // Article rich snippets prefer a horizontal wordmark (~600x60) on a
+      // white background. Until we have one, point at the 512x512 brand
+      // mark which clears Google's 60x60 minimum and "image must be
+      // crawlable, indexable, and in PNG/JPEG" requirements. Swap to a
+      // proper horizontal wordmark in /og/logo.png when available.
       logo: {
         '@type': 'ImageObject',
-        url: `${BASE_URL}/favicon.ico`,
+        url: `${BASE_URL}/icon-512.png`,
+        width: 512,
+        height: 512,
       },
     },
     image: image ? `${BASE_URL}${image}` : `${BASE_URL}/images/ballena/ballena-42.jpg`,
