@@ -48,7 +48,7 @@ function ExperiencesHero() {
             <span className="block overflow-hidden"><span className="hero-line block italic">{t('heroTitle2')}</span></span>
           </h1>
         </div>
-        <div className="absolute right-6 bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] text-right"><p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">{t('heroSubtitle')}</p><p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">{t('heroBody')}</p></div>
+        <div className="mt-6 max-w-[280px] text-left lg:absolute lg:right-10 lg:bottom-16 lg:mt-0 lg:text-right"><p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">{t('heroSubtitle')}</p><p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">{t('heroBody')}</p></div>
       </div>
     </section>
   );

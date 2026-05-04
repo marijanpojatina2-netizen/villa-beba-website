@@ -39,11 +39,11 @@ function Hero() {
         <div ref={titleRef} className="max-w-[90vw]">
           <div className="overflow-hidden"><h1 className="hero-line display-hero text-white">BALLENA</h1></div>
         </div>
-        <div className="absolute right-6 bottom-12 lg:right-10 lg:bottom-16 max-w-[280px] text-right">
+        <div className="mt-6 max-w-[280px] text-left lg:absolute lg:right-10 lg:bottom-16 lg:mt-0 lg:text-right">
           <p className="font-accent text-sm italic leading-relaxed text-white/80 lg:text-base">{t('heroSubtitle')}</p>
           <p className="mt-4 text-[0.75rem] leading-relaxed text-white/50 font-body">Svetvinčenat, Istria</p>
         </div>
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2">
           <span className="font-heading text-[0.5625rem] uppercase tracking-[0.3em] text-white/40">{tc('scroll')}</span>
           <div className="h-8 w-px bg-white/20 animate-pulse" />
         </div>
@@ -96,15 +96,20 @@ function Introduction() {
 }
 
 function PhotoGallery() {
+  const tc = useTranslations('common');
   const sectionRef = useRef<HTMLElement>(null);
   const heights = ['aspect-[3/4]', 'aspect-[4/5]', 'aspect-[3/4]', 'aspect-[4/3]', 'aspect-[4/5]', 'aspect-[3/4]'];
+  const STEP = 6;
+  const [visibleCount, setVisibleCount] = useState(STEP);
+  const visible = ballenaGallery.slice(0, visibleCount);
+  const hasMore = visibleCount < ballenaGallery.length;
 
   return (
     <section ref={sectionRef} className="section-editorial bg-bg-elevated">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <p className="label-section mb-16 lg:mb-24">(GALLERY)</p>
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-          {ballenaGallery.map((image, i) => (
+          {visible.map((image, i) => (
             <div key={image.src} className="gallery-item mb-4 break-inside-avoid group overflow-hidden rounded-sm border border-line transition-all duration-500 hover:border-line-strong">
               <div className={`${heights[i % heights.length]} relative`}>
                 <Image src={image.src} alt={image.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-105" loading={i < 6 ? 'eager' : 'lazy'} quality={60} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
@@ -118,6 +123,13 @@ function PhotoGallery() {
             </div>
           ))}
         </div>
+        {hasMore && (
+          <div className="mt-12 flex justify-center">
+            <button type="button" onClick={() => setVisibleCount((c) => c + STEP)} className="btn-editorial">
+              {tc('loadMore')} ({ballenaGallery.length - visibleCount})
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
