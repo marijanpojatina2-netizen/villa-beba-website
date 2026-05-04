@@ -91,6 +91,20 @@
     "ctaTitleHome": "Book Your Stay",
     "ctaSubtitle": "Limited summer 2026 availability — secure your dates today"
   },
+  "homeLocation": {
+    "eyebrow": "(LOCATION & LIFESTYLE)",
+    "title": "Villa Ballena & Villa Beluga — relaxed Mediterranean elegance in Svetvinčenat, Istria",
+    "p1": "Villa Ballena and Villa Beluga sit on a quiet country road in Svetvinčenat, the medieval village at the green heart of Istria, Croatia. From the front gate it is a 300-metre walk to the village square, the konoba, and the 13th-century Kaštel Morosini-Grimani — and only 33 km to Pula Airport, 23 km to Rovinj, and 19 km to the nearest Adriatic beach at Bale.",
+    "p2": "Each villa is a 350 m² private luxury retreat: four en-suite bedrooms, a heated 8 × 4 m biological pool, a Finnish sauna or full game room, and a kitchen built around an induction hob, ice maker, and capsule coffee machine. Both villas were built in 2021, share a clay tennis court, and accept up to two pets at no extra charge.",
+    "p3": "Booked together as Complex BeBa, Villa Ballena and Villa Beluga sleep up to 18 guests with two pools, two kitchens, and one combined property — the format Croatian families and international groups choose for weddings, milestone birthdays, and corporate retreats.",
+    "p4": "Ballena & Beluga is the rare Istria address that combines designer interiors with small-village authenticity. From the heated pool you can see olive groves; ten minutes by car gets you to the Limski kanal, the Brijuni archipelago, and the truffle forests around Buzet. The result is relaxed Mediterranean elegance — quiet enough for a sabbatical, lively enough for a celebration.",
+    "p5": "We host directly. Bookings made through ballenaandbeluga.com skip the platform fee and unlock concierge planning: airport transfer from Pula, private chef on request, daily cleaning on request, wedding and event coordination, baby cot and high chair, and 24/7 guest support in English, German, Italian and Croatian.",
+    "p6": "If you have a question that isn't covered on the site, our FAQ answers the 13 most common ones in detail — from heated-pool season dates and pet policy to airport transfer and cancellation. For anything else, write to us and we usually reply within a few hours.",
+    "linkBallena": "Tour Villa Ballena",
+    "linkBeluga": "Tour Villa Beluga",
+    "linkExperiences": "Istria experiences",
+    "linkFaq": "Read the FAQ"
+  },
   "villa": {
     "specifications": "Specifications",
     "bedrooms": "Bedrooms & Bathrooms",
@@ -626,6 +640,7 @@
     "bookNow": "Book Now",
     "gallery": "Gallery",
     "blog": "Blog",
+    "guides": "Guides",
     "about": "About"
   },
   "Footer": {

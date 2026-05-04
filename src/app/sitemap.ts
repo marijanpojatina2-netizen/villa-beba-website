@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { guides } from '@/lib/guides';
 
 const BASE_URL = 'https://www.ballenaandbeluga.com';
 
@@ -21,6 +22,9 @@ const routes = [
   '/contact',
   '/faq',
   '/about',
+  '/privacy',
+  '/terms',
+  '/guides',
 ];
 
 const blogSlugs = [
@@ -62,6 +66,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
           languages: {
             en: `${BASE_URL}/en/blog/${slug}`,
             de: `${BASE_URL}/de/blog/${slug}`,
+          },
+        },
+      });
+    }
+
+    for (const guide of guides) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/guides/${guide.slug}`,
+        lastModified: new Date(guide.dateModified ?? guide.datePublished),
+        changeFrequency: 'monthly',
+        priority: 0.6,
+        alternates: {
+          languages: {
+            en: `${BASE_URL}/en/guides/${guide.slug}`,
+            de: `${BASE_URL}/de/guides/${guide.slug}`,
           },
         },
       });

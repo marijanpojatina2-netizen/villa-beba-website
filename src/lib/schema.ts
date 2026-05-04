@@ -1,14 +1,27 @@
-import { CONTACT, VILLAS } from './contact';
+import { CONTACT, INSTAGRAM_URL, VILLAS } from './contact';
+import { villaBallena, villaBeluga } from './data';
 
 const BASE_URL = 'https://www.ballenaandbeluga.com';
+
+// Brand-level "knowledge graph anchors" — the off-site profiles Google /
+// Bing / Wikidata use to confirm a single entity behind the website.
+// More canonical URLs here = higher Brand Authority + Trust score in
+// AI-readiness audits (DataEase scores this as "sameAs / knowledge graph
+// anchors", currently 0/15). Order: own social → marketplace listings →
+// per-villa GBP. Filter falsy so empty placeholders don't ship as "".
+const BRAND_SAME_AS = [
+  INSTAGRAM_URL,
+  villaBallena.bookingLinks.airbnb,
+  villaBeluga.bookingLinks.airbnb,
+  VILLAS.ballena.gbpUrl,
+  VILLAS.beluga.gbpUrl,
+].filter(Boolean);
 
 export function getLocalBusinessSchema() {
   // Brand-level entity shipped from layout.tsx on every page. The two
   // physical villa listings are exposed as `containsPlace` so Google can
   // resolve the brand → 2 lodging branches → 2 GBP listings (matched
-  // by exact address strings in VILLAS). Filter empty gbpUrl values out
-  // of `sameAs` so JSON-LD validators don't choke on the placeholders.
-  const villaSameAs = [VILLAS.ballena.gbpUrl, VILLAS.beluga.gbpUrl].filter(Boolean);
+  // by exact address strings in VILLAS).
   return {
     '@context': 'https://schema.org',
     '@type': 'LodgingBusiness',
@@ -47,7 +60,7 @@ export function getLocalBusinessSchema() {
           latitude: VILLAS.ballena.geo.lat,
           longitude: VILLAS.ballena.geo.lng,
         },
-        ...(VILLAS.ballena.gbpUrl ? { sameAs: [VILLAS.ballena.gbpUrl] } : {}),
+        sameAs: [VILLAS.ballena.gbpUrl, villaBallena.bookingLinks.airbnb].filter(Boolean),
       },
       {
         '@type': 'LodgingBusiness',
@@ -66,10 +79,10 @@ export function getLocalBusinessSchema() {
           latitude: VILLAS.beluga.geo.lat,
           longitude: VILLAS.beluga.geo.lng,
         },
-        ...(VILLAS.beluga.gbpUrl ? { sameAs: [VILLAS.beluga.gbpUrl] } : {}),
+        sameAs: [VILLAS.beluga.gbpUrl, villaBeluga.bookingLinks.airbnb].filter(Boolean),
       },
     ],
-    ...(villaSameAs.length ? { sameAs: villaSameAs } : {}),
+    ...(BRAND_SAME_AS.length ? { sameAs: BRAND_SAME_AS } : {}),
     priceRange: '€600 - €1,000/night',
     // Hotel-vertical fields for Google Hotel Search rich result eligibility.
     image: [
@@ -142,7 +155,10 @@ export function getVacationRentalSchema(
       latitude: villaData.geo.lat,
       longitude: villaData.geo.lng,
     },
-    ...(villaData.gbpUrl ? { sameAs: [villaData.gbpUrl] } : {}),
+    sameAs: [
+      villaData.gbpUrl,
+      isBalena ? villaBallena.bookingLinks.airbnb : villaBeluga.bookingLinks.airbnb,
+    ].filter(Boolean),
     // Required for Google Vacation Rental rich result eligibility — without
     // image[] both villa pages are excluded from the enhanced card in
     // Google Travel/Hotels search.

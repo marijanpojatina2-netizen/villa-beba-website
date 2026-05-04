@@ -3,6 +3,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Header, Footer } from '@/components/layout';
 import SmoothScroll from '@/components/animations/SmoothScroll';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
@@ -62,12 +64,16 @@ export async function generateMetadata({
   const { locale } = await params;
 
   const isDE = locale === 'de';
+  // Title kept inside the SEOptimizer 50-60 char window so the SERP snippet
+  // doesn't truncate. Includes "Croatia" + the brand pair so phrase-consistency
+  // checks (ballena beluga / villa ballena / villa beluga) flip to ✓ in
+  // both title and meta-description simultaneously.
   const title = isDE
-    ? 'Luxusvillen in Istrien | Privater Pool & Sauna | Villa Ballena & Beluga'
-    : 'Luxury Villas in Istria | Private Pool & Sauna | Villa Ballena & Beluga';
+    ? 'Villa Ballena & Beluga · Luxusvillen Istrien, Kroatien'
+    : 'Villa Ballena & Beluga · Luxury Villas in Istria, Croatia';
   const description = isDE
-    ? 'Zwei Designervillen in Svetvinčenat, Istrien. 4 Schlafzimmer, beheizter Pool, Sauna & Spielzimmer. Ab €600/Nacht. Direkt buchen.'
-    : 'Two designer villas in Svetvinčenat, Istria. 4 bedrooms, heated pool, sauna & game room. From €600/night. Book direct for the best experience.';
+    ? 'Villa Ballena & Villa Beluga — zwei Designervillen in Svetvinčenat, Istrien, Kroatien. 4 Schlafzimmer, beheizter Pool, Sauna & Spielzimmer. Ab €600/Nacht. Direkt buchen.'
+    : 'Villa Ballena & Villa Beluga — two designer villas in Svetvinčenat, Istria, Croatia. 4 bedrooms, heated pool, sauna & game room. From €600/night. Book direct.';
 
   return {
     title: {
@@ -138,6 +144,12 @@ export default async function LocaleLayout({
         <Footer />
         <WhatsAppButton />
       </SmoothScroll>
+      {/* Vercel Analytics + Speed Insights — both ship a single beacon
+          script each and run after page hydration so they don't compete
+          with LCP. Free on the Hobby tier; pageviews surface in the
+          Vercel dashboard within a few minutes of the first request. */}
+      <Analytics />
+      <SpeedInsights />
     </NextIntlClientProvider>
       </body>
     </html>

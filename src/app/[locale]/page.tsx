@@ -1,4 +1,5 @@
 import { getBreadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import HomePage from './HomeClient';
 
 const baseUrl = 'https://www.ballenaandbeluga.com';
@@ -11,16 +12,21 @@ export async function generateMetadata({
   const { locale } = await params;
   const isDE = locale === 'de';
 
-  // Layout template adds " | Villa Ballena & Beluga" automatically — keep page-specific copy only.
+  // Layout template adds " | Villa Ballena & Beluga" automatically — keep
+  // page-specific copy only. Title sized so layout template lands inside
+  // SEOptimizer's 50-60 char window with the brand suffix appended.
   const title = isDE
-    ? 'Luxusvillen in Istrien · Privater Pool & Sauna'
-    : 'Luxury Villas in Istria · Private Pool & Sauna';
+    ? 'Luxusvillen Istrien · Privater Pool & Sauna in Kroatien'
+    : 'Luxury Villas in Istria · Private Pool & Sauna, Croatia';
   const description = isDE
-    ? 'Villa Ballena & Villa Beluga — zwei Designervillen in Svetvinčenat, Istrien. 4 Schlafzimmer, beheizter Pool, Sauna & Spielzimmer. Ab 600 Euro/Nacht.'
-    : 'Villa Ballena & Villa Beluga — two designer villas in Svetvinčenat, Istria. 4 bedrooms, heated pool, sauna & game room. From 600 Euro/night. Book direct.';
+    ? 'Villa Ballena & Villa Beluga — zwei Designervillen in Svetvinčenat, Istrien, Kroatien. 4 Schlafzimmer, beheizter Pool, Sauna & Spielzimmer. Ab 600 Euro/Nacht.'
+    : 'Villa Ballena & Villa Beluga — two designer villas in Svetvinčenat, Istria, Croatia. 4 bedrooms, heated pool, sauna & game room. From 600 Euro/night. Book direct.';
 
   return {
-    title,
+    // Use `absolute` so the layout's `%s | Villa Ballena & Beluga` template
+    // doesn't push the home title past the SEOptimizer 50-60 char window —
+    // the page-level copy already names the brand.
+    title: { absolute: title },
     description,
     keywords: isDE
       ? ['Luxusvilla Istrien', 'Ferienvilla Kroatien', 'privater Pool Istrien', 'Villa mieten Kroatien']
@@ -51,11 +57,8 @@ export default async function Page({
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-      <HomePage />
+      <JsonLd data={breadcrumb} />
+      <HomePage locale={locale} />
     </>
   );
 }

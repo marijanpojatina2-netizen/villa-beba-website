@@ -3,6 +3,7 @@
 import { Link } from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 import { CONTACT, INSTAGRAM_URL } from '@/lib/contact';
+import EmailLink from '@/components/EmailLink';
 
 export default function Footer() {
   const t = useTranslations('Footer');
@@ -46,9 +47,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col items-start lg:items-end gap-2">
-            <a href={`mailto:${CONTACT.email}`} className="text-[0.8125rem] text-white/70 transition-colors hover:text-white">
-              {CONTACT.email}
-            </a>
+            <EmailLink className="text-[0.8125rem] text-white/70 transition-colors hover:text-white" />
             <a href={`tel:${CONTACT.phoneE164}`} className="text-[0.8125rem] text-white/70 transition-colors hover:text-white">
               {CONTACT.phoneDisplay}
             </a>
@@ -73,6 +72,14 @@ export default function Footer() {
           <p className="text-[0.625rem] font-heading uppercase tracking-[0.15em] text-white/65">
             &copy; {year} Ballena & Beluga. {t('rights')}
           </p>
+          <div className="flex items-center gap-5 text-[0.625rem] font-heading uppercase tracking-[0.15em] text-white/65">
+            <Link href="/privacy" className="transition-colors hover:text-white">
+              {t('privacy')}
+            </Link>
+            <Link href="/terms" className="transition-colors hover:text-white">
+              {t('terms')}
+            </Link>
+          </div>
           <p className="font-accent italic text-[0.75rem] text-white/65">
             {t('location')}
           </p>

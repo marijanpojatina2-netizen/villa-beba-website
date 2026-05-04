@@ -9,6 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useForm } from 'react-hook-form';
 import { submitContactForm } from '@/app/actions/contact';
 import { CONTACT, WHATSAPP_URL, MAP_EMBED_URL, MAP_LINK_URL } from '@/lib/contact';
+import EmailLink from '@/components/EmailLink';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -91,9 +92,7 @@ export default function ContactPage() {
             <div className="mt-8 space-y-6">
               <div>
                 <p className="font-heading text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-text-dim">{t('emailLabel')}</p>
-                <a href={`mailto:${CONTACT.email}`} className="mt-1 block text-sm text-text transition-colors hover:text-text-muted">
-                  {CONTACT.email}
-                </a>
+                <EmailLink className="mt-1 block text-sm text-text transition-colors hover:text-text-muted" />
               </div>
               <div className="line-h" />
               <div>
@@ -127,8 +126,7 @@ export default function ContactPage() {
               <iframe
                 src={MAP_EMBED_URL}
                 title="Villa Ballena & Beluga location in Svetvinčenat, Istria"
-                className="h-full w-full"
-                style={{ border: 0 }}
+                className="h-full w-full border-0"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen

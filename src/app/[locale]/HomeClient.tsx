@@ -6,19 +6,25 @@ import Hero from './_sections/Hero';
 import About from './_sections/About';
 import VillasShowcase from './_sections/VillasShowcase';
 import Beliefs from './_sections/Beliefs';
+import LocationLifestyle from './_sections/LocationLifestyle';
 import BlogPreview from './_sections/BlogPreview';
 import ValuesGrid from './_sections/ValuesGrid';
 import Amenities from './_sections/Amenities';
 import Reviews from './_sections/Reviews';
 import CTA from './_sections/CTA';
 
-export default function HomePage() {
+export default function HomePage({ locale }: { locale: string }) {
   return (
     <main>
       <Hero />
       <About />
       <VillasShowcase />
       <Beliefs />
+      {/* Server-rendered, copy-rich SEO section — see comment in
+          LocationLifestyle.tsx. Placed after Beliefs so the home page
+          surfaces the brand's location/lifestyle pitch before the blog
+          previews and values grid. */}
+      <LocationLifestyle locale={locale} />
       <BlogPreview />
       <ValuesGrid />
       <Amenities />

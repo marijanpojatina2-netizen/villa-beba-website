@@ -91,6 +91,20 @@
     "ctaTitleHome": "Buchen Sie Ihren Aufenthalt",
     "ctaSubtitle": "Begrenzte Verfügbarkeit Sommer 2026 — sichern Sie sich Ihre Termine"
   },
+  "homeLocation": {
+    "eyebrow": "(LAGE & LIFESTYLE)",
+    "title": "Villa Ballena & Villa Beluga — entspannte mediterrane Eleganz in Svetvinčenat, Istrien",
+    "p1": "Villa Ballena und Villa Beluga liegen an einer ruhigen Landstraße in Svetvinčenat, dem mittelalterlichen Dorf im grünen Herzen Istriens, Kroatien. Vom Eingangstor sind es 300 Meter zum Dorfplatz, zur Konoba und zum Kaštel Morosini-Grimani aus dem 13. Jahrhundert — und nur 33 km zum Flughafen Pula, 23 km nach Rovinj und 19 km zum nächstgelegenen Adriastrand bei Bale.",
+    "p2": "Jede Villa ist ein 350 m² großer privater Luxus-Rückzugsort: vier Schlafzimmer mit eigenem Bad, ein beheizter biologischer Pool von 8 × 4 m, eine finnische Sauna oder ein vollständiger Spielraum sowie eine Küche mit Induktionskochfeld, Eismaschine und Kapsel-Kaffeemaschine. Beide Villen wurden 2021 erbaut, teilen sich einen Sandtennisplatz und nehmen bis zu zwei Haustiere kostenfrei auf.",
+    "p3": "Gemeinsam als Complex BeBa gebucht, beherbergen Villa Ballena und Villa Beluga bis zu 18 Gäste in zwei Pools, zwei Küchen und einem zusammenhängenden Anwesen — das Format, das kroatische Familien und internationale Gruppen für Hochzeiten, runde Geburtstage und Firmen-Retreats wählen.",
+    "p4": "Ballena & Beluga ist die seltene Adresse in Istrien, die Designer-Interieur mit dorflicher Authentizität verbindet. Vom beheizten Pool aus blickt man auf Olivenhaine; zehn Autominuten reichen zum Limski Kanal, zum Brijuni-Archipel und zu den Trüffelwäldern um Buzet. Das Ergebnis ist entspannte mediterrane Eleganz — ruhig genug für ein Sabbatical, lebendig genug für ein Fest.",
+    "p5": "Wir vermieten direkt. Buchungen über ballenaandbeluga.com sparen die Plattformgebühr und beinhalten unsere Concierge-Planung: Flughafentransfer ab Pula, Privatkoch auf Anfrage, tägliche Reinigung auf Anfrage, Hochzeits- und Eventkoordination, Babybett und Hochstuhl sowie 24/7-Gästeunterstützung auf Englisch, Deutsch, Italienisch und Kroatisch.",
+    "p6": "Sollte eine Frage auf der Webseite nicht beantwortet sein, deckt unsere FAQ die 13 häufigsten Fragen detailliert ab — von der Pool-Saison und Haustierregelung bis zu Flughafentransfer und Stornierungsbedingungen. Für alles andere schreiben Sie uns einfach — meist antworten wir innerhalb weniger Stunden.",
+    "linkBallena": "Villa Ballena ansehen",
+    "linkBeluga": "Villa Beluga ansehen",
+    "linkExperiences": "Istrien-Erlebnisse",
+    "linkFaq": "Zur FAQ"
+  },
   "villa": {
     "specifications": "Ausstattung",
     "bedrooms": "Schlafzimmer & Badezimmer",
@@ -626,6 +640,7 @@
     "bookNow": "Jetzt buchen",
     "gallery": "Galerie",
     "blog": "Blog",
+    "guides": "Guides",
     "about": "Über uns"
   },
   "Footer": {

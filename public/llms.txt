@@ -1,0 +1,66 @@
+# Villa Ballena & Villa Beluga
+
+> Two designer luxury villas in Svetvinčenat, Istria, Croatia. Each villa has 4 en-suite bedrooms, a heated private pool (8x4 m, biological water), Finnish sauna or game room, smart-home interiors built in 2021, and capacity for 8 + 1 guests. The two villas can be booked together as "Complex BeBa" for groups of up to 18 — popular for weddings, family reunions, and corporate retreats. Direct bookings start at €600/night.
+
+## Brand pages
+
+- [Home — Villa Ballena & Beluga](https://www.ballenaandbeluga.com/en): Brand entry point with both villas and an at-a-glance overview.
+- [About](https://www.ballenaandbeluga.com/en/about): Owner story, design philosophy, location overview.
+- [Frequently Asked Questions](https://www.ballenaandbeluga.com/en/faq): Pool heating, pets, check-in, included amenities, cancellation policy.
+- [Contact](https://www.ballenaandbeluga.com/en/contact): Direct booking form, WhatsApp, phone, address (Svetvinčenat 150 / 151, 52342, Istria, Croatia).
+
+## Villa pages
+
+- [Villa Ballena — The Wellness Retreat](https://www.ballenaandbeluga.com/en/villa-ballena): 4 en-suite bedrooms, private Finnish sauna, heated pool, dark designer interiors. Address: Svetvinčenat 151.
+- [Villa Beluga — The Entertainment Villa](https://www.ballenaandbeluga.com/en/villa-beluga): 4 en-suite bedrooms, glass terrace, full game room (billiards, foosball, darts, PlayStation), heated pool. Address: Svetvinčenat 150.
+- [Complex BeBa — Both Villas Together](https://www.ballenaandbeluga.com/en/complex-beba): Combined booking of Villa Ballena + Villa Beluga, up to 18 guests, shared clay tennis court.
+
+## Use cases
+
+- [Weddings in Istria](https://www.ballenaandbeluga.com/en/weddings): Private wedding venue capacity, on-site ceremony space, vendor coordination.
+- [Corporate Retreats](https://www.ballenaandbeluga.com/en/corporate-retreats): Off-site team programmes for up to 18 people.
+- [Experiences](https://www.ballenaandbeluga.com/en/experiences): Wine tasting, truffle hunting, day trips to Rovinj, Pula Arena, Brijuni National Park, Motovun.
+- [Pricing & Availability](https://www.ballenaandbeluga.com/en/pricing): Seasonal rates from May 17 to November 1, minimum-stay rules, deposit terms.
+- [Photo Gallery](https://www.ballenaandbeluga.com/en/gallery): Interior + exterior photography of both villas.
+
+## Help center / guides
+
+- [Guides index](https://www.ballenaandbeluga.com/en/guides): Long-form, answer-shaped guides for guests planning a stay.
+- [Getting here from Pula Airport](https://www.ballenaandbeluga.com/en/guides/getting-here-from-pula-airport): Rental car, taxi, and private-transfer options for the 33 km drive.
+- [Heated pool & sauna season](https://www.ballenaandbeluga.com/en/guides/pool-and-sauna-season): Month-by-month water temperatures, sauna details.
+- [Wedding & event venue capacity](https://www.ballenaandbeluga.com/en/guides/wedding-and-event-venue): Sleeping/day-guest capacity, what is included, supplier list.
+- [What to pack for a stay in central Istria](https://www.ballenaandbeluga.com/en/guides/what-to-pack-for-istria): Climate, dress code, mosquito-season tips.
+
+## Editorial / blog
+
+- [Truffle Season in Istria](https://www.ballenaandbeluga.com/en/blog/truffle-season-in-istria)
+- [Rovinj — Gem of the Adriatic](https://www.ballenaandbeluga.com/en/blog/rovinj-gem-of-adriatic)
+- [Best Beaches Near Svetvinčenat](https://www.ballenaandbeluga.com/en/blog/best-beaches-near-svetvincenat)
+- [Istrian Wine Journey](https://www.ballenaandbeluga.com/en/blog/istrian-wine-journey)
+- [Planning the Perfect Istrian Wedding](https://www.ballenaandbeluga.com/en/blog/planning-perfect-istrian-wedding)
+- [Family-Friendly Activities in Central Istria](https://www.ballenaandbeluga.com/en/blog/family-friendly-activities-central-istria)
+
+## German (Deutsch)
+
+The site is fully bilingual. Replace `/en/` with `/de/` in any URL above for the German translation. Default language: English.
+
+## Off-site canonical profiles
+
+- Instagram: https://www.instagram.com/istrianvillaescape
+- Airbnb · Villa Ballena: https://www.airbnb.com/rooms/1539753391009885386
+- Airbnb · Villa Beluga: https://www.airbnb.com/rooms/1635490517116416278
+
+## Facts at a glance
+
+- Location: Svetvinčenat, Istria County, Croatia (45.0920° N, 13.8860° E)
+- Distance to Pula Airport: 33 km (~30 min drive)
+- Distance to Rovinj: 23 km
+- Bedrooms per villa: 4 (all en-suite)
+- Maximum guests per villa: 8 (+1 baby cot)
+- Maximum guests both villas: 18
+- Pool: 8 × 4 m, heated, biological water, hydromassage, open May 1 – October 30
+- Year built: 2021
+- Pets: up to 2, no extra charge
+- WiFi: 125 Mbit/s
+- Languages spoken: English, German, Croatian, Italian
+- Currency: EUR

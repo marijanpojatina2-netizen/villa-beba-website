@@ -34,7 +34,13 @@ export default function Hero() {
 
   return (
     <section ref={sectionRef} className="relative h-screen w-full overflow-hidden" style={{ transformOrigin: 'center top' }}>
-      <Image src={heroImages.homepage} alt="Villa Ballena and Villa Beluga aerial view at dusk" fill className="object-cover" priority quality={80} sizes="100vw" />
+      {/* LCP image: `priority` makes Next emit `<link rel="preload" as="image">`
+          plus `loading="eager"` and `fetchpriority="high"`. Quality drops to
+          75 so the AVIF derivative shaves ~10% off the wire — a meaningful
+          slice of the 5.7 s mobile LCP we measured. The remaining headroom
+          lives in the apex→www→/en redirect chain (see
+          docs/seo/vercel-domain-redirect.md) and is dashboard-only. */}
+      <Image src={heroImages.homepage} alt="Villa Ballena and Villa Beluga aerial view at dusk" fill className="object-cover" priority quality={75} sizes="100vw" fetchPriority="high" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       <div className="absolute inset-0 flex flex-col justify-end px-6 pb-[12vh] sm:pb-[10vh] lg:px-10 lg:pb-[8vh]">
         <div ref={titleRef} className="max-w-[90vw]">

@@ -111,6 +111,7 @@ export default function Header() {
     { href: '/pricing' as const, label: t('pricing') },
     { href: '/gallery' as const, label: t('gallery') },
     { href: '/blog' as const, label: t('blog') },
+    { href: '/guides' as const, label: t('guides') },
     { href: '/about' as const, label: t('about') },
     { href: '/contact' as const, label: t('contact') },
   ];
@@ -147,7 +148,27 @@ export default function Header() {
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="flex h-16 items-center justify-between lg:h-20">
             <div className="flex items-center gap-10 lg:gap-14 z-10">
-              <Link href="/" className="flex-shrink-0">
+              <Link href="/" className="flex-shrink-0 flex items-center gap-2" aria-label="Villa Ballena & Beluga — home">
+                {/* Inline whale-fluke mark with class="logo" so brand
+                    analyzers (DataEase, etc.) detect a logo element in the
+                    HTML — they look for an <img>/<svg> with "logo" in the
+                    class/id/alt attributes. currentColor inherits the same
+                    transition as the wordmark next to it. */}
+                <svg
+                  className="logo h-4 w-4 transition-colors duration-700"
+                  role="img"
+                  aria-label="Villa Ballena & Beluga logo"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ color: menuOpen ? '#fff' : scrolled ? '#1B2A4A' : '#fff' }}
+                >
+                  <path d="M3 14c2 0 3-2 5-2s3 2 5 2 3-2 5-2 3 2 3 2" />
+                  <path d="M12 4c2 4 6 6 9 6-2 4-5 6-9 6s-7-2-9-6c3 0 7-2 9-6Z" />
+                </svg>
                 <span className={`font-heading text-[0.6875rem] font-medium uppercase tracking-[0.25em] transition-colors duration-700 ${textClass}`}>
                   Ballena & Beluga
                 </span>
