@@ -75,16 +75,16 @@ export async function generateMetadata({
       template: `%s | Villa Ballena & Beluga`,
     },
     description,
-    metadataBase: new URL('https://www.villabeba.com'),
+    metadataBase: new URL('https://www.ballenaandbeluga.com'),
     alternates: {
-      canonical: `https://www.villabeba.com/${locale}`,
+      canonical: `https://www.ballenaandbeluga.com/${locale}`,
       languages: {
-        en: 'https://www.villabeba.com/en',
-        de: 'https://www.villabeba.com/de',
+        en: 'https://www.ballenaandbeluga.com/en',
+        de: 'https://www.ballenaandbeluga.com/de',
         // Fallback for unmapped languages (Italian guests — biggest
         // Istria tourist segment — Croatians without locale switch,
         // French, etc.). Points at /en since EN is the default.
-        'x-default': 'https://www.villabeba.com/en',
+        'x-default': 'https://www.ballenaandbeluga.com/en',
       },
     },
     openGraph: {

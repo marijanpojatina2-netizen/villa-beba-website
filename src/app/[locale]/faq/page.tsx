@@ -2,7 +2,7 @@ import { getBreadcrumbSchema, getFAQSchema } from '@/lib/schema';
 import { faqItems } from '@/lib/data';
 import FAQPage from './FaqClient';
 
-const baseUrl = 'https://www.villabeba.com';
+const baseUrl = 'https://www.ballenaandbeluga.com';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

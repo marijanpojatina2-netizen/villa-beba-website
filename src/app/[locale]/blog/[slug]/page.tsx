@@ -1,7 +1,7 @@
 import { getBreadcrumbSchema, getArticleSchema } from '@/lib/schema';
 import BlogPostContent from './BlogPostClient';
 
-const baseUrl = 'https://www.villabeba.com';
+const baseUrl = 'https://www.ballenaandbeluga.com';
 
 const blogPosts = [
   {

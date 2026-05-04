@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://www.villabeba.com';
+const BASE_URL = 'https://www.ballenaandbeluga.com';
 
 // Bump this when significant site content changes. Per-route dates would
 // be better, but using new Date() per entry tells Google "everything

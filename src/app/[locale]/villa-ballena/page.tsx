@@ -1,7 +1,7 @@
 import { getVacationRentalSchema, getBreadcrumbSchema } from '@/lib/schema';
 import VillaBallenaPage from './VillaBallenaClient';
 
-const baseUrl = 'https://www.villabeba.com';
+const baseUrl = 'https://www.ballenaandbeluga.com';
 
 export async function generateMetadata({
   params,

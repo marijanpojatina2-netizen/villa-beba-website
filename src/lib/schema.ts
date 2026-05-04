@@ -1,6 +1,6 @@
 import { CONTACT } from './contact';
 
-const BASE_URL = 'https://www.villabeba.com';
+const BASE_URL = 'https://www.ballenaandbeluga.com';
 
 export function getLocalBusinessSchema() {
   return {

@@ -3,17 +3,11 @@
 // (NAP) data: every change here MUST be mirrored on Google Business Profile,
 // Booking.com, Airbnb, and any directory listings, or Google's local algorithm
 // will lower entity confidence and rankings.
-//
-// Domain note: the canonical site domain is `villabeba.com` (no hyphen — see
-// `lib/schema.ts` BASE_URL and per-page `baseUrl` constants), while the email
-// resolves on `villa-beba.com` (with hyphen). This is intentional unless the
-// owner migrates mail; if you change either, update the other to keep NAP
-// consistent across schema and visible page text.
 export const CONTACT = {
   phoneE164: '+385912524094',
   phoneDisplay: '+385 91 2524 094',
   whatsappNumber: '385912524094',
-  email: 'info@villa-beba.com',
+  email: 'info@ballenaandbeluga.com',
   instagramHandle: 'istrianvillaescape',
   // Coordinates for the Svetvinčenat property (used in map embed + JSON-LD)
   geo: { lat: 45.091986, lng: 13.886013 },

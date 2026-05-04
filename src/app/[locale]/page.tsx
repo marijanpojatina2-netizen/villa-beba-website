@@ -1,7 +1,7 @@
 import { getBreadcrumbSchema } from '@/lib/schema';
 import HomePage from './HomeClient';
 
-const baseUrl = 'https://www.villabeba.com';
+const baseUrl = 'https://www.ballenaandbeluga.com';
 
 export async function generateMetadata({
   params,
