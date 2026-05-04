@@ -46,6 +46,31 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // OG/Twitter cards are immutable per deploy and re-fetched by
+        // Facebook/X/LinkedIn crawlers on every share — long-cache them.
+        source: '/og/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        // Permanent (308) so Googlebot consolidates link equity from any
+        // bare-domain external links (Booking/Airbnb directories, social
+        // bios, business cards) onto the canonical /en path. next-intl's
+        // own middleware would otherwise issue a 307 here, costing crawl
+        // budget and blocking PageRank flow.
+        source: '/',
+        destination: '/en',
+        permanent: true,
+      },
     ];
   },
 };
