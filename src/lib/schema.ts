@@ -1,8 +1,14 @@
-import { CONTACT } from './contact';
+import { CONTACT, VILLAS } from './contact';
 
 const BASE_URL = 'https://www.ballenaandbeluga.com';
 
 export function getLocalBusinessSchema() {
+  // Brand-level entity shipped from layout.tsx on every page. The two
+  // physical villa listings are exposed as `containsPlace` so Google can
+  // resolve the brand → 2 lodging branches → 2 GBP listings (matched
+  // by exact address strings in VILLAS). Filter empty gbpUrl values out
+  // of `sameAs` so JSON-LD validators don't choke on the placeholders.
+  const villaSameAs = [VILLAS.ballena.gbpUrl, VILLAS.beluga.gbpUrl].filter(Boolean);
   return {
     '@context': 'https://schema.org',
     '@type': 'LodgingBusiness',
@@ -15,6 +21,7 @@ export function getLocalBusinessSchema() {
       '@type': 'PostalAddress',
       addressLocality: 'Svetvinčenat',
       addressRegion: 'Istria',
+      postalCode: '52342',
       addressCountry: 'HR',
     },
     geo: {
@@ -22,6 +29,47 @@ export function getLocalBusinessSchema() {
       latitude: CONTACT.geo.lat,
       longitude: CONTACT.geo.lng,
     },
+    containsPlace: [
+      {
+        '@type': 'LodgingBusiness',
+        name: VILLAS.ballena.name,
+        url: `${BASE_URL}/en/villa-ballena`,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: VILLAS.ballena.streetAddress,
+          addressLocality: VILLAS.ballena.locality,
+          addressRegion: VILLAS.ballena.region,
+          postalCode: VILLAS.ballena.postalCode,
+          addressCountry: VILLAS.ballena.country,
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: VILLAS.ballena.geo.lat,
+          longitude: VILLAS.ballena.geo.lng,
+        },
+        ...(VILLAS.ballena.gbpUrl ? { sameAs: [VILLAS.ballena.gbpUrl] } : {}),
+      },
+      {
+        '@type': 'LodgingBusiness',
+        name: VILLAS.beluga.name,
+        url: `${BASE_URL}/en/villa-beluga`,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: VILLAS.beluga.streetAddress,
+          addressLocality: VILLAS.beluga.locality,
+          addressRegion: VILLAS.beluga.region,
+          postalCode: VILLAS.beluga.postalCode,
+          addressCountry: VILLAS.beluga.country,
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: VILLAS.beluga.geo.lat,
+          longitude: VILLAS.beluga.geo.lng,
+        },
+        ...(VILLAS.beluga.gbpUrl ? { sameAs: [VILLAS.beluga.gbpUrl] } : {}),
+      },
+    ],
+    ...(villaSameAs.length ? { sameAs: villaSameAs } : {}),
     priceRange: '€600 - €1,000/night',
     // Hotel-vertical fields for Google Hotel Search rich result eligibility.
     image: [
@@ -56,10 +104,11 @@ export function getVacationRentalSchema(
 ) {
   const isBalena = villa === 'ballena';
   const slug = isBalena ? 'villa-ballena' : 'villa-beluga';
+  const villaData = VILLAS[villa];
   return {
     '@context': 'https://schema.org',
     '@type': 'VacationRental',
-    name: isBalena ? 'Villa Ballena' : 'Villa Beluga',
+    name: villaData.name,
     description: isBalena
       ? 'Luxury wellness villa with private sauna, heated pool, and 4 en-suite bedrooms in Istria, Croatia.'
       : 'Luxury entertainment villa with game room, glass terrace, heated pool, and 4 en-suite bedrooms in Istria, Croatia.',
@@ -78,12 +127,22 @@ export function getVacationRentalSchema(
     },
     petsAllowed: true,
     yearBuilt: 2021,
+    // Per-villa exact street address — must match the GBP listing for
+    // this villa byte-for-byte. Source of truth: VILLAS in lib/contact.ts.
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Svetvinčenat',
-      addressRegion: 'Istria',
-      addressCountry: 'HR',
+      streetAddress: villaData.streetAddress,
+      postalCode: villaData.postalCode,
+      addressLocality: villaData.locality,
+      addressRegion: villaData.region,
+      addressCountry: villaData.country,
     },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: villaData.geo.lat,
+      longitude: villaData.geo.lng,
+    },
+    ...(villaData.gbpUrl ? { sameAs: [villaData.gbpUrl] } : {}),
     // Required for Google Vacation Rental rich result eligibility — without
     // image[] both villa pages are excluded from the enhanced card in
     // Google Travel/Hotels search.
