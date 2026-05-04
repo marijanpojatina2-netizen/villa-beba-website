@@ -86,28 +86,39 @@ export async function submitContactForm(formData: FormData) {
 
   const resend = new Resend(apiKey);
 
+  // Resend free tier restriction: until ballenaandbeluga.com is verified
+  // at Resend, the "to" recipient must be the email registered with the
+  // Resend account. OWNER_EMAIL env var overrides CONTACT.email for that
+  // window — set it in Vercel to your Resend-registered Gmail. After
+  // domain verification, drop the env var and recipient falls back to
+  // CONTACT.email (info@ballenaandbeluga.com → CF Email Routing → Gmail).
+  const recipient = process.env.OWNER_EMAIL || CONTACT.email;
+
   try {
     const { error } = await resend.emails.send({
       // Until the sender domain is verified at Resend, we must use the
-      // shared `onboarding@resend.dev` from-address — the email still
-      // lands in the owner's inbox via CF Email Routing forwarding.
-      // After domain verification add a CNAME at resend._domainkey and
-      // flip this to `Villa Ballena & Beluga <info@ballenaandbeluga.com>`.
+      // shared `onboarding@resend.dev` from-address. After verification,
+      // flip to `Villa Ballena & Beluga <info@ballenaandbeluga.com>`.
       from: 'Villa Ballena & Beluga <onboarding@resend.dev>',
-      to: [CONTACT.email],
+      to: [recipient],
       replyTo: data.email,
       subject: `New booking inquiry — ${villaLabel} — ${data.name}`,
       html: buildEmailHtml(data),
     });
 
     if (error) {
-      console.error('[contact] resend send error:', error);
-      return { success: false, error: 'send_failed' as const };
+      console.error('[contact] resend send error:', JSON.stringify(error));
+      return {
+        success: false,
+        error: 'send_failed' as const,
+        detail: error.message || error.name || 'unknown',
+      };
     }
 
     return { success: true };
   } catch (err) {
-    console.error('[contact] unexpected error:', err);
-    return { success: false, error: 'send_failed' as const };
+    const detail = err instanceof Error ? err.message : String(err);
+    console.error('[contact] unexpected error:', detail);
+    return { success: false, error: 'send_failed' as const, detail };
   }
 }

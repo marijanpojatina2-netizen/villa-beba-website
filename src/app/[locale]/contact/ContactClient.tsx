@@ -36,8 +36,22 @@ export default function ContactPage() {
       const formData = new FormData();
       Object.entries(data).forEach(([key, value]) => { formData.append(key, value); });
       const result = await submitContactForm(formData);
-      if (result.success) { setStatus('success'); reset(); } else { setStatus('error'); }
-    } catch { setStatus('error'); }
+      if (result.success) {
+        setStatus('success');
+        reset();
+      } else {
+        // Surface the specific failure to the browser console so debugging
+        // doesn't require Vercel function log access. The displayed error
+        // copy stays generic for guests.
+        // eslint-disable-next-line no-console
+        console.error('[contact form]', result);
+        setStatus('error');
+      }
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error('[contact form] unexpected', err);
+      setStatus('error');
+    }
   };
 
   const inputClasses = 'w-full rounded-sm border border-line bg-transparent px-4 py-3 text-sm text-text placeholder:text-text-dim transition-all duration-300 focus:border-text-muted focus:outline-none';
