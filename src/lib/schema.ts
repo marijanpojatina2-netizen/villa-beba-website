@@ -84,6 +84,13 @@ export function getVacationRentalSchema(
       addressRegion: 'Istria',
       addressCountry: 'HR',
     },
+    // Required for Google Vacation Rental rich result eligibility — without
+    // image[] both villa pages are excluded from the enhanced card in
+    // Google Travel/Hotels search.
+    image: [
+      `${BASE_URL}/og/${slug}.jpg`,
+      `${BASE_URL}/images/${isBalena ? 'ballena/ballena-1.jpg' : 'beluga/beluga-40.jpg'}`,
+    ],
     offers: {
       '@type': 'Offer',
       priceSpecification: {
@@ -115,6 +122,7 @@ export function getArticleSchema({
   description,
   slug,
   datePublished,
+  dateModified,
   image,
   locale = 'en',
 }: {
@@ -122,6 +130,7 @@ export function getArticleSchema({
   description: string;
   slug: string;
   datePublished: string;
+  dateModified?: string;
   image?: string;
   locale?: string;
 }) {
@@ -132,7 +141,7 @@ export function getArticleSchema({
     description,
     url: `${BASE_URL}/${locale}/blog/${slug}`,
     datePublished,
-    dateModified: datePublished,
+    dateModified: dateModified ?? datePublished,
     author: {
       '@type': 'Organization',
       name: 'Villa Ballena & Villa Beluga',

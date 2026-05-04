@@ -32,7 +32,7 @@ export async function generateMetadata({
     twitter: { card: 'summary_large_image' as const, title, description },
     alternates: {
       canonical: `${baseUrl}/${locale}/villa-ballena`,
-      languages: { en: `${baseUrl}/en/villa-ballena`, de: `${baseUrl}/de/villa-ballena` },
+      languages: { en: `${baseUrl}/en/villa-ballena`, de: `${baseUrl}/de/villa-ballena`, 'x-default': `${baseUrl}/en/villa-ballena` },
     },
   };
 }

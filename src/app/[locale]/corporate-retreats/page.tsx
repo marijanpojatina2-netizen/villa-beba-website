@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     keywords: isDE ? ['Firmenretreat Kroatien', 'Team-Offsite Istrien', 'Corporate Villa'] : ['corporate retreat Croatia', 'team offsite Istria', 'corporate villa'],
     openGraph: { title, description, images: [{ url: `${baseUrl}/og/corporate-retreats.jpg`, width: 1200, height: 630 }] },
     twitter: { card: 'summary_large_image' as const, title, description },
-    alternates: { canonical: `${baseUrl}/${locale}/corporate-retreats`, languages: { en: `${baseUrl}/en/corporate-retreats`, de: `${baseUrl}/de/corporate-retreats` } },
+    alternates: { canonical: `${baseUrl}/${locale}/corporate-retreats`, languages: { en: `${baseUrl}/en/corporate-retreats`, de: `${baseUrl}/de/corporate-retreats`, 'x-default': `${baseUrl}/en/corporate-retreats` } },
   };
 }
 

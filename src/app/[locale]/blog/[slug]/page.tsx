@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     twitter: { card: 'summary_large_image' as const, title, description },
     alternates: {
       canonical: `${baseUrl}/${locale}/blog/${slug}`,
-      languages: { en: `${baseUrl}/en/blog/${slug}`, de: `${baseUrl}/de/blog/${slug}` },
+      languages: { en: `${baseUrl}/en/blog/${slug}`, de: `${baseUrl}/de/blog/${slug}`, 'x-default': `${baseUrl}/en/blog/${slug}` },
     },
   };
 }

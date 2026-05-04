@@ -33,7 +33,7 @@ export async function generateMetadata({
     twitter: { card: 'summary_large_image' as const, title, description },
     alternates: {
       canonical: `${baseUrl}/${locale}`,
-      languages: { en: `${baseUrl}/en`, de: `${baseUrl}/de` },
+      languages: { en: `${baseUrl}/en`, de: `${baseUrl}/de`, 'x-default': `${baseUrl}/en` },
     },
   };
 }

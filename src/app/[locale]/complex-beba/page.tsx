@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     keywords: isDE ? ['Complex BeBa', 'Grosses Ferienhaus Istrien', 'Gruppenunterkunft Kroatien'] : ['Complex BeBa', 'large holiday home Istria', 'group accommodation Croatia'],
     openGraph: { title, description, images: [{ url: `${baseUrl}/og/complex-beba.jpg`, width: 1200, height: 630 }] },
     twitter: { card: 'summary_large_image' as const, title, description },
-    alternates: { canonical: `${baseUrl}/${locale}/complex-beba`, languages: { en: `${baseUrl}/en/complex-beba`, de: `${baseUrl}/de/complex-beba` } },
+    alternates: { canonical: `${baseUrl}/${locale}/complex-beba`, languages: { en: `${baseUrl}/en/complex-beba`, de: `${baseUrl}/de/complex-beba`, 'x-default': `${baseUrl}/en/complex-beba` } },
   };
 }
 

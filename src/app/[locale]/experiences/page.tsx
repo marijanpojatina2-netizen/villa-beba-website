@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     keywords: isDE ? ['Erlebnisse Istrien', 'Weinverkostung Kroatien', 'Trüffeljagd Istrien'] : ['Istria experiences', 'wine tasting Croatia', 'truffle hunting Istria'],
     openGraph: { title, description, images: [{ url: `${baseUrl}/og/experiences.jpg`, width: 1200, height: 630 }] },
     twitter: { card: 'summary_large_image' as const, title, description },
-    alternates: { canonical: `${baseUrl}/${locale}/experiences`, languages: { en: `${baseUrl}/en/experiences`, de: `${baseUrl}/de/experiences` } },
+    alternates: { canonical: `${baseUrl}/${locale}/experiences`, languages: { en: `${baseUrl}/en/experiences`, de: `${baseUrl}/de/experiences`, 'x-default': `${baseUrl}/en/experiences` } },
   };
 }
 

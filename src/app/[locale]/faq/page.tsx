@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     keywords: isDE ? ['FAQ Villa Istrien', 'Fragen Ferienhaus Kroatien'] : ['FAQ villa Istria', 'questions holiday home Croatia'],
     openGraph: { title, description, images: [{ url: `${baseUrl}/og/faq.jpg`, width: 1200, height: 630 }] },
     twitter: { card: 'summary_large_image' as const, title, description },
-    alternates: { canonical: `${baseUrl}/${locale}/faq`, languages: { en: `${baseUrl}/en/faq`, de: `${baseUrl}/de/faq` } },
+    alternates: { canonical: `${baseUrl}/${locale}/faq`, languages: { en: `${baseUrl}/en/faq`, de: `${baseUrl}/de/faq`, 'x-default': `${baseUrl}/en/faq` } },
   };
 }
 
