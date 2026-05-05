@@ -79,6 +79,9 @@ export default function Footer() {
             <Link href="/terms" className="transition-colors hover:text-white">
               {t('terms')}
             </Link>
+            <Link href="/impressum" className="transition-colors hover:text-white">
+              {t('impressum')}
+            </Link>
           </div>
           <p className="font-accent italic text-[0.75rem] text-white/65">
             {t('location')}

@@ -1,12 +1,13 @@
 import type { MetadataRoute } from 'next';
 import { guides } from '@/lib/guides';
+import { blogPosts } from '@/lib/blog';
 
 const BASE_URL = 'https://www.ballenaandbeluga.com';
 
 // Bump this when significant site content changes. Per-route dates would
 // be better, but using new Date() per entry tells Google "everything
 // changed just now" which dilutes the freshness signal across the site.
-const LAST_UPDATED = new Date('2026-05-03');
+const LAST_UPDATED = new Date('2026-05-05');
 
 const routes = [
   '',
@@ -24,16 +25,8 @@ const routes = [
   '/about',
   '/privacy',
   '/terms',
+  '/impressum',
   '/guides',
-];
-
-const blogSlugs = [
-  'truffle-season-in-istria',
-  'rovinj-gem-of-adriatic',
-  'best-beaches-near-svetvincenat',
-  'istrian-wine-journey',
-  'planning-perfect-istrian-wedding',
-  'family-friendly-activities-central-istria',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -56,16 +49,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    for (const slug of blogSlugs) {
+    for (const post of blogPosts) {
       entries.push({
-        url: `${BASE_URL}/${locale}/blog/${slug}`,
-        lastModified: LAST_UPDATED,
+        url: `${BASE_URL}/${locale}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
         changeFrequency: 'monthly',
         priority: 0.5,
         alternates: {
           languages: {
-            en: `${BASE_URL}/en/blog/${slug}`,
-            de: `${BASE_URL}/de/blog/${slug}`,
+            en: `${BASE_URL}/en/blog/${post.slug}`,
+            de: `${BASE_URL}/de/blog/${post.slug}`,
           },
         },
       });
