@@ -8,7 +8,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Header, Footer } from '@/components/layout';
 import SmoothScroll from '@/components/animations/SmoothScroll';
 import WhatsAppButton from '@/components/layout/WhatsAppButton';
-import CookieNotice from '@/components/CookieNotice';
 import { getLocalBusinessSchema } from '@/lib/schema';
 
 // Font weights/styles trimmed from a `rg`-verified usage scan: 900 weight
@@ -145,7 +144,6 @@ export default async function LocaleLayout({
         <Footer />
         <WhatsAppButton />
       </SmoothScroll>
-      <CookieNotice />
       {/* Vercel Analytics + Speed Insights — both ship a single beacon
           script each and run after page hydration so they don't compete
           with LCP. Free on the Hobby tier; pageviews surface in the
