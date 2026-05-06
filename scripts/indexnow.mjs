@@ -23,6 +23,13 @@ const ENDPOINT = 'https://api.indexnow.org/indexnow';
 
 function normaliseUrl(input) {
   if (input.startsWith('http://') || input.startsWith('https://')) return input;
+  // Git Bash on Windows (MSYS) path-converts arguments starting with `/`
+  // into Windows paths like `C:/Program Files/Git/en/guides/foo`. Detect
+  // and strip the converted prefix so `/en/guides/foo` round-trips
+  // correctly. The Git Bash install path is what we strip — adjust if
+  // your install lives elsewhere.
+  const winMsysMatch = input.match(/^[A-Z]:[/\\]Program Files[/\\]Git[/\\](.+)$/i);
+  if (winMsysMatch) input = '/' + winMsysMatch[1].replace(/\\/g, '/');
   const path = input.startsWith('/') ? input : `/${input}`;
   return `https://${HOST}${path}`;
 }

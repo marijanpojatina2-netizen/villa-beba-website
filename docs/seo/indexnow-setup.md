@@ -63,6 +63,12 @@ verification → submit sitemap.
   `public/<new-key>.txt`, every ping returns 403.
 - **422 = host mismatch.** All URLs in a single submission must share the
   same host (the script normalises path-only args to `www.ballenaandbeluga.com`).
+- **Git Bash on Windows path-mangles `/...` arguments** into Windows paths
+  (e.g. `/en/...` becomes `C:/Program Files/Git/en/...`). The script
+  detects and strips this prefix automatically. If you see the mangled
+  URLs printed in the submission output, your Git Bash MSYS install is
+  in a non-default location — update the regex in scripts/indexnow.mjs
+  or always pass full `https://...` URLs from PowerShell instead.
 
 ## Possible automation (future)
 
