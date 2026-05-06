@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Claude Code local settings (per-user tool permissions, not for repo)
 .claude/settings.local.json
+
+# Remember plugin local state (per-user, not for repo)
+.remember/
