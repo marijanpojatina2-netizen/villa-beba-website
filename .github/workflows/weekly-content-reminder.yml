@@ -35,20 +35,36 @@ jobs:
 
           TODAY=$(date -u +%Y-%m-%d)
 
-          if [[ "$TODAY" > "$END_DATE" ]]; then
-            echo "Past end date $END_DATE — skipping" >&2
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
+          # Manual triggers (workflow_dispatch) bypass the date window so we
+          # can test or shift the cadence without editing this file. Cron
+          # triggers respect the window — if the schedule fires outside
+          # [START_DATE, END_DATE] (e.g. after the 10-week sprint ends or
+          # if it somehow runs early), the job exits cleanly without
+          # opening an issue.
+          IS_MANUAL="${{ github.event_name == 'workflow_dispatch' }}"
+
+          if [[ "$IS_MANUAL" == "false" ]]; then
+            if [[ "$TODAY" > "$END_DATE" ]]; then
+              echo "Past end date $END_DATE — skipping" >&2
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if [[ "$TODAY" < "$START_DATE" ]]; then
+              echo "Before start date $START_DATE — skipping" >&2
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
           fi
 
-          if [[ "$TODAY" < "$START_DATE" ]]; then
-            echo "Before start date $START_DATE — skipping" >&2
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
+          # Compute week number. For manual runs before START_DATE (e.g.
+          # initial smoke test), clamp to week 1 so we always pick a valid
+          # topic from the queue.
           DIFF_DAYS=$(( ( $(date -u -d "$TODAY" +%s) - $(date -u -d "$START_DATE" +%s) ) / 86400 ))
-          WEEK=$(( DIFF_DAYS / 7 + 1 ))
+          if [[ "$DIFF_DAYS" -lt 0 ]]; then
+            WEEK=1
+          else
+            WEEK=$(( DIFF_DAYS / 7 + 1 ))
+          fi
 
           # Topic queue, ordered by SEO leverage. Edit freely between runs —
           # week N reads index N-1 from this list.
