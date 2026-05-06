@@ -118,26 +118,71 @@ export function getVacationRentalSchema(
   const isBalena = villa === 'ballena';
   const slug = isBalena ? 'villa-ballena' : 'villa-beluga';
   const villaData = VILLAS[villa];
+  // Eight-image set per villa — Google's Vacation Rental rich result expects
+  // ≥8 images, otherwise the enhanced card is suppressed even when all other
+  // required fields are present.
+  const images = isBalena
+    ? [
+        `${BASE_URL}/og/villa-ballena.jpg`,
+        `${BASE_URL}/images/ballena/ballena-aerial-pool.jpg`,
+        `${BASE_URL}/images/ballena/ballena-1.jpg`,
+        `${BASE_URL}/images/ballena/ballena-9.jpg`,
+        `${BASE_URL}/images/ballena/ballena-10.jpg`,
+        `${BASE_URL}/images/ballena/ballena-30.jpg`,
+        `${BASE_URL}/images/ballena/ballena-40.jpg`,
+        `${BASE_URL}/images/ballena/ballena-42.jpg`,
+      ]
+    : [
+        `${BASE_URL}/og/villa-beluga.jpg`,
+        `${BASE_URL}/images/beluga/beluga-1.jpg`,
+        `${BASE_URL}/images/beluga/beluga-3.jpg`,
+        `${BASE_URL}/images/beluga/beluga-10.jpg`,
+        `${BASE_URL}/images/beluga/beluga-25.jpg`,
+        `${BASE_URL}/images/beluga/beluga-31.jpg`,
+        `${BASE_URL}/images/beluga/beluga-40.jpg`,
+        `${BASE_URL}/images/beluga/beluga-42.jpg`,
+      ];
+  // 4 en-suite bedrooms in each villa: 2 rooms with twin singles + 2 rooms
+  // with euro-king doubles (180x210). Summarised as BedDetails counts.
+  const bed = [
+    { '@type': 'BedDetails', numberOfBeds: 4, typeOfBed: 'Single' },
+    { '@type': 'BedDetails', numberOfBeds: 2, typeOfBed: 'King' },
+  ];
+  const occupancy = {
+    '@type': 'QuantitativeValue',
+    value: 8,
+    unitText: 'guests',
+  };
+  const floorSize = {
+    '@type': 'QuantitativeValue',
+    value: 350,
+    unitCode: 'MTK',
+  };
   return {
     '@context': 'https://schema.org',
     '@type': 'VacationRental',
+    // Wikidata QID for "vacation rental" — Google requires additionalType
+    // pointing at a controlled vocabulary entry to disambiguate the listing
+    // from generic LodgingBusiness in the Vacation Rentals rich result.
+    additionalType: 'https://www.wikidata.org/wiki/Q15813124',
     name: villaData.name,
     description: isBalena
       ? 'Luxury wellness villa with private sauna, heated pool, and 4 en-suite bedrooms in Istria, Croatia.'
       : 'Luxury entertainment villa with game room, glass terrace, heated pool, and 4 en-suite bedrooms in Istria, Croatia.',
     url: `${BASE_URL}/${locale}/${slug}`,
+    // Stable per-property identifier — Google uses propertyID + value to
+    // dedupe this listing across the sitemap, GBP, and any Vacation Rentals
+    // feed submission. Slug is URL-stable; address text could change.
+    identifier: {
+      '@type': 'PropertyValue',
+      propertyID: 'ballenaandbeluga.com',
+      value: slug,
+    },
     numberOfBedrooms: 4,
     numberOfBathroomsTotal: 4,
-    floorSize: {
-      '@type': 'QuantitativeValue',
-      value: 350,
-      unitCode: 'MTK',
-    },
-    occupancy: {
-      '@type': 'QuantitativeValue',
-      value: 8,
-      unitText: 'guests',
-    },
+    numberOfRooms: 4,
+    floorSize,
+    occupancy,
     petsAllowed: true,
     yearBuilt: 2021,
     // Per-villa exact street address — must match the GBP listing for
@@ -155,17 +200,36 @@ export function getVacationRentalSchema(
       latitude: villaData.geo.lat,
       longitude: villaData.geo.lng,
     },
+    // The rentable unit inside the property. Google's VacationRental model
+    // is "Place that contains an Accommodation" — without containsPlace.bed
+    // the listing is rejected from the Vacation Rentals rich result.
+    containsPlace: {
+      '@type': 'Accommodation',
+      additionalType: 'EntirePlace',
+      name: villaData.name,
+      numberOfBedrooms: 4,
+      numberOfBathroomsTotal: 4,
+      numberOfRooms: 4,
+      floorSize,
+      occupancy,
+      bed,
+      amenityFeature: [
+        { '@type': 'LocationFeatureSpecification', name: 'Private Heated Pool', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'Air Conditioning', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'High-Speed WiFi', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'Free Private Parking', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'Pet Friendly', value: true },
+        { '@type': 'LocationFeatureSpecification', name: 'En-Suite Bedrooms', value: true },
+        isBalena
+          ? { '@type': 'LocationFeatureSpecification', name: 'Private Sauna', value: true }
+          : { '@type': 'LocationFeatureSpecification', name: 'Game Room', value: true },
+      ],
+    },
     sameAs: [
       villaData.gbpUrl,
       isBalena ? villaBallena.bookingLinks.airbnb : villaBeluga.bookingLinks.airbnb,
     ].filter(Boolean),
-    // Required for Google Vacation Rental rich result eligibility — without
-    // image[] both villa pages are excluded from the enhanced card in
-    // Google Travel/Hotels search.
-    image: [
-      `${BASE_URL}/og/${slug}.jpg`,
-      `${BASE_URL}/images/${isBalena ? 'ballena/ballena-1.jpg' : 'beluga/beluga-40.jpg'}`,
-    ],
+    image: images,
     offers: {
       '@type': 'Offer',
       priceSpecification: {

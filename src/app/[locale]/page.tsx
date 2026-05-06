@@ -1,5 +1,3 @@
-import { getBreadcrumbSchema } from '@/lib/schema';
-import JsonLd from '@/components/JsonLd';
 import HomePage from './HomeClient';
 
 const baseUrl = 'https://www.ballenaandbeluga.com';
@@ -50,15 +48,5 @@ export default async function Page({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-
-  const breadcrumb = getBreadcrumbSchema([
-    { name: 'Home', url: `/${locale}` },
-  ]);
-
-  return (
-    <>
-      <JsonLd data={breadcrumb} />
-      <HomePage locale={locale} />
-    </>
-  );
+  return <HomePage locale={locale} />;
 }
