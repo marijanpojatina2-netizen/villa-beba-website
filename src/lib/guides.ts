@@ -414,6 +414,97 @@ export const guides: Guide[] = [
       ],
     },
   },
+  {
+    slug: 'istrian-wineries-near-svetvincenat',
+    category: 'planning',
+    datePublished: '2026-05-06',
+    en: {
+      title: 'Istrian wineries near Svetvinčenat — 6 producers worth the drive',
+      excerpt: 'Six of Istria\'s most respected wineries within 60 minutes of Villa Ballena & Beluga — from a 15-minute Malvazija reference to the Momjan premium cluster — with booking notes, drive times, and what to taste at each.',
+      intro: 'Istria has quietly become one of Europe\'s most interesting wine regions in the past fifteen years — Malvazija Istarska as the signature white, Teran as the regional red, and a small cluster of estates pushing both into international competition. The good news for guests at Villa Ballena & Beluga: most of the producers worth visiting are within an hour\'s drive, two are inside 30 minutes, and the rest cluster around Momjan and Umag where you can fit two visits into a single afternoon. This guide covers six estates we send guests to most often, sorted by drive time from the villa, with what to taste and how to book.',
+      sections: [
+        {
+          heading: 'Matošević — Krunčići (15 minutes)',
+          body: 'The closest serious winery to the villa — 15 minutes north on the D75 toward Sv. Lovreč. Antonio Mario Matošević built one of Istria\'s most respected Malvazija programmes here, with a tasting room cut into the hillside and views over the surrounding vineyards. Order the "Alba" Malvazija (steel, mineral, classical) and the "Grimalda" red blend (Merlot–Teran, oak-aged). Tastings are €25–40 per person depending on the flight; book at least 24 hours ahead via their website. Open Monday–Saturday, closed Sundays. The drive home through the rolling vineyards is itself part of the experience.',
+        },
+        {
+          heading: 'Trapan — Šišan (25 minutes)',
+          body: 'Bruno Trapan represents the modern, bottle-driven generation of Istrian winemakers — minimalist label design, single-vineyard expressions, restaurant lists across Croatia. The estate sits in Šišan, 8 km from Pula, surrounded by red-soil vineyards facing the Adriatic. Taste the "Uroboros" Malvazija (oak-aged, age-worthy) and the "Nigra Virgo" Teran. Tastings €25–35; book ahead. A natural pairing with a half-day in Pula — visit the Arena in the morning, lunch in the old town, drive 15 minutes south to Trapan in the afternoon.',
+        },
+        {
+          heading: 'Clai — Krasica near Buzet (50 minutes)',
+          body: 'Giorgio Clai is Istria\'s most prominent natural-wine producer — orange Malvazija made with extended skin contact, biodynamic vineyards, no commercial yeasts, no filtration. The cellar in Krasica (8 km from Buzet, deep in central-northern Istria) is small and the visits are personal. Try "Sveti Jakov" Malvazija (skin-contact, amber, complex) and "Ottocento Bianco" (white blend, oxidative). Reservations essential, often 1–2 weeks ahead in season. Best combined with a Motovun day trip — Clai is on the way back south.',
+        },
+        {
+          heading: 'Kabola — Momjan (55 minutes)',
+          body: 'The Markežić family produced the first Croatian wine awarded "Decanter" recognition. The estate sits high in Momjan, the chalk-hill area on the Slovenian border, and Kabola\'s Malvazija aged in clay amphorae underground for six months has become its calling card. Taste the "Amfora" Malvazija (orange, mineral, distinctive), the classical Malvazija for contrast, and the Muscat from Momjan (the local sweet variety). Tastings €30–50; reservations required. Combine with Kozlović 5 minutes away.',
+        },
+        {
+          heading: 'Kozlović — Momjan (55 minutes)',
+          body: 'The reference Momjan estate — Antonio Kozlović\'s family has farmed these slopes for generations, but the modern winery (built into the hillside, contemporary architecture) signals the shift to international quality. Taste "Santa Lucia" Malvazija (single-vineyard, oak-influenced) and the Momjan Muscat. The view from the panoramic tasting terrace over the Mirna river valley is the best of any winery in Istria — schedule the visit for late afternoon, into golden hour. Tastings €30–45; book ahead. Pair with Kabola for a Momjan double-bill.',
+        },
+        {
+          heading: 'Coronica — Koreniki near Umag (60–70 minutes)',
+          body: 'Moreno Coronica is widely considered the best Teran producer in Istria — his "Gran Teran" is the benchmark expression of the region\'s notoriously difficult red grape, aged in large oak for two years and built to age another twenty. The estate also produces an exemplary Malvazija and a small-production rosé. The drive is the longest on this list (a full hour, slightly more in coastal traffic), but for a Teran-focused tasting it\'s worth treating as its own afternoon. €30–40 per person; reservations essential. Pair with lunch in Umag or in the small village of Brtonigla on the way.',
+        },
+        {
+          heading: 'Booking & logistics — applies to all visits',
+          body: 'Every winery on this list requires advance booking (24 hours minimum, 1–2 weeks in season for the smaller estates). Walk-ins are not the culture here. Tastings typically run 60–90 minutes, include 4–6 wines and a light food pairing (cheese, prosciutto, olives), and cost €25–50 per person. Spit buckets are always provided — designate a driver, or take a Bolt/Uber from Pula if you plan to taste seriously. Most estates ship internationally for case orders. The villa fridge holds bottles fine, and most guests come back from a winery visit with a case for the rest of the stay.',
+        },
+      ],
+      faq: [
+        { q: 'Which winery is closest to the villa?', a: 'Matošević in Krunčići is 15 minutes north on the D75 toward Sv. Lovreč. The next closest is Trapan in Šišan, 25 minutes south near Pula.' },
+        { q: 'Can I just turn up at a winery without booking?', a: 'No — every estate on this list requires a reservation, typically 24 hours minimum and 1–2 weeks in summer for the smaller producers (Clai, Kabola). Walk-ins are not the culture in Istria.' },
+        { q: 'How much does a typical tasting cost?', a: '€25–50 per person, including 4–6 wines and a small food pairing of local cheese, prosciutto, and olives. Premium flights at Kozlović or Kabola can reach €60.' },
+        { q: 'Is there a designated driver service?', a: 'Bolt and Uber operate in Pula and reach the inland wineries with advance booking. For groups of 4–8, we can also arrange a private driver through our network — email us at least 48 hours ahead.' },
+        { q: 'What\'s the best Istrian wine to take home?', a: 'A bottle of Malvazija from Matošević or Kozlović for a wine-friend gift; an "Amfora" from Kabola or "Sveti Jakov" from Clai for someone who already drinks orange wine; a Coronica Gran Teran for a serious cellar.' },
+        { q: 'Can I do two wineries in one afternoon?', a: 'Yes — Kabola and Kozlović are 5 minutes apart in Momjan, and Matošević and Trapan can be combined with a Pula day. Pace yourselves: 4–6 wines per estate adds up fast.' },
+      ],
+    },
+    de: {
+      title: 'Istrische Weingüter nahe Svetvinčenat — 6 Erzeuger, die die Fahrt wert sind',
+      excerpt: 'Sechs der angesehensten Weingüter Istriens innerhalb 60 Minuten ab Villa Ballena & Beluga — vom 15-Minuten-Malvazija-Referenzgut bis zum Momjan-Premium-Cluster — mit Reservierungshinweisen, Fahrzeiten und was bei jedem zu probieren ist.',
+      intro: 'Istrien hat sich in den letzten fünfzehn Jahren still und leise zu einer der spannendsten Weinregionen Europas entwickelt — Malvazija Istarska als Signature-Weiß, Teran als regionaler Rotwein und eine kleine Gruppe von Gütern, die beide international bekannt machen. Die gute Nachricht für Gäste der Villa Ballena & Beluga: Die meisten besuchenswerten Erzeuger liegen innerhalb einer Stunde Fahrt, zwei sogar unter 30 Minuten, und der Rest gruppiert sich um Momjan und Umag — dort lassen sich zwei Besuche an einem Nachmittag verbinden. Dieser Leitfaden behandelt sechs Güter, zu denen wir Gäste am häufigsten schicken, sortiert nach Fahrzeit ab der Villa, mit Verkostungs- und Buchungsempfehlungen.',
+      sections: [
+        {
+          heading: 'Matošević — Krunčići (15 Minuten)',
+          body: 'Das nächstgelegene ernsthafte Weingut zur Villa — 15 Minuten nördlich auf der D75 Richtung Sv. Lovreč. Antonio Mario Matošević hat hier eines der angesehensten Malvazija-Programme Istriens aufgebaut, mit einem in den Hang geschnittenen Verkostungsraum und Blick über die umgebenden Weinberge. Bestellen Sie die „Alba" Malvazija (Stahl, mineralisch, klassisch) und die „Grimalda" Rotcuvée (Merlot–Teran, im Holzfass gereift). Verkostungen 25–40 € pro Person je nach Flight; Reservierung mindestens 24 Stunden im Voraus über die Website. Montag–Samstag geöffnet, sonntags geschlossen. Die Rückfahrt durch die wellige Weinlandschaft gehört selbst zum Erlebnis.',
+        },
+        {
+          heading: 'Trapan — Šišan (25 Minuten)',
+          body: 'Bruno Trapan steht für die moderne, flaschenbetonte Generation istrischer Winzer — minimalistisches Label-Design, Einzellagen-Cuvées, Restaurantlisten in ganz Kroatien. Das Gut liegt in Šišan, 8 km von Pula entfernt, umgeben von roterdigen, zur Adria gerichteten Weinbergen. Probieren Sie „Uroboros" Malvazija (im Holzfass gereift, lagerfähig) und „Nigra Virgo" Teran. Verkostungen 25–35 €; Reservierung empfohlen. Natürlicher Halbtag-Kombi mit Pula — morgens die Arena, mittags Altstadt, nachmittags 15 Minuten südlich zu Trapan.',
+        },
+        {
+          heading: 'Clai — Krasica bei Buzet (50 Minuten)',
+          body: 'Giorgio Clai ist Istriens bekanntester Naturwein-Erzeuger — orange Malvazija mit langer Maischestandzeit, biodynamische Weinberge, keine Reinzuchthefen, unfiltriert. Der Keller in Krasica (8 km von Buzet, tief im zentralen Norden Istriens) ist klein und die Besuche persönlich. Probieren Sie „Sveti Jakov" Malvazija (Maischegärung, bernsteinfarben, komplex) und „Ottocento Bianco" (Weiß-Cuvée, oxidativ). Reservierung erforderlich, oft 1–2 Wochen im Voraus in der Saison. Am besten kombinierbar mit einem Motovun-Tagesausflug — Clai liegt auf dem Rückweg nach Süden.',
+        },
+        {
+          heading: 'Kabola — Momjan (55 Minuten)',
+          body: 'Die Familie Markežić produzierte den ersten kroatischen Wein mit „Decanter"-Auszeichnung. Das Gut liegt hoch in Momjan, im Kreidegebiet an der slowenischen Grenze, und Kabolas Malvazija, sechs Monate in unterirdischen Tonamphoren gereift, ist sein Markenzeichen. Probieren Sie „Amfora" Malvazija (orange, mineralisch, charakterstark), die klassische Malvazija als Vergleich und den Muscat aus Momjan (lokale süße Sorte). Verkostungen 30–50 €; Reservierung erforderlich. Kombinierbar mit Kozlović 5 Minuten entfernt.',
+        },
+        {
+          heading: 'Kozlović — Momjan (55 Minuten)',
+          body: 'Das Referenzgut Momjans — die Familie Antonio Kozlović bewirtschaftet diese Hänge seit Generationen, aber die moderne, in den Hang gebaute Kellerei (zeitgenössische Architektur) markiert den Schritt zu internationaler Spitzenqualität. Probieren Sie „Santa Lucia" Malvazija (Einzellage, Holzfass-Einfluss) und den Momjaner Muscat. Der Blick von der Panorama-Verkostungsterrasse über das Mirna-Tal ist der beste aller istrischen Weingüter — Termin auf den späten Nachmittag legen, in die goldene Stunde hinein. Verkostungen 30–45 €; Reservierung. Mit Kabola als Momjan-Doppel kombinieren.',
+        },
+        {
+          heading: 'Coronica — Koreniki bei Umag (60–70 Minuten)',
+          body: 'Moreno Coronica gilt als bester Teran-Erzeuger Istriens — sein „Gran Teran" ist der Maßstab dieser eigenwilligen regionalen Rebsorte, zwei Jahre in großen Holzfässern gereift und für weitere zwanzig Jahre Lagerung gebaut. Das Gut produziert auch eine vorbildliche Malvazija und einen Klein-Produktions-Rosé. Die Fahrt ist die längste dieser Liste (volle Stunde, etwas mehr bei Küstenverkehr), aber für eine Teran-fokussierte Verkostung lohnt sich das als eigener Nachmittag. 30–40 € pro Person; Reservierung erforderlich. Kombinierbar mit einem Mittagessen in Umag oder im kleinen Brtonigla auf dem Weg.',
+        },
+        {
+          heading: 'Reservierung & Logistik — für alle Besuche',
+          body: 'Jedes Weingut auf dieser Liste verlangt Voranmeldung (mindestens 24 Stunden, 1–2 Wochen in der Saison für die kleineren Güter). Walk-Ins sind hier nicht die Kultur. Verkostungen dauern in der Regel 60–90 Minuten, umfassen 4–6 Weine und eine kleine Speisepaarung (Käse, Prosciutto, Oliven) und kosten 25–50 € pro Person. Spuckgefäße werden immer gestellt — Fahrer bestimmen oder ein Bolt/Uber aus Pula nehmen, wenn ernsthaft probiert wird. Die meisten Güter versenden international auf Kistenebene. Der Villa-Kühlschrank fasst Flaschen bequem, und die meisten Gäste kommen mit einer Kiste für den Rest des Aufenthalts zurück.',
+        },
+      ],
+      faq: [
+        { q: 'Welches Weingut liegt am nächsten zur Villa?', a: 'Matošević in Krunčići, 15 Minuten nördlich auf der D75 Richtung Sv. Lovreč. Das nächstnähere ist Trapan in Šišan, 25 Minuten südlich nahe Pula.' },
+        { q: 'Kann ich ohne Voranmeldung beim Weingut auftauchen?', a: 'Nein — jedes Gut auf dieser Liste verlangt Reservierung, typisch 24 Stunden im Voraus und 1–2 Wochen im Sommer für die kleineren Erzeuger (Clai, Kabola). Walk-Ins sind in Istrien nicht üblich.' },
+        { q: 'Was kostet eine typische Verkostung?', a: '25–50 € pro Person, einschließlich 4–6 Weine und einer kleinen Speisepaarung mit lokalem Käse, Prosciutto und Oliven. Premium-Flights bei Kozlović oder Kabola können 60 € erreichen.' },
+        { q: 'Gibt es einen Fahrerservice?', a: 'Bolt und Uber sind in Pula verfügbar und erreichen die Hinterland-Güter mit Vorbestellung. Für Gruppen von 4–8 organisieren wir auch einen privaten Fahrer über unser Netzwerk — mindestens 48 Stunden im Voraus per E-Mail.' },
+        { q: 'Welcher istrische Wein eignet sich am besten als Mitbringsel?', a: 'Eine Flasche Malvazija von Matošević oder Kozlović als Wein-Geschenk; ein „Amfora" von Kabola oder „Sveti Jakov" von Clai für jemanden, der bereits Orange-Wein trinkt; ein Coronica Gran Teran für einen ernsthaften Keller.' },
+        { q: 'Kann ich zwei Weingüter an einem Nachmittag schaffen?', a: 'Ja — Kabola und Kozlović liegen 5 Minuten auseinander in Momjan, und Matošević + Trapan lassen sich mit einem Pula-Tag verbinden. Pacing wichtig: 4–6 Weine pro Gut summieren sich schnell.' },
+      ],
+    },
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
