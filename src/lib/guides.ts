@@ -325,6 +325,95 @@ export const guides: Guide[] = [
       ],
     },
   },
+  {
+    slug: 'day-trips-from-svetvincenat',
+    category: 'planning',
+    datePublished: '2026-05-06',
+    en: {
+      title: 'Day trips from Svetvinčenat — 6 places within an hour of the villa',
+      excerpt: 'Pula, Rovinj, the Brijuni Islands, the Limski Kanal, Motovun, and Pazin — the practical day-trip radius from Villa Ballena & Beluga, with timings, parking notes, and what to actually do once you arrive.',
+      intro: 'Svetvinčenat sits in the geographic middle of Istria, which is the single biggest underrated advantage of staying here over a coastal hotel: every classic Istrian destination is within about an hour by car, and most are 25–40 minutes. You can wake up at the villa, swim, drive to a UNESCO-listed Roman amphitheatre, eat truffle pasta on a hilltop, swim again on the way back, and be home for dinner. This guide covers the six places we send guests most often, with honest timing and what to skip.',
+      sections: [
+        {
+          heading: 'Pula (35 minutes south)',
+          body: 'Croatia\'s best-preserved Roman amphitheatre sits in the centre of Pula — built in the 1st century, capacity 23,000, still used for summer concerts. Buy tickets online to skip the queue, and aim to arrive before 10:00 or after 16:00 to avoid both the cruise-ship crowd and the midday heat on the unshaded stone. Combine the Arena with the Forum (the main square, with a 1st-century Roman temple still standing intact at its end), the Triumphal Arch of the Sergii, and a long lunch at one of the konobas in the old town. For an afternoon swim, drive 10 minutes to the Verudela peninsula — Hawaii Beach (Havajska plaža) and Ambrela are family-friendly with shade and easy water entry. Parking in central Pula is easiest at the Karolina garage; expect €2–3/hour.',
+        },
+        {
+          heading: 'Rovinj (35 minutes west)',
+          body: 'The most photographed town on the Istrian coast — pastel houses stacked on a small peninsula, the Church of St. Euphemia at the crown, narrow stepped lanes paved with worn limestone. The town itself is small enough to see in 90 minutes; the trick is to arrive late afternoon, walk the loop slowly, find a wine bar with a view of the harbour, and stay for the sunset (which from the small jetties on the western side is genuinely one of the best in the Mediterranean). Park outside the old town — the multi-storey on Valdibora is the closest legal option, then it\'s a 5-minute walk along the harbour. For dinner, La Puntulina or Monte are special-occasion spots; for a casual sit-down, Maestral on the harbour does excellent grilled fish.',
+        },
+        {
+          heading: 'Brijuni Islands (40 minutes + 15-minute ferry)',
+          body: 'A small archipelago off the coast at Fažana — declared a national park, formerly Tito\'s summer residence, now a managed nature reserve where peacocks walk through olive groves and Roman villa ruins. The standard visit is a half-day: drive 40 minutes to Fažana, park (free), take the official 15-minute Brijuni Tourist Bureau ferry to Veliki Brijun. Once on the island, hire bikes (recommended) or take the small tourist train for the 4-hour loop that covers the safari park (zebras, llamas — Tito received them as gifts), the Roman villa, and the Byzantine castrum. Book ferry tickets on the Brijuni National Park website at least two days ahead in summer; same-day tickets sell out by 09:30 in July and August.',
+        },
+        {
+          heading: 'Limski Kanal (25 minutes north-west)',
+          body: 'A 12-km flooded river valley that looks like a Norwegian fjord cutting into the Istrian coast — narrow, steep-sided, brackish. Two reasons to go: the oysters, farmed in the channel since Roman times and considered among the best in the Adriatic, served at the small restaurants on the southern bank (Viking and Fjord are the classic two); and the swimming, which is calm, sheltered from wind, and far less busy than the open coast. The pirate-themed restaurant signs are kitsch, the food is genuinely good. Combine with a stop at the medieval village of Sveti Lovreč on the way back.',
+        },
+        {
+          heading: 'Motovun (50 minutes north)',
+          body: 'A hilltop town visible from miles away — fortified medieval walls, a population of 500, surrounded by oak forest that is one of Europe\'s richest white-truffle grounds. Park at the foot of the hill (€5/day in season; the upper car park is reserved for residents) and walk up the cobbled ramp through the two town gates. The full loop of the medieval walls takes 25 minutes and gives you a 360° view of central Istria — the rolling vineyards south toward Buje, the Mirna river valley below, the Učka mountains east. Lunch options at the top: Mondo Konoba is the most famous (book ahead, truffle-heavy menu), Pod Voltom is the locals\' choice. The Motovun Film Festival in late July transforms the town into an open-air cinema; outside that week it stays quiet even in August.',
+        },
+        {
+          heading: 'Pazin (35 minutes east)',
+          body: 'The geographic and administrative centre of Istria, often skipped by tourists chasing the coast — which is exactly why it\'s worth the detour. The Pazin Castle is the largest preserved fortification in the region (now an ethnographic museum) and sits dramatically on the edge of the Pazinska jama, a karst chasm where the Pazinčica river disappears underground. Jules Verne set the climax of his novel Mathias Sandorf here in 1885. The cave system below the castle can be visited on a 90-minute guided tour in summer. For lunch in Pazin, Konoba Vela Vrata is the safe pick. Combine with a stop at Tinjan (10 minutes south) for the famous Istrian prosciutto — Tinjan ham (pršut) is Istria\'s best-known cured meat.',
+        },
+        {
+          heading: 'Other shorter trips worth a half-day',
+          body: 'Bale (22 minutes west) — a tiny medieval village with one perfect square and excellent food at La Grisa hotel restaurant. Vodnjan (28 minutes south-west) — three mummified saints in the parish church and an Istria-best olive oil scene. Fažana (40 minutes south) — the embarkation point for Brijuni, with a charming working harbour and the best sardine restaurants in central Istria (Stara Konoba). And Svetvinčenat itself — the medieval Kaštel Morosini-Grimani is 300 metres from the villa and most guests don\'t look up at it once; the inner courtyard is open most afternoons in summer and the village square holds a small farmers\' market on Saturday mornings.',
+        },
+      ],
+      faq: [
+        { q: 'Do I really need a car for these day trips?', a: 'Yes — the day-trip radius assumes a rental car. Public buses connect Svetvinčenat to Pula and Rovinj but on a sparse schedule (4–5 a day), so a car is what makes "wake up at the villa, swim, day-trip, swim again, dinner at home" possible.' },
+        { q: 'Which day trip is best with young children?', a: 'Brijuni Islands — the bike loop, the safari park animals, the small tourist train, and easy swimming on the way back at Fažana all read well to under-10s. Limski Kanal is the second pick for the calm, shallow water.' },
+        { q: 'How early do I need to book Brijuni ferry tickets?', a: 'Two to three days ahead in July and August; same-day is fine in May, June, and September outside weekends. Book directly on the Brijuni National Park website to lock the time slot.' },
+        { q: 'Can I do Motovun and Rovinj in the same day?', a: 'Possible but rushed — both deserve 3–4 hours. Better to pair Motovun with a stop in Pazin or with truffle hunting in the Mirna valley, and treat Rovinj as its own evening trip.' },
+        { q: 'Is Pula crowded in summer?', a: 'In July and August, yes — cruise ships dock 2–3 times a week, and the Arena queue at midday can be 30 minutes. Going before 10:00 or after 16:00 avoids both the queue and the heat on the unshaded amphitheatre seating.' },
+      ],
+    },
+    de: {
+      title: 'Tagesausflüge von Svetvinčenat — 6 Orte innerhalb einer Stunde von der Villa',
+      excerpt: 'Pula, Rovinj, die Brijuni-Inseln, der Limski-Kanal, Motovun und Pazin — der praktische Tagesausflugsradius ab Villa Ballena & Beluga, mit Fahrzeiten, Parkhinweisen und was vor Ort wirklich lohnt.',
+      intro: 'Svetvinčenat liegt im geografischen Zentrum Istriens — der größte unterschätzte Vorteil eines Aufenthalts hier gegenüber einem Hotel an der Küste: jedes klassische istrische Reiseziel ist mit dem Auto in etwa einer Stunde erreichbar, die meisten sogar in 25–40 Minuten. Sie können in der Villa aufwachen, schwimmen, zu einem UNESCO-gelisteten römischen Amphitheater fahren, Trüffelpasta auf einem Hügel essen, auf dem Rückweg nochmal baden und rechtzeitig zum Abendessen zurück sein. Dieser Leitfaden behandelt die sechs Ziele, zu denen wir Gäste am häufigsten schicken — mit ehrlichen Zeitangaben und Hinweisen, was man auslassen kann.',
+      sections: [
+        {
+          heading: 'Pula (35 Minuten südlich)',
+          body: 'Kroatiens am besten erhaltenes römisches Amphitheater steht im Zentrum von Pula — erbaut im 1. Jahrhundert, Kapazität 23.000 Personen, bis heute für Sommerkonzerte genutzt. Tickets online kaufen, um die Schlange zu vermeiden, und vor 10:00 oder nach 16:00 ankommen, um sowohl der Kreuzfahrtmenge als auch der Mittagshitze auf den unbeschatteten Steinrängen auszuweichen. Kombinieren Sie die Arena mit dem Forum (Hauptplatz mit einem intakten römischen Tempel aus dem 1. Jahrhundert), dem Triumphbogen der Sergier und einem ausgedehnten Mittagessen in einer der Konobas in der Altstadt. Für ein Bad am Nachmittag fahren Sie 10 Minuten zur Halbinsel Verudela — Hawaii (Havajska plaža) und Ambrela sind familienfreundlich mit Schatten und einfachem Wassereinstieg. Parken im Zentrum am einfachsten in der Tiefgarage Karolina; ca. 2–3 €/Stunde.',
+        },
+        {
+          heading: 'Rovinj (35 Minuten westlich)',
+          body: 'Die meistfotografierte Stadt an der istrischen Küste — pastellfarbene Häuser auf einer kleinen Halbinsel gestapelt, die Kirche der Heiligen Euphemia als Krone, schmale Treppengassen aus abgenutztem Kalkstein. Die Stadt selbst ist klein genug für 90 Minuten; der Trick ist, am späten Nachmittag anzukommen, die Schleife langsam zu laufen, eine Weinbar mit Blick auf den Hafen zu finden und bis zum Sonnenuntergang zu bleiben (von den kleinen Stegen auf der Westseite einer der besten im Mittelmeerraum). Parken außerhalb der Altstadt — das Parkhaus Valdibora ist die nächste legale Option, von dort 5 Minuten am Hafen entlang. Zum Abendessen sind La Puntulina und Monte besondere Adressen; für etwas Lockereres serviert Maestral am Hafen ausgezeichneten Grillfisch.',
+        },
+        {
+          heading: 'Brijuni-Inseln (40 Minuten + 15-Minuten-Fähre)',
+          body: 'Ein kleines Archipel vor der Küste bei Fažana — Nationalpark, ehemalige Sommerresidenz Titos, heute kontrolliertes Naturreservat, wo Pfauen durch Olivenhaine spazieren und römische Villa-Ruinen stehen. Standardbesuch ist ein halber Tag: 40 Minuten Fahrt nach Fažana, kostenfrei parken, mit der offiziellen 15-Minuten-Fähre des Brijuni-Tourismusbüros nach Veliki Brijun. Auf der Insel Fahrräder mieten (empfohlen) oder die kleine Touristenbahn für die 4-stündige Schleife mit Safaripark (Zebras, Lamas — Tito erhielt sie als Geschenke), römischer Villa und byzantinischem Castrum. Fähren-Tickets auf der Brijuni-Nationalpark-Website mindestens zwei Tage im Voraus buchen; Same-Day-Tickets sind im Juli und August bis 09:30 ausverkauft.',
+        },
+        {
+          heading: 'Limski-Kanal (25 Minuten nordwestlich)',
+          body: 'Ein 12 km langer überfluteter Flusstal-Einschnitt, der wie ein norwegischer Fjord in die istrische Küste schneidet — eng, steilwandig, brackisch. Zwei Gründe, hinzufahren: die Austern, seit römischen Zeiten im Kanal gezüchtet und unter den besten der Adria, serviert in den kleinen Restaurants am Südufer (Viking und Fjord sind die Klassiker); und das Schwimmen, ruhig, windgeschützt und deutlich weniger besucht als die offene Küste. Die Piraten-Themen-Schilder sind Kitsch, das Essen ist tatsächlich gut. Kombinierbar mit einem Stopp im mittelalterlichen Sveti Lovreč auf dem Rückweg.',
+        },
+        {
+          heading: 'Motovun (50 Minuten nördlich)',
+          body: 'Ein Hügelort, schon aus der Ferne sichtbar — befestigte mittelalterliche Mauern, 500 Einwohner, umgeben von Eichenwald, der zu Europas reichsten weißen Trüffelvorkommen zählt. Parken am Fuß des Hügels (5 €/Tag in der Saison; der obere Parkplatz ist Anwohnern vorbehalten), dann zu Fuß die Kopfsteinpflaster-Rampe hinauf durch die zwei Stadttore. Die komplette Runde der mittelalterlichen Mauern dauert 25 Minuten und bietet einen 360°-Blick auf das zentrale Istrien — die wellige Weingegend südlich Richtung Buje, das Tal der Mirna unten, im Osten das Učka-Gebirge. Mittagessen oben: Konoba Mondo ist die berühmteste Adresse (Reservierung nötig, trüffellastige Karte), Pod Voltom die Wahl der Einheimischen. Das Motovun Film Festival Ende Juli verwandelt die Stadt in ein Open-Air-Kino; außerhalb dieser Woche bleibt es selbst im August ruhig.',
+        },
+        {
+          heading: 'Pazin (35 Minuten östlich)',
+          body: 'Das geografische und administrative Zentrum Istriens, von Touristen oft übersehen, die der Küste nachjagen — genau deshalb der Umweg lohnt. Die Burg Pazin ist die größte erhaltene Festung der Region (heute ethnografisches Museum) und steht dramatisch am Rand der Pazinska jama, einer Karstschlucht, in der der Fluss Pazinčica unter die Erde verschwindet. Jules Verne verlegte 1885 den Höhepunkt seines Romans Mathias Sandorf hierher. Das Höhlensystem unterhalb der Burg kann im Sommer auf einer 90-minütigen Führung besucht werden. Zum Mittagessen in Pazin ist Konoba Vela Vrata die sichere Wahl. Kombinierbar mit einem Stopp in Tinjan (10 Minuten südlich) für den berühmten istrischen Prosciutto — Tinjan-Schinken (pršut) ist Istriens bekanntester gepökelter Aufschnitt.',
+        },
+        {
+          heading: 'Weitere kürzere Halbtagesausflüge',
+          body: 'Bale (22 Minuten westlich) — ein winziges mittelalterliches Dorf mit einem perfekten Platz und ausgezeichneter Küche im Hotel La Grisa. Vodnjan (28 Minuten südwestlich) — drei mumifizierte Heilige in der Pfarrkirche und eine der besten Olivenölszenen Istriens. Fažana (40 Minuten südlich) — Anlegestelle nach Brijuni, mit charmantem Arbeitshafen und den besten Sardinen-Restaurants im Zentrum Istriens (Stara Konoba). Und Svetvinčenat selbst — der mittelalterliche Kaštel Morosini-Grimani liegt 300 Meter von der Villa entfernt und die meisten Gäste schauen nicht einmal hoch; der Innenhof ist im Sommer an den meisten Nachmittagen geöffnet, und auf dem Dorfplatz findet samstags vormittags ein kleiner Bauernmarkt statt.',
+        },
+      ],
+      faq: [
+        { q: 'Brauche ich für diese Tagesausflüge wirklich ein Auto?', a: 'Ja — der Tagesausflugsradius setzt einen Mietwagen voraus. Öffentliche Busse verbinden Svetvinčenat mit Pula und Rovinj, aber mit dünnem Fahrplan (4–5 pro Tag); ein Auto ermöglicht erst „in der Villa aufwachen, schwimmen, Tagesausflug, nochmal baden, Abendessen daheim".' },
+        { q: 'Welcher Tagesausflug eignet sich am besten mit kleinen Kindern?', a: 'Die Brijuni-Inseln — Fahrradrunde, Safaripark-Tiere, kleine Touristenbahn und einfaches Schwimmen auf dem Rückweg in Fažana funktionieren bei unter 10-Jährigen gut. Limski-Kanal ist die zweite Wahl wegen ruhigem, flachem Wasser.' },
+        { q: 'Wie früh muss ich Brijuni-Fähren-Tickets buchen?', a: 'Im Juli und August zwei bis drei Tage im Voraus; im Mai, Juni und September außerhalb von Wochenenden ist Same-Day in Ordnung. Direkt auf der Brijuni-Nationalpark-Website buchen, um den Zeitslot zu sichern.' },
+        { q: 'Kann ich Motovun und Rovinj am selben Tag schaffen?', a: 'Möglich, aber gehetzt — beide verdienen jeweils 3–4 Stunden. Besser Motovun mit einem Stopp in Pazin oder mit Trüffelsuche im Mirna-Tal verbinden, und Rovinj als eigenen Abendausflug behandeln.' },
+        { q: 'Ist Pula im Sommer überlaufen?', a: 'Im Juli und August, ja — Kreuzfahrtschiffe legen 2–3 mal pro Woche an, und die Arena-Schlange kann mittags 30 Minuten dauern. Vor 10:00 oder nach 16:00 vermeidet sowohl die Schlange als auch die Hitze auf den unbeschatteten Sitzreihen.' },
+      ],
+    },
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
