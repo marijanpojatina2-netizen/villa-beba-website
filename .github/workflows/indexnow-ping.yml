@@ -1,0 +1,51 @@
+name: IndexNow ping
+
+# One-click IndexNow submission from GitHub Actions UI. Use this after you
+# Promote to Production in Vercel — Bing/Yandex/Seznam pick up the new
+# content within minutes instead of hours/days. Google does NOT support
+# IndexNow; for Google use Search Console manual indexing requests.
+#
+# Two modes:
+#   - "bulk" (default): submit every URL in sitemap.xml
+#   - "urls": submit just the URLs you paste in the input field
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Submission mode'
+        required: true
+        default: 'bulk'
+        type: choice
+        options:
+          - bulk
+          - urls
+      urls:
+        description: 'Space-separated URLs (only used when mode = urls). Full https URLs preferred.'
+        required: false
+        type: string
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Submit to IndexNow
+        run: |
+          set -euo pipefail
+          if [[ "${{ inputs.mode }}" == "bulk" ]]; then
+            node scripts/indexnow.mjs bulk
+          else
+            URLS="${{ inputs.urls }}"
+            if [[ -z "$URLS" ]]; then
+              echo "::error::mode=urls requires the 'urls' input field to be filled"
+              exit 1
+            fi
+            # shellcheck disable=SC2086
+            node scripts/indexnow.mjs $URLS
+          fi

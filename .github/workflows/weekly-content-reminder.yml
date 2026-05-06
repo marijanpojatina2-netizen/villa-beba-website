@@ -1,0 +1,119 @@
+name: Weekly content sprint reminder
+
+# Fires every Friday at 09:00 UTC (11:00 local CET) for 10 weeks starting
+# 2026-05-08, opening a fresh Issue with the next topic from the queue.
+# GitHub auto-emails the assignee when an issue is opened, so you get a
+# reminder without us having to wire up SMTP/Resend separately.
+#
+# To stop early: edit END_DATE below to a date in the past, or just close
+# the workflow file. To extend: bump END_DATE and add topics to the array
+# in the "Resolve topic" step.
+
+on:
+  schedule:
+    # Cron is in UTC. 09:00 UTC = 11:00 CET (winter) / 11:00 CEST (summer).
+    - cron: '0 9 * * 5'
+  workflow_dispatch:
+    # Manual trigger so you can verify the workflow works without waiting
+    # for Friday. Run from Actions tab → "Weekly content sprint reminder"
+    # → "Run workflow".
+
+permissions:
+  issues: write
+
+jobs:
+  open-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve current week and topic
+        id: meta
+        run: |
+          set -euo pipefail
+
+          START_DATE="2026-05-08"   # Week 1 fires on this Friday
+          END_DATE="2026-07-12"     # Stop after this date (1-day buffer past week 10)
+
+          TODAY=$(date -u +%Y-%m-%d)
+
+          if [[ "$TODAY" > "$END_DATE" ]]; then
+            echo "Past end date $END_DATE — skipping" >&2
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [[ "$TODAY" < "$START_DATE" ]]; then
+            echo "Before start date $START_DATE — skipping" >&2
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          DIFF_DAYS=$(( ( $(date -u -d "$TODAY" +%s) - $(date -u -d "$START_DATE" +%s) ) / 86400 ))
+          WEEK=$(( DIFF_DAYS / 7 + 1 ))
+
+          # Topic queue, ordered by SEO leverage. Edit freely between runs —
+          # week N reads index N-1 from this list.
+          TOPICS=(
+            "Truffle hunting near Svetvinčenat"
+            "Restaurants in central Istria"
+            "Beaches near Svetvinčenat"
+            "Olive oil tasting from the villa"
+            "Wedding vendors in Istria"
+            "Family activities in central Istria"
+            "Best time to visit Istria — month by month"
+            "Renting a car for Istria"
+            "Hiking and cycling routes near the villa"
+            "Photography spots — golden hour locations"
+          )
+
+          if [[ "$WEEK" -lt 1 || "$WEEK" -gt "${#TOPICS[@]}" ]]; then
+            echo "Week $WEEK out of range (1-${#TOPICS[@]}) — skipping" >&2
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          TOPIC="${TOPICS[$((WEEK - 1))]}"
+
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "week=$WEEK" >> "$GITHUB_OUTPUT"
+          echo "topic=$TOPIC" >> "$GITHUB_OUTPUT"
+          echo "Resolved week $WEEK: $TOPIC"
+
+      - name: Open content-sprint issue
+        if: steps.meta.outputs.skip == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const week = '${{ steps.meta.outputs.week }}';
+            const topic = `${{ steps.meta.outputs.topic }}`;
+            const body = [
+              `**This week's topic:** ${topic}`,
+              '',
+              'Drop this topic into Claude Code in the villa-beba repo to start the draft. Claude will write the EN+DE entry into `src/lib/guides.ts` and we ship it end-of-week.',
+              '',
+              '### Checklist',
+              '',
+              `- [ ] Open Claude Code → "Drafta novi guide o teme: ${topic}"`,
+              '- [ ] Review draft for first-hand details (specific vendor names, prices, personal anecdotes)',
+              '- [ ] Find or take 2–3 photos for the guide (optional but helps engagement + Pinterest)',
+              '- [ ] Push commit (Claude handles)',
+              '- [ ] **Promote to Production** in Vercel dashboard (manual — auto-promote not enabled on this project)',
+              '- [ ] Run IndexNow: GitHub Actions tab → "IndexNow ping" → "Run workflow" → paste the two new URLs',
+              '- [ ] Verify both locale URLs return 200',
+              '',
+              '### Reference',
+              '',
+              '- Content plan: `~/.claude/plans/indexed-yawning-codd.md`',
+              '- Existing guides: `src/lib/guides.ts`',
+              '- IndexNow docs: `docs/seo/indexnow-setup.md`',
+              '',
+              `*Week ${week} of 10. Auto-generated reminder — close this issue when the guide ships.*`,
+            ].join('\n');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Content sprint week ${week}: ${topic}`,
+              body,
+              assignees: ['marijanpojatina2-netizen'],
+              labels: ['content-sprint'],
+            });
