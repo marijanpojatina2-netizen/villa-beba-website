@@ -505,6 +505,97 @@ export const guides: Guide[] = [
       ],
     },
   },
+  {
+    slug: 'truffle-hunting-near-svetvincenat',
+    category: 'events',
+    datePublished: '2026-05-13',
+    en: {
+      title: 'Truffle hunting near Svetvinčenat — joining a real hunt in the Motovun forest',
+      excerpt: 'The Motovun-Buzet truffle country is 45–55 minutes from Villa Ballena & Beluga. Here are the three family operators we send guests to for an authentic hunt with Lagotto dogs, which season catches which truffle, and how to time your visit around the Subotina festival in early September.',
+      intro: 'The Motovun forest (Motovunska šuma) is one of Europe\'s few remaining native habitats for the white truffle (Tuber magnatum pico) — the same species harvested in Piedmont and worth more by weight than gold at peak season. The hunt itself is a quiet, slow walk through oak forest with a trained Lagotto Romagnolo dog leading; the host explains the soil, the season, and the technique while the dog works. Three family operators within an hour of the villa run hunts in English, and most also in German. This guide covers each, the truffle calendar so you book in the right month, what actually happens on a hunt, and the Buzet festival weekends if you can time your stay around early September.',
+      sections: [
+        {
+          heading: 'The truffle calendar — when to go (and which truffle)',
+          body: 'Istria yields four edible truffle species across the year, but two matter for visitors. White truffle (Tuber magnatum pico) is the prize — strongly aromatic, only ever served raw, with a season that runs late September through January and October–November as the most reliable weeks. Summer black truffle (Tuber aestivum) runs May to August — milder, more affordable, easier to find, and a fully legitimate experience if an autumn visit isn\'t possible. Winter black (Tuber brumale, smaller crop) overlaps with white in December–January. Operators schedule hunts year-round, but white-truffle weekends book out 4–6 weeks ahead. If a hunt is on your shortlist, fix the dates first and slot the rest of the holiday around them.',
+        },
+        {
+          heading: 'Karlić Tartufi — Paladini (45 minutes)',
+          body: 'The Karlić family has been hunting truffles in the forests above Buzet since the 1960s and runs what is widely regarded as the most authentic experience in the region — a working family operation, not a tourism factory. Hunts depart from their farm in Paladini, head into oak forest with two or three Lagotto dogs, and last around two hours. Back at the farm, Marina or Radmila walks you through a tasting: scrambled eggs with shaved truffle, truffled cheese, prosciutto, their own olive oil and grappa. Hunt + tasting from €80–110 per person; a premium chef\'s-lunch tier reaches €160. English-speaking guides standard, German on request. Book at least one week ahead in summer and at least four weeks ahead for white-truffle weekends.',
+        },
+        {
+          heading: 'Zigante Tartufi — Livade (50 minutes)',
+          body: 'Giancarlo Zigante is the man who pulled a 1.31 kg white truffle out of the Motovun forest in 1999 — a Guinness record at the time — and built it into central Istria\'s most visible truffle brand. The Livade headquarters has a tasting shop, a fine-dining restaurant, and runs hunts daily in season with their own trainer and dogs. The experience is more polished and more commercial than Karlić, with cleaner facilities and a broader international guest profile, but the hunt itself is real and the dogs work the same forest. Hunt + tasting from €75–95 per person; the restaurant-pairing tier with a multi-course truffle menu sits at €130–180. Online booking; English, German, and Italian guides routinely available.',
+        },
+        {
+          heading: 'Prodan Tartufi — Buzet hills (55 minutes)',
+          body: 'The smallest of the three and the most intimate — Ivan Prodan typically takes one family or one couple at a time, with two of his Lagottos, into a quieter stretch of forest above Buzet. The hunt is unhurried (closer to three hours including the tasting), the tasting is whatever Ivan\'s wife has cooked that morning, and the conversation tends to drift into how truffle prices have moved over the past decade and what the dogs cost to train. Hunt + tasting from €90–130 per person. English fluent, German basic. Booking by phone or email 2–3 weeks ahead is the norm; the operation does not over-book itself.',
+        },
+        {
+          heading: 'What actually happens on a hunt',
+          body: 'Expect comfortable forest-walk clothing (long trousers and closed shoes — the underbrush bites in summer, autumn mornings are cool and damp), a 1.5–3 km loop through oak forest, and a guide who has worked this exact patch for years. The dogs scent a truffle, signal it, then dig at the spot — the guide steps in and finishes the excavation by hand to protect both the truffle and the dog\'s claws. A successful hunt yields one to three truffles in a normal session; in shoulder seasons the dogs sometimes draw a blank, but the experience and tasting always run regardless. The tasting back at the farm is the second half of the value — fresh shaved truffle over scrambled eggs is the regional benchmark dish and worth the trip on its own.',
+        },
+        {
+          heading: 'Buzet truffle festivals — early September into October',
+          body: 'Buzet positions itself as Croatia\'s truffle capital, and the September–October festival cycle is the best concentration of food, music, and producer stalls on the calendar. The headline event is Subotina po starinski on the second Saturday of September, when the town fries a 2,500-egg truffle omelette in a 2-metre pan in the main square — visually absurd, free to taste, and reliably one of the photogenic moments of an Istrian autumn. Tuberfest runs across the following four weekends in Buzet and Livade, with smaller producer markets, music, and tasting menus across local restaurants. If you can route a stay through the second weekend of September, this is the single best week to be in central Istria.',
+        },
+        {
+          heading: 'Booking & logistics',
+          body: 'All three operators require advance booking — the same minimums as winery visits, with the caveat that white-truffle weekends (mid-October to mid-November) book 4–6 weeks ahead. Hunts run rain or shine; cancellation policies vary, so confirm at booking. Drive yourselves — every operator has on-site parking — or pre-book a private driver through us; the trip home after a tasting that includes grappa is no joke. Plan a half-day: leaving the villa at 09:30 lands you back by 14:30. Most guests pair the hunt with a slow afternoon in Motovun (the truffle-country hilltop town, 25 minutes from each operator) and dinner at one of the konobas there before heading home.',
+        },
+      ],
+      faq: [
+        { q: 'When is truffle season in Istria?', a: 'White truffle runs late September through January, peaking October–November. Summer black runs May to August. Winter black overlaps with white in December–January. Hunts operate year-round, but white-truffle weekends book out 4–6 weeks ahead.' },
+        { q: 'Are the truffle dogs treated well?', a: 'The Lagotto Romagnolo is the only breed bred specifically for truffle hunting, and at every operator on this list the dogs are family pets that sleep in the house, not working animals in kennels. The hunts themselves are short — under two hours of actual scenting work — and the dogs visibly enjoy them.' },
+        { q: 'Can children join a hunt?', a: 'Yes — the operators take families regularly. Children 8+ usually love the dog work; under 5 may find the forest walk long. Pricing for children is typically 50 % off at Karlić and Prodan, around €30–40 at Zigante. Confirm at booking.' },
+        { q: 'How much does a hunt cost per person?', a: '€75–130 per person for the standard hunt + tasting at all three operators. Premium chef-lunch upgrades at Karlić and Zigante reach €150–180. Children are usually half price.' },
+        { q: 'Do I need to drive, or can a transfer be arranged?', a: 'Both work. The operators have free parking and the drive to Paladini, Livade, or Buzet is straightforward. For groups of four or more, or if your tasting includes grappa, we can arrange a private driver — email us at least 48 hours ahead.' },
+        { q: 'What is the difference between white and black truffles?', a: 'White truffle is the rarer and more aromatic species, only ever served raw and shaved at the table, with wholesale prices of €2,000–4,000 per kilo at peak. Summer black is milder, holds heat better (it can be cooked into pasta or risotto), and costs roughly a tenth of white. For the hunt experience both are equally enjoyable; for a culinary highlight, white in October–November is the once-in-a-lifetime expression.' },
+      ],
+    },
+    de: {
+      title: 'Trüffelsuche nahe Svetvinčenat — eine echte Jagd im Wald von Motovun',
+      excerpt: 'Das Trüffelgebiet rund um Motovun und Buzet liegt 45–55 Minuten von Villa Ballena & Beluga entfernt. Hier sind die drei Familienbetriebe, zu denen wir Gäste für eine authentische Trüffelsuche mit Lagotto-Hunden schicken — welche Saison welchen Trüffel bringt und wie Sie Ihren Besuch um das Subotina-Fest Anfang September planen.',
+      intro: 'Der Wald von Motovun (Motovunska šuma) ist einer der wenigen verbliebenen natürlichen Lebensräume Europas für den weißen Trüffel (Tuber magnatum pico) — derselben Art, die im Piemont geerntet wird und in der Hochsaison gewichtsmäßig mehr wert ist als Gold. Die Jagd selbst ist ein ruhiger, langsamer Spaziergang durch Eichenwald; ein ausgebildeter Lagotto Romagnolo führt, der Gastgeber erklärt Boden, Saison und Technik. Drei Familienbetriebe innerhalb einer Stunde Fahrt von der Villa bieten Jagden auf Englisch an, die meisten auch auf Deutsch. Dieser Leitfaden geht durch alle drei, den Trüffelkalender für die richtige Monatswahl, den Ablauf einer typischen Jagd und die Buzet-Festwochenenden Anfang September.',
+      sections: [
+        {
+          heading: 'Trüffelkalender — wann hingehen (und welcher Trüffel)',
+          body: 'In Istrien gedeihen vier essbare Trüffelarten übers Jahr, aber zwei sind für Besucher relevant. Weißer Trüffel (Tuber magnatum pico) ist der Königstrüffel — intensiv aromatisch, ausschließlich roh serviert; Saison von Ende September bis Januar mit Oktober–November als verlässlichster Phase. Sommer-Schwarztrüffel (Tuber aestivum) läuft von Mai bis August — milder, günstiger, leichter zu finden und ein vollwertiges Erlebnis, wenn ein Herbstbesuch nicht möglich ist. Winter-Schwarztrüffel (Tuber brumale, kleinere Ernte) überlappt mit dem weißen Trüffel im Dezember–Januar. Jagden laufen ganzjährig, aber Weißtrüffel-Wochenenden sind 4–6 Wochen im Voraus ausgebucht. Wenn eine Jagd auf Ihrer Wunschliste steht, fixieren Sie zuerst die Termine und planen Sie den Rest des Urlaubs darum herum.',
+        },
+        {
+          heading: 'Karlić Tartufi — Paladini (45 Minuten)',
+          body: 'Die Familie Karlić jagt seit den 1960er Jahren Trüffel in den Wäldern oberhalb Buzets und betreibt das, was weithin als authentischstes Erlebnis der Region gilt — ein arbeitender Familienbetrieb, keine Tourismusfabrik. Die Jagden starten am Hof in Paladini, führen mit zwei bis drei Lagotto-Hunden in den Eichenwald und dauern etwa zwei Stunden. Zurück am Hof führt Marina oder Radmila durch die Verkostung: Rührei mit gehobeltem Trüffel, Trüffelkäse, Prosciutto, hauseigenes Olivenöl und Grappa. Jagd + Verkostung 80–110 € pro Person; eine Premium-Stufe mit Chefmenü erreicht 160 €. Englischsprachige Guides Standard, Deutsch auf Anfrage. Mindestens eine Woche im Voraus im Sommer, mindestens vier Wochen im Voraus für Weißtrüffel-Wochenenden buchen.',
+        },
+        {
+          heading: 'Zigante Tartufi — Livade (50 Minuten)',
+          body: 'Giancarlo Zigante ist der Mann, der 1999 einen 1,31 kg schweren weißen Trüffel aus dem Wald von Motovun zog — damals ein Guinness-Rekord — und daraus die sichtbarste Trüffelmarke Zentralistriens aufbaute. Der Hauptsitz in Livade hat einen Verkostungsshop, ein Restaurant der gehobenen Küche und führt in der Saison täglich Jagden mit eigenem Trainer und Hunden durch. Das Erlebnis ist polierter und kommerzieller als bei Karlić, mit modernen Anlagen und einem breiteren internationalen Gästeprofil, aber die Jagd selbst ist echt und die Hunde arbeiten denselben Wald. Jagd + Verkostung 75–95 € pro Person; Restaurant-Pairing-Stufe mit mehrgängigem Trüffelmenü liegt bei 130–180 €. Online buchbar; englisch-, deutsch- und italienischsprachige Guides regelmäßig verfügbar.',
+        },
+        {
+          heading: 'Prodan Tartufi — Hügel über Buzet (55 Minuten)',
+          body: 'Der kleinste der drei Betriebe und der persönlichste — Ivan Prodan begleitet typischerweise eine Familie oder ein Paar gleichzeitig, mit zwei seiner Lagottos, in einen ruhigeren Waldstrich oberhalb Buzets. Die Jagd ist unaufgeregt (eher drei Stunden inklusive Verkostung), die Verkostung ist, was Ivans Frau am Morgen gekocht hat, und das Gespräch driftet meist dahin, wie sich Trüffelpreise im letzten Jahrzehnt entwickelt haben und was die Ausbildung der Hunde kostet. Jagd + Verkostung 90–130 € pro Person. Englisch fließend, Deutsch grundlegend. Buchung per Telefon oder E-Mail 2–3 Wochen im Voraus ist üblich; der Betrieb bucht sich nicht über.',
+        },
+        {
+          heading: 'Was bei einer Jagd tatsächlich passiert',
+          body: 'Erwartet werden bequeme Waldspaziergangs-Kleidung (lange Hosen und feste Schuhe — das Unterholz beißt im Sommer, Herbstmorgen sind kühl und feucht), eine 1,5–3 km lange Runde durch Eichenwald und ein Guide, der genau diesen Waldstrich seit Jahren kennt. Die Hunde wittern einen Trüffel, zeigen ihn an und graben an der Stelle — der Guide übernimmt die Ausgrabung von Hand, um Trüffel und Hundekrallen zu schonen. Eine erfolgreiche Jagd bringt ein bis drei Trüffel in einer normalen Sitzung; in der Nebensaison kommen die Hunde manchmal mit leeren Pfoten zurück, aber Erlebnis und Verkostung finden in jedem Fall statt. Die Verkostung am Hof ist die zweite Hälfte des Werts — frisch gehobelter Trüffel über Rührei ist das regionale Referenzgericht und allein die Fahrt wert.',
+        },
+        {
+          heading: 'Buzet-Trüffelfeste — Anfang September bis Oktober',
+          body: 'Buzet positioniert sich als kroatische Trüffelhauptstadt, und der September–Oktober-Festkalender ist die beste Konzentration aus Essen, Musik und Produzentenständen im Jahr. Das Hauptereignis ist Subotina po starinski am zweiten Samstag im September, wenn die Stadt ein 2.500-Eier-Trüffelomelett in einer 2-Meter-Pfanne auf dem Hauptplatz brät — visuell absurd, kostenlos zu verkosten und verlässlich einer der fotogensten Momente eines istrischen Herbstes. Tuberfest läuft an den folgenden vier Wochenenden in Buzet und Livade, mit kleineren Produzentenmärkten, Musik und Verkostungsmenüs in lokalen Restaurants. Wer einen Aufenthalt um das zweite Septemberwochenende legen kann, hat die beste Woche, um in Zentralistrien zu sein.',
+        },
+        {
+          heading: 'Reservierung & Logistik',
+          body: 'Alle drei Betriebe verlangen Voranmeldung — gleiche Mindestvorlauf wie bei Weingutbesuchen, mit der Einschränkung, dass Weißtrüffel-Wochenenden (Mitte Oktober bis Mitte November) 4–6 Wochen im Voraus ausgebucht sind. Jagden finden bei jedem Wetter statt; Stornierungsregeln variieren, also bei Buchung klären. Selbst fahren — alle Betriebe haben Parkplätze vor Ort — oder vorab einen privaten Fahrer über uns buchen; die Heimfahrt nach einer Verkostung mit Grappa ist nicht trivial. Halbtag einplanen: Abfahrt um 09:30 von der Villa, Rückkehr gegen 14:30. Die meisten Gäste verbinden die Jagd mit einem ruhigen Nachmittag in Motovun (das Trüffel-Hügelstädtchen, 25 Minuten von jedem Betrieb entfernt) und Abendessen in einer der dortigen Konobas, bevor sie zurückfahren.',
+        },
+      ],
+      faq: [
+        { q: 'Wann ist Trüffelsaison in Istrien?', a: 'Weißer Trüffel: Ende September bis Januar, Höhepunkt Oktober–November. Sommer-Schwarz: Mai bis August. Winter-Schwarz: Dezember–Januar, überlappt mit Weiß. Jagden laufen ganzjährig, aber Weißtrüffel-Wochenenden sind 4–6 Wochen im Voraus ausgebucht.' },
+        { q: 'Werden die Trüffelhunde artgerecht gehalten?', a: 'Der Lagotto Romagnolo ist die einzige speziell für die Trüffeljagd gezüchtete Rasse, und bei allen Betrieben dieser Liste sind die Hunde Familienmitglieder, die im Haus schlafen — keine Arbeitstiere in Zwingern. Die Jagden selbst sind kurz, unter zwei Stunden tatsächliche Witterarbeit, und die Hunde zeigen sichtbare Freude daran.' },
+        { q: 'Können Kinder bei einer Jagd dabei sein?', a: 'Ja — die Betriebe nehmen regelmäßig Familien an. Kinder ab 8 sind meist begeistert von der Hundearbeit; unter 5 finden den Waldspaziergang lang. Kinderpreis typischerweise 50 % bei Karlić und Prodan, 30–40 € bei Zigante. Bei Buchung bestätigen.' },
+        { q: 'Was kostet eine Jagd pro Person?', a: '75–130 € pro Person für die Standard-Jagd + Verkostung bei allen drei Betrieben. Premium-Chefmenü-Upgrades bei Karlić und Zigante erreichen 150–180 €. Kinder meist zum halben Preis.' },
+        { q: 'Muss ich selbst fahren, oder kann ein Transfer organisiert werden?', a: 'Beides geht. Die Betriebe haben kostenlose Parkplätze, und die Anfahrt nach Paladini, Livade oder Buzet ist unkompliziert. Für Gruppen ab vier Personen oder wenn die Verkostung Grappa beinhaltet, organisieren wir einen privaten Fahrer — mindestens 48 Stunden im Voraus per E-Mail.' },
+        { q: 'Was ist der Unterschied zwischen weißem und schwarzem Trüffel?', a: 'Der weiße Trüffel ist die seltenere und aromatischere Art, ausschließlich roh am Tisch gehobelt serviert, mit Großhandelspreisen von 2.000–4.000 € pro Kilo zur Hochsaison. Sommer-Schwarz ist milder, hitzestabiler (kann in Pasta oder Risotto verarbeitet werden) und kostet etwa ein Zehntel des weißen. Für ein Jagderlebnis sind beide gleich schön; für ein kulinarisches Highlight ist Weiß im Oktober–November der Einmal-im-Leben-Ausdruck.' },
+      ],
+    },
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
