@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { getBreadcrumbSchema, getFAQSchema, getArticleSchema } from '@/lib/schema';
 import JsonLd from '@/components/JsonLd';
@@ -55,9 +56,11 @@ export default async function GuideDetail({
   const articleSchema = getArticleSchema({
     title: loc.title,
     description: loc.excerpt,
-    slug: `guides/${slug}`,
+    slug,
+    pathPrefix: 'guides',
     datePublished: guide.datePublished,
     dateModified: guide.dateModified,
+    image: guide.hero?.src,
     locale,
   });
 
@@ -71,17 +74,42 @@ export default async function GuideDetail({
         <h1 className="mt-4 font-display text-3xl lg:text-5xl leading-tight">
           {loc.title}
         </h1>
+        {guide.hero && (
+          <div className="mt-8 -mx-6 lg:mx-0 lg:rounded-sm overflow-hidden bg-bg-subtle">
+            <Image
+              src={guide.hero.src}
+              alt={isDE ? guide.hero.alt.de : guide.hero.alt.en}
+              width={guide.hero.width}
+              height={guide.hero.height}
+              sizes="(min-width: 1024px) 720px, 100vw"
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+        )}
         <p className="mt-6 text-[1rem] leading-relaxed text-text-dim">
           {loc.intro}
         </p>
 
         <div className="mt-12 space-y-10">
-          {loc.sections.map(s => (
+          {loc.sections.map((s, i) => (
             <section key={s.heading}>
               <h2 className="font-heading text-base uppercase tracking-[0.12em] text-text">
                 {s.heading}
               </h2>
               <p className="mt-3 text-[0.95rem] leading-relaxed">{s.body}</p>
+              {guide.inlineImage?.afterSectionIndex === i && (
+                <figure className="mt-6 -mx-6 lg:mx-0 lg:rounded-sm overflow-hidden bg-bg-subtle">
+                  <Image
+                    src={guide.inlineImage.image.src}
+                    alt={isDE ? guide.inlineImage.image.alt.de : guide.inlineImage.image.alt.en}
+                    width={guide.inlineImage.image.width}
+                    height={guide.inlineImage.image.height}
+                    sizes="(min-width: 1024px) 720px, 100vw"
+                    className="w-full h-auto"
+                  />
+                </figure>
+              )}
             </section>
           ))}
         </div>

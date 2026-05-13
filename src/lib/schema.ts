@@ -264,6 +264,7 @@ export function getArticleSchema({
   dateModified,
   image,
   locale = 'en',
+  pathPrefix = 'blog',
 }: {
   title: string;
   description: string;
@@ -272,13 +273,15 @@ export function getArticleSchema({
   dateModified?: string;
   image?: string;
   locale?: string;
+  pathPrefix?: string;
 }) {
+  const canonicalUrl = `${BASE_URL}/${locale}/${pathPrefix}/${slug}`;
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: title,
     description,
-    url: `${BASE_URL}/${locale}/blog/${slug}`,
+    url: canonicalUrl,
     datePublished,
     dateModified: dateModified ?? datePublished,
     author: {
@@ -305,7 +308,7 @@ export function getArticleSchema({
     image: image ? `${BASE_URL}${image}` : `${BASE_URL}/images/ballena/ballena-42.jpg`,
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${BASE_URL}/${locale}/blog/${slug}`,
+      '@id': canonicalUrl,
     },
   };
 }

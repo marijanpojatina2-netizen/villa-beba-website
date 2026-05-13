@@ -15,11 +15,24 @@ export type GuideLocale = {
   sections: { heading: string; body: string }[];
   faq: GuideFaq[];
 };
+// Locale-neutral image with per-locale ALT text. Width/height are required so
+// next/image can reserve layout space (no CLS) and so Article JSON-LD can ship
+// dimensions alongside the URL for richer image attribution.
+export type GuideImage = {
+  src: string;
+  alt: { en: string; de: string };
+  width: number;
+  height: number;
+};
 export type Guide = {
   slug: string;
   category: 'arrival' | 'planning' | 'amenities' | 'events';
   datePublished: string;
   dateModified?: string;
+  // Hero image renders between H1 and intro; passed to Article schema.
+  hero?: GuideImage;
+  // Optional second image inserted after the named section (zero-indexed).
+  inlineImage?: { afterSectionIndex: number; image: GuideImage };
   en: GuideLocale;
   de: GuideLocale;
 };
@@ -509,6 +522,27 @@ export const guides: Guide[] = [
     slug: 'truffle-hunting-near-svetvincenat',
     category: 'events',
     datePublished: '2026-05-13',
+    hero: {
+      src: '/images/guides/truffle-hunting/hunt-motovun-forest.webp',
+      alt: {
+        en: 'A handful of black summer truffles cradled in a forager\'s earth-stained hand inside the Motovun oak forest, central Istria',
+        de: 'Eine Handvoll schwarzer Sommertrüffel in der erdverschmierten Hand eines Suchers im Eichenwald von Motovun, Zentralistrien',
+      },
+      width: 1408,
+      height: 768,
+    },
+    inlineImage: {
+      afterSectionIndex: 4,
+      image: {
+        src: '/images/guides/truffle-hunting/tasting-istrian-stone-courtyard.webp',
+        alt: {
+          en: 'Black truffles arranged with garlic, rosemary and thyme on a rustic wooden board in a stone Istrian courtyard, ready for a post-hunt tasting',
+          de: 'Schwarze Trüffel mit Knoblauch, Rosmarin und Thymian auf einem rustikalen Holzbrett in einem istrischen Steinhof, bereit für die Verkostung nach der Trüffeljagd',
+        },
+        width: 1408,
+        height: 768,
+      },
+    },
     en: {
       title: 'Truffle hunting near Svetvinčenat — joining a real hunt in the Motovun forest',
       excerpt: 'The Motovun-Buzet truffle country is 45–55 minutes from Villa Ballena & Beluga. Here are the three family operators we send guests to for an authentic hunt with Lagotto dogs, which season catches which truffle, and how to time your visit around the Subotina festival in early September.',
