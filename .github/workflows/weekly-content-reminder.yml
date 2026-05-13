@@ -96,7 +96,7 @@ jobs:
 
       - name: Open content-sprint issue
         if: steps.meta.outputs.skip == 'false'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const week = '${{ steps.meta.outputs.week }}';
