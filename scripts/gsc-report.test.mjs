@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { reportWindows, normalizeRows, sumMetrics, groupByPage, joinByKey, headlineSection, pageTwoSection, topPagesSection } from './gsc-report.mjs';
+import { reportWindows, normalizeRows, sumMetrics, groupByPage, joinByKey, headlineSection, pageTwoSection, topPagesSection, gainingSection, slippingSection, newQueriesSection } from './gsc-report.mjs';
 
 test('reportWindows: this week is a 7-day window ending 3 days before today', () => {
   const w = reportWindows(new Date('2026-05-15T12:00:00Z'));
@@ -133,4 +133,52 @@ test('topPagesSection: ranks pages by clicks', () => {
   ]);
   assert.match(md, /## Top pages/);
   assert.ok(md.indexOf('/high') < md.indexOf('/low'));
+});
+
+const JOINED = (over = {}) => ({
+  query: 'q', page: '/p', clicks: 0, impressions: 0, position: 0,
+  priorClicks: 0, priorImpressions: 0, clickDelta: 0, impressionDelta: 0,
+  isNew: false, ...over,
+});
+
+test('gainingSection: shows positive movers, biggest first', () => {
+  const md = gainingSection([
+    JOINED({ query: 'small', clicks: 2, clickDelta: 1 }),
+    JOINED({ query: 'huge', clicks: 20, clickDelta: 15 }),
+    JOINED({ query: 'flat', clickDelta: 0, impressionDelta: 0 }),
+  ]);
+  assert.match(md, /📈 Gaining queries/);
+  assert.ok(md.indexOf('huge') < md.indexOf('small'));
+  assert.doesNotMatch(md, /flat/);
+});
+
+test('slippingSection: shows negative movers, biggest drop first', () => {
+  const md = slippingSection([
+    JOINED({ query: 'minordrop', clickDelta: -1 }),
+    JOINED({ query: 'bigdrop', clickDelta: -12 }),
+  ]);
+  assert.match(md, /📉 Slipping queries/);
+  assert.ok(md.indexOf('bigdrop') < md.indexOf('minordrop'));
+});
+
+test('newQueriesSection: lists only isNew rows by impressions', () => {
+  const md = newQueriesSection([
+    JOINED({ query: 'fresh', isNew: true, impressions: 30 }),
+    JOINED({ query: 'old', isNew: false, impressions: 999 }),
+  ]);
+  assert.match(md, /🆕 New queries/);
+  assert.match(md, /fresh/);
+  assert.doesNotMatch(md, /\bold\b/);
+});
+
+test('gainingSection: empty-state line when nothing gained', () => {
+  assert.match(gainingSection([]), /No queries gained/);
+});
+
+test('slippingSection: empty-state line when nothing slipped', () => {
+  assert.match(slippingSection([]), /No queries slipped/);
+});
+
+test('newQueriesSection: empty-state line when no new queries', () => {
+  assert.match(newQueriesSection([]), /No new queries/);
 });

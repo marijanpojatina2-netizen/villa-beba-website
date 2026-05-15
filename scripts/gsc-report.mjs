@@ -182,3 +182,55 @@ export function topPagesSection(thisRows) {
   }
   return lines.join('\n');
 }
+
+export function gainingSection(joined) {
+  const rows = joined
+    .filter((r) => r.clickDelta > 0 || r.impressionDelta > 0)
+    .sort((a, b) => b.clickDelta - a.clickDelta || b.impressionDelta - a.impressionDelta)
+    .slice(0, 10);
+  const lines = ['## 📈 Gaining queries', ''];
+  if (rows.length === 0) {
+    lines.push('_No queries gained week-over-week._');
+    return lines.join('\n');
+  }
+  lines.push('| Query | Clicks (Δ) | Impressions (Δ) |', '|---|---|---|');
+  for (const r of rows) {
+    lines.push(`| ${r.query} | ${num(r.clicks)} (${arrow(r.clickDelta)}) | ${num(r.impressions)} (${arrow(r.impressionDelta)}) |`);
+  }
+  return lines.join('\n');
+}
+
+export function slippingSection(joined) {
+  const rows = joined
+    .filter((r) => r.clickDelta < 0 || r.impressionDelta < 0)
+    .sort((a, b) => a.clickDelta - b.clickDelta || a.impressionDelta - b.impressionDelta)
+    .slice(0, 10);
+  const lines = ['## 📉 Slipping queries', ''];
+  if (rows.length === 0) {
+    lines.push('_No queries slipped week-over-week._');
+    return lines.join('\n');
+  }
+  lines.push('| Query | Clicks (Δ) | Impressions (Δ) |', '|---|---|---|');
+  for (const r of rows) {
+    lines.push(`| ${r.query} | ${num(r.clicks)} (${arrow(r.clickDelta)}) | ${num(r.impressions)} (${arrow(r.impressionDelta)}) |`);
+  }
+  return lines.join('\n');
+}
+
+export function newQueriesSection(joined) {
+  const rows = joined
+    .filter((r) => r.isNew)
+    .sort((a, b) => b.impressions - a.impressions)
+    .slice(0, 10);
+  const lines = ['## 🆕 New queries', ''];
+  if (rows.length === 0) {
+    lines.push('_No new queries this week._');
+    return lines.join('\n');
+  }
+  lines.push('Search terms with impressions this week and none the week before.', '');
+  lines.push('| Query | Impressions | Clicks | Page |', '|---|---|---|---|');
+  for (const r of rows) {
+    lines.push(`| ${r.query} | ${num(r.impressions)} | ${num(r.clicks)} | ${pagePath(r.page)} |`);
+  }
+  return lines.join('\n');
+}
