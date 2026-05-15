@@ -9,7 +9,9 @@
     "lint": "eslint",
     "indexnow": "node scripts/indexnow.mjs",
     "indexnow:bulk": "node scripts/indexnow.mjs bulk",
-    "gbp-draft": "npx -y tsx scripts/gbp-post-draft.ts"
+    "gbp-draft": "npx -y tsx scripts/gbp-post-draft.ts",
+    "gsc-report": "node scripts/gsc-report.mjs",
+    "test:gsc": "node --test scripts/gsc-report.test.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
