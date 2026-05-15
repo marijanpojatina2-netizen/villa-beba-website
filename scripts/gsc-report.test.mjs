@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { reportWindows, normalizeRows, sumMetrics, groupByPage, joinByKey, headlineSection } from './gsc-report.mjs';
+import { reportWindows, normalizeRows, sumMetrics, groupByPage, joinByKey, headlineSection, pageTwoSection, topPagesSection } from './gsc-report.mjs';
 
 test('reportWindows: this week is a 7-day window ending 3 days before today', () => {
   const w = reportWindows(new Date('2026-05-15T12:00:00Z'));
@@ -104,4 +104,33 @@ test('headlineSection: omits deltas and notes missing prior data on first run', 
   const md = headlineSection([ROW({ clicks: 10, impressions: 1000, position: 8 })], []);
   assert.match(md, /No prior-week data/);
   assert.doesNotMatch(md, /▲|▼/);
+});
+
+test('pageTwoSection: lists only queries in positions 11-20, by impressions', () => {
+  const md = pageTwoSection([
+    ROW({ query: 'page1', position: 4, impressions: 999 }),
+    ROW({ query: 'edge11', position: 11, impressions: 50 }),
+    ROW({ query: 'big', position: 15, impressions: 800 }),
+    ROW({ query: 'page3', position: 24, impressions: 999 }),
+  ]);
+  assert.match(md, /🎯 Page-2 opportunities/);
+  assert.match(md, /big/);
+  assert.match(md, /edge11/);
+  assert.doesNotMatch(md, /page1|page3/);
+  // higher-impression "big" must appear before "edge11"
+  assert.ok(md.indexOf('big') < md.indexOf('edge11'));
+});
+
+test('pageTwoSection: prints an explicit empty-state line', () => {
+  const md = pageTwoSection([ROW({ query: 'top', position: 3, impressions: 500 })]);
+  assert.match(md, /No queries in positions 11–20 this week/);
+});
+
+test('topPagesSection: ranks pages by clicks', () => {
+  const md = topPagesSection([
+    ROW({ page: 'https://x.com/low', clicks: 1, impressions: 10 }),
+    ROW({ page: 'https://x.com/high', clicks: 50, impressions: 100 }),
+  ]);
+  assert.match(md, /## Top pages/);
+  assert.ok(md.indexOf('/high') < md.indexOf('/low'));
 });

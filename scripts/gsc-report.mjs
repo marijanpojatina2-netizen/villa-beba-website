@@ -147,3 +147,38 @@ export function headlineSection(thisRows, priorRows) {
   lines.push(`| Avg position | ${t.position.toFixed(1)} | ${p.position.toFixed(1)} | ${posDeltaStr} |`);
   return lines.join('\n');
 }
+
+export function pageTwoSection(thisRows) {
+  const rows = thisRows
+    .filter((r) => r.position >= 11 && r.position <= 20)
+    .sort((a, b) => b.impressions - a.impressions)
+    .slice(0, 10);
+  const lines = ['## 🎯 Page-2 opportunities', ''];
+  if (rows.length === 0) {
+    lines.push('_No queries in positions 11–20 this week._');
+    return lines.join('\n');
+  }
+  lines.push('Queries Google ranks just off page 1 — expand the page targeting these.', '');
+  lines.push('| Query | Pos | Impressions | Clicks | Page |', '|---|---|---|---|---|');
+  for (const r of rows) {
+    lines.push(`| ${r.query} | ${r.position.toFixed(1)} | ${num(r.impressions)} | ${num(r.clicks)} | ${pagePath(r.page)} |`);
+  }
+  lines.push('', '**Action:** pick the highest-impression row and expand that guide.');
+  return lines.join('\n');
+}
+
+export function topPagesSection(thisRows) {
+  const pages = groupByPage(thisRows)
+    .sort((a, b) => b.clicks - a.clicks)
+    .slice(0, 10);
+  const lines = ['## Top pages', ''];
+  if (pages.length === 0) {
+    lines.push('_No page data this week._');
+    return lines.join('\n');
+  }
+  lines.push('| Page | Clicks | Impressions | CTR |', '|---|---|---|---|');
+  for (const p of pages) {
+    lines.push(`| ${pagePath(p.page)} | ${num(p.clicks)} | ${num(p.impressions)} | ${pct(p.ctr)} |`);
+  }
+  return lines.join('\n');
+}
