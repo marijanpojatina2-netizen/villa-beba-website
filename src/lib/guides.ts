@@ -630,6 +630,126 @@ export const guides: Guide[] = [
       ],
     },
   },
+  {
+    slug: 'restaurants-central-istria',
+    category: 'planning',
+    datePublished: '2026-05-15',
+    hero: {
+      src: '/images/guides/restaurants-central-istria/istrian-stone-courtyard-dinner-dusk.webp',
+      alt: {
+        en: 'A long candlelit dinner table set under a vine pergola in a stone Istrian hamlet courtyard at dusk, central Istria',
+        de: 'Eine lange, kerzenbeleuchtete Tafel unter einer Weinpergola in einem istrischen Steinhof in der Abenddämmerung, Zentralistrien',
+      },
+      width: 1024,
+      height: 683,
+    },
+    inlineImage: {
+      afterSectionIndex: 3,
+      image: {
+        src: '/images/guides/restaurants-central-istria/istrian-antipasti-octopus-carpaccio.webp',
+        alt: {
+          en: 'An Istrian table laid with octopus carpaccio, antipasti, fresh bread and a glass of Malvazija white wine',
+          de: 'Ein istrischer Tisch mit Oktopus-Carpaccio, Antipasti, frischem Brot und einem Glas Malvazija-Weißwein',
+        },
+        width: 1920,
+        height: 1006,
+      },
+    },
+    en: {
+      title: 'Restaurants in central Istria — konobas, agroturizam and truffle tables near Svetvinčenat',
+      excerpt: 'Where to eat in green inland Istria — six restaurants within an hour of Villa Ballena & Beluga, from a family agroturizam 30 minutes away to the Slow Food legend of Konoba Toklarija, with what to order, how to book, and which sight to build the day around.',
+      intro: 'Most visitors picture Istria as a coastline — Rovinj, Poreč, the seafood restaurants along the water. The interior is a different country: green hills, medieval towns stacked on hilltops, oak forest, vineyards and olive groves, and a cooking tradition that has nothing to do with the sea. Central Istria eats boškarin (the indigenous white ox), game, wild asparagus, truffles, hand-rolled fuži pasta and maneštra — the regional minestrone — cooked slowly in family konobas and on working farms. For guests at Villa Ballena & Beluga the best of it is within an hour\'s drive, and the closest is barely thirty minutes away. This guide covers six tables we send guests to, sorted by drive time, with what to order, how to book, and which sight to build the day around.',
+      sections: [
+        {
+          heading: 'Konoba, agroturizam, fine dining — how central Istria eats',
+          body: 'Three kinds of place serve food in inland Istria, and the names matter when you book. A konoba is a rustic family tavern — the regional default, usually a single dining room and a terrace, a short handwritten menu, the family in the kitchen. An agroturizam is a working farm licensed to serve meals: you eat what the farm grows and raises, at long shared tables, often with the animals and vegetable garden in view. Fine dining exists but is rare — a handful of white-tablecloth kitchens, mostly built around truffles. Across all three the cooking is inland and seasonal: boškarin (the indigenous Istrian ox), autumn game, spring wild asparagus, truffles, hand-rolled fuži pasta, maneštra (the Istrian minestrone), ombolo and sausages off the open hearth. Portions are generous, lunches are long, and almost nowhere reliably takes walk-ins in summer.',
+        },
+        {
+          heading: 'Agroturizam Ograde — Lindar near Pazin (30 minutes)',
+          body: 'The closest of our recommendations and the table we send families to first. Ograde is a working farm near Lindar, in the hills above Pazin — they raise their own animals, grow their own vegetables and press their own olive oil, and the menu is simply whatever is in season. Long wooden tables, a garden, farm animals the children can visit between courses. Order the antipasti board to start (the farm\'s own prosciutto, cheese, sausages and pickled vegetables), then fuži with game or truffles and a bowl of maneštra. Expect roughly €25–40 per person with house wine. Open for lunch and dinner; book a day ahead, more in August. It pairs naturally with Pazin — the castle and the Pazin Cave, the river chasm that gave Jules Verne the setting for a novel.',
+        },
+        {
+          heading: 'Konoba Mondo — Motovun (45 minutes)',
+          body: 'Just below Motovun\'s main gate, Mondo is the truffle konoba the guidebooks send you to — and it earns the listing. A small dining room, a handful of outdoor tables under the trees, and a kitchen that works truffle into almost everything in season. Order the truffle steak, the fuži with truffles, or the truffle-and-cheese starter; through the autumn white-truffle weeks the fresh-shaved supplements are worth the splurge. Mains run €15–28, truffle dishes higher. Reservations are essential in summer and right through truffle season — see our separate truffle-hunting guide for why October and November are the peak. Pair the meal with a slow walk around Motovun\'s ramparts.',
+        },
+        {
+          heading: 'Konoba Pod Voltom — Motovun (45 minutes)',
+          body: 'Inside the town walls, tucked under the vaulted gate that gives it its name — "under the arch" — Pod Voltom is the traditional counterpoint to Mondo. The same hilltop, a more classic Istrian menu, and terrace tables looking down the Mirna valley. Hand-rolled pasta, Istrian steak, seasonal game, and an honest local wine list heavy on Malvazija and Teran. Mains €14–24. It is the easy choice if you are already up in Motovun for the walls, or on the way back from the wineries around Momjan — see our wineries guide. Book ahead for a terrace table near sunset; the view is the reason to be there.',
+        },
+        {
+          heading: 'Restaurant Zigante — Livade (50 minutes)',
+          body: 'The fine-dining table of central Istria, attached to the Zigante truffle house in Livade. White tablecloths, a deep wine cellar, and a tasting menu built entirely around truffles and the season\'s Istrian produce. This is the special-occasion choice — an anniversary, a milestone dinner — and the kitchen has held that standard for two decades. À la carte mains run €30–55; the multi-course truffle tasting menu is roughly €90–140 with wine pairings. Reserve well ahead. Livade is also where the Zigante truffle hunts depart, so a morning hunt followed by lunch here is the natural itinerary — our truffle-hunting guide has the booking detail.',
+        },
+        {
+          heading: 'Konoba Dolina — Gradinje near Livade (50 minutes)',
+          body: 'A short drive on from Livade, in the hamlet of Gradinje, Dolina is the konoba locals name when you ask where to eat truffles without the fine-dining markup. Family-run, unfussy, with a terrace under the trees. The fuži with truffles and the truffle-topped steak are the dishes to order, but the homemade pasta and the Istrian antipasti hold their own without truffle at all. Mains €15–26. Book ahead, especially at weekends and right through the autumn season, when the truffle crowd fills both the inland konobas and the tables in Livade.',
+        },
+        {
+          heading: 'Konoba Toklarija — Sovišćina near Buzet (55 minutes)',
+          body: 'The one that needs a paragraph of warning before the praise. Toklarija, in a 14th-century house in the tiny hamlet of Sovišćina, is run by Nevio Sirotić as something close to a Slow Food shrine — there is no menu, no choosing, and no rushing. You sit down, and you are fed whatever Nevio has decided to cook that day, usually built around boškarin and the season, across many small courses that can run three or four hours. It is not cheap — budget €80–130 per person before wine — and it is no place for a hungry toddler. But for two people who want the single most characterful long lunch in inland Istria, nothing else on this list comes close. Reserve by phone, several days ahead, and clear the whole afternoon.',
+        },
+        {
+          heading: 'Booking, timing & getting there',
+          body: 'Reserve everything — central Istria runs on reservations, and in July and August the good tables are gone by mid-morning. Lunch is the regional main event: many konobas open around noon, a long lunch from 13:00 is the local rhythm, and some smaller places close between services or do not serve dinner at all, so confirm hours when you book. Drive yourselves — every restaurant here has parking — but if the meal will include the local rakija or a serious wine list, designate a driver or pre-book one through us at least 48 hours ahead. Each of these tables pairs naturally with a sight: Ograde with Pazin\'s castle and cave, Mondo and Pod Voltom with Motovun\'s walls, Zigante and Dolina with a truffle hunt, Toklarija with a slow afternoon in the Buzet hills. Tell us what you would like to do and we will help you build the day around the table.',
+        },
+      ],
+      faq: [
+        { q: 'Which restaurant is closest to the villa?', a: 'Agroturizam Ograde, near Lindar above Pazin, is about 30 minutes away — the closest of our recommendations. The rest cluster around Motovun (45 minutes) and Livade and Buzet (50–55 minutes).' },
+        { q: 'Do I need to book a table in advance?', a: 'Yes. Central Istria runs on reservations and in July and August the good tables are gone by mid-morning. Toklarija and Restaurant Zigante need several days\' notice; a konoba a day ahead is usually enough outside peak season.' },
+        { q: 'Where should we go to eat truffles?', a: 'Konoba Mondo in Motovun or Konoba Dolina near Livade for konoba-style truffle dishes at fair prices; Restaurant Zigante in Livade for the fine-dining truffle tasting menu. October and November are the white-truffle peak — our truffle-hunting guide covers the season in detail.' },
+        { q: 'Which restaurant is best for families with children?', a: 'Agroturizam Ograde — a working farm with animals to visit, a garden, long shared tables and a relaxed pace. Toklarija and Restaurant Zigante are adult, special-occasion meals and a poor fit for young children.' },
+        { q: 'How much does a meal cost?', a: 'Konoba mains run €14–28; a farm lunch at an agroturizam with house wine is roughly €25–40 per person; fine dining and tasting menus run €90–140 per person. Truffle dishes carry a premium and are highest through the autumn season.' },
+        { q: 'Is lunch or dinner the better choice?', a: 'Lunch. It is the regional main event, and some smaller konobas do not serve dinner or close in the late afternoon. Book a long lunch from around 13:00 and leave the afternoon open.' },
+      ],
+    },
+    de: {
+      title: 'Restaurants in Zentralistrien — Konobas, Agrotourismus und Trüffeltische nahe Svetvinčenat',
+      excerpt: 'Wo man im grünen Inneren Istriens isst — sechs Restaurants innerhalb einer Stunde ab Villa Ballena & Beluga, vom familiären Agrotourismus 30 Minuten entfernt bis zur Slow-Food-Legende Konoba Toklarija, mit Bestellempfehlungen, Reservierungshinweisen und welcher Sehenswürdigkeit man den Tag widmet.',
+      intro: 'Die meisten Besucher stellen sich Istrien als Küste vor — Rovinj, Poreč, die Fischrestaurants am Wasser. Das Landesinnere ist ein anderes Land: grüne Hügel, mittelalterliche Städte auf Hügelkuppen, Eichenwald, Weinberge und Olivenhaine — und eine Kochtradition, die nichts mit dem Meer zu tun hat. Zentralistrien isst Boškarin (das einheimische weiße Rind), Wild, wilden Spargel, Trüffel, handgerollte Fuži-Nudeln und Maneštra — die regionale Minestrone — langsam gegart in Familien-Konobas und auf arbeitenden Bauernhöfen. Für Gäste der Villa Ballena & Beluga liegt das Beste davon innerhalb einer Stunde Fahrt, und das Nächstgelegene kaum dreißig Minuten entfernt. Dieser Leitfaden behandelt sechs Tische, zu denen wir Gäste schicken, sortiert nach Fahrzeit, mit Bestellempfehlungen, Reservierungshinweisen und welcher Sehenswürdigkeit man den Tag widmet.',
+      sections: [
+        {
+          heading: 'Konoba, Agrotourismus, gehobene Küche — wie Zentralistrien isst',
+          body: 'Drei Arten von Lokalen servieren Essen im Inneren Istriens, und die Bezeichnungen sind bei der Reservierung wichtig. Eine Konoba ist eine rustikale Familientaverne — der regionale Standard, meist ein einzelner Gastraum mit Terrasse, eine kurze handgeschriebene Karte, die Familie in der Küche. Ein Agrotourismus ist ein arbeitender Bauernhof mit Bewirtungslizenz: Man isst, was der Hof anbaut und hält, an langen gemeinsamen Tischen, oft mit Blick auf die Tiere und den Gemüsegarten. Gehobene Küche gibt es, ist aber selten — eine Handvoll Tischtuch-Küchen, meist um den Trüffel herum aufgebaut. In allen drei ist die Küche binnenländisch und saisonal: Boškarin (das einheimische istrische Rind), Herbstwild, wilder Spargel im Frühling, Trüffel, handgerollte Fuži-Nudeln, Maneštra (die istrische Minestrone), Ombolo und Würste vom offenen Herd. Die Portionen sind großzügig, die Mittagessen lang, und kaum irgendwo werden im Sommer verlässlich Gäste ohne Reservierung angenommen.',
+        },
+        {
+          heading: 'Agroturizam Ograde — Lindar bei Pazin (30 Minuten)',
+          body: 'Die nächstgelegene unserer Empfehlungen und der Tisch, zu dem wir Familien zuerst schicken. Ograde ist ein arbeitender Bauernhof bei Lindar, in den Hügeln oberhalb von Pazin — die Familie hält eigene Tiere, baut eigenes Gemüse an und presst eigenes Olivenöl, und die Karte ist schlicht, was gerade Saison hat. Lange Holztische, ein Garten, Hoftiere, die die Kinder zwischen den Gängen besuchen können. Als Vorspeise das Antipasti-Brett bestellen (hofeigener Prosciutto, Käse, Würste und eingelegtes Gemüse), dann Fuži mit Wild oder Trüffel und eine Schale Maneštra. Rechnen Sie mit etwa 25–40 € pro Person inklusive Hauswein. Mittags und abends geöffnet; einen Tag im Voraus reservieren, im August früher. Lässt sich gut mit Pazin verbinden — der Burg und der Pazin-Höhle, der Flussschlucht, die Jules Verne den Schauplatz für einen Roman lieferte.',
+        },
+        {
+          heading: 'Konoba Mondo — Motovun (45 Minuten)',
+          body: 'Direkt unterhalb des Haupttors von Motovun ist Mondo die Trüffel-Konoba, zu der die Reiseführer schicken — und der Eintrag ist verdient. Ein kleiner Gastraum, eine Handvoll Tische im Freien unter den Bäumen und eine Küche, die in der Saison Trüffel in fast alles einarbeitet. Bestellen Sie das Trüffelsteak, die Fuži mit Trüffel oder die Trüffel-Käse-Vorspeise; in den herbstlichen Weißtrüffel-Wochen lohnt sich der Aufschlag für frisch gehobelte Trüffel. Hauptgerichte 15–28 €, Trüffelgerichte höher. Reservierung ist im Sommer und durch die gesamte Trüffelsaison unerlässlich — unser separater Trüffel-Leitfaden erklärt, warum Oktober und November die Hochsaison sind. Verbinden Sie das Essen mit einem gemächlichen Spaziergang über die Stadtmauern von Motovun.',
+        },
+        {
+          heading: 'Konoba Pod Voltom — Motovun (45 Minuten)',
+          body: 'Innerhalb der Stadtmauern, eingebettet unter dem Gewölbetor, das ihr den Namen gibt — „unter dem Bogen" — ist Pod Voltom der traditionelle Gegenpol zu Mondo. Derselbe Hügelgipfel, eine klassischere istrische Karte und Terrassentische mit Blick hinab ins Mirna-Tal. Handgerollte Nudeln, istrisches Steak, saisonales Wild und eine ehrliche lokale Weinkarte mit viel Malvazija und Teran. Hauptgerichte 14–24 €. Die einfache Wahl, wenn Sie ohnehin für die Stadtmauern in Motovun sind oder von den Weingütern um Momjan zurückkommen — siehe unseren Weingut-Leitfaden. Für einen Terrassentisch um den Sonnenuntergang im Voraus reservieren; der Ausblick ist der Grund, dort zu sein.',
+        },
+        {
+          heading: 'Restaurant Zigante — Livade (50 Minuten)',
+          body: 'Der Tisch der gehobenen Küche Zentralistriens, dem Trüffelhaus Zigante in Livade angeschlossen. Weiße Tischdecken, ein tiefer Weinkeller und ein Degustationsmenü, das vollständig um Trüffel und die saisonalen istrischen Erzeugnisse herum aufgebaut ist. Das ist die Wahl für besondere Anlässe — ein Jahrestag, ein Festessen — und die Küche hält diesen Standard seit zwei Jahrzehnten. À-la-carte-Hauptgerichte 30–55 €; das mehrgängige Trüffel-Degustationsmenü liegt bei etwa 90–140 € mit Weinbegleitung. Rechtzeitig reservieren. Von Livade starten auch die Zigante-Trüffelsuchen, sodass eine morgendliche Jagd mit anschließendem Mittagessen hier die naheliegende Tagesplanung ist — unser Trüffel-Leitfaden enthält die Buchungsdetails.',
+        },
+        {
+          heading: 'Konoba Dolina — Gradinje bei Livade (50 Minuten)',
+          body: 'Eine kurze Fahrt weiter von Livade, im Weiler Gradinje, ist Dolina die Konoba, die Einheimische nennen, wenn man fragt, wo man Trüffel ohne den Aufschlag der gehobenen Küche isst. Familiengeführt, unkompliziert, mit einer Terrasse unter den Bäumen. Die Fuži mit Trüffel und das Steak mit Trüffelhaube sind die Gerichte zur Wahl, doch die hausgemachte Pasta und die istrischen Antipasti bestehen auch ganz ohne Trüffel. Hauptgerichte 15–26 €. Im Voraus reservieren, besonders an Wochenenden und durch die gesamte Herbstsaison, wenn das Trüffelpublikum sowohl die Konobas im Landesinneren als auch die Tische in Livade füllt.',
+        },
+        {
+          heading: 'Konoba Toklarija — Sovišćina bei Buzet (55 Minuten)',
+          body: 'Das eine Lokal, das vor dem Lob einen warnenden Absatz braucht. Toklarija, in einem Haus aus dem 14. Jahrhundert im winzigen Weiler Sovišćina, wird von Nevio Sirotić als beinahe ein Slow-Food-Heiligtum geführt — es gibt keine Karte, keine Wahl und keine Eile. Man setzt sich, und man wird mit dem bewirtet, was Nevio an diesem Tag zu kochen beschlossen hat, meist um Boškarin und die Saison herum, über viele kleine Gänge, die sich drei oder vier Stunden ziehen können. Es ist nicht günstig — kalkulieren Sie 80–130 € pro Person vor Wein — und es ist kein Ort für ein hungriges Kleinkind. Aber für zwei Personen, die das charaktervollste lange Mittagessen im Inneren Istriens suchen, kommt nichts anderes auf dieser Liste heran. Telefonisch reservieren, mehrere Tage im Voraus, und den ganzen Nachmittag freihalten.',
+        },
+        {
+          heading: 'Reservierung, Timing & Anfahrt',
+          body: 'Reservieren Sie alles — Zentralistrien läuft über Reservierungen, und im Juli und August sind die guten Tische am späten Vormittag vergeben. Das Mittagessen ist das regionale Hauptereignis: Viele Konobas öffnen gegen Mittag, ein langes Mittagessen ab 13:00 Uhr ist der lokale Rhythmus, und manche kleineren Lokale schließen zwischen den Servicezeiten oder bieten gar kein Abendessen an — klären Sie die Öffnungszeiten bei der Reservierung. Fahren Sie selbst — jedes Restaurant hier hat Parkplätze —, aber wenn das Essen den lokalen Rakija oder eine ernsthafte Weinkarte einschließt, bestimmen Sie einen Fahrer oder buchen Sie vorab einen über uns, mindestens 48 Stunden im Voraus. Jeder dieser Tische lässt sich gut mit einer Sehenswürdigkeit verbinden: Ograde mit Pazins Burg und Höhle, Mondo und Pod Voltom mit den Stadtmauern von Motovun, Zigante und Dolina mit einer Trüffelsuche, Toklarija mit einem gemächlichen Nachmittag in den Hügeln um Buzet. Sagen Sie uns, was Sie unternehmen möchten, und wir helfen Ihnen, den Tag um den Tisch herum zu planen.',
+        },
+      ],
+      faq: [
+        { q: 'Welches Restaurant liegt am nächsten zur Villa?', a: 'Agroturizam Ograde, bei Lindar oberhalb von Pazin, ist etwa 30 Minuten entfernt — die nächstgelegene unserer Empfehlungen. Der Rest gruppiert sich um Motovun (45 Minuten) sowie Livade und Buzet (50–55 Minuten).' },
+        { q: 'Muss ich einen Tisch im Voraus reservieren?', a: 'Ja. Zentralistrien läuft über Reservierungen, und im Juli und August sind die guten Tische am späten Vormittag vergeben. Toklarija und Restaurant Zigante brauchen mehrere Tage Vorlauf; bei einer Konoba genügt außerhalb der Hauptsaison meist ein Tag im Voraus.' },
+        { q: 'Wo sollten wir hingehen, um Trüffel zu essen?', a: 'Konoba Mondo in Motovun oder Konoba Dolina bei Livade für Trüffelgerichte im Konoba-Stil zu fairen Preisen; Restaurant Zigante in Livade für das Trüffel-Degustationsmenü der gehobenen Küche. Oktober und November sind die Weißtrüffel-Hochsaison — unser Trüffel-Leitfaden behandelt die Saison im Detail.' },
+        { q: 'Welches Restaurant eignet sich am besten für Familien mit Kindern?', a: 'Agroturizam Ograde — ein arbeitender Bauernhof mit Tieren zum Besuchen, einem Garten, langen gemeinsamen Tischen und entspanntem Tempo. Toklarija und Restaurant Zigante sind Essen für Erwachsene und besondere Anlässe und für kleine Kinder schlecht geeignet.' },
+        { q: 'Was kostet ein Essen?', a: 'Konoba-Hauptgerichte liegen bei 14–28 €; ein Hofmittagessen im Agrotourismus mit Hauswein bei etwa 25–40 € pro Person; gehobene Küche und Degustationsmenüs bei 90–140 € pro Person. Trüffelgerichte haben einen Aufschlag und sind durch die Herbstsaison am höchsten.' },
+        { q: 'Ist Mittag- oder Abendessen die bessere Wahl?', a: 'Das Mittagessen. Es ist das regionale Hauptereignis, und manche kleineren Konobas bieten kein Abendessen an oder schließen am späten Nachmittag. Reservieren Sie ein langes Mittagessen ab etwa 13:00 Uhr und halten Sie den Nachmittag frei.' },
+      ],
+    },
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
