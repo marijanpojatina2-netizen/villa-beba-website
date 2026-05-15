@@ -42,6 +42,7 @@ export const guides: Guide[] = [
     slug: 'getting-here-from-pula-airport',
     category: 'arrival',
     datePublished: '2026-05-04',
+    dateModified: '2026-05-15',
     en: {
       title: 'Getting to Villa Ballena & Beluga from Pula Airport',
       excerpt: 'Pula Airport (PUY) is 33 km from the villas — a 30-minute drive. Here is exactly how to get from the terminal to your front door, with rental, taxi, and private-transfer options.',
@@ -65,7 +66,7 @@ export const guides: Guide[] = [
         },
         {
           heading: 'Other airports worth considering',
-          body: 'Trieste (TRS, 110 km, 1 h 50 min) and Ljubljana (LJU, 170 km, 2 h 30 min) often have lower-cost summer flights from Northern Europe. Both border crossings are non-Schengen for now, but waits at Pasje rastoče / Plovanija are typically under 10 minutes outside July–August. Venice (VCE, 240 km) is feasible if you are continuing on by car or are renting a vehicle for a longer regional trip.',
+          body: 'Trieste (TRS, 110 km, 1 h 50 min) and Ljubljana (LJU, 170 km, 2 h 30 min) often have lower-cost summer flights from Northern Europe. Both routes now run entirely within the Schengen Area — Croatia joined in 2023 — so there are no longer systematic border checks; carry your ID or passport but expect no border queues. Venice (VCE, 240 km) is feasible if you are continuing on by car or are renting a vehicle for a longer regional trip.',
         },
       ],
       faq: [
@@ -98,7 +99,7 @@ export const guides: Guide[] = [
         },
         {
           heading: 'Weitere relevante Flughäfen',
-          body: 'Triest (TRS, 110 km, 1 h 50) und Ljubljana (LJU, 170 km, 2 h 30) bieten oft günstigere Sommerflüge aus Nordeuropa. Beide Grenzübergänge sind derzeit nicht im Schengen-Raum, aber Wartezeiten an Pasje rastoče / Plovanija liegen außerhalb von Juli–August meist unter 10 Minuten. Venedig (VCE, 240 km) ist sinnvoll, wenn Sie einen längeren regionalen Roadtrip planen.',
+          body: 'Triest (TRS, 110 km, 1 h 50) und Ljubljana (LJU, 170 km, 2 h 30) bieten oft günstigere Sommerflüge aus Nordeuropa. Beide Routen verlaufen heute vollständig im Schengen-Raum — Kroatien ist 2023 beigetreten —, sodass es keine systematischen Grenzkontrollen mehr gibt; führen Sie Ausweis oder Reisepass mit, rechnen Sie aber nicht mit Wartezeiten an der Grenze. Venedig (VCE, 240 km) ist sinnvoll, wenn Sie einen längeren regionalen Roadtrip planen.',
         },
       ],
       faq: [
@@ -747,6 +748,108 @@ export const guides: Guide[] = [
         { q: 'Welches Restaurant eignet sich am besten für Familien mit Kindern?', a: 'Agroturizam Ograde — ein arbeitender Bauernhof mit Tieren zum Besuchen, einem Garten, langen gemeinsamen Tischen und entspanntem Tempo. Toklarija und Restaurant Zigante sind Essen für Erwachsene und besondere Anlässe und für kleine Kinder schlecht geeignet.' },
         { q: 'Was kostet ein Essen?', a: 'Konoba-Hauptgerichte liegen bei 14–28 €; ein Hofmittagessen im Agrotourismus mit Hauswein bei etwa 25–40 € pro Person; gehobene Küche und Degustationsmenüs bei 90–140 € pro Person. Trüffelgerichte haben einen Aufschlag und sind durch die Herbstsaison am höchsten.' },
         { q: 'Ist Mittag- oder Abendessen die bessere Wahl?', a: 'Das Mittagessen. Es ist das regionale Hauptereignis, und manche kleineren Konobas bieten kein Abendessen an oder schließen am späten Nachmittag. Reservieren Sie ein langes Mittagessen ab etwa 13:00 Uhr und halten Sie den Nachmittag frei.' },
+      ],
+    },
+  },
+  {
+    slug: 'driving-to-istria-by-car',
+    category: 'arrival',
+    datePublished: '2026-05-15',
+    hero: {
+      src: '/images/guides/driving-to-istria-by-car/istrian-motorway-summer.webp',
+      alt: {
+        en: 'Cars on the Istrian Y motorway (A8/A9) on a clear summer day',
+        de: 'Autos auf dem Istrischen Ypsilon (A8/A9) an einem klaren Sommertag',
+      },
+      width: 1200,
+      height: 800,
+    },
+    inlineImage: {
+      afterSectionIndex: 4,
+      image: {
+        src: '/images/guides/driving-to-istria-by-car/istria-country-road-hill-town.webp',
+        alt: {
+          en: 'An open country road through green central Istria curving toward a medieval hilltop town',
+          de: 'Eine offene Landstraße durch das grüne Zentralistrien, die sich zu einem mittelalterlichen Hügelstädtchen windet',
+        },
+        width: 1600,
+        height: 1200,
+      },
+    },
+    en: {
+      title: 'Driving to Villa Ballena & Beluga — the road route from Germany and Austria',
+      excerpt: 'Many guests from Germany and Austria drive to Istria. Here is the full road route — distances, the Austrian and Slovenian vignettes, the Karawanken Tunnel toll, Croatian motorway tolls, and the now border-free Schengen crossing into Croatia.',
+      intro: 'Istria is one of the most popular self-drive holiday destinations for German and Austrian families — and for good reason. From Munich the villas are roughly a six-and-a-half-hour drive; from Vienna around five and a half; from Graz under four. Having your own car also makes the wineries, beaches and hill towns of Istria effortless once you arrive. This guide covers the whole road route to Villa Ballena & Beluga in Svetvinčenat: which vignettes and tolls you need, what they cost in 2026, the border situation, and the final approach to the villa.',
+      sections: [
+        {
+          heading: 'Route overview — Munich, Vienna and Graz to central Istria',
+          body: 'The drive funnels everyone through the same corridor: south through Austria, across a short stretch of Slovenia, and onto the Istrian peninsula. From Munich, the usual route runs via Salzburg, Villach and the Karawanken Tunnel into Slovenia, past Ljubljana toward Koper, then into Istria — roughly 600 km and 6 to 6.5 hours of driving. From Vienna, you travel via Graz and Maribor, around 520 km and 5.5 hours. From Graz it is shortest of all, about 340 km and four hours. Add an hour or so for fuel, food and the inevitable summer-Saturday traffic. The last 30 minutes inside Istria are covered in detail in our guide to arriving from Pula Airport, which also explains check-in.',
+        },
+        {
+          heading: 'Austria — the vignette and the Karawanken Tunnel toll',
+          body: 'To use Austrian motorways you need a vignette. For a one-week holiday the 10-day digital vignette is the right choice — €12.80 in 2026 for a car up to 3.5 t. Buy it online from the official ASFINAG shop (the 10-day version is valid immediately) or at a petrol station near the German border. On top of the vignette, the Karawanken Tunnel between Austria and Slovenia carries a separate toll of €9.00 per passage, charged once on the way south. You need both — the vignette does not cover the tunnel. You can pay the tunnel toll at the toll station or buy it online in advance. Note: from 2027 the Austrian vignette becomes digital-only; in 2026 the windscreen sticker still exists, but the digital version is simpler for a one-off trip.',
+        },
+        {
+          heading: 'Slovenia — the e-vignette',
+          body: 'Slovenia replaced its windscreen sticker with an electronic vignette (e-vinjeta) — there is nothing to stick on, and the toll is linked to your number plate. For a holiday, buy the 7-day vignette: €16.00 in 2026 for a standard car. Purchase it online at evinjeta.dars.si before you cross the border, or at petrol stations and kiosks in Austria and Slovenia. It is mandatory on all Slovenian motorways and expressways, including the A1 you will use between the Karawanken Tunnel, Ljubljana and Koper. Cameras enforce it automatically, so buy it before you drive — the fines are steep.',
+        },
+        {
+          heading: 'Croatia — tolls, no vignette, and the border that disappeared',
+          body: 'Croatia has no vignette at all. Instead you pay a toll for the distance you drive, collected at toll plazas by cash, card or the ENC electronic tag. On the Istrian motorway network — the Istrian Y (A8/A9, operated by Bina-Istra) — the toll for a holiday drive is modest, a few euros. The bigger news for returning visitors: since Croatia joined the Schengen Area in 2023, there are no longer systematic passport checks at the Slovenia–Croatia border. The hours-long summer queues that older guidebooks warn about are gone. Carry your ID card or passport — occasional spot checks still happen — but expect to drive straight through. Croatia also uses the euro, so there is no currency to change.',
+        },
+        {
+          heading: 'The final approach to Svetvinčenat',
+          body: 'Entering Istria from the Slovenian side, you join the A9 — the western arm of the Istrian Y — and head south down the peninsula. Exit at Kanfanar and follow the D75 south-east for 8 km into Svetvinčenat; the villas are signposted from the village square, with free private parking on-site for four cars per villa. If you approach instead from the Rijeka or Zagreb direction, you will use the toll-charged Učka Tunnel into Istria — both tunnel tubes have been open since late 2025. For the precise final turns and our late-arrival check-in procedure, see our companion guide on arriving from Pula Airport — the last stretch is the same.',
+        },
+        {
+          heading: 'What the trip costs, and where to break the journey',
+          body: 'Budget roughly €38 in vignettes and tunnel toll for the one-way trip from Germany — €12.80 Austrian 10-day vignette, €16.00 Slovenian 7-day e-vignette, €9.00 Karawanken Tunnel — plus Croatian motorway tolls of a few euros, and fuel. A natural place to break the drive is Ljubljana, an easy and pretty stop for lunch, or the Postojna Cave area if you are travelling with children. Try not to reach the Karawanken Tunnel on a summer Saturday morning, the peak changeover slot; a Friday evening or a weekday is far calmer. The prices quoted are 2026 rates and can change — check the official vignette shops before you travel.',
+        },
+      ],
+      faq: [
+        { q: 'Do I need a vignette to drive to Istria?', a: 'Yes — you need an Austrian motorway vignette (€12.80 for 10 days in 2026) and a Slovenian e-vignette (€16.00 for 7 days), plus the €9.00 Karawanken Tunnel toll. Croatia has no vignette; there you pay motorway tolls per section at toll plazas.' },
+        { q: 'Is there still a border control between Slovenia and Croatia?', a: 'No. Croatia joined the Schengen Area in 2023, so there are no longer systematic passport checks on the Slovenia–Croatia border. Carry your ID card or passport for occasional spot checks, but the long summer queues are gone.' },
+        { q: 'How long is the drive from Munich to the villas?', a: 'About 600 km and 6 to 6.5 hours of driving, plus stops. From Vienna it is around 5.5 hours, and from Graz about 4 hours.' },
+        { q: 'Can I avoid the Karawanken Tunnel toll?', a: 'Yes — mountain passes such as the Wurzenpass, or a route through north-east Italy, avoid the tunnel, but the tunnel is the fastest and simplest option. Most guests simply pay the €9.00.' },
+        { q: 'Does Croatia use the euro?', a: 'Yes. Croatia adopted the euro in 2023, so guests from Germany and Austria need no currency exchange.' },
+      ],
+    },
+    de: {
+      title: 'Anreise zur Villa Ballena & Beluga mit dem Auto — die Route aus Deutschland und Österreich',
+      excerpt: 'Viele Gäste aus Deutschland und Österreich reisen mit dem Auto nach Istrien an. Hier finden Sie die komplette Route — Entfernungen, die österreichische und slowenische Vignette, die Maut für den Karawankentunnel, die kroatischen Autobahngebühren und der inzwischen wegfallende Grenzübergang.',
+      intro: 'Istrien ist eines der beliebtesten Selbstfahrer-Ziele für Familien aus Deutschland und Österreich — aus gutem Grund. Von München sind die Villen rund sechseinhalb Stunden Fahrt entfernt, von Wien etwa fünfeinhalb, von Graz keine vier. Ein eigenes Auto macht außerdem Istriens Weingüter, Strände und Hügelstädte vor Ort mühelos erreichbar. Dieser Reiseführer beschreibt die gesamte Strecke zur Villa Ballena & Beluga in Svetvinčenat: welche Vignetten und Maut Sie brauchen, was sie 2026 kosten, die aktuelle Grenzsituation und den letzten Abschnitt bis zur Villa.',
+      sections: [
+        {
+          heading: 'Routenüberblick — von München, Wien und Graz nach Zentralistrien',
+          body: 'Alle Routen führen durch denselben Korridor: südwärts durch Österreich, über ein kurzes Stück Slowenien und auf die Halbinsel Istrien. Von München verläuft die übliche Strecke über Salzburg, Villach und den Karawankentunnel nach Slowenien, an Ljubljana vorbei Richtung Koper und dann nach Istrien — rund 600 km und 6 bis 6,5 Stunden reine Fahrzeit. Von Wien fahren Sie über Graz und Maribor, etwa 520 km und 5,5 Stunden. Von Graz ist es am kürzesten, rund 340 km und vier Stunden. Rechnen Sie etwa eine Stunde zusätzlich für Tanken, Essen und den unvermeidlichen Sommer-Samstag-Verkehr ein. Die letzten 30 Minuten innerhalb Istriens beschreibt unser Reiseführer zur Anreise ab Flughafen Pula im Detail — dort finden Sie auch den Check-in.',
+        },
+        {
+          heading: 'Österreich — Vignette und Maut für den Karawankentunnel',
+          body: 'Für die österreichischen Autobahnen brauchen Sie eine Vignette. Für einen einwöchigen Urlaub ist die digitale 10-Tages-Vignette die richtige Wahl — 2026 kostet sie 12,80 € für einen Pkw bis 3,5 t. Kaufen Sie sie online im offiziellen ASFINAG-Shop (die 10-Tages-Vignette gilt sofort) oder an einer Tankstelle nahe der deutschen Grenze. Zusätzlich zur Vignette wird für den Karawankentunnel zwischen Österreich und Slowenien eine separate Maut von 9,00 € pro Durchfahrt fällig, die einmal auf der Hinfahrt nach Süden anfällt. Sie brauchen beides — die Vignette deckt den Tunnel nicht ab. Die Tunnelmaut zahlen Sie an der Mautstelle oder kaufen sie vorab online. Hinweis: Ab 2027 gibt es die österreichische Vignette nur noch digital; 2026 existiert die Klebevignette noch, doch für eine einmalige Reise ist die digitale Variante einfacher.',
+        },
+        {
+          heading: 'Slowenien — die E-Vignette',
+          body: 'Slowenien hat die Klebevignette durch eine elektronische Vignette (E-Vinjeta) ersetzt — es gibt nichts mehr aufzukleben, und die Maut ist mit Ihrem Kennzeichen verknüpft. Für den Urlaub kaufen Sie die 7-Tages-Vignette: 2026 kostet sie 16,00 € für einen normalen Pkw. Erwerben Sie sie vor dem Grenzübertritt online unter evinjeta.dars.si oder an Tankstellen und Kiosken in Österreich und Slowenien. Sie ist auf allen slowenischen Autobahnen und Schnellstraßen Pflicht — auch auf der A1, die Sie zwischen Karawankentunnel, Ljubljana und Koper nutzen. Kameras kontrollieren automatisch, kaufen Sie die Vignette also vor der Fahrt — die Bußgelder sind hoch.',
+        },
+        {
+          heading: 'Kroatien — Maut, keine Vignette und die verschwundene Grenze',
+          body: 'Kroatien hat überhaupt keine Vignette. Stattdessen zahlen Sie eine Maut für die gefahrene Strecke, erhoben an Mautstationen — bar, mit Karte oder per ENC-Gerät. Auf dem istrischen Autobahnnetz, dem Istrischen Ypsilon (A8/A9, betrieben von Bina-Istra), ist die Maut für eine Urlaubsfahrt gering, einige Euro. Die größere Neuigkeit für wiederkehrende Gäste: Seit Kroatien 2023 dem Schengen-Raum beigetreten ist, gibt es an der Grenze Slowenien–Kroatien keine systematischen Passkontrollen mehr. Die stundenlangen Sommerstaus, vor denen ältere Reiseführer warnen, sind Geschichte. Führen Sie Personalausweis oder Reisepass mit — gelegentliche Stichproben gibt es weiterhin —, doch rechnen Sie damit, einfach durchzufahren. Kroatien nutzt zudem den Euro, es muss also kein Geld gewechselt werden.',
+        },
+        {
+          heading: 'Der letzte Abschnitt nach Svetvinčenat',
+          body: 'Wenn Sie von der slowenischen Seite nach Istrien einfahren, gelangen Sie auf die A9 — den westlichen Arm des Istrischen Ypsilon — und fahren die Halbinsel nach Süden hinunter. Verlassen Sie die Autobahn bei Kanfanar und folgen Sie der D75 acht Kilometer südöstlich bis Svetvinčenat; die Villen sind ab dem Dorfplatz ausgeschildert, mit kostenfreien Privatparkplätzen für vier Autos pro Villa. Wenn Sie stattdessen aus Richtung Rijeka oder Zagreb kommen, nutzen Sie den mautpflichtigen Učka-Tunnel nach Istrien — beide Tunnelröhren sind seit Ende 2025 geöffnet. Die genauen letzten Abzweigungen und unseren Check-in-Ablauf bei später Ankunft finden Sie in unserem Begleitartikel zur Anreise ab Flughafen Pula — der Schlussabschnitt ist derselbe.',
+        },
+        {
+          heading: 'Was die Reise kostet und wo sich eine Pause anbietet',
+          body: 'Rechnen Sie für die einfache Fahrt aus Deutschland mit rund 38 € für Vignetten und Tunnelmaut — 12,80 € österreichische 10-Tages-Vignette, 16,00 € slowenische 7-Tages-E-Vignette, 9,00 € Karawankentunnel — dazu einige Euro kroatische Autobahnmaut und Kraftstoff. Ein natürlicher Zwischenstopp ist Ljubljana, ein unkomplizierter und hübscher Ort für ein Mittagessen, oder die Gegend um die Höhle von Postojna, wenn Sie mit Kindern reisen. Versuchen Sie, den Karawankentunnel nicht an einem Sommer-Samstagvormittag zu erreichen — das ist die Hauptreisezeit; ein Freitagabend oder ein Wochentag ist deutlich entspannter. Die genannten Preise sind Tarife für 2026 und können sich ändern — prüfen Sie die offiziellen Vignetten-Shops vor der Abreise.',
+        },
+      ],
+      faq: [
+        { q: 'Brauche ich eine Vignette für die Fahrt nach Istrien?', a: 'Ja — Sie benötigen eine österreichische Autobahnvignette (2026: 12,80 € für 10 Tage) und eine slowenische E-Vignette (16,00 € für 7 Tage) sowie die Maut von 9,00 € für den Karawankentunnel. Kroatien hat keine Vignette; dort zahlen Sie streckenabhängige Maut an den Mautstationen.' },
+        { q: 'Gibt es noch eine Grenzkontrolle zwischen Slowenien und Kroatien?', a: 'Nein. Kroatien ist 2023 dem Schengen-Raum beigetreten, daher gibt es an der Grenze Slowenien–Kroatien keine systematischen Passkontrollen mehr. Führen Sie Personalausweis oder Reisepass für gelegentliche Stichproben mit — die langen Sommerstaus sind jedoch vorbei.' },
+        { q: 'Wie lange dauert die Fahrt von München zu den Villen?', a: 'Etwa 600 km und 6 bis 6,5 Stunden reine Fahrzeit, zuzüglich Pausen. Von Wien sind es rund 5,5 Stunden, von Graz etwa 4 Stunden.' },
+        { q: 'Kann ich die Maut für den Karawankentunnel umgehen?', a: 'Ja — Gebirgspässe wie der Wurzenpass oder eine Route durch den Nordosten Italiens umgehen den Tunnel, doch der Tunnel ist die schnellste und einfachste Option. Die meisten Gäste zahlen einfach die 9,00 €.' },
+        { q: 'Wird in Kroatien mit dem Euro bezahlt?', a: 'Ja. Kroatien hat 2023 den Euro eingeführt — Gäste aus Deutschland und Österreich brauchen kein Geld zu wechseln.' },
       ],
     },
   },
