@@ -1,0 +1,56 @@
+name: Weekly GSC report
+
+# Fires every Monday at 07:00 UTC (09:00 local CET). Pulls Google Search
+# Console data and opens an Issue with the weekly SEO digest. GitHub emails
+# the assignee when an issue is opened.
+#
+# Requires the repo secret GSC_SERVICE_ACCOUNT_JSON — see
+# docs/seo/gsc-report-setup.md. workflow_dispatch is enabled so you can
+# test without waiting for Monday (Actions tab -> "Weekly GSC report" ->
+# "Run workflow").
+
+on:
+  schedule:
+    # Cron is in UTC. 07:00 UTC = 09:00 CET (winter) / 09:00 CEST (summer).
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate GSC report
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          node scripts/gsc-report.mjs > gsc-report.md
+          echo "Report generated ($(wc -l < gsc-report.md) lines)."
+
+      - name: Open report issue
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('gsc-report.md', 'utf8');
+            const today = new Date().toISOString().slice(0, 10);
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `SEO weekly — week of ${today}`,
+              body,
+              assignees: ['marijanpojatina2-netizen'],
+              labels: ['seo-report'],
+            });
