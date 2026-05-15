@@ -234,3 +234,26 @@ export function newQueriesSection(joined) {
   }
   return lines.join('\n');
 }
+
+export function ctrOutliersSection(thisRows) {
+  const site = sumMetrics(thisRows);
+  const pages = groupByPage(thisRows)
+    .filter((p) => p.impressions >= 50 && p.ctr < site.ctr * 0.5)
+    .sort((a, b) => b.impressions - a.impressions)
+    .slice(0, 10);
+  const lines = ['## 🔧 CTR outliers', ''];
+  if (pages.length === 0) {
+    lines.push('_No pages materially underperforming on CTR._');
+    return lines.join('\n');
+  }
+  lines.push(
+    `Pages with ≥50 impressions and CTR below half the site average (${pct(site.ctr)}).`,
+    '',
+  );
+  lines.push('| Page | Impressions | CTR |', '|---|---|---|');
+  for (const p of pages) {
+    lines.push(`| ${pagePath(p.page)} | ${num(p.impressions)} | ${pct(p.ctr)} |`);
+  }
+  lines.push('', '**Action:** rewrite the title/description — run the `villa-beba-seo:meta-optimize` skill on these pages.');
+  return lines.join('\n');
+}

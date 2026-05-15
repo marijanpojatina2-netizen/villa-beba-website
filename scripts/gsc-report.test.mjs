@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { reportWindows, normalizeRows, sumMetrics, groupByPage, joinByKey, headlineSection, pageTwoSection, topPagesSection, gainingSection, slippingSection, newQueriesSection } from './gsc-report.mjs';
+import { reportWindows, normalizeRows, sumMetrics, groupByPage, joinByKey, headlineSection, pageTwoSection, topPagesSection, gainingSection, slippingSection, newQueriesSection, ctrOutliersSection } from './gsc-report.mjs';
 
 test('reportWindows: this week is a 7-day window ending 3 days before today', () => {
   const w = reportWindows(new Date('2026-05-15T12:00:00Z'));
@@ -181,4 +181,24 @@ test('slippingSection: empty-state line when nothing slipped', () => {
 
 test('newQueriesSection: empty-state line when no new queries', () => {
   assert.match(newQueriesSection([]), /No new queries/);
+});
+
+test('ctrOutliersSection: flags pages below half the site-average CTR', () => {
+  // Site avg CTR is driven high by /good; /bad has many impressions, near-zero CTR.
+  const md = ctrOutliersSection([
+    ROW({ query: 'a', page: 'https://x.com/good', clicks: 50, impressions: 100, position: 2 }),
+    ROW({ query: 'b', page: 'https://x.com/bad', clicks: 1, impressions: 500, position: 6 }),
+  ]);
+  assert.match(md, /🔧 CTR outliers/);
+  assert.match(md, /\/bad/);
+  assert.doesNotMatch(md, /\/good/);
+  assert.match(md, /meta-optimize/);
+});
+
+test('ctrOutliersSection: ignores low-impression pages and shows empty state', () => {
+  const md = ctrOutliersSection([
+    ROW({ query: 'a', page: 'https://x.com/good', clicks: 9, impressions: 10, position: 1 }),
+    ROW({ query: 'b', page: 'https://x.com/tiny', clicks: 0, impressions: 20, position: 8 }),
+  ]);
+  assert.match(md, /No pages materially underperforming/);
 });
