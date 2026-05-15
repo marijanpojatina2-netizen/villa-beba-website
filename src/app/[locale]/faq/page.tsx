@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
   const title = isDE ? 'FAQ · Häufige Fragen zur Buchung' : 'FAQ · Frequently Asked Questions';
   const description = isDE
-    ? 'Antworten auf haeufige Fragen zu Villa Ballena & Villa Beluga: Check-in, Haustiere, Pool, Ausstattung und mehr.'
+    ? 'Antworten auf häufige Fragen zu Villa Ballena & Villa Beluga: Check-in, Haustiere, Pool, Ausstattung und mehr.'
     : 'Answers to frequently asked questions about Villa Ballena & Villa Beluga: check-in, pets, pool, amenities and more.';
   return {
     title, description,

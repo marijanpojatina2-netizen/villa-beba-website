@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
   const title = isDE ? 'Firmenretreats in Istrien · 18 Gäste, 2 Villen' : 'Corporate Retreats in Istria · 18 Guests, 2 Villas';
   const description = isDE
-    ? 'Firmenretreat in Kroatien: 2 Luxusvillen, 18 Gaeste, High-Speed WiFi, Teambuilding-Aktivitaeten in Svetvinčenat, Istrien.'
+    ? 'Firmenretreat in Kroatien: 2 Luxusvillen, 18 Gäste, High-Speed WiFi, Teambuilding-Aktivitäten in Svetvinčenat, Istrien.'
     : 'Corporate retreat in Croatia: 2 luxury villas, 18 guests, high-speed WiFi, team-building activities in Svetvinčenat, Istria.';
   return {
     title, description,

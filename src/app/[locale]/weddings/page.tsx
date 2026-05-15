@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
   const title = isDE ? 'Hochzeitslocation in Istrien · Bis 60 Gäste' : 'Wedding Venue in Istria · Up to 60 Guests';
   const description = isDE
-    ? 'Heiraten Sie in Istrien: Luxusvillen mit privatem Pool, bis zu 60 Gaeste, Catering & Hochzeitsplanung in Svetvinčenat, Kroatien.'
+    ? 'Heiraten Sie in Istrien: Luxusvillen mit privatem Pool, bis zu 60 Gäste, Catering & Hochzeitsplanung in Svetvinčenat, Kroatien.'
     : 'Get married in Istria: luxury villas with private pool, up to 60 guests, catering & wedding planning in Svetvinčenat, Croatia.';
   return {
     title, description,

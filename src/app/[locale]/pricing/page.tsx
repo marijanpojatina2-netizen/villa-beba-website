@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
   const title = isDE ? 'Preise & Verfügbarkeit 2026 · Ab 600 €/Nacht' : 'Pricing & Availability 2026 · From €600/Night';
   const description = isDE
-    ? 'Transparente Preise fuer Villa Ballena & Villa Beluga in Istrien. Standard-, Hochzeits- und Firmentarife ab 600 Euro/Nacht.'
+    ? 'Transparente Preise für Villa Ballena & Villa Beluga in Istrien. Standard-, Hochzeits- und Firmentarife ab 600 Euro/Nacht.'
     : 'Transparent pricing for Villa Ballena & Villa Beluga in Istria. Standard, wedding, and corporate rates from 600 Euro/night.';
   return {
     title, description,

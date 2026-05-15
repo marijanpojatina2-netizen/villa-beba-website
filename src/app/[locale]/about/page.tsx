@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     : 'Discover the story and philosophy behind Villa Ballena & Villa Beluga in Svetvinčenat, Istria, Croatia.';
   return {
     title, description,
-    keywords: isDE ? ['Ueber uns Villa Istrien', 'Geschichte Villa Kroatien'] : ['about villa Istria', 'villa story Croatia'],
+    keywords: isDE ? ['Über uns Villa Istrien', 'Geschichte Villa Kroatien'] : ['about villa Istria', 'villa story Croatia'],
     openGraph: { title, description, images: [{ url: `${baseUrl}/og/about.jpg`, width: 1200, height: 630 }] },
     twitter: { card: 'summary_large_image' as const, title, description },
     alternates: { canonical: `${baseUrl}/${locale}/about`, languages: { en: `${baseUrl}/en/about`, de: `${baseUrl}/de/about`, 'x-default': `${baseUrl}/en/about` } },
@@ -22,6 +22,6 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const isDE = locale === 'de';
-  const breadcrumb = getBreadcrumbSchema([{ name: isDE ? 'Startseite' : 'Home', url: `/${locale}` }, { name: isDE ? 'Ueber uns' : 'About', url: `/${locale}/about` }]);
+  const breadcrumb = getBreadcrumbSchema([{ name: isDE ? 'Startseite' : 'Home', url: `/${locale}` }, { name: isDE ? 'Über uns' : 'About', url: `/${locale}/about` }]);
   return (<><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} /><AboutPage /></>);
 }

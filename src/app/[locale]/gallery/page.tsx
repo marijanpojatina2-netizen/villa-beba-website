@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
   const title = isDE ? 'Fotogalerie · Villen, Pools & Innenräume' : 'Photo Gallery · Villas, Pools & Interiors';
   const description = isDE
-    ? 'Bildergalerie von Villa Ballena & Villa Beluga — Pools, Innenraeume, Schlafzimmer und Aussenansichten unserer Luxusvillen in Istrien.'
+    ? 'Bildergalerie von Villa Ballena & Villa Beluga — Pools, Innenräume, Schlafzimmer und Außenansichten unserer Luxusvillen in Istrien.'
     : 'Photo gallery of Villa Ballena & Villa Beluga — pools, interiors, bedrooms, and exteriors of our luxury villas in Istria.';
   return {
     title, description,

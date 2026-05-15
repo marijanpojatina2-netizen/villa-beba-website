@@ -8,11 +8,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const isDE = locale === 'de';
   const title = isDE ? 'Journal · Reisetipps & Erlebnisse aus Istrien' : 'Journal · Istria Travel Tips & Experiences';
   const description = isDE
-    ? 'Reisetipps, lokale Erlebnisse und Reisefuehrer fuer Istrien — vom Team hinter Villa Ballena & Villa Beluga in Svetvinčenat.'
+    ? 'Reisetipps, lokale Erlebnisse und Reiseführer für Istrien — vom Team hinter Villa Ballena & Villa Beluga in Svetvinčenat.'
     : 'Travel tips, local experiences, and guides to Istria — from the team behind Villa Ballena & Villa Beluga in Svetvinčenat.';
   return {
     title, description,
-    keywords: isDE ? ['Istrien Blog', 'Reisetipps Kroatien', 'Istrien Reisefuehrer'] : ['Istria blog', 'Croatia travel tips', 'Istria travel guide'],
+    keywords: isDE ? ['Istrien Blog', 'Reisetipps Kroatien', 'Istrien Reiseführer'] : ['Istria blog', 'Croatia travel tips', 'Istria travel guide'],
     openGraph: { title, description, images: [{ url: `${baseUrl}/og/blog.jpg`, width: 1200, height: 630 }] },
     twitter: { card: 'summary_large_image' as const, title, description },
     alternates: { canonical: `${baseUrl}/${locale}/blog`, languages: { en: `${baseUrl}/en/blog`, de: `${baseUrl}/de/blog`, 'x-default': `${baseUrl}/en/blog` } },
