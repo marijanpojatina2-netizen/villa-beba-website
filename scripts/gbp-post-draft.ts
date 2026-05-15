@@ -111,8 +111,13 @@ function main(): void {
   console.log('\nWhere to post (BOTH listings, same content):');
   for (const [key, villa] of Object.entries(VILLAS) as [keyof typeof VILLAS, typeof VILLAS[keyof typeof VILLAS]][]) {
     const label = villa.name.padEnd(14);
-    if (villa.gbpUrl) {
-      console.log(`  ${label}  ${villa.gbpUrl}`);
+    // VILLAS is `as const`, so villa.gbpUrl is a string-literal type. Widen to
+    // `string` before the truthiness check — otherwise, once every listing has
+    // a URL set, the `else` branch becomes unreachable and TS narrows `villa`
+    // to `never`, breaking villa.name below.
+    const gbpUrl: string = villa.gbpUrl;
+    if (gbpUrl) {
+      console.log(`  ${label}  ${gbpUrl}`);
     } else {
       console.log(`  ${label}  (gbpUrl not set in src/lib/contact.ts — visit https://business.google.com/dashboard and pick "${villa.name}")`);
     }

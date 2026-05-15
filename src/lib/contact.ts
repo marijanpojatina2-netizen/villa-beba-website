@@ -28,7 +28,7 @@ export const VILLAS = {
     region: 'Istria',
     country: 'HR',
     geo: { lat: 45.091986, lng: 13.886013 },
-    gbpUrl: '', // TODO: paste Google Business Profile URL after verification
+    gbpUrl: 'https://maps.app.goo.gl/3CvSExbyxwFfVjRs9',
   },
   beluga: {
     name: 'Villa Beluga',
@@ -38,7 +38,7 @@ export const VILLAS = {
     region: 'Istria',
     country: 'HR',
     geo: { lat: 45.091986, lng: 13.886013 },
-    gbpUrl: '',
+    gbpUrl: 'https://maps.app.goo.gl/9dtoVj2uCbRocwd36',
   },
 } as const;
 
