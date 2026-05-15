@@ -2,22 +2,24 @@
 // Weekly Google Search Console digest. Pulls Search Analytics for the
 // domain property, computes a week-over-week report, and prints Markdown
 // to stdout. The weekly-gsc-report.yml workflow wraps that Markdown into a
-// GitHub Issue. Auth: a service-account JSON in the GSC_SERVICE_ACCOUNT_JSON
-// env var (see docs/seo/gsc-report-setup.md).
+// GitHub Issue. Auth: an OAuth refresh token for a Google account that owns
+// the Search Console property — set GSC_OAUTH_CLIENT_ID, GSC_OAUTH_CLIENT_SECRET
+// and GSC_OAUTH_REFRESH_TOKEN. Run scripts/gsc-oauth-setup.mjs once to mint the
+// refresh token (see docs/seo/gsc-report-setup.md).
 //
 // Usage:
-//   GSC_SERVICE_ACCOUNT_JSON="$(cat key.json)" node scripts/gsc-report.mjs
+//   GSC_OAUTH_CLIENT_ID=... GSC_OAUTH_CLIENT_SECRET=... GSC_OAUTH_REFRESH_TOKEN=... \
+//     node scripts/gsc-report.mjs
 //
 // The pure report logic (buildReport + helpers) is exported and unit-tested
 // in gsc-report.test.mjs via `node --test`. Network code runs only from
 // main(), guarded so importing the module stays side-effect free.
 
 import { pathToFileURL } from 'node:url';
-import { JWT } from 'google-auth-library';
+import { OAuth2Client } from 'google-auth-library';
 
 const SITE_URL = 'sc-domain:ballenaandbeluga.com';
 const API_BASE = 'https://www.googleapis.com/webmasters/v3/sites';
-const SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
 const ROW_LIMIT = 5000;
 
 // --- date windows ---------------------------------------------------------
@@ -291,19 +293,16 @@ export function buildReport({ thisRows, priorRows, windows }) {
 // --- google search console api -------------------------------------------
 
 async function getAccessToken() {
-  const raw = process.env.GSC_SERVICE_ACCOUNT_JSON;
-  if (!raw) throw new Error('GSC_SERVICE_ACCOUNT_JSON env var is not set');
-  let key;
-  try {
-    key = JSON.parse(raw);
-  } catch {
-    throw new Error('GSC_SERVICE_ACCOUNT_JSON is not valid JSON');
+  const clientId = process.env.GSC_OAUTH_CLIENT_ID;
+  const clientSecret = process.env.GSC_OAUTH_CLIENT_SECRET;
+  const refreshToken = process.env.GSC_OAUTH_REFRESH_TOKEN;
+  if (!clientId || !clientSecret || !refreshToken) {
+    throw new Error(
+      'OAuth env vars missing — set GSC_OAUTH_CLIENT_ID, GSC_OAUTH_CLIENT_SECRET and GSC_OAUTH_REFRESH_TOKEN',
+    );
   }
-  const client = new JWT({
-    email: key.client_email,
-    key: key.private_key,
-    scopes: [SCOPE],
-  });
+  const client = new OAuth2Client(clientId, clientSecret);
+  client.setCredentials({ refresh_token: refreshToken });
   const { token } = await client.getAccessToken();
   if (!token) throw new Error('failed to mint a Google access token');
   return token;

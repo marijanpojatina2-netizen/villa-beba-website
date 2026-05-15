@@ -11,6 +11,7 @@
     "indexnow:bulk": "node scripts/indexnow.mjs bulk",
     "gbp-draft": "npx -y tsx scripts/gbp-post-draft.ts",
     "gsc-report": "node scripts/gsc-report.mjs",
+    "gsc-oauth-setup": "node scripts/gsc-oauth-setup.mjs",
     "test:gsc": "node --test scripts/gsc-report.test.mjs"
   },
   "dependencies": {

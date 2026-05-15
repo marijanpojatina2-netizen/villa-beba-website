@@ -4,10 +4,10 @@ name: Weekly GSC report
 # Console data and opens an Issue with the weekly SEO digest. GitHub emails
 # the assignee when an issue is opened.
 #
-# Requires the repo secret GSC_SERVICE_ACCOUNT_JSON — see
-# docs/seo/gsc-report-setup.md. workflow_dispatch is enabled so you can
-# test without waiting for Monday (Actions tab -> "Weekly GSC report" ->
-# "Run workflow").
+# Requires the repo secrets GSC_OAUTH_CLIENT_ID, GSC_OAUTH_CLIENT_SECRET
+# and GSC_OAUTH_REFRESH_TOKEN — see docs/seo/gsc-report-setup.md.
+# workflow_dispatch is enabled so you can test without waiting for Monday
+# (Actions tab -> "Weekly GSC report" -> "Run workflow").
 
 on:
   schedule:
@@ -33,7 +33,9 @@ jobs:
 
       - name: Generate GSC report
         env:
-          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+          GSC_OAUTH_CLIENT_ID: ${{ secrets.GSC_OAUTH_CLIENT_ID }}
+          GSC_OAUTH_CLIENT_SECRET: ${{ secrets.GSC_OAUTH_CLIENT_SECRET }}
+          GSC_OAUTH_REFRESH_TOKEN: ${{ secrets.GSC_OAUTH_REFRESH_TOKEN }}
         run: |
           set -euo pipefail
           node scripts/gsc-report.mjs > gsc-report.md
