@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { reportWindows, normalizeRows, sumMetrics, groupByPage, joinByKey } from './gsc-report.mjs';
+import { reportWindows, normalizeRows, sumMetrics, groupByPage, joinByKey, headlineSection } from './gsc-report.mjs';
 
 test('reportWindows: this week is a 7-day window ending 3 days before today', () => {
   const w = reportWindows(new Date('2026-05-15T12:00:00Z'));
@@ -80,4 +80,28 @@ test('joinByKey: computes deltas and flags new query/page pairs', () => {
   const fresh = joined.find((r) => r.query === 'new');
   assert.equal(fresh.isNew, true);
   assert.equal(fresh.clickDelta, 1);
+});
+
+const ROW = (over = {}) => ({
+  query: 'q', page: '/p', clicks: 0, impressions: 0, ctr: 0, position: 0, ...over,
+});
+
+test('headlineSection: shows week-over-week deltas when prior data exists', () => {
+  const md = headlineSection(
+    [ROW({ clicks: 10, impressions: 1000, position: 8 })],
+    [ROW({ clicks: 6, impressions: 800, position: 9 })],
+  );
+  assert.match(md, /## Headline/);
+  assert.match(md, /Clicks/);
+  assert.match(md, /▲ \+4/);
+  assert.match(md, /This week \| Prior week \| Δ/);
+  assert.match(md, /Impressions.*▲ \+200/);
+  assert.match(md, /CTR \|.*\+/);
+  assert.match(md, /Avg position \| 8\.0 \| 9\.0 \| -1\.0/);
+});
+
+test('headlineSection: omits deltas and notes missing prior data on first run', () => {
+  const md = headlineSection([ROW({ clicks: 10, impressions: 1000, position: 8 })], []);
+  assert.match(md, /No prior-week data/);
+  assert.doesNotMatch(md, /▲|▼/);
 });

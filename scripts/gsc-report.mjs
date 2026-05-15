@@ -95,3 +95,55 @@ export function joinByKey(thisRows, priorRows) {
     };
   });
 }
+
+// --- markdown helpers -----------------------------------------------------
+
+function arrow(delta) {
+  if (delta > 0) return `▲ +${Math.round(delta)}`;
+  if (delta < 0) return `▼ ${Math.round(delta)}`;
+  return '—';
+}
+
+function pct(n) {
+  return `${(n * 100).toFixed(1)}%`;
+}
+
+function num(n) {
+  return Math.round(n).toLocaleString('en-US');
+}
+
+function pagePath(url) {
+  try {
+    return new URL(url).pathname;
+  } catch {
+    return url;
+  }
+}
+
+// --- report sections ------------------------------------------------------
+
+export function headlineSection(thisRows, priorRows) {
+  const t = sumMetrics(thisRows);
+  const lines = ['## Headline', ''];
+  if (priorRows.length === 0) {
+    lines.push('| Metric | This week |', '|---|---|');
+    lines.push(`| Clicks | ${num(t.clicks)} |`);
+    lines.push(`| Impressions | ${num(t.impressions)} |`);
+    lines.push(`| CTR | ${pct(t.ctr)} |`);
+    lines.push(`| Avg position | ${t.position.toFixed(1)} |`);
+    lines.push('', '_No prior-week data — deltas start next week._');
+    return lines.join('\n');
+  }
+  const p = sumMetrics(priorRows);
+  lines.push('| Metric | This week | Prior week | Δ |', '|---|---|---|---|');
+  const ctrDelta = t.ctr - p.ctr;
+  const ctrDeltaStr = (ctrDelta > 0 ? '+' : '') + pct(ctrDelta);
+  // Avg position: lower is better, so a negative Δ is an improvement.
+  const posDelta = t.position - p.position;
+  const posDeltaStr = (posDelta > 0 ? '+' : '') + posDelta.toFixed(1);
+  lines.push(`| Clicks | ${num(t.clicks)} | ${num(p.clicks)} | ${arrow(t.clicks - p.clicks)} |`);
+  lines.push(`| Impressions | ${num(t.impressions)} | ${num(p.impressions)} | ${arrow(t.impressions - p.impressions)} |`);
+  lines.push(`| CTR | ${pct(t.ctr)} | ${pct(p.ctr)} | ${ctrDeltaStr} |`);
+  lines.push(`| Avg position | ${t.position.toFixed(1)} | ${p.position.toFixed(1)} | ${posDeltaStr} |`);
+  return lines.join('\n');
+}
