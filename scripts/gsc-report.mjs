@@ -287,3 +287,64 @@ export function buildReport({ thisRows, priorRows, windows }) {
   );
   return sections.join('\n\n');
 }
+
+// --- google search console api -------------------------------------------
+
+async function getAccessToken() {
+  const raw = process.env.GSC_SERVICE_ACCOUNT_JSON;
+  if (!raw) throw new Error('GSC_SERVICE_ACCOUNT_JSON env var is not set');
+  let key;
+  try {
+    key = JSON.parse(raw);
+  } catch {
+    throw new Error('GSC_SERVICE_ACCOUNT_JSON is not valid JSON');
+  }
+  const client = new JWT({
+    email: key.client_email,
+    key: key.private_key,
+    scopes: [SCOPE],
+  });
+  const { token } = await client.getAccessToken();
+  if (!token) throw new Error('failed to mint a Google access token');
+  return token;
+}
+
+async function querySearchAnalytics(token, period) {
+  const url = `${API_BASE}/${encodeURIComponent(SITE_URL)}/searchAnalytics/query`;
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      startDate: period.startDate,
+      endDate: period.endDate,
+      dimensions: ['query', 'page'],
+      rowLimit: ROW_LIMIT,
+    }),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`GSC API ${res.status} ${res.statusText}: ${text}`);
+  }
+  const json = await res.json();
+  return normalizeRows(json.rows);
+}
+
+// --- entry point ----------------------------------------------------------
+
+async function main() {
+  const windows = reportWindows();
+  const token = await getAccessToken();
+  const thisRows = await querySearchAnalytics(token, windows.thisWeek);
+  const priorRows = await querySearchAnalytics(token, windows.priorWeek);
+  process.stdout.write(buildReport({ thisRows, priorRows, windows }) + '\n');
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((err) => {
+    console.error('gsc-report failed:', err.message);
+    process.exit(1);
+  });
+}
