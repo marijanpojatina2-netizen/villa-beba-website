@@ -41,6 +41,7 @@ async function main() {
   const client = new OAuth2Client(clientId, clientSecret, REDIRECT);
   const authUrl = client.generateAuthUrl({
     access_type: 'offline', // request a refresh token
+    response_type: 'code', // OAuth authorization-code flow (required)
     prompt: 'consent', // force a fresh refresh token every run
     scope: [SCOPE],
   });
