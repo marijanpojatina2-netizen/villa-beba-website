@@ -97,6 +97,45 @@ function CombinedFeatures() {
   );
 }
 
+function GroupStays() {
+  const t = useTranslations('complex');
+  const textRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = gsap.context(() => {
+      if (textRef.current) gsap.fromTo(textRef.current, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, scrollTrigger: { trigger: textRef.current, start: 'top 85%' } });
+    });
+    return () => ctx.revert();
+  }, []);
+  return (
+    <section className="section-editorial bg-bg"><div className="mx-auto max-w-[1400px] px-6 lg:px-10"><p className="label-section mb-16 lg:mb-24">(MULTI-GENERATIONAL &amp; GROUPS)</p><div ref={textRef} className="grid grid-cols-1 lg:grid-cols-12 gap-8"><div className="lg:col-span-5"><h2 className="display-md !not-italic !font-bold">{t('groupHeading')}</h2></div><div className="lg:col-span-6 lg:col-start-7 space-y-6"><p className="body-editorial !max-w-none">{t('groupBody1')}</p><p className="body-editorial !max-w-none">{t('groupBody2')}</p></div></div></div></section>
+  );
+}
+
+function FAQ() {
+  const t = useTranslations('complex');
+  const sectionRef = useRef<HTMLElement>(null);
+  const faqs = [
+    { q: t('faqQ1'), a: t('faqA1') },
+    { q: t('faqQ2'), a: t('faqA2') },
+    { q: t('faqQ3'), a: t('faqA3') },
+    { q: t('faqQ4'), a: t('faqA4') },
+    { q: t('faqQ5'), a: t('faqA5') },
+  ];
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = gsap.context(() => {
+      if (!sectionRef.current) return;
+      const items = sectionRef.current.querySelectorAll('.faq-card');
+      gsap.fromTo(items, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, scrollTrigger: { trigger: sectionRef.current, start: 'top 75%' } });
+    });
+    return () => ctx.revert();
+  }, []);
+  return (
+    <section ref={sectionRef} className="section-editorial bg-bg-elevated"><div className="mx-auto max-w-[1400px] px-6 lg:px-10"><p className="label-section mb-16 lg:mb-24">(GOOD TO KNOW)</p><h2 className="display-lg mb-16">{t('faqHeading')}</h2><div className="grid gap-6 md:grid-cols-2">{faqs.map((faq) => (<div key={faq.q} className="faq-card rounded-sm border border-line bg-bg p-8"><h3 className="font-heading text-sm font-medium uppercase tracking-[0.12em] text-text">{faq.q}</h3><p className="mt-3 text-sm leading-relaxed text-text-muted">{faq.a}</p></div>))}</div></div></section>
+  );
+}
+
 function VillaComparison() {
   const t = useTranslations('complex');
   const sectionRef = useRef<HTMLElement>(null);
@@ -121,8 +160,10 @@ export default function ComplexBebaPage() {
       <KeyStats />
       <SharedAmenities />
       <IdealFor />
+      <GroupStays />
       <CombinedFeatures />
       <VillaComparison />
+      <FAQ />
       <CTASection />
     </main>
   );
