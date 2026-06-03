@@ -21,9 +21,36 @@ export async function generateMetadata({
   if (!guide) return {};
   const isDE = locale === 'de';
   const loc = isDE ? guide.de : guide.en;
+  // Social/Pinterest share image. Use the guide hero when present (each guide's
+  // most compelling photo) so Pinterest pins and link previews carry a real
+  // image — otherwise fall back to the site OG card. The hero is webp, which
+  // Pinterest renders fine; the jpg fallback keeps heroless guides shareable.
+  const ogImage = guide.hero
+    ? {
+        url: `${baseUrl}${guide.hero.src}`,
+        width: guide.hero.width,
+        height: guide.hero.height,
+        alt: isDE ? guide.hero.alt.de : guide.hero.alt.en,
+      }
+    : { url: `${baseUrl}/og/home.jpg`, width: 1200, height: 630, alt: loc.title };
   return {
     title: loc.title,
     description: loc.excerpt,
+    openGraph: {
+      title: loc.title,
+      description: loc.excerpt,
+      url: `${baseUrl}/${locale}/guides/${slug}`,
+      type: 'article',
+      publishedTime: guide.datePublished,
+      ...(guide.dateModified ? { modifiedTime: guide.dateModified } : {}),
+      images: [ogImage],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: loc.title,
+      description: loc.excerpt,
+      images: [ogImage.url],
+    },
     alternates: {
       canonical: `${baseUrl}/${locale}/guides/${slug}`,
       languages: {
