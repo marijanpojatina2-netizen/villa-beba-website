@@ -105,6 +105,13 @@ export async function generateMetadata({
       title,
       description,
     },
+    // Pinterest domain claim — renders <meta name="p:domain_verify" ...>.
+    // Required for Rich Pins (lets Pinterest read our OG/Article tags) + pin analytics.
+    verification: {
+      other: {
+        'p:domain_verify': 'd0ad341b0f998da321d0f0b92c31e768',
+      },
+    },
     keywords: isDE
       ? ['Luxusvilla Istrien', 'Ferienvilla Kroatien', 'privater Pool Istrien', 'Hochzeitslocation Istrien']
       : ['luxury villa Istria', 'villa rental Croatia', 'private pool Istria', 'wedding villa Croatia'],
