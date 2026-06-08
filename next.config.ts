@@ -71,6 +71,21 @@ const nextConfig: NextConfig = {
         destination: '/en',
         permanent: true,
       },
+      {
+        // Locale-less deep paths (e.g. /weddings, /pricing,
+        // /guides/wedding-and-event-venue) 404 because middleware.ts only
+        // matches '/' and '/(de|en)/:path*' — next-intl never sees them, so
+        // there is no locale fallback. Pre-migration external links and
+        // Google's cache still point at these unprefixed URLs (4 surfaced as
+        // "Not found (404)" in Search Console). Consolidate them onto the
+        // canonical /en/* with a 308. The negative lookahead skips the locale
+        // prefixes (no self-redirect loop) and anything Next serves from the
+        // filesystem before redirects run: /_next, /api, and any path with a
+        // file extension (favicon.ico, sitemap.xml, robots.txt, images, og).
+        source: '/:path((?!en$|en/|de$|de/|_next/|api/|.*\\.).*)',
+        destination: '/en/:path',
+        permanent: true,
+      },
     ];
   },
 };
