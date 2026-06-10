@@ -20,7 +20,12 @@ import { OAuth2Client } from 'google-auth-library';
 
 const SITE_URL = 'sc-domain:ballenaandbeluga.com';
 const API_BASE = 'https://www.googleapis.com/webmasters/v3/sites';
+const INSPECT_API = 'https://searchconsole.googleapis.com/v1/urlInspection/index:inspect';
+const PROD_BASE = 'https://www.ballenaandbeluga.com';
 const ROW_LIMIT = 5000;
+// URL Inspection API quota is 2,000 calls/day per property; the sitemap has
+// ~64 URLs, so a weekly full sweep uses ~3% of one day's quota.
+const INSPECT_CONCURRENCY = 4;
 
 // --- date windows ---------------------------------------------------------
 
@@ -260,12 +265,57 @@ export function ctrOutliersSection(thisRows) {
   return lines.join('\n');
 }
 
-export function buildReport({ thisRows, priorRows, windows }) {
+// --- index coverage (URL Inspection API) -----------------------------------
+
+export function parseSitemapLocs(xml) {
+  return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+}
+
+export function indexCoverageSection(coverage) {
+  const lines = ['## 📇 Index coverage', ''];
+  if (!coverage || coverage.error || !coverage.inspections?.length) {
+    lines.push(
+      `_Index inspection unavailable this week${coverage?.error ? ` — ${coverage.error}` : ''}._`,
+    );
+    return lines.join('\n');
+  }
+  const { inspections } = coverage;
+  const indexed = inspections.filter(
+    (i) => i.coverageState === 'Submitted and indexed',
+  ).length;
+  lines.push(
+    `**${indexed}/${inspections.length}** sitemap URLs indexed. ` +
+      'The single most important trend line on this report — it moves when referring domains are added, not when content is.',
+    '',
+  );
+  const byState = new Map();
+  for (const i of inspections) {
+    byState.set(i.coverageState, (byState.get(i.coverageState) ?? 0) + 1);
+  }
+  lines.push('| Coverage state | URLs |', '|---|---|');
+  for (const [state, count] of [...byState.entries()].sort((a, b) => b[1] - a[1])) {
+    lines.push(`| ${state} | ${count} |`);
+  }
+  const stuck = inspections.filter((i) => i.coverageState !== 'Submitted and indexed');
+  if (stuck.length) {
+    lines.push('', '<details><summary>Non-indexed URLs</summary>', '');
+    for (const i of stuck) {
+      lines.push(`- \`${pagePath(i.url)}\` — ${i.coverageState}`);
+    }
+    lines.push('', '</details>');
+  }
+  return lines.join('\n');
+}
+
+export function buildReport({ thisRows, priorRows, windows, coverage }) {
   const sections = [
     `# SEO weekly — ${windows.thisWeek.startDate} to ${windows.thisWeek.endDate}`,
     `_Compared with ${windows.priorWeek.startDate} to ${windows.priorWeek.endDate}. ` +
       `Source: Google Search Console (${SITE_URL}). Data lags ~3 days._`,
     headlineSection(thisRows, priorRows),
+    // Coverage is optional so the report still builds if inspection fails
+    // (quota, scope, network) — the section then explains why it's missing.
+    ...(coverage !== undefined ? [indexCoverageSection(coverage)] : []),
     pageTwoSection(thisRows),
   ];
   if (priorRows.length === 0) {
@@ -308,6 +358,54 @@ async function getAccessToken() {
   return token;
 }
 
+async function inspectUrl(token, url) {
+  const res = await fetch(INSPECT_API, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ inspectionUrl: url, siteUrl: SITE_URL }),
+  });
+  if (!res.ok) {
+    throw new Error(`inspection API ${res.status}`);
+  }
+  const json = await res.json();
+  const r = json.inspectionResult?.indexStatusResult ?? {};
+  return {
+    url,
+    verdict: r.verdict ?? 'UNKNOWN',
+    coverageState: r.coverageState ?? 'Unknown',
+  };
+}
+
+// Small worker pool — the shared index is safe because workers only advance
+// it synchronously between awaits (single-threaded event loop).
+async function inspectAll(token, urls) {
+  const results = [];
+  let next = 0;
+  const worker = async () => {
+    while (next < urls.length) {
+      const url = urls[next++];
+      try {
+        results.push(await inspectUrl(token, url));
+      } catch (err) {
+        results.push({ url, verdict: 'ERROR', coverageState: `Inspection failed (${err.message})` });
+      }
+    }
+  };
+  await Promise.all(Array.from({ length: INSPECT_CONCURRENCY }, worker));
+  return results;
+}
+
+async function fetchIndexCoverage(token) {
+  const res = await fetch(`${PROD_BASE}/sitemap.xml`);
+  if (!res.ok) throw new Error(`sitemap fetch ${res.status}`);
+  const locs = parseSitemapLocs(await res.text());
+  if (locs.length === 0) throw new Error('sitemap contained no <loc> entries');
+  return { inspections: await inspectAll(token, locs) };
+}
+
 async function querySearchAnalytics(token, period) {
   const url = `${API_BASE}/${encodeURIComponent(SITE_URL)}/searchAnalytics/query`;
   const res = await fetch(url, {
@@ -338,7 +436,13 @@ async function main() {
   const token = await getAccessToken();
   const thisRows = await querySearchAnalytics(token, windows.thisWeek);
   const priorRows = await querySearchAnalytics(token, windows.priorWeek);
-  process.stdout.write(buildReport({ thisRows, priorRows, windows }) + '\n');
+  let coverage;
+  try {
+    coverage = await fetchIndexCoverage(token);
+  } catch (err) {
+    coverage = { error: err.message };
+  }
+  process.stdout.write(buildReport({ thisRows, priorRows, windows, coverage }) + '\n');
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

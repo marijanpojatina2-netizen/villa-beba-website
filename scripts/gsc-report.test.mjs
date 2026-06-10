@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { reportWindows, normalizeRows, sumMetrics, groupByPage, joinByKey, headlineSection, pageTwoSection, topPagesSection, gainingSection, slippingSection, newQueriesSection, ctrOutliersSection, buildReport } from './gsc-report.mjs';
+import { parseSitemapLocs, indexCoverageSection, reportWindows, normalizeRows, sumMetrics, groupByPage, joinByKey, headlineSection, pageTwoSection, topPagesSection, gainingSection, slippingSection, newQueriesSection, ctrOutliersSection, buildReport } from './gsc-report.mjs';
 
 test('reportWindows: this week is a 7-day window ending 3 days before today', () => {
   const w = reportWindows(new Date('2026-05-15T12:00:00Z'));
@@ -237,4 +237,63 @@ test('buildReport: produces a non-empty report even with zero rows', () => {
   const md = buildReport({ thisRows: [], priorRows: [], windows: WINDOWS });
   assert.match(md, /# SEO weekly/);
   assert.match(md, /No queries in positions 11/);
+});
+
+test('parseSitemapLocs: extracts every <loc> from sitemap XML', () => {
+  const xml = `<?xml version="1.0"?><urlset>
+    <url><loc>https://www.ballenaandbeluga.com/en</loc></url>
+    <url><loc>https://www.ballenaandbeluga.com/de/villa-ballena</loc></url>
+  </urlset>`;
+  assert.deepEqual(parseSitemapLocs(xml), [
+    'https://www.ballenaandbeluga.com/en',
+    'https://www.ballenaandbeluga.com/de/villa-ballena',
+  ]);
+});
+
+test('parseSitemapLocs: returns [] for XML without locs', () => {
+  assert.deepEqual(parseSitemapLocs('<urlset></urlset>'), []);
+});
+
+test('indexCoverageSection: counts indexed vs total and groups states', () => {
+  const md = indexCoverageSection({
+    inspections: [
+      { url: 'https://x.com/en', verdict: 'PASS', coverageState: 'Submitted and indexed' },
+      { url: 'https://x.com/de', verdict: 'PASS', coverageState: 'Submitted and indexed' },
+      { url: 'https://x.com/en/faq', verdict: 'NEUTRAL', coverageState: 'Discovered – currently not indexed' },
+    ],
+  });
+  assert.match(md, /## 📇 Index coverage/);
+  assert.match(md, /\*\*2\/3\*\* sitemap URLs indexed/);
+  assert.match(md, /\| Submitted and indexed \| 2 \|/);
+  assert.match(md, /\| Discovered – currently not indexed \| 1 \|/);
+  assert.match(md, /- `\/en\/faq` — Discovered – currently not indexed/);
+});
+
+test('indexCoverageSection: degrades gracefully when inspection failed', () => {
+  const md = indexCoverageSection({ error: 'inspection API 403' });
+  assert.match(md, /Index inspection unavailable this week — inspection API 403/);
+});
+
+test('indexCoverageSection: handles missing coverage object', () => {
+  assert.match(indexCoverageSection(undefined), /Index inspection unavailable/);
+});
+
+test('buildReport: includes index coverage section when coverage is provided', () => {
+  const md = buildReport({
+    thisRows: [],
+    priorRows: [],
+    windows: WINDOWS,
+    coverage: {
+      inspections: [
+        { url: 'https://x.com/en', verdict: 'PASS', coverageState: 'Submitted and indexed' },
+      ],
+    },
+  });
+  assert.match(md, /## 📇 Index coverage/);
+  assert.match(md, /\*\*1\/1\*\* sitemap URLs indexed/);
+});
+
+test('buildReport: omits index coverage section when coverage is undefined', () => {
+  const md = buildReport({ thisRows: [], priorRows: [], windows: WINDOWS });
+  assert.doesNotMatch(md, /Index coverage/);
 });
