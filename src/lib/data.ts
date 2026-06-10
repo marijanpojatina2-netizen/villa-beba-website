@@ -152,18 +152,6 @@ export const reviews = [
   { text: 'Great spot for anyone looking to enjoy Croatia in a tranquil, scenic setting.', author: 'Guest', lang: 'en' },
 ];
 
-export const faqItems = [
-  { q: 'Is the pool heated?', a: 'Yes, both villas have heated pools (8x4m, biological water, hydromassage). Open May 1 – October 30.' },
-  { q: 'Can we bring pets?', a: 'Up to 2 pets welcome, no extra charge.' },
-  { q: 'What\'s the nearest beach?', a: 'Bale beach, 19 km (20 min). Also Fažana (22 km) and Rovinj (23 km).' },
-  { q: 'Is there A/C?', a: 'Central air conditioning throughout + underfloor heating.' },
-  { q: 'Can you arrange airport transfer?', a: 'Yes, from Pula Airport (33 km). Car rental also available.' },
-  { q: 'What\'s included in the price?', a: 'Bed linen, towels, pool towels, final cleaning. No hidden fees.' },
-  { q: 'Do you offer early check-in?', a: 'Standard check-in from 16:00. Early check-in possible on request.' },
-  { q: 'Can we book both villas?', a: 'Yes, as "Complex BeBa" for up to 18 guests. Ideal for weddings and large groups.' },
-  { q: 'Is there a game room?', a: 'Villa Beluga has a full game room: billiards, foosball, darts, PlayStation, board games.' },
-  { q: 'Does Villa Ballena have a sauna?', a: 'Yes, a private Finnish sauna + wellness shower in the basement.' },
-  { q: 'How far is the nearest restaurant?', a: 'Pizzeria Grimani is 600m walk. Village center with cafés is 300m.' },
-  { q: 'What\'s the WiFi speed?', a: '125 Mbit/s throughout both properties.' },
-  { q: 'What\'s your cancellation policy?', a: 'Cancellation terms vary by season, length of stay, and time before arrival. Contact us directly with your dates and we will share the policy applicable to your booking.' },
-];
+// FAQ content lives in messages/{en,de}.json under the `faq` namespace —
+// both the visible accordion (FaqClient) and the FAQPage JSON-LD
+// (faq/page.tsx) read from there so schema and page can never diverge.

@@ -15,13 +15,17 @@ const BRAND_SAME_AS = [
   villaBeluga.bookingLinks.airbnb,
   VILLAS.ballena.gbpUrl,
   VILLAS.beluga.gbpUrl,
+  ...VILLAS.ballena.listingUrls,
+  ...VILLAS.beluga.listingUrls,
 ].filter(Boolean);
 
-export function getLocalBusinessSchema() {
+export function getLocalBusinessSchema(locale: string = 'en') {
   // Brand-level entity shipped from layout.tsx on every page. The two
   // physical villa listings are exposed as `containsPlace` so Google can
   // resolve the brand → 2 lodging branches → 2 GBP listings (matched
-  // by exact address strings in VILLAS).
+  // by exact address strings in VILLAS). `locale` keeps the branch URLs
+  // on the same language version as the page emitting the schema, so the
+  // /de layout doesn't claim /en URLs as its lodging branches.
   return {
     '@context': 'https://schema.org',
     '@type': 'LodgingBusiness',
@@ -46,7 +50,7 @@ export function getLocalBusinessSchema() {
       {
         '@type': 'LodgingBusiness',
         name: VILLAS.ballena.name,
-        url: `${BASE_URL}/en/villa-ballena`,
+        url: `${BASE_URL}/${locale}/villa-ballena`,
         address: {
           '@type': 'PostalAddress',
           streetAddress: VILLAS.ballena.streetAddress,
@@ -60,12 +64,12 @@ export function getLocalBusinessSchema() {
           latitude: VILLAS.ballena.geo.lat,
           longitude: VILLAS.ballena.geo.lng,
         },
-        sameAs: [VILLAS.ballena.gbpUrl, villaBallena.bookingLinks.airbnb].filter(Boolean),
+        sameAs: [VILLAS.ballena.gbpUrl, villaBallena.bookingLinks.airbnb, ...VILLAS.ballena.listingUrls].filter(Boolean),
       },
       {
         '@type': 'LodgingBusiness',
         name: VILLAS.beluga.name,
-        url: `${BASE_URL}/en/villa-beluga`,
+        url: `${BASE_URL}/${locale}/villa-beluga`,
         address: {
           '@type': 'PostalAddress',
           streetAddress: VILLAS.beluga.streetAddress,
@@ -79,7 +83,7 @@ export function getLocalBusinessSchema() {
           latitude: VILLAS.beluga.geo.lat,
           longitude: VILLAS.beluga.geo.lng,
         },
-        sameAs: [VILLAS.beluga.gbpUrl, villaBeluga.bookingLinks.airbnb].filter(Boolean),
+        sameAs: [VILLAS.beluga.gbpUrl, villaBeluga.bookingLinks.airbnb, ...VILLAS.beluga.listingUrls].filter(Boolean),
       },
     ],
     ...(BRAND_SAME_AS.length ? { sameAs: BRAND_SAME_AS } : {}),
@@ -228,6 +232,7 @@ export function getVacationRentalSchema(
     sameAs: [
       villaData.gbpUrl,
       isBalena ? villaBallena.bookingLinks.airbnb : villaBeluga.bookingLinks.airbnb,
+      ...villaData.listingUrls,
     ].filter(Boolean),
     image: images,
     offers: {

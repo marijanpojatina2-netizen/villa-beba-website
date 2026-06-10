@@ -29,6 +29,16 @@ export const VILLAS = {
     country: 'HR',
     geo: { lat: 45.091986, lng: 13.886013 },
     gbpUrl: 'https://maps.app.goo.gl/3CvSExbyxwFfVjRs9',
+    // Live third-party listings for THIS villa — wired into JSON-LD `sameAs`
+    // so Google consolidates one entity across agency/OTA profiles instead of
+    // ranking them as competing businesses on the brand SERP. Only add URLs
+    // verified to resolve (Vrbo answers 403 to scripts — bot wall, page is live).
+    listingUrls: [
+      'https://www.vrbo.com/11537768ha',
+      'https://crovillas.com/en/villa/ballena',
+      'https://www.myluxoria.com/en/villas-rovinj/villa-ballena',
+      'https://rentluxuryvillascroatia.com/v/villa-ballena',
+    ],
   },
   beluga: {
     name: 'Villa Beluga',
@@ -39,6 +49,11 @@ export const VILLAS = {
     country: 'HR',
     geo: { lat: 45.091986, lng: 13.886013 },
     gbpUrl: 'https://maps.app.goo.gl/9dtoVj2uCbRocwd36',
+    listingUrls: [
+      'https://crovillas.com/en/villa/beluga',
+      'https://www.myluxoria.com/en/villas-rovinj/villa-beluga',
+      'https://rentluxuryvillascroatia.com/v/villa-beluga',
+    ],
   },
 } as const;
 

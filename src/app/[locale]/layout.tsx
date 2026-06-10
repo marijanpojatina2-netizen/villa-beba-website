@@ -143,7 +143,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema(locale)) }}
       />
       <SmoothScroll>
         <Header />

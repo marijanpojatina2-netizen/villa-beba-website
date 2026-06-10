@@ -54,8 +54,8 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   const articleSchema = getArticleSchema({
-    title: post.title,
-    description: post.descEN,
+    title: isDE ? post.titleDE : post.title,
+    description: isDE ? post.descDE : post.descEN,
     slug: post.slug,
     datePublished: post.date,
     image: post.image,

@@ -1,5 +1,5 @@
+import { getTranslations } from 'next-intl/server';
 import { getBreadcrumbSchema, getFAQSchema } from '@/lib/schema';
-import { faqItems } from '@/lib/data';
 import FAQPage from './FaqClient';
 
 const baseUrl = 'https://www.ballenaandbeluga.com';
@@ -24,7 +24,13 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   const isDE = locale === 'de';
   const breadcrumb = getBreadcrumbSchema([{ name: isDE ? 'Startseite' : 'Home', url: `/${locale}` }, { name: 'FAQ', url: `/${locale}/faq` }]);
-  const faqSchema = getFAQSchema(faqItems);
+  // Build the FAQ schema from the same next-intl messages FaqClient renders,
+  // so the JSON-LD always matches the visible page content in BOTH locales —
+  // Google requires schema text to match what users see, and a German page
+  // with English schema suppresses rich-result eligibility. Keep the count
+  // in sync with FaqClient's faqData (13 items, q0..a12).
+  const t = await getTranslations({ locale, namespace: 'faq' });
+  const faqSchema = getFAQSchema(Array.from({ length: 13 }, (_, i) => ({ q: t(`q${i}`), a: t(`a${i}`) })));
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
