@@ -20,6 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       languages: {
         en: `${baseUrl}/en/impressum`,
         de: `${baseUrl}/de/impressum`,
+        // DELIBERATE exception: every other page x-defaults to /en, but the
+        // impressum exists for German-speaking jurisdictions (TMG § 5), so
+        // unmatched languages get the German version. sitemap.ts mirrors
+        // this — keep both in sync, and don't "fix" it to /en.
         'x-default': `${baseUrl}/de/impressum`,
       },
     },

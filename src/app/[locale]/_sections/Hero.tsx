@@ -44,9 +44,17 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
       <div className="absolute inset-0 flex flex-col justify-end px-6 pb-[12vh] sm:pb-[10vh] lg:px-10 lg:pb-[8vh]">
         <div ref={titleRef} className="max-w-[90vw]">
+          {/* The giant split-line wordmark is decorative (aria-hidden); the
+              real H1 text lives in the sr-only span so Google and screen
+              readers get one keyworded phrase ("Villa Ballena & Villa Beluga —
+              Luxury Villas in Istria, Croatia") instead of two bare animation
+              fragments. Visual output is unchanged. */}
           <h1 className="display-hero text-white">
-            <span className="block overflow-hidden"><span className="hero-line block">BALLENA</span></span>
-            <span className="block overflow-hidden"><span className="hero-line block">&amp; BELUGA</span></span>
+            <span aria-hidden="true">
+              <span className="block overflow-hidden"><span className="hero-line block">BALLENA</span></span>
+              <span className="block overflow-hidden"><span className="hero-line block">&amp; BELUGA</span></span>
+            </span>
+            <span className="sr-only">{t('h1')}</span>
           </h1>
         </div>
         <div className="mt-6 lg:mt-8 max-w-[500px]">
