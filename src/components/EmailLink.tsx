@@ -1,7 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import { CONTACT } from '@/lib/contact';
+
+// Hydration detector without the setState-in-effect lint trap: the server
+// snapshot is false, the client snapshot is true, and React re-renders once
+// after hydration — exactly the old useEffect(() => setHydrated(true)) timing.
+const emptySubscribe = () => () => {};
+const useHydrated = () =>
+  useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
 
 // Render an obfuscated email at SSR time — `info [at] domain.com` — and
 // hydrate to a working mailto: after the page is interactive. Crawlers
@@ -11,8 +22,7 @@ import { CONTACT } from '@/lib/contact';
 //
 // Usage: <EmailLink className="..." />  (no children needed)
 export default function EmailLink({ className }: { className?: string }) {
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => setHydrated(true), []);
+  const hydrated = useHydrated();
 
   // The CONTACT.email constant lives in code, never reaches the static
   // HTML — Next.js inlines it into the JS bundle, but harvesters that

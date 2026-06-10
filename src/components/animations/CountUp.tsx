@@ -34,8 +34,11 @@ export default function CountUp({
     ).matches;
 
     if (prefersReducedMotion) {
-      setDisplay(end);
-      return;
+      // Deferred one frame: setState directly in the effect body triggers a
+      // cascading sync render (react-hooks/set-state-in-effect); inside rAF
+      // it lands right after paint with no visible difference.
+      const raf = requestAnimationFrame(() => setDisplay(end));
+      return () => cancelAnimationFrame(raf);
     }
 
     const counter = { value: 0 };
