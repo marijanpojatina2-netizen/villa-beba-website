@@ -125,17 +125,26 @@ Vodiči: vinarije = `/en/guides/istrian-wineries-near-svetvincenat` · tartufi =
 
 ---
 
-## 3. TZ Središnja Istra — upis weba u službene baze (istra.hr / croatia.hr)
+## 3. TZ Općine Svetvinčenat — upis u "Kuće za odmor" + istra.hr baza
 
-Istra.hr i croatia.hr NEMAJU javnu formu za prijavu — njihove baze smještaja
-pune se iz TZ/eVisitor sustava. Naša lokalna TZ je **TZ Središnja Istra**
-(central-istria.com, pokriva Svetvinčenat). Jedan mail rješava oba portala.
+Istra.hr i croatia.hr NEMAJU javnu formu za prijavu — baze se pune iz
+TZ/eVisitor sustava. Naša lokalna TZ je **TZ Općine Svetvinčenat** (vile su
+kod njih u eVisitoru):
 
-**Predmet:** Dopuna podataka o objektima — web adresa (Villa Ballena i Villa Beluga, Svetvinčenat)
+- **Email:** info@tz-svetvincenat.hr
+- **Tel:** +385 52 560 349 · mob +385 91 4468 081 (mala TZ — poziv je
+  vjerojatno brži od maila)
+- Njihova stranica tz-svetvincenat.hr ima sekciju **Smještaj → Kuće za
+  odmor** — tu vile trebaju biti, s linkom na web. To je pravi link-cilj.
+- Realna očekivanja za istra.hr: njihova baza privatnog smještaja prikazuje
+  kontakt/upit, ne uvijek i link na web vlasnika — i sama citacija (točan
+  naziv + Svetvinčenat) tamo vrijedi, link je bonus ako polje postoji.
+
+**Predmet:** Villa Ballena i Villa Beluga — uvrštenje u Kuće za odmor + web adresa
 
 > Dobar dan,
 >
-> vodimo dvije vile u Svetvinčenatu, registrirane kroz eVisitor:
+> vodimo dvije vile u Svetvinčenatu, registrirane kod vas kroz eVisitor:
 >
 > - Villa Ballena, Svetvinčenat 151
 > - Villa Beluga, Svetvinčenat 150
@@ -145,11 +154,11 @@ pune se iz TZ/eVisitor sustava. Naša lokalna TZ je **TZ Središnja Istra**
 > Nedavno smo objavili službenu web stranicu vila —
 > **https://www.ballenaandbeluga.com** — pa molim dvije stvari:
 >
-> 1. Možete li u profile naših objekata u vašem sustavu dodati web adresu,
->    tako da bude vidljiva na vašim stranicama i u bazi privatnog smještaja
->    na istra.hr?
-> 2. Ako naši objekti još nisu vidljivi u online bazi smještaja
->    (central-istria.com / istra.hr), recite mi što je potrebno da se uvrste.
+> 1. Možete li vile uvrstiti u rubriku Smještaj → Kuće za odmor na
+>    tz-svetvincenat.hr, s linkom na našu stranicu? Fotografije i opise
+>    (HR/EN/DE) rado dostavljam u formatu koji vam odgovara.
+> 2. Možete li u profilima objekata u sustavu dopuniti web adresu, da bude
+>    vidljiva i u bazi privatnog smještaja na istra.hr?
 >
 > Hvala unaprijed — i slobodno me nazovite ako je lakše telefonski.
 >
