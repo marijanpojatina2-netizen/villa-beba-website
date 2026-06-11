@@ -34,7 +34,10 @@ export const VILLAS = {
     // ranking them as competing businesses on the brand SERP. Only add URLs
     // verified to resolve (Vrbo answers 403 to scripts — bot wall, page is live).
     listingUrls: [
+      // Own FeWo-direkt/Vrbo listing — one listing, two storefronts on the
+      // Expedia network (matching IDs: p11537768 ↔ 11537768ha).
       'https://www.vrbo.com/11537768ha',
+      'https://www.fewo-direkt.de/ferienwohnung-ferienhaus/p11537768',
       'https://crovillas.com/en/villa/ballena',
       'https://www.myluxoria.com/en/villas-rovinj/villa-ballena',
       'https://rentluxuryvillascroatia.com/v/villa-ballena',
@@ -50,6 +53,8 @@ export const VILLAS = {
     geo: { lat: 45.091986, lng: 13.886013 },
     gbpUrl: 'https://maps.app.goo.gl/9dtoVj2uCbRocwd36',
     listingUrls: [
+      'https://www.vrbo.com/11537782ha',
+      'https://www.fewo-direkt.de/ferienwohnung-ferienhaus/p11537782',
       'https://crovillas.com/en/villa/beluga',
       'https://www.myluxoria.com/en/villas-rovinj/villa-beluga',
       'https://rentluxuryvillascroatia.com/v/villa-beluga',
