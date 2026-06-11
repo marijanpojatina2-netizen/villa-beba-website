@@ -140,30 +140,30 @@ kod njih u eVisitoru):
   kontakt/upit, ne uvijek i link na web vlasnika — i sama citacija (točan
   naziv + Svetvinčenat) tamo vrijedi, link je bonus ako polje postoji.
 
-**Predmet:** Villa Ballena i Villa Beluga — uvrštenje u Kuće za odmor + web adresa
+**Predmet:** Vile Ballena i Beluga — molba za uvrštenje na vašu stranicu
 
 > Dobar dan,
 >
-> vodimo dvije vile u Svetvinčenatu, registrirane kod vas kroz eVisitor:
+> Marijan ovdje — Villa Ballena i Villa Beluga, Svetvinčenat 150 i 151.
 >
-> - Villa Ballena, Svetvinčenat 151
-> - Villa Beluga, Svetvinčenat 150
+> Konačno smo objavili službenu stranicu vila: www.ballenaandbeluga.com.
+> Osim fotografija i ponude, na njoj pišemo i vodiče o Svetvinčenatu i
+> okolici na engleskom i njemačkom — Kaštel, konobe, vinarije, izleti — pa
+> stranica usput promovira i samo mjesto.
 >
-> (nositelj: Kovedrana d.o.o., OIB 77401050769)
+> Dvije molbe:
 >
-> Nedavno smo objavili službenu web stranicu vila —
-> **https://www.ballenaandbeluga.com** — pa molim dvije stvari:
+> 1. Možete li vile dodati u rubriku Smještaj → Kuće za odmor na
+>    tz-svetvincenat.hr, s linkom na stranicu? Fotke i kratke opise
+>    (HR/EN/DE) šaljem čim kažete u kojem formatu.
+> 2. Ako se uz objekt u sustavu može upisati web adresa (ono što se
+>    poslije vidi i na istra.hr), molim da dopunite i to.
 >
-> 1. Možete li vile uvrstiti u rubriku Smještaj → Kuće za odmor na
->    tz-svetvincenat.hr, s linkom na našu stranicu? Fotografije i opise
->    (HR/EN/DE) rado dostavljam u formatu koji vam odgovara.
-> 2. Možete li u profilima objekata u sustavu dopuniti web adresu, da bude
->    vidljiva i u bazi privatnog smještaja na istra.hr?
+> Ako je lakše telefonski — zovite slobodno, ili svratim do ureda.
 >
-> Hvala unaprijed — i slobodno me nazovite ako je lakše telefonski.
+> Hvala!
 >
 > Marijan Pojatina
-> Villa Ballena & Beluga, Svetvinčenat
 > +385 91 2524 094 · info@ballenaandbeluga.com
 
 ## Portali-agregatori (HomeToGo, Holidu) — status
