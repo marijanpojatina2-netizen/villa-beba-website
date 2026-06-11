@@ -125,6 +125,50 @@ Vodiči: vinarije = `/en/guides/istrian-wineries-near-svetvincenat` · tartufi =
 
 ---
 
+## 3. TZ Središnja Istra — upis weba u službene baze (istra.hr / croatia.hr)
+
+Istra.hr i croatia.hr NEMAJU javnu formu za prijavu — njihove baze smještaja
+pune se iz TZ/eVisitor sustava. Naša lokalna TZ je **TZ Središnja Istra**
+(central-istria.com, pokriva Svetvinčenat). Jedan mail rješava oba portala.
+
+**Predmet:** Dopuna podataka o objektima — web adresa (Villa Ballena i Villa Beluga, Svetvinčenat)
+
+> Dobar dan,
+>
+> vodimo dvije vile u Svetvinčenatu, registrirane kroz eVisitor:
+>
+> - Villa Ballena, Svetvinčenat 151
+> - Villa Beluga, Svetvinčenat 150
+>
+> (nositelj: Kovedrana d.o.o., OIB 77401050769)
+>
+> Nedavno smo objavili službenu web stranicu vila —
+> **https://www.ballenaandbeluga.com** — pa molim dvije stvari:
+>
+> 1. Možete li u profile naših objekata u vašem sustavu dodati web adresu,
+>    tako da bude vidljiva na vašim stranicama i u bazi privatnog smještaja
+>    na istra.hr?
+> 2. Ako naši objekti još nisu vidljivi u online bazi smještaja
+>    (central-istria.com / istra.hr), recite mi što je potrebno da se uvrste.
+>
+> Hvala unaprijed — i slobodno me nazovite ako je lakše telefonski.
+>
+> Marijan Pojatina
+> Villa Ballena & Beluga, Svetvinčenat
+> +385 91 2524 094 · info@ballenaandbeluga.com
+
+## Portali-agregatori (HomeToGo, Holidu) — status
+
+- **HomeToGo:** NE prijavljivati ručno još. Agregira s Vrbo/FeWo mreže — naš
+  svježi listing trebao bi se pojaviti sam u roku par tjedana. Provjeri za
+  ~2 tjedna (traži "Villa Ballena Svetvincenat" na hometogo.de); ako se ne
+  pojavi, onda direct signup na hometogo.com/list-your-property (10 min,
+  3% provizija po rezervaciji).
+- **Holidu:** booking kanal s provizijom + jednokratnom aktivacijskom
+  naknadom — NIJE besplatan imenik. Ako ideš: holidu.com/host, i obavezno
+  dodaj njihov kalendar u postojeću iCal sync mrežu (Airbnb ↔ FeWo ↔ Holidu).
+  Odluka za drugi val — FeWo neka prvo proradi.
+
 ## Redoslijed slanja (prijedlog)
 
 1. **Ovaj tjedan:** 3 agencije + Noi Due + LF Weddings (svježe featurani, najtopliji kontakti)
