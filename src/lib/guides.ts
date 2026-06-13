@@ -1178,6 +1178,110 @@ export const guides: Guide[] = [
       ],
     },
   },
+  {
+    slug: 'family-activities-central-istria',
+    category: 'planning',
+    datePublished: '2026-06-13',
+    hero: {
+      src: '/images/guides/family-activities-central-istria/zipline-pazin-abyss-gorge.webp',
+      alt: {
+        en: 'A helmeted zipliner in an orange shirt soars across the deep green Pazin gorge, the medieval town and castle of Pazin and the Istrian hills beyond under a blue summer sky',
+        de: 'Eine behelmte Zipline-Fahrerin im orangefarbenen Shirt gleitet über die tiefgrüne Schlucht von Pazin, dahinter die mittelalterliche Stadt und Burg von Pazin und die istrischen Hügel unter blauem Sommerhimmel',
+      },
+      width: 1920,
+      height: 1440,
+    },
+    inlineImage: {
+      afterSectionIndex: 4,
+      image: {
+        src: '/images/guides/family-activities-central-istria/medieval-knights-tournament-istria.webp',
+        alt: {
+          en: 'Armoured knights joust on horseback at a floodlit evening medieval tournament, lances shattering on impact as a crowd watches, central Istria',
+          de: 'Gepanzerte Ritter beim Lanzenstechen zu Pferd bei einem abendlichen mittelalterlichen Ritterturnier, Lanzen zerbersten beim Aufprall, während eine Menge zuschaut, Zentralistrien',
+        },
+        width: 1920,
+        height: 1280,
+      },
+    },
+    en: {
+      title: 'Family activities in central Istria — the best days out with kids near Svetvinčenat',
+      excerpt: 'Central Istria is an easy base for a family holiday — almost everything is a 20–45 minute drive from Villa Ballena & Beluga. From the Glavani adventure park and a zipline across the Pazin abyss to a show cave with its blind "human fish", a dinosaur trail for the little ones, and the medieval kaštel a 300-metre walk away, here are the days out that genuinely work with children, with drive times, prices, age guidance, and what to book ahead.',
+      intro: 'Svetvinčenat sits almost exactly in the middle of Istria, which is the quiet superpower of a family holiday here: the adventure park, the caves, the dinosaur trail, the waterparks, and the hilltop castles are all 20 to 45 minutes away, so you can do a proper morning out and still be back at the pool for lunch. The range covers every age — high-rope courses and a gorge zipline for teens, gentle dinosaur trails for toddlers, and a medieval castle you can walk to. Almost everything below welcomes English- and German-speaking families. This guide runs through each option with its drive time, a price ballpark, which ages it suits, and what needs booking — and ends with a rainy-day-versus-heat-wave cheat-sheet for the two kinds of day that catch families out.',
+      sections: [
+        {
+          heading: 'Glavani Park — the adventure park (Barban, ~20 minutes)',
+          body: 'Glavani Park, in the hills above Barban, is one of Croatia\'s largest adventure parks and the region\'s adrenaline anchor. The core is a set of high-rope courses graded by difficulty — a low, close-to-the-ground course that children from around age four can manage, stepping up through progressively higher and harder circuits to expert routes that challenge teenagers and adults. Everyone is harnessed and briefed, and staff supervise the safety lines. Around the ropes are ziplines, a Tarzan swing, an archery range, paintball and airsoft for older kids, and quad and buggy safaris through the surrounding woods. Plan a half-day. As a ballpark, rope-course entry runs roughly €15–25 depending on the level, archery is a cheap add-on, and the quad and buggy safaris are priced separately and higher. Little ones have their own course; the big circuits and the motorised activities carry minimum height and age limits. Book ahead for the safaris and on July–August weekends, and confirm current prices when you reserve.',
+        },
+        {
+          heading: 'Pazin Castle & the abyss — with a zipline across the gorge (~25 minutes)',
+          body: 'Pazin, Istria\'s interior capital, stacks three very different experiences in one spot. First, Kaštel Pazin — the best-preserved medieval castle in Istria, now home to the Ethnographic Museum of Istria and the town museum — is an all-ages, weatherproof visit for a few euros. Second, the Pazin Abyss (Pazinska jama) is the dramatic karst chasm where the Pazinčica river vanishes underground; it gave Jules Verne the setting for Mathias Sandorf and has echoed through literature since Dante, and you can take it in for free from the bridge and the marked paths above it. Third, and this is the teen-pleaser, ZipLine Pazinska jama strings two cables across and into the gorge — the longer one well over 200 metres — for what is comfortably the best adrenaline hit in central Istria; a minimum weight (typically around 30 kg) and age apply, and it runs spring to autumn, so book a slot. For the genuinely adventurous, guided descents into the abyss itself run in season. One stop, from museum-calm to full adrenaline.',
+        },
+        {
+          heading: 'Baredine Cave & its "human fish" (~40 minutes)',
+          body: 'Jama Baredine, near Nova Vas on the way to Poreč, is a protected show cave and one of the most reliable family outings in the region. The standard guided tour lasts about forty minutes, descending through five chambers of stalactites and stalagmites to viewing galleries — manageable for any child who can handle stairs, a cool 14°C year-round, and completely weatherproof, which makes it the best rainy-day option on this list. The star turn is the olm (Proteus anguinus), the blind, pale, cave-dwelling salamander Istrians call the "human fish" (čovječja ribica), usually visible in the cave pools. On the surface there\'s a "Tractor Story" open-air collection of vintage farm machinery children can clamber over, and — for older, braver visitors — a harnessed speleo-adventure descent that goes well beyond the tourist path. Adults are around €15, children less. The standard tour rarely needs booking outside peak weeks; the speleo adventure does.',
+        },
+        {
+          heading: 'Dinopark Funtana — the little-kid winner (~35 minutes)',
+          body: 'For under-tens especially, Dinopark in Funtana is the easy yes of the week. A shaded forest trail winds past dozens of life-size dinosaur models, and around it sit a mini-train, paddle boats, a playground, dinosaur-themed mini-golf, and a small cinema. The walking is flat, the pace is the toddlers\', and it is a low-stress, low-cost half-day. It runs on a summer season — roughly spring through early autumn — with adults around €10–13, children a little less, and the smallest usually free; confirm opening dates if you are visiting in the shoulder months. It pairs naturally with a relaxed lunch by the water in Funtana or Vrsar on the way home.',
+        },
+        {
+          heading: 'On your doorstep — the kaštel in Svetvinčenat (300 m walk)',
+          body: 'You don\'t always need the car. The village\'s main square, the Placa, is dominated by Kaštel Morosini-Grimani, a 13th-century castle with a broad grassed courtyard, a 300-metre walk from the villas. Through the summer that courtyard hosts the Festival of Dance and Non-Verbal Theatre in late July and Istra Inspirit living-history evenings that dramatise the village\'s most famous story — the 17th-century witch trial of Mare Radolović, the "witch of Svetvinčenat". On event days there are medieval workshops for children, from archery to old crafts. Seeing the square and the castle from outside costs nothing; the courtyard events are ticketed and worth timing a stay around. With a café, a pizzeria, and gelato on the same square, it is the no-car, late-afternoon answer for the days when nobody wants a full outing.',
+        },
+        {
+          heading: 'Rainy day or heat wave — a planning cheat-sheet',
+          body: 'Two kinds of awkward day have different answers here. On a wet day, go underground or indoors: Baredine Cave and the Pazin abyss are weatherproof and genuinely better in cool weather, and Pazin Castle\'s museums make a dry half-day. On a scorching mid-summer day, the big waterparks toward the coast are the release valve — Aquapark Istralandia near Brtonigla (~45 minutes) and Aquacolors Poreč (~40 minutes) both pair real slides with shaded toddler lagoons — but note they open in the summer season only and close in storms, so they answer heat, not rain. A sensible rhythm for a villa week is one adventure morning (Glavani or the Pazin zipline), one gentle morning (Dinopark or the kaštel), one bigger day out (a waterpark or the cave), and the rest of the time in the pool. Leave the villa by 09:30 and the short central-Istria drives get you back for an afternoon swim.',
+        },
+      ],
+      faq: [
+        { q: 'What are the best activities for younger kids versus older kids and teens?', a: 'Younger children love Dinopark Funtana, the kaštel courtyard in Svetvinčenat, and Baredine Cave\'s easy walking tour. Older kids and teens go for Glavani Park\'s higher rope courses and quad safaris and the ZipLine across the Pazin abyss (minimum weight and age apply). Most families mix both across a week.' },
+        { q: 'What can we do without a car, walking from the villas?', a: 'The Kaštel Morosini-Grimani and the village square — café, pizzeria, gelato, plus the summer festival and living-history evenings — are a 300-metre walk. Everything else (Glavani ~20 min, Pazin ~25 min, Baredine and Dinopark ~35–40 min) needs a car, or a private transfer we can arrange.' },
+        { q: 'What are the best rainy-day options for families?', a: 'Go underground or into a museum: Baredine Cave and the Pazin abyss are weatherproof and nicer in cool weather, and Pazin Castle\'s museums are a dry half-day. The waterparks are the opposite — summer-heat only, and they close in storms.' },
+        { q: 'Do we need to book family activities in advance?', a: 'For Glavani\'s quad and buggy safaris and the Pazin abyss zipline, yes — reserve a slot, especially in July and August. The caves\' standard tours and Dinopark generally don\'t need booking outside peak weeks.' },
+        { q: 'Which is the nearest big waterpark?', a: 'Aquacolors Poreč (~40 minutes) and Aquapark Istralandia near Brtonigla (~45 minutes) are the two closest, both open in the summer season only.' },
+        { q: 'What does a realistic half-day out look like?', a: 'Leave the villa around 09:30, do one activity — say Glavani or the Pazin abyss — eat in Pazin or back in Svetvinčenat, and be at the pool by mid-afternoon. Central Istria\'s short drives are exactly why a half-day works so well from here.' },
+      ],
+    },
+    de: {
+      title: 'Familienaktivitäten in Zentralistrien — die besten Ausflüge mit Kindern nahe Svetvinčenat',
+      excerpt: 'Zentralistrien ist eine bequeme Basis für einen Familienurlaub — fast alles ist 20–45 Fahrtminuten von Villa Ballena & Beluga entfernt. Vom Abenteuerpark Glavani und einer Zipline über den Abgrund von Pazin bis zur Schauhöhle mit ihrem blinden „Menschenfisch", einem Dinosaurierpfad für die Kleinen und dem mittelalterlichen Kaštel 300 Meter zu Fuß — hier sind die Ausflüge, die mit Kindern wirklich funktionieren, mit Fahrzeiten, Preisen, Altersempfehlungen und Hinweisen, was vorab zu buchen ist.',
+      intro: 'Svetvinčenat liegt fast genau in der Mitte Istriens, und das ist die stille Superkraft eines Familienurlaubs hier: Abenteuerpark, Höhlen, Dinosaurierpfad, Wasserparks und Hügelburgen sind alle 20 bis 45 Minuten entfernt, sodass Sie einen richtigen Vormittagsausflug machen und trotzdem zum Mittagessen wieder am Pool sein können. Das Angebot deckt jedes Alter ab — Hochseilgärten und eine Schlucht-Zipline für Teenager, sanfte Dinosaurierpfade für Kleinkinder und eine mittelalterliche Burg in Gehweite. Fast alles unten empfängt englisch- und deutschsprachige Familien. Dieser Leitfaden geht jede Option mit Fahrzeit, Preisrahmen, geeignetem Alter und Buchungshinweis durch — und endet mit einem Spickzettel für Regentag und Hitzewelle, die beiden Tagesarten, die Familien am ehesten überraschen.',
+      sections: [
+        {
+          heading: 'Glavani Park — der Abenteuerpark (Barban, ~20 Minuten)',
+          body: 'Der Glavani Park in den Hügeln oberhalb von Barban ist einer der größten Abenteuerparks Kroatiens und der Adrenalin-Anker der Region. Kern ist eine Reihe von Hochseilparcours, nach Schwierigkeit gestaffelt — ein niedriger, bodennaher Parcours, den Kinder ab etwa vier Jahren schaffen, hinauf über zunehmend höhere und schwerere Runden bis zu Expertenrouten, die Jugendliche und Erwachsene fordern. Alle sind gesichert und eingewiesen, das Personal überwacht die Sicherungslinien. Rund um die Seile gibt es Ziplines, eine Tarzan-Schaukel, einen Bogenschießstand, Paintball und Airsoft für ältere Kinder sowie Quad- und Buggy-Safaris durch die umliegenden Wälder. Planen Sie einen halben Tag ein. Als Richtwert kostet der Eintritt zum Seilparcours grob 15–25 € je nach Niveau, Bogenschießen ist ein günstiges Extra, und die Quad- und Buggy-Safaris werden separat und höher berechnet. Die Kleinsten haben ihren eigenen Parcours; die großen Runden und die motorisierten Aktivitäten haben Mindestgrößen und Altersgrenzen. Buchen Sie die Safaris und an Juli–August-Wochenenden vor und bestätigen Sie die aktuellen Preise bei der Reservierung.',
+        },
+        {
+          heading: 'Burg Pazin & der Abgrund — mit Zipline über die Schlucht (~25 Minuten)',
+          body: 'Pazin, die Hauptstadt im Inneren Istriens, vereint drei sehr unterschiedliche Erlebnisse an einem Ort. Erstens ist Kaštel Pazin — die besterhaltene mittelalterliche Burg Istriens, heute Sitz des Ethnographischen Museums Istriens und des Stadtmuseums — ein wetterfester Besuch für jedes Alter und wenige Euro. Zweitens ist der Abgrund von Pazin (Pazinska jama) die dramatische Karstschlucht, in der der Fluss Pazinčica unter die Erde verschwindet; er gab Jules Verne den Schauplatz für Mathias Sandorf und hallt seit Dante durch die Literatur — von der Brücke und den markierten Wegen darüber kostenlos zu bestaunen. Drittens, und das ist der Teenager-Magnet, spannt ZipLine Pazinska jama zwei Seile über und in die Schlucht — das längere deutlich über 200 Meter — für den besten Adrenalinkick Zentralistriens; ein Mindestgewicht (typisch um 30 kg) und Mindestalter gelten, und der Betrieb läuft von Frühjahr bis Herbst, also Slot buchen. Für die wirklich Abenteuerlustigen gibt es in der Saison geführte Abstiege in den Abgrund selbst. Eine Station, von Museumsruhe bis Vollgas.',
+        },
+        {
+          heading: 'Höhle Baredine & ihr „Menschenfisch" (~40 Minuten)',
+          body: 'Die Jama Baredine bei Nova Vas auf dem Weg nach Poreč ist eine geschützte Schauhöhle und einer der verlässlichsten Familienausflüge der Region. Die Standardführung dauert etwa vierzig Minuten und steigt durch fünf Hallen mit Stalaktiten und Stalagmiten zu Aussichtsgalerien hinab — machbar für jedes Kind, das Treppen bewältigt, kühle 14 °C ganzjährig und völlig wetterfest, was sie zur besten Regentag-Option dieser Liste macht. Der Star ist der Grottenolm (Proteus anguinus), der blinde, blasse, höhlenbewohnende Schwanzlurch, den die Istrier „Menschenfisch" (čovječja ribica) nennen und der meist in den Höhlenteichen zu sehen ist. Oben gibt es eine „Tractor Story", eine Freiluftsammlung alter Landmaschinen, über die Kinder klettern können, und — für ältere, mutigere Besucher — einen gesicherten Speläo-Abenteuerabstieg weit jenseits des Touristenpfads. Erwachsene zahlen rund 15 €, Kinder weniger. Die Standardführung braucht außerhalb der Hauptwochen selten eine Buchung; das Speläo-Abenteuer schon.',
+        },
+        {
+          heading: 'Dinopark Funtana — der Favorit der Kleinen (~35 Minuten)',
+          body: 'Besonders für unter Zehnjährige ist der Dinopark in Funtana das einfache Ja der Woche. Ein schattiger Waldpfad schlängelt sich an Dutzenden lebensgroßen Dinosauriermodellen vorbei, drumherum liegen eine Mini-Eisenbahn, Tretboote, ein Spielplatz, Dino-Minigolf und ein kleines Kino. Der Weg ist flach, das Tempo bestimmen die Kleinkinder, und es ist ein entspannter, günstiger halber Tag. Der Park läuft saisonal — etwa Frühjahr bis Frühherbst — mit Erwachsenen um 10–13 €, Kindern etwas weniger und den Kleinsten meist gratis; bestätigen Sie die Öffnungstermine, wenn Sie in den Randmonaten kommen. Er lässt sich gut mit einem entspannten Mittagessen am Wasser in Funtana oder Vrsar auf dem Rückweg verbinden.',
+        },
+        {
+          heading: 'Vor der Haustür — das Kaštel in Svetvinčenat (300 m zu Fuß)',
+          body: 'Sie brauchen nicht immer das Auto. Der Hauptplatz des Dorfes, die Placa, wird vom Kaštel Morosini-Grimani beherrscht, einer Burg aus dem 13. Jahrhundert mit einem weiten begrünten Innenhof, 300 Meter zu Fuß von den Villen. Im Sommer beherbergt dieser Innenhof Ende Juli das Festival des Tanzes und nonverbalen Theaters sowie Istra-Inspirit-Geschichtsabende, die die berühmteste Geschichte des Dorfes nachspielen — den Hexenprozess gegen Mare Radolović, die „Hexe von Svetvinčenat", aus dem 17. Jahrhundert. An Veranstaltungstagen gibt es mittelalterliche Workshops für Kinder, vom Bogenschießen bis zu alten Handwerken. Den Platz und die Burg von außen zu sehen kostet nichts; die Innenhof-Veranstaltungen sind ticketpflichtig und einen darum geplanten Aufenthalt wert. Mit Café, Pizzeria und Gelato am selben Platz ist es die autofreie Nachmittagsantwort für Tage, an denen niemand einen ganzen Ausflug will.',
+        },
+        {
+          heading: 'Regentag oder Hitzewelle — ein Planungs-Spickzettel',
+          body: 'Zwei Arten unbequemer Tage haben hier unterschiedliche Antworten. An einem nassen Tag geht es unter die Erde oder nach drinnen: Höhle Baredine und der Abgrund von Pazin sind wetterfest und bei kühlem Wetter sogar besser, und die Museen der Burg Pazin ergeben einen trockenen halben Tag. An einem glühend heißen Hochsommertag sind die großen Wasserparks Richtung Küste das Ventil — der Aquapark Istralandia bei Brtonigla (~45 Minuten) und Aquacolors Poreč (~40 Minuten) verbinden echte Rutschen mit schattigen Kleinkind-Lagunen — beachten Sie aber, dass sie nur in der Sommersaison öffnen und bei Gewitter schließen, sie beantworten also Hitze, nicht Regen. Ein sinnvoller Rhythmus für eine Villenwoche ist ein Abenteuervormittag (Glavani oder die Pazin-Zipline), ein sanfter Vormittag (Dinopark oder das Kaštel), ein größerer Ausflugstag (ein Wasserpark oder die Höhle) und die übrige Zeit im Pool. Verlassen Sie die Villa bis 09:30, und die kurzen Fahrten Zentralistriens bringen Sie zum Nachmittagsschwimmen zurück.',
+        },
+      ],
+      faq: [
+        { q: 'Welche Aktivitäten eignen sich am besten für jüngere bzw. ältere Kinder und Teenager?', a: 'Jüngere Kinder lieben den Dinopark Funtana, den Kaštel-Innenhof in Svetvinčenat und die einfache Führung in der Höhle Baredine. Ältere Kinder und Teenager bevorzugen die höheren Seilparcours und Quad-Safaris im Glavani Park und die Zipline über den Abgrund von Pazin (Mindestgewicht und -alter gelten). Die meisten Familien mischen beides über eine Woche.' },
+        { q: 'Was können wir ohne Auto, zu Fuß von den Villen aus, unternehmen?', a: 'Das Kaštel Morosini-Grimani und der Dorfplatz — Café, Pizzeria, Gelato sowie das Sommerfestival und die Geschichtsabende — sind 300 Meter zu Fuß. Alles andere (Glavani ~20 Min, Pazin ~25 Min, Baredine und Dinopark ~35–40 Min) erfordert ein Auto oder einen privaten Transfer, den wir organisieren können.' },
+        { q: 'Was sind die besten Regentag-Optionen für Familien?', a: 'Unter die Erde oder ins Museum: Höhle Baredine und der Abgrund von Pazin sind wetterfest und bei kühlem Wetter angenehmer, und die Museen der Burg Pazin ergeben einen trockenen halben Tag. Die Wasserparks sind das Gegenteil — nur bei Sommerhitze, und sie schließen bei Gewitter.' },
+        { q: 'Müssen Familienaktivitäten im Voraus gebucht werden?', a: 'Für die Quad- und Buggy-Safaris von Glavani und die Zipline am Abgrund von Pazin ja — reservieren Sie einen Slot, besonders im Juli und August. Die Standardführungen der Höhlen und der Dinopark brauchen außerhalb der Hauptwochen meist keine Buchung.' },
+        { q: 'Welcher große Wasserpark ist am nächsten?', a: 'Aquacolors Poreč (~40 Minuten) und der Aquapark Istralandia bei Brtonigla (~45 Minuten) sind die beiden nächstgelegenen, beide nur in der Sommersaison geöffnet.' },
+        { q: 'Wie sieht ein realistischer Halbtagsausflug aus?', a: 'Verlassen Sie die Villa gegen 09:30, machen Sie eine Aktivität — etwa Glavani oder den Abgrund von Pazin —, essen Sie in Pazin oder zurück in Svetvinčenat und sind am frühen Nachmittag am Pool. Die kurzen Fahrten Zentralistriens sind genau der Grund, warum ein halber Tag von hier aus so gut funktioniert.' },
+      ],
+    },
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
