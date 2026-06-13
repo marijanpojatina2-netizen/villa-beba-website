@@ -11,8 +11,10 @@ name: Weekly content sprint reminder
 
 on:
   schedule:
-    # Cron is in UTC. 09:00 UTC = 11:00 CET (winter) / 11:00 CEST (summer).
-    - cron: '0 9 * * 5'
+    # Cron is in UTC. 06:00 UTC = 07:00 CET (winter) / 08:00 CEST (summer) —
+    # Friday morning. GitHub may delay scheduled runs, so an early slot keeps
+    # the reminder landing in the morning rather than slipping into afternoon.
+    - cron: '0 6 * * 5'
   workflow_dispatch:
     # Manual trigger so you can verify the workflow works without waiting
     # for Friday. Run from Actions tab → "Weekly content sprint reminder"
