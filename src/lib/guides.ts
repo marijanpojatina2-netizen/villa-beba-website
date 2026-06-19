@@ -33,6 +33,10 @@ export type Guide = {
   hero?: GuideImage;
   // Optional second image inserted after the named section (zero-indexed).
   inlineImage?: { afterSectionIndex: number; image: GuideImage };
+  // Slugs of sibling guides surfaced as contextual internal links at the foot
+  // of the page. Builds topical hub-and-spoke linking — the most controllable
+  // SEO lever we have while off-site authority is still the bottleneck.
+  relatedGuides?: string[];
   en: GuideLocale;
   de: GuideLocale;
 };
@@ -1279,6 +1283,126 @@ export const guides: Guide[] = [
         { q: 'Müssen Familienaktivitäten im Voraus gebucht werden?', a: 'Für die Quad- und Buggy-Safaris von Glavani und die Zipline am Abgrund von Pazin ja — reservieren Sie einen Slot, besonders im Juli und August. Die Standardführungen der Höhlen und der Dinopark brauchen außerhalb der Hauptwochen meist keine Buchung.' },
         { q: 'Welcher große Wasserpark ist am nächsten?', a: 'Aquacolors Poreč (~40 Minuten) und der Aquapark Istralandia bei Brtonigla (~45 Minuten) sind die beiden nächstgelegenen, beide nur in der Sommersaison geöffnet.' },
         { q: 'Wie sieht ein realistischer Halbtagsausflug aus?', a: 'Verlassen Sie die Villa gegen 09:30, machen Sie eine Aktivität — etwa Glavani oder den Abgrund von Pazin —, essen Sie in Pazin oder zurück in Svetvinčenat und sind am frühen Nachmittag am Pool. Die kurzen Fahrten Zentralistriens sind genau der Grund, warum ein halber Tag von hier aus so gut funktioniert.' },
+      ],
+    },
+  },
+  {
+    slug: 'best-time-to-visit-istria',
+    category: 'planning',
+    datePublished: '2026-06-19',
+    hero: {
+      src: '/images/guides/best-time-to-visit-istria/autumn-vineyard-istrian-hills-golden-hour.webp',
+      alt: {
+        en: 'Vineyard rows turning red and gold in autumn across the rolling hills of central Istria at golden hour, with olive groves and a distant hill town under a dramatic sky',
+        de: 'Im Herbst rot und golden gefärbte Weinrebenreihen über den sanften Hügeln Zentralistriens im goldenen Abendlicht, mit Olivenhainen und einem fernen Hügelort unter dramatischem Himmel',
+      },
+      width: 1500,
+      height: 999,
+    },
+    inlineImage: {
+      afterSectionIndex: 3,
+      image: {
+        src: '/images/guides/best-time-to-visit-istria/motovun-hilltop-town-autumn-morning-mist.webp',
+        alt: {
+          en: 'The hilltop town of Motovun rising above autumn morning mist in central Istria, framed by red vine leaves — the heart of the region\'s truffle country',
+          de: 'Die Hügelstadt Motovun erhebt sich über herbstlichem Morgennebel in Zentralistrien, eingerahmt von roten Weinblättern — das Herz des Trüffelgebiets der Region',
+        },
+        width: 1328,
+        height: 840,
+      },
+    },
+    relatedGuides: [
+      'pool-and-sauna-season',
+      'beaches-near-svetvincenat',
+      'truffle-hunting-near-svetvincenat',
+      'olive-oil-tasting-near-svetvincenat',
+      'istrian-wineries-near-svetvincenat',
+      'what-to-pack-for-istria',
+    ],
+    en: {
+      title: 'Best time to visit Istria — a month-by-month guide',
+      excerpt: 'There is no single best month to visit Istria — it depends whether you want a warm sea, empty roads, truffle season, or the lowest price. Here is an honest season-by-season and month-by-month breakdown from our villas in central Istria: weather, sea temperature, crowds, prices, and what is on, so you can match your trip to what you actually want.',
+      intro: 'The most common question we get before a booking is some version of \'when should we come?\' — and the honest answer is that it depends entirely on what you want from the week. Istria has a long, gentle season: the heated villa pool runs from 1 May to 30 October, the open sea is swimmable from June into October, and the food calendar — asparagus, wine, olive oil, truffles — keeps the shoulder months as interesting as high summer. This guide gives you the quick verdict first, then walks through each season with the weather, sea temperature, crowd levels, rough prices, and the festivals worth timing a stay around. Everything is written from central Istria, where our villas sit in Svetvinčenat, almost exactly in the middle of the peninsula.',
+      sections: [
+        {
+          heading: 'The quick answer — the best month for what',
+          body: 'If you want the warmest sea and the full buzz of open beach bars and festivals, come in July or August — and accept the heat, the crowds, and the highest prices. If you want warm water but quieter roads and noticeably better value, the sweet spots are June and September; September in particular is the local favourite, with a sea still around 22 °C, low humidity, and half the crowds. For food and wine — the grape and olive harvest and the start of white-truffle season — come in October or early November. For the lowest prices, the deepest quiet, and a fireplace-and-sauna kind of holiday, come any time from November to March. And if a single event is your anchor, the festival peak is the second half of July. The rest of this guide explains why.',
+        },
+        {
+          heading: 'Spring (March–May) — green, fragrant, and uncrowded',
+          body: 'Spring is Istria at its greenest and most affordable. March is still bare and quiet; by April the field edges are loud with wild asparagus (locals forage it and it lands on every konoba menu), the wildflowers are out, and Easter fills the villages. May is the turning point — the heated villa pool opens on 1 May at a genuine 26–27 °C even while the open sea is still a bracing 16–18 °C, so you swim at the villa rather than the beach. Daytime air climbs from the low teens in March to a comfortable 20–24 °C by late May. This is the season for wineries, cycling, hill-town walking, and the sights of Pula and Rovinj without the summer queues. Prices stay at their low-season level until the very end of May. Pack layers — mornings and evenings are still cool.',
+        },
+        {
+          heading: 'Summer (June–August) — peak sea, peak everything',
+          body: 'Summer is why most people come: the Adriatic warms from about 22 °C in June to 24–26 °C in July and August, the villa pool sits at 27–30 °C, and every beach bar, restaurant, and excursion is open. It is also the busiest and most expensive window, and July–August afternoons regularly hit 30–33 °C — which is exactly why the pool, the shade, and an early start matter. June and the last week of August are the connoisseur\'s summer: full warmth, slightly thinner crowds, slightly softer prices. The festival calendar peaks now — the Pula Film Festival lights up the Roman Arena in mid-July, and 300 metres from the villas the Kaštel in Svetvinčenat hosts the Festival of Dance and Non-Verbal Theatre in late July, alongside Istra Inspirit living-history evenings. Book early: July and August are the first dates to sell out each year.',
+        },
+        {
+          heading: 'Autumn (September–November) — the connoisseur\'s season',
+          body: 'If we had to pick one season, it would be this one. September is the standout: the sea holds around 22 °C, the heated pool is still 27–29 °C, the heat has broken, the humidity drops, and the crowds thin while everything is still open — the locals\' favourite month, and ours. It is also the start of the food calendar\'s best stretch: the grape harvest in September, the olive harvest from mid-October into early November, and white-truffle season ramping through October and November. The Subotina festival in Buzet (second Saturday of September) fries its famous giant truffle omelette, and St Martin\'s Day on 11 November turns the new wine across the region. Prices step down to shoulder rates after the first week of September. Bring a light jacket for the evenings from October on.',
+        },
+        {
+          heading: 'Winter (December–February) — quiet, gastronomic, and cheap',
+          body: 'Winter is Istria stripped back to the locals, and we keep both villas open year-round for exactly the guests who want that. The coast goes quiet — many seaside restaurants close — but the central hill villages stay alive, and this is the cheapest and most peaceful time to come. It is a fireplace-and-sauna holiday: the Finnish sauna at Villa Ballena is at its best when the air outside is cold, and the kitchens are at their most generous, with fresh-pressed olive oil, white truffle still hunted into January, game on the menus, and Advent markets in Poreč, Pula, and Rovinj through December. The weather is mild by Northern European standards — daytime highs of 7–12 °C — but it can be wet, and the bura wind brings clear, cold, bright days. The pool is not heated from November to April; this is a season for the indoors, the table, and the road.',
+        },
+        {
+          heading: 'Crowds, prices, and when to book',
+          body: 'Istria runs on three broad price tiers. High season is July and August — the warmest sea, the highest rates, and the dates that sell out first; for a summer villa week, booking six months to a year ahead is normal, and the best weeks go even earlier. Shoulder season — roughly June and September, plus the May and October edges — is the value sweet spot: warm enough to swim, far calmer, and meaningfully cheaper, which is why repeat guests gravitate here. Low season, November through April, is the quietest and least expensive by a wide margin. As a rule of thumb: if your dates are fixed to school holidays, book as early as you can; if you are flexible, aim for the second half of June or the first three weeks of September and you get most of summer for noticeably less. We are glad to advise on specific dates — just ask.',
+        },
+        {
+          heading: 'Our recommendation — when we tell guests to come',
+          body: 'It comes down to what you are optimising for. If swimming is the point, come in the second half of June or the first three weeks of September — warm sea, warm pool, none of the August intensity. If you want events and guaranteed heat and you do not mind crowds, late July is the peak of the calendar. If you care most about food, wine, and quiet — and want the best value of the year — late September to mid-October is, to us, the finest time to be in Istria: the truffle and olive seasons overlap, the light turns golden, and the villages exhale after summer. And if you want pure calm, a fire, the sauna, and a long table of local food, come in November or the depths of winter. There is no wrong month here — only the one that matches the holiday you have in mind.',
+        },
+      ],
+      faq: [
+        { q: 'What is the best month to visit Istria?', a: 'There is no single best month — it depends on your priority. For the warmest sea and full summer buzz, July and August; for warm water with fewer crowds and better value, June and September; for food, wine, and truffles, October and early November; for quiet and the lowest prices, November to March. September is the all-round local favourite: warm sea, thin crowds, and everything still open.' },
+        { q: 'When is the sea warm enough to swim in Istria?', a: 'The open Adriatic is comfortable for swimming from June (around 22 °C) through to early October (around 20 °C), peaking at 24–26 °C in July and August. Outside that window, the heated villa pool extends your swimming season — it runs 26–30 °C from 1 May to 30 October, even when the open sea is still cool.' },
+        { q: 'What is the cheapest time to visit Istria?', a: 'November through April is the least expensive by a wide margin, and the quietest. Within the warmer half of the year, the shoulder weeks — late May, June, September, and October — are notably cheaper than the July–August peak while still offering a warm pool and, in June and September, a swimmable sea.' },
+        { q: 'Is Istria worth visiting in winter?', a: 'Yes, if you want quiet and gastronomy rather than beach weather. The coast is sleepy and many seaside restaurants close, but central Istria\'s hill villages stay open, white truffle is still hunted into January, the new olive oil is freshly pressed, and Advent markets run in the larger towns. We keep both villas open year-round, with the fireplace and the Finnish sauna at Villa Ballena at their best in the cold.' },
+        { q: 'When is the least crowded time to visit Istria?', a: 'The quietest months are November to March. For warm-weather quiet, May and the first half of June, and the second half of September into October, give you open restaurants and a swimmable sea or pool with a fraction of the high-summer crowds. July and August are the busiest, especially on the coast and around the headline festivals.' },
+        { q: 'When is the best time to visit Istria with a family?', a: 'Late June and the first three weeks of September are ideal for families: the sea and pool are warm, the weather is reliable, and the crowds and prices are gentler than mid-summer. July and August suit families who want guaranteed beach weather and do not mind the busiest period — the villa pool and shaded terrace make the midday heat manageable for young children.' },
+      ],
+    },
+    de: {
+      title: 'Die beste Reisezeit für Istrien — ein Leitfaden Monat für Monat',
+      excerpt: 'Es gibt nicht den einen besten Monat für Istrien — es kommt darauf an, ob Sie warmes Meer, leere Straßen, Trüffelsaison oder den günstigsten Preis suchen. Hier finden Sie eine ehrliche Aufschlüsselung Saison für Saison und Monat für Monat von unseren Villen in Zentralistrien: Wetter, Wassertemperatur, Andrang, Preise und was los ist — damit Sie Ihre Reise auf das abstimmen, was Sie wirklich wollen.',
+      intro: 'Die häufigste Frage vor einer Buchung ist eine Variante von „Wann sollen wir kommen?" — und die ehrliche Antwort lautet: Es hängt ganz davon ab, was Sie sich von der Woche erhoffen. Istrien hat eine lange, sanfte Saison: Der beheizte Villenpool läuft vom 1. Mai bis 30. Oktober, das offene Meer ist von Juni bis in den Oktober zum Schwimmen geeignet, und der kulinarische Kalender — Spargel, Wein, Olivenöl, Trüffel — macht die Nebenmonate ebenso reizvoll wie den Hochsommer. Dieser Leitfaden gibt Ihnen zuerst das schnelle Fazit und führt dann durch jede Jahreszeit mit Wetter, Wassertemperatur, Andrang, groben Preisen und den Festen, um die sich ein Aufenthalt planen lässt. Alles ist aus der Sicht Zentralistriens geschrieben, wo unsere Villen in Svetvinčenat liegen — fast genau in der Mitte der Halbinsel.',
+      sections: [
+        {
+          heading: 'Die schnelle Antwort — der beste Monat wofür',
+          body: 'Wenn Sie das wärmste Meer und das volle Treiben geöffneter Strandbars und Festivals wollen, kommen Sie im Juli oder August — und nehmen Hitze, Andrang und die höchsten Preise in Kauf. Wenn Sie warmes Wasser, aber ruhigere Straßen und ein spürbar besseres Preis-Leistungs-Verhältnis möchten, sind Juni und September die idealen Fenster; besonders der September ist der Favorit der Einheimischen, mit einem Meer um die 22 °C, niedriger Luftfeuchtigkeit und halb so vielen Gästen. Für Essen und Wein — Trauben- und Olivenernte und den Beginn der Weißtrüffelsaison — kommen Sie im Oktober oder Anfang November. Für die niedrigsten Preise, die tiefste Ruhe und einen Kamin-und-Sauna-Urlaub kommen Sie zwischen November und März. Und wenn ein einzelnes Ereignis Ihr Anker ist: Der Festivalhöhepunkt ist die zweite Julihälfte. Der Rest dieses Leitfadens erklärt, warum.',
+        },
+        {
+          heading: 'Frühling (März–Mai) — grün, duftend und unbevölkert',
+          body: 'Der Frühling zeigt Istrien von seiner grünsten und günstigsten Seite. Der März ist noch kahl und ruhig; im April sind die Feldränder voller wildem Spargel (die Einheimischen sammeln ihn, und er landet auf jeder Konoba-Karte), die Wildblumen blühen, und Ostern füllt die Dörfer. Der Mai ist der Wendepunkt — der beheizte Villenpool öffnet am 1. Mai mit echten 26–27 °C, während das offene Meer noch erfrischende 16–18 °C hat; Sie schwimmen also eher in der Villa als am Strand. Die Tagestemperaturen steigen von niedrigen zweistelligen Werten im März auf angenehme 20–24 °C Ende Mai. Das ist die Saison für Weingüter, Radtouren, Wanderungen durch die Hügelstädte und die Sehenswürdigkeiten von Pula und Rovinj ohne Sommerschlangen. Die Preise bleiben bis Ende Mai auf Nebensaison-Niveau. Packen Sie Schichten ein — morgens und abends ist es noch kühl.',
+        },
+        {
+          heading: 'Sommer (Juni–August) — Höchststand bei Meer und allem anderen',
+          body: 'Der Sommer ist der Grund, warum die meisten kommen: Die Adria erwärmt sich von etwa 22 °C im Juni auf 24–26 °C im Juli und August, der Villenpool liegt bei 27–30 °C, und jede Strandbar, jedes Restaurant und jeder Ausflug ist geöffnet. Es ist zugleich das vollste und teuerste Fenster, und die Nachmittage im Juli und August erreichen regelmäßig 30–33 °C — genau deshalb sind Pool, Schatten und ein früher Start so wertvoll. Juni und die letzte Augustwoche sind der Kenner-Sommer: volle Wärme, etwas dünnere Menschenmengen, etwas mildere Preise. Der Festivalkalender erreicht jetzt seinen Höhepunkt — das Filmfestival von Pula erleuchtet Mitte Juli die römische Arena, und 300 Meter von den Villen entfernt veranstaltet das Kaštel in Svetvinčenat Ende Juli das Festival des Tanzes und nonverbalen Theaters sowie Istra-Inspirit-Geschichtsabende. Buchen Sie früh: Juli und August sind jedes Jahr die ersten ausgebuchten Termine.',
+        },
+        {
+          heading: 'Herbst (September–November) — die Saison der Kenner',
+          body: 'Müssten wir eine Jahreszeit wählen, wäre es diese. Der September ragt heraus: Das Meer hält sich um 22 °C, der beheizte Pool liegt noch bei 27–29 °C, die Hitze ist gebrochen, die Luftfeuchtigkeit sinkt, und der Andrang lässt nach, während noch alles geöffnet ist — der Lieblingsmonat der Einheimischen und unserer. Es ist zugleich der Beginn der besten kulinarischen Phase: die Weinlese im September, die Olivenernte von Mitte Oktober bis Anfang November und die Weißtrüffelsaison, die durch Oktober und November Fahrt aufnimmt. Das Subotina-Fest in Buzet (zweiter Samstag im September) brät sein berühmtes Riesen-Trüffelomelett, und der Martinstag am 11. November vergärt den neuen Wein in der ganzen Region. Nach der ersten Septemberwoche sinken die Preise auf Nebensaison-Tarife. Ab Oktober eine leichte Jacke für die Abende mitnehmen.',
+        },
+        {
+          heading: 'Winter (Dezember–Februar) — ruhig, kulinarisch und günstig',
+          body: 'Der Winter ist Istrien, reduziert auf die Einheimischen, und wir halten beide Villen ganzjährig geöffnet — genau für die Gäste, die das suchen. Die Küste wird ruhig — viele Strandrestaurants schließen —, aber die zentralen Hügeldörfer bleiben lebendig, und dies ist die günstigste und friedlichste Zeit für einen Besuch. Es ist ein Kamin-und-Sauna-Urlaub: Die finnische Sauna in der Villa Ballena ist am schönsten, wenn die Luft draußen kalt ist, und die Küchen sind am großzügigsten — mit frisch gepresstem Olivenöl, Weißtrüffel, der bis in den Januar gesucht wird, Wild auf den Karten und Adventmärkten in Poreč, Pula und Rovinj durch den Dezember. Das Wetter ist nach nordeuropäischen Maßstäben mild — Tageshöchstwerte von 7–12 °C —, aber es kann nass sein, und die Bura bringt klare, kalte, helle Tage. Der Pool wird von November bis April nicht beheizt; dies ist eine Saison für drinnen, für den Tisch und für die Straße.',
+        },
+        {
+          heading: 'Andrang, Preise und wann man buchen sollte',
+          body: 'Istrien läuft in drei groben Preisstufen. Hochsaison sind Juli und August — das wärmste Meer, die höchsten Preise und die Termine, die zuerst ausgebucht sind; für eine sommerliche Villenwoche ist eine Buchung sechs Monate bis ein Jahr im Voraus normal, und die besten Wochen gehen noch früher weg. Die Nebensaison — etwa Juni und September plus die Ränder im Mai und Oktober — ist das Preis-Leistungs-Optimum: warm genug zum Schwimmen, deutlich ruhiger und merklich günstiger, weshalb Stammgäste hierher tendieren. Die stillen Monate von November bis April sind mit großem Abstand die ruhigste und günstigste Zeit. Als Faustregel: Sind Ihre Termine an Schulferien gebunden, buchen Sie so früh wie möglich; sind Sie flexibel, zielen Sie auf die zweite Junihälfte oder die ersten drei Septemberwochen — dann bekommen Sie fast den ganzen Sommer für spürbar weniger. Zu konkreten Terminen beraten wir gern — fragen Sie einfach.',
+        },
+        {
+          heading: 'Unsere Empfehlung — wann wir Gästen raten zu kommen',
+          body: 'Es kommt darauf an, worauf Sie optimieren. Geht es ums Schwimmen, kommen Sie in der zweiten Junihälfte oder in den ersten drei Septemberwochen — warmes Meer, warmer Pool, ohne die Intensität des August. Wollen Sie Veranstaltungen und garantierte Hitze und stört Sie der Andrang nicht, ist Ende Juli der Höhepunkt des Kalenders. Liegt Ihnen am meisten an Essen, Wein und Ruhe — und am besten Preis-Leistungs-Verhältnis des Jahres —, dann ist Ende September bis Mitte Oktober für uns die schönste Zeit in Istrien: Trüffel- und Olivensaison überlappen sich, das Licht wird golden, und die Dörfer atmen nach dem Sommer auf. Und wenn Sie reine Ruhe, ein Feuer, die Sauna und einen langen Tisch mit lokalem Essen wollen, kommen Sie im November oder im tiefen Winter. Es gibt hier keinen falschen Monat — nur den, der zu dem Urlaub passt, den Sie sich vorstellen.',
+        },
+      ],
+      faq: [
+        { q: 'Wann ist die beste Reisezeit für Istrien?', a: 'Es gibt nicht den einen besten Monat — es hängt von Ihrer Priorität ab. Für das wärmste Meer und das volle Sommertreiben: Juli und August; für warmes Wasser mit weniger Andrang und besserem Preis-Leistungs-Verhältnis: Juni und September; für Essen, Wein und Trüffel: Oktober und Anfang November; für Ruhe und die niedrigsten Preise: November bis März. Der September ist der Allround-Favorit der Einheimischen: warmes Meer, dünner Andrang, alles noch geöffnet.' },
+        { q: 'Wann ist das Meer in Istrien warm genug zum Schwimmen?', a: 'Die offene Adria ist von Juni (um die 22 °C) bis Anfang Oktober (um die 20 °C) angenehm zum Schwimmen, mit einem Höchststand von 24–26 °C im Juli und August. Außerhalb dieser Zeit verlängert der beheizte Villenpool Ihre Schwimmsaison — er läuft von 1. Mai bis 30. Oktober mit 26–30 °C, auch wenn das offene Meer noch kühl ist.' },
+        { q: 'Wann ist die günstigste Reisezeit für Istrien?', a: 'November bis April ist mit großem Abstand am günstigsten und am ruhigsten. Innerhalb der wärmeren Jahreshälfte sind die Nebensaison-Wochen — Ende Mai, Juni, September und Oktober — deutlich günstiger als der Höhepunkt im Juli und August und bieten weiterhin einen warmen Pool und, im Juni und September, ein schwimmbares Meer.' },
+        { q: 'Lohnt sich Istrien im Winter?', a: 'Ja, wenn Sie Ruhe und Genuss statt Strandwetter suchen. Die Küste schläft und viele Strandrestaurants schließen, aber die Hügeldörfer Zentralistriens bleiben geöffnet, Weißtrüffel wird bis in den Januar gesucht, das neue Olivenöl ist frisch gepresst, und in den größeren Städten gibt es Adventmärkte. Wir halten beide Villen ganzjährig geöffnet — mit dem Kamin und der finnischen Sauna in der Villa Ballena, die in der Kälte am schönsten sind.' },
+        { q: 'Wann ist die ruhigste Reisezeit für Istrien?', a: 'Die ruhigsten Monate sind November bis März. Für Ruhe bei warmem Wetter bieten der Mai und die erste Junihälfte sowie die zweite Septemberhälfte bis in den Oktober geöffnete Restaurants und ein schwimmbares Meer oder einen warmen Pool bei einem Bruchteil des Hochsommer-Andrangs. Juli und August sind am vollsten, besonders an der Küste und rund um die großen Festivals.' },
+        { q: 'Wann ist die beste Reisezeit für Istrien mit Familie?', a: 'Ende Juni und die ersten drei Septemberwochen sind ideal für Familien: Meer und Pool sind warm, das Wetter ist verlässlich, und Andrang und Preise sind milder als im Hochsommer. Juli und August passen zu Familien, die garantiertes Strandwetter wollen und die vollste Zeit nicht scheuen — der Villenpool und die schattige Terrasse machen die Mittagshitze für kleine Kinder gut beherrschbar.' },
       ],
     },
   },

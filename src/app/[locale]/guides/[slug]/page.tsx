@@ -155,6 +155,31 @@ export default async function GuideDetail({
           </dl>
         </section>
 
+        {guide.relatedGuides && guide.relatedGuides.length > 0 && (
+          <section className="mt-16">
+            <h2 className="font-heading text-base uppercase tracking-[0.12em] text-text">
+              {isDE ? 'Weitere Leitfäden' : 'Related guides'}
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {guide.relatedGuides.map(rs => {
+                const related = getGuide(rs);
+                if (!related) return null;
+                const rloc = isDE ? related.de : related.en;
+                return (
+                  <li key={rs}>
+                    <Link
+                      href={`/guides/${rs}`}
+                      className="text-[0.95rem] underline underline-offset-4 hover:text-text-muted"
+                    >
+                      {rloc.title}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
         <div className="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-[0.8125rem]">
           <Link href="/guides" className="underline underline-offset-4 hover:text-text-muted">
             {isDE ? '← Alle Guides' : '← All guides'}
