@@ -32,6 +32,7 @@ export default function Footer() {
               { href: '/villa-ballena' as const, label: t('ballena') },
               { href: '/villa-beluga' as const, label: t('beluga') },
               { href: '/experiences' as const, label: t('experiences') },
+              { href: '/guides' as const, label: t('guides') },
               { href: '/weddings' as const, label: t('weddings') },
               { href: '/pricing' as const, label: t('pricing') },
               { href: '/contact' as const, label: t('contact') },

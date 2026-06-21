@@ -8,6 +8,7 @@ import VillasShowcase from './_sections/VillasShowcase';
 import Beliefs from './_sections/Beliefs';
 import LocationLifestyle from './_sections/LocationLifestyle';
 import BlogPreview from './_sections/BlogPreview';
+import GuidesPreview from './_sections/GuidesPreview';
 import ValuesGrid from './_sections/ValuesGrid';
 import Amenities from './_sections/Amenities';
 import Reviews from './_sections/Reviews';
@@ -26,6 +27,7 @@ export default function HomePage({ locale }: { locale: string }) {
           previews and values grid. */}
       <LocationLifestyle locale={locale} />
       <BlogPreview />
+      <GuidesPreview locale={locale} />
       <ValuesGrid />
       <Amenities />
       <Reviews />
