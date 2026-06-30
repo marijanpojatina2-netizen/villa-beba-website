@@ -35,7 +35,7 @@ export const villaCommon = {
   checkOut: '10:00',
   deposit: '€1,500',
   included: ['Bed linen', 'Towels', 'Pool towels', 'Final cleaning'],
-  pets: 'Up to 2, no extra charge',
+  pets: 'One dog free; a second by arrangement (surcharge)',
 };
 
 export const villaBallena = {
