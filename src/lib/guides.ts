@@ -268,6 +268,12 @@ export const guides: Guide[] = [
     slug: 'what-to-pack-for-istria',
     category: 'planning',
     datePublished: '2026-05-04',
+    relatedGuides: [
+      'pet-friendly-villa-istria',
+      'best-time-to-visit-istria',
+      'beaches-near-svetvincenat',
+      'driving-to-istria-by-car',
+    ],
     en: {
       title: 'What to pack for a stay in central Istria',
       excerpt: 'Climate, dress code, and the small things first-time guests forget — a practical packing list for Villa Ballena & Beluga across the May–October season.',
@@ -882,6 +888,12 @@ export const guides: Guide[] = [
         height: 1080,
       },
     },
+    relatedGuides: [
+      'pet-friendly-villa-istria',
+      'best-time-to-visit-istria',
+      'day-trips-from-svetvincenat',
+      'what-to-pack-for-istria',
+    ],
     en: {
       title: 'Beaches near Svetvinčenat — the best of the Istrian coast within 45 minutes',
       excerpt: 'Svetvinčenat sits inland, but three stretches of coast are 25–45 minutes from Villa Ballena & Beluga. Here are our favourite beaches — Rovinj\'s Golden Cape, the family bays of Vrsar and Funtana, the quiet pebbles at Polidor, the naturist coast around Koversada, and wild Cape Kamenjak — with what each is best for and how to plan the day.',
@@ -1312,11 +1324,11 @@ export const guides: Guide[] = [
       },
     },
     relatedGuides: [
+      'pet-friendly-villa-istria',
       'pool-and-sauna-season',
       'beaches-near-svetvincenat',
       'truffle-hunting-near-svetvincenat',
       'olive-oil-tasting-near-svetvincenat',
-      'istrian-wineries-near-svetvincenat',
       'what-to-pack-for-istria',
     ],
     en: {
@@ -1403,6 +1415,126 @@ export const guides: Guide[] = [
         { q: 'Lohnt sich Istrien im Winter?', a: 'Ja, wenn Sie Ruhe und Genuss statt Strandwetter suchen. Die Küste schläft und viele Strandrestaurants schließen, aber die Hügeldörfer Zentralistriens bleiben geöffnet, Weißtrüffel wird bis in den Januar gesucht, das neue Olivenöl ist frisch gepresst, und in den größeren Städten gibt es Adventmärkte. Wir halten beide Villen ganzjährig geöffnet — mit dem Kamin und der finnischen Sauna in der Villa Ballena, die in der Kälte am schönsten sind.' },
         { q: 'Wann ist die ruhigste Reisezeit für Istrien?', a: 'Die ruhigsten Monate sind November bis März. Für Ruhe bei warmem Wetter bieten der Mai und die erste Junihälfte sowie die zweite Septemberhälfte bis in den Oktober geöffnete Restaurants und ein schwimmbares Meer oder einen warmen Pool bei einem Bruchteil des Hochsommer-Andrangs. Juli und August sind am vollsten, besonders an der Küste und rund um die großen Festivals.' },
         { q: 'Wann ist die beste Reisezeit für Istrien mit Familie?', a: 'Ende Juni und die ersten drei Septemberwochen sind ideal für Familien: Meer und Pool sind warm, das Wetter ist verlässlich, und Andrang und Preise sind milder als im Hochsommer. Juli und August passen zu Familien, die garantiertes Strandwetter wollen und die vollste Zeit nicht scheuen — der Villenpool und die schattige Terrasse machen die Mittagshitze für kleine Kinder gut beherrschbar.' },
+      ],
+    },
+  },
+  {
+    slug: 'pet-friendly-villa-istria',
+    category: 'planning',
+    datePublished: '2026-07-01',
+    hero: {
+      src: '/images/guides/pet-friendly-villa-istria/dog-on-fazana-beach-istria-adriatic.webp',
+      alt: {
+        en: 'A happy white dog standing in the clear, shallow turquoise water of a pebble-and-sand dog-friendly beach in Istria, with low green islands on the horizon',
+        de: 'Ein fröhlicher weißer Hund steht im klaren, flachen türkisfarbenen Wasser eines kiesig-sandigen hundefreundlichen Strandes in Istrien, mit niedrigen grünen Inseln am Horizont',
+      },
+      width: 1200,
+      height: 455,
+    },
+    inlineImage: {
+      afterSectionIndex: 4,
+      image: {
+        src: '/images/guides/pet-friendly-villa-istria/dog-agility-park-istrian-coast.webp',
+        alt: {
+          en: 'A dog working an agility course of ramps, tunnels and jumps in a pine-shaded dog park near the Istrian coast on a bright spring morning',
+          de: 'Ein Hund auf einem Agility-Parcours aus Rampen, Tunneln und Hürden in einem pinienbeschatteten Hundepark nahe der istrischen Küste an einem hellen Frühlingsmorgen',
+        },
+        width: 1200,
+        height: 598,
+      },
+    },
+    relatedGuides: [
+      'what-to-pack-for-istria',
+      'best-time-to-visit-istria',
+      'beaches-near-svetvincenat',
+      'day-trips-from-svetvincenat',
+      'driving-to-istria-by-car',
+      'restaurants-central-istria',
+    ],
+    en: {
+      title: 'Istria with your dog — a pet-friendly villa holiday',
+      excerpt: 'Both Villa Ballena and Villa Beluga welcome dogs, free of charge, on fully fenced grounds — pool and garden enclosed, so your dog can be off the lead the moment you arrive. Here is the honest, first-hand guide to a holiday in central Istria with your dog: getting here with the EU pet papers, the dog-friendly beaches and walks within reach, eating out, summer-heat safety, and the nearest vets.',
+      intro: 'Croatia is one of the easiest countries in Europe to travel with a dog, and central Istria — green, walkable, and only a day\'s drive from Austria, Germany, and Slovenia — is one of its best corners for it. Both of our villas in Svetvinčenat are genuinely dog-friendly: dogs stay free, and the whole property, pool and garden included, is fully fenced, so your dog can be off the lead from the minute you unpack. We ask for a maximum of one dog per villa as standard (a second can usually be arranged in advance for a small extra charge — just ask when you book). This guide is the practical, honest version of everything guests ask us before arriving with a dog: the paperwork and the drive, what the villas offer dog owners, where to swim and walk, where you can eat with a dog at your feet, and how to keep a dog safe and comfortable through an Istrian summer.',
+      sections: [
+        {
+          heading: 'The short version — why central Istria works with a dog',
+          body: 'If you want a dog holiday with no compromises, this is a strong base. Both villas welcome dogs at no charge, and — the detail that matters most to dog owners — the grounds are completely enclosed, pool area included, so there is no gate-watching and no lead in your own garden. The location helps too: Svetvinčenat sits almost exactly in the middle of the peninsula, so the dog-friendly beaches of the south and west coast, the forest trails of the Mirna valley, and the hill towns are all 30–45 minutes away rather than a single fixed direction. Croatia itself is relaxed about dogs — most konoba terraces, many shops, and almost all outdoor space take dogs in their stride. The one real constraint is the summer heat, which the rest of this guide takes seriously. We keep it to one dog per villa as standard; a second dog can be arranged in advance for a small surcharge.',
+        },
+        {
+          heading: 'Getting here — the EU pet passport and the drive',
+          body: 'Croatia is in the EU and the Schengen area, so for dogs coming from Austria, Germany, Slovenia, Italy, and the rest of the EU the rules are simple: a valid EU pet passport, an ISO-standard microchip, and a rabies vaccination that was given at least 21 days before you travel and is still in date. There is no tapeworm-treatment requirement for entry to Croatia (that only applies to a handful of countries like the UK, Ireland, Finland, and Malta). Most of our dog-owning guests drive — it is the natural way to bring a dog, and the trip is comfortable: roughly 5 hours from Vienna or Munich, 2 from Ljubljana, with good motorway most of the way. Plan a proper leg-stretch and water stop every two hours or so, keep the car cool, and never leave a dog in a parked car in summer even for a few minutes. Carry the passport — border officers can ask for it, though checks are usually quick.',
+        },
+        {
+          heading: 'The villas for dog owners — fenced, cool, and easy',
+          body: 'The single best thing we offer a dog is the fully fenced grounds: the garden, the lawn, and the pool terrace are all enclosed, so your dog can roam, sunbathe, and follow you around without a lead and without an escape route to worry about. Inside, the stone and tiled floors and the air conditioning give a dog somewhere genuinely cool to lie through the hottest part of the day — more important in an Istrian July than any toy. We keep both villas open year-round, so a dog holiday works in the quiet, walkable shoulder months just as well as in summer. Bring your dog\'s own bed, bowls, food, and a towel for sandy paws; we will have fresh water bowls out and can point you to the nearest pet shop for anything you forget. We just ask the obvious in return — that the dog is house-trained, not left alone in the villa to bark, and that you clean up after it in the garden as you would at home.',
+        },
+        {
+          heading: 'Dog-friendly beaches and swimming',
+          body: 'Istria has a growing number of official dog beaches — marked stretches where dogs are not just tolerated but welcome — and several are within easy reach. The south and west coast has the best cluster: Pula has well-known dog beaches at Valkane and Bunarina, Medulin and the Kamenjak peninsula at the southern tip are very dog-relaxed, and Rovinj and Poreč both have marked dog-friendly sections — all roughly 30–45 minutes from the villa. On a normal town beach in high season, keep a dog on the lead and off the main bathing area out of courtesy; early morning and the cooler evening are the kind, quiet times to let a dog swim anyway. Pack a freshwater bottle to rinse salt and a pair of paw-friendly water shoes for yourselves — much of the Istrian coast is pebble and rock rather than sand, which is gentle on dogs\' pads but sharp underfoot. And of course there is always the home option: a tired dog and a fully fenced garden after a beach morning is the easiest afternoon of the holiday.',
+        },
+        {
+          heading: 'Walks, trails, and dog-friendly days out',
+          body: 'Inland Istria is made for walking a dog. The Mirna valley and the forest tracks below Motovun give you shaded, flat, lead-optional walking even in summer; the parenzana, the old railway-turned-cycling-and-walking trail, runs for miles of gentle gravel through vineyards and tunnels and is ideal for a dog on a long lead. The hill towns — Motovun, Grožnjan, Bale, Svetvinčenat itself — are happy to have a dog wander the lanes with you. The Kamenjak nature park at the southern tip allows dogs on the lead and combines a walk with a swim. In all of these, the rule is the same: lead in towns and busy areas, water always in the bag, and walk early or late in July and August — the midday sun is too much for a dog and the tarmac and rock get hot enough to hurt paws. A short test with the back of your hand on the ground before you set off saves trouble.',
+        },
+        {
+          heading: 'Eating out, shops, and everyday practicalities',
+          body: 'Croatia is easygoing about dogs in everyday life, which makes self-catering with a dog simple. Most konoba and restaurant terraces will happily seat you with a well-behaved dog at your feet — ask, but the answer is almost always yes, and many bring a water bowl without being asked. Supermarkets (Konzum, Lidl, Plodine, Spar) and the larger pet shops in Pula, Poreč, and Pazin stock the usual food and supplies, so you do not need to carry a fortnight of dog food across the border. Local pharmacies and vets sell tick-and-flea protection if you run out. The bura wind can bring sudden cool, clear days even in summer, and the inland evenings are pleasant — both good windows for a longer walk or a relaxed dinner out with the dog. For day trips, the same logic as any Istrian outing applies: drive yourselves, park in the shade, and plan around the heat rather than against it.',
+        },
+        {
+          heading: 'Vets, health, and staying safe in the heat',
+          body: 'The most important thing to know is that summer heat, not anything exotic, is the real risk to a dog in Istria — heatstroke is the one emergency we most want guests to avoid. Walk early and late, never leave a dog in a car, always carry water, and use the cool tiled floors and air conditioning indoors at midday. Beyond that: ticks are present from spring to autumn, so keep protection current and check the coat after forest walks; in spring, give a wide berth to pine processionary caterpillars, whose hairs are dangerous if a dog noses them; and on rocky shores watch for sea urchins. The nearest veterinary clinics are in Pula and Pazin, both around 30–35 minutes from the villa, with a 24-hour emergency option; we keep an up-to-date vet contact list and emergency number at the villa, and we are always reachable to help you find the right one quickly. With those few sensible precautions, a dog holiday here is genuinely relaxing — for the dog as much as for you.',
+        },
+      ],
+      faq: [
+        { q: 'Are dogs allowed at Villa Ballena and Villa Beluga?', a: 'Yes — both villas are dog-friendly and dogs stay free of charge. The whole property, including the pool area and garden, is fully fenced, so your dog can be off the lead on the grounds. We ask for a maximum of one dog per villa as standard; a second dog can usually be arranged in advance for a small surcharge, so just let us know when you book.' },
+        { q: 'Is there a fee for bringing a dog?', a: 'No, there is no charge for one dog per villa. If you would like to bring a second dog, that can normally be arranged in advance for a small extra charge — please mention it at the time of booking so we can confirm.' },
+        { q: 'Is the garden fenced so my dog can run free?', a: 'Yes. The grounds of both villas — garden, lawn, and pool terrace — are completely enclosed, so your dog can roam off the lead safely from the moment you arrive. This is the feature dog owners tell us they value most.' },
+        { q: 'What do I need to bring my dog into Croatia?', a: 'For dogs coming from the EU you need a valid EU pet passport, an ISO-standard microchip, and a rabies vaccination given at least 21 days before travel and still in date. Croatia does not require tapeworm treatment for entry. Carry the passport in case of a border check.' },
+        { q: 'Are there dog-friendly beaches near the villa?', a: 'Yes. Several official dog beaches on the south and west coast — including Valkane and Bunarina in Pula, the Medulin and Kamenjak area, and marked sections at Rovinj and Poreč — are roughly 30–45 minutes away. On ordinary town beaches in high season, keep your dog on the lead and swim early or late out of courtesy.' },
+        { q: 'How do I keep my dog safe in the Istrian summer heat?', a: 'Heat is the main risk. Walk early in the morning and in the evening, never leave a dog in a parked car, always carry water, and use the cool tiled floors and air conditioning indoors at midday. Test the ground temperature with your hand before walking on tarmac or rock, keep tick protection current, and avoid pine processionary caterpillars in spring.' },
+      ],
+    },
+    de: {
+      title: 'Istrien mit Hund — ein hundefreundlicher Villenurlaub',
+      excerpt: 'Sowohl Villa Ballena als auch Villa Beluga heißen Hunde willkommen, kostenfrei und auf vollständig eingezäuntem Grundstück — Pool und Garten umzäunt, sodass Ihr Hund vom ersten Moment an ohne Leine sein kann. Hier ist der ehrliche Leitfaden aus erster Hand für einen Urlaub in Zentralistrien mit Hund: die Anreise mit den EU-Papieren, hundefreundliche Strände und Wanderungen in Reichweite, Essengehen, Sicherheit bei Sommerhitze und die nächsten Tierärzte.',
+      intro: 'Kroatien ist eines der unkompliziertesten Länder Europas für das Reisen mit Hund, und Zentralistrien — grün, gut begehbar und nur eine Tagesreise von Österreich, Deutschland und Slowenien entfernt — ist einer seiner besten Winkel dafür. Beide Villen in Svetvinčenat sind wirklich hundefreundlich: Hunde übernachten kostenlos, und das gesamte Grundstück, Pool und Garten inklusive, ist vollständig eingezäunt, sodass Ihr Hund schon beim Auspacken ohne Leine sein kann. Standardmäßig bitten wir um maximal einen Hund pro Villa (ein zweiter lässt sich meist im Voraus gegen einen kleinen Aufpreis arrangieren — fragen Sie einfach bei der Buchung). Dieser Leitfaden ist die praktische, ehrliche Fassung von allem, was Gäste vor der Anreise mit Hund fragen: Papiere und Anfahrt, was die Villen Hundebesitzern bieten, wo man schwimmen und spazieren geht, wo man mit Hund zu Füßen essen kann und wie man einen Hund durch einen istrischen Sommer sicher und entspannt bringt.',
+      sections: [
+        {
+          heading: 'Die Kurzfassung — warum Zentralistrien mit Hund funktioniert',
+          body: 'Wenn Sie einen Hundeurlaub ohne Kompromisse wollen, ist das eine starke Basis. Beide Villen empfangen Hunde kostenfrei, und — das Detail, das Hundebesitzern am wichtigsten ist — das Grundstück ist komplett eingezäunt, Poolbereich inklusive, also kein Tor-Bewachen und keine Leine im eigenen Garten. Auch die Lage hilft: Svetvinčenat liegt fast genau in der Mitte der Halbinsel, sodass die hundefreundlichen Strände der Süd- und Westküste, die Waldwege des Mirna-Tals und die Hügelstädte alle 30–45 Minuten entfernt sind statt in einer einzigen festen Richtung. Kroatien selbst ist entspannt mit Hunden — die meisten Konoba-Terrassen, viele Geschäfte und fast jeder Außenraum nehmen Hunde gelassen. Die einzige echte Einschränkung ist die Sommerhitze, die der Rest dieses Leitfadens ernst nimmt. Standardmäßig bleibt es bei einem Hund pro Villa; ein zweiter Hund lässt sich im Voraus gegen einen kleinen Aufpreis arrangieren.',
+        },
+        {
+          heading: 'Die Anreise — der EU-Heimtierausweis und die Fahrt',
+          body: 'Kroatien gehört zur EU und zum Schengen-Raum, also sind die Regeln für Hunde aus Österreich, Deutschland, Slowenien, Italien und dem übrigen EU-Raum einfach: ein gültiger EU-Heimtierausweis, ein ISO-konformer Mikrochip und eine Tollwutimpfung, die mindestens 21 Tage vor der Reise verabreicht wurde und noch gültig ist. Für die Einreise nach Kroatien gibt es keine Bandwurm-Behandlungspflicht (die gilt nur für wenige Länder wie Großbritannien, Irland, Finnland und Malta). Die meisten unserer hundehaltenden Gäste reisen mit dem Auto an — die natürliche Art, einen Hund mitzubringen, und die Fahrt ist bequem: rund 5 Stunden von Wien oder München, 2 von Ljubljana, fast durchgehend gute Autobahn. Planen Sie etwa alle zwei Stunden eine richtige Bewegungs- und Wasserpause, halten Sie das Auto kühl, und lassen Sie einen Hund im Sommer niemals im geparkten Auto, auch nicht für ein paar Minuten. Führen Sie den Ausweis mit — Grenzbeamte können danach fragen, auch wenn Kontrollen meist schnell gehen.',
+        },
+        {
+          heading: 'Die Villen für Hundebesitzer — eingezäunt, kühl und unkompliziert',
+          body: 'Das Beste, was wir einem Hund bieten, ist das vollständig eingezäunte Grundstück: Garten, Rasen und Poolterrasse sind alle umzäunt, sodass Ihr Hund ohne Leine streifen, sich sonnen und Ihnen folgen kann — ohne Fluchtweg, um den man sich sorgen müsste. Drinnen geben die Stein- und Fliesenböden und die Klimaanlage dem Hund einen wirklich kühlen Platz für die heißeste Tageszeit — in einem istrischen Juli wichtiger als jedes Spielzeug. Wir halten beide Villen ganzjährig geöffnet, sodass ein Hundeurlaub in den ruhigen, gut begehbaren Nebenmonaten genauso gut funktioniert wie im Sommer. Bringen Sie Bett, Näpfe, Futter und ein Handtuch für sandige Pfoten Ihres Hundes mit; wir stellen frische Wassernäpfe bereit und zeigen Ihnen den nächsten Tierbedarf für alles, was Sie vergessen. Im Gegenzug bitten wir um das Naheliegende — dass der Hund stubenrein ist, nicht allein bellend in der Villa zurückgelassen wird und Sie im Garten so aufräumen, wie Sie es zu Hause täten.',
+        },
+        {
+          heading: 'Hundefreundliche Strände und Schwimmen',
+          body: 'Istrien hat eine wachsende Zahl offizieller Hundestrände — markierte Abschnitte, an denen Hunde nicht nur geduldet, sondern willkommen sind — und mehrere sind gut erreichbar. Die Süd- und Westküste hat das beste Angebot: Pula hat bekannte Hundestrände in Valkane und Bunarina, Medulin und die Halbinsel Kamenjak an der Südspitze sind sehr hundeentspannt, und Rovinj und Poreč haben beide markierte hundefreundliche Abschnitte — alle rund 30–45 Minuten von der Villa. An einem normalen Stadtstrand in der Hochsaison halten Sie einen Hund aus Höflichkeit an der Leine und vom Hauptbadebereich fern; der frühe Morgen und der kühlere Abend sind ohnehin die freundlichen, ruhigen Zeiten, um einen Hund schwimmen zu lassen. Packen Sie eine Süßwasserflasche zum Abspülen von Salz und ein Paar Badeschuhe für sich selbst ein — ein Großteil der istrischen Küste ist Kies und Fels statt Sand, schonend für Hundeballen, aber scharf unter bloßen Füßen. Und natürlich gibt es immer die Heim-Option: ein müder Hund und ein vollständig eingezäunter Garten nach einem Strandmorgen sind der einfachste Nachmittag des Urlaubs.',
+        },
+        {
+          heading: 'Wanderungen, Wege und hundefreundliche Ausflüge',
+          body: 'Das Landesinnere Istriens ist wie geschaffen, um einen Hund auszuführen. Das Mirna-Tal und die Waldwege unterhalb von Motovun bieten schattiges, ebenes, leinenfreies Gehen selbst im Sommer; die Parenzana, die alte Bahntrasse, die heute Rad- und Wanderweg ist, zieht sich über Kilometer sanften Schotter durch Weinberge und Tunnel und ist ideal für einen Hund an der langen Leine. Die Hügelstädte — Motovun, Grožnjan, Bale, Svetvinčenat selbst — haben nichts dagegen, wenn ein Hund mit Ihnen durch die Gassen streift. Der Naturpark Kamenjak an der Südspitze erlaubt Hunde an der Leine und verbindet einen Spaziergang mit einem Bad. Überall gilt dieselbe Regel: Leine in Städten und belebten Bereichen, immer Wasser in der Tasche, und im Juli und August früh oder spät gehen — die Mittagssonne ist zu viel für einen Hund, und Asphalt und Fels werden heiß genug, um Pfoten zu verletzen. Ein kurzer Test mit dem Handrücken auf dem Boden vor dem Losgehen erspart Ärger.',
+        },
+        {
+          heading: 'Essengehen, Einkaufen und der Alltag',
+          body: 'Kroatien ist im Alltag gelassen mit Hunden, was die Selbstverpflegung mit Hund einfach macht. Die meisten Konoba- und Restaurantterrassen setzen Sie gern mit einem wohlerzogenen Hund zu Füßen an den Tisch — fragen Sie, aber die Antwort ist fast immer ja, und viele bringen ungefragt einen Wassernapf. Supermärkte (Konzum, Lidl, Plodine, Spar) und die größeren Tierbedarfsgeschäfte in Pula, Poreč und Pazin führen das übliche Futter und Zubehör, sodass Sie keine zwei Wochen Hundefutter über die Grenze tragen müssen. Lokale Apotheken und Tierärzte verkaufen Zecken- und Flohschutz, falls Ihnen etwas ausgeht. Die Bura kann selbst im Sommer plötzlich kühle, klare Tage bringen, und die Abende im Landesinneren sind angenehm — beides gute Fenster für einen längeren Spaziergang oder ein entspanntes Abendessen mit Hund. Für Tagesausflüge gilt dieselbe Logik wie für jeden istrischen Ausflug: selbst fahren, im Schatten parken und um die Hitze herum planen statt gegen sie.',
+        },
+        {
+          heading: 'Tierärzte, Gesundheit und Sicherheit bei Hitze',
+          body: 'Das Wichtigste zuerst: Die Sommerhitze, nichts Exotisches, ist das echte Risiko für einen Hund in Istrien — ein Hitzschlag ist der eine Notfall, den wir Gästen am meisten ersparen möchten. Gehen Sie früh und spät, lassen Sie einen Hund nie im Auto, führen Sie immer Wasser mit, und nutzen Sie mittags die kühlen Fliesenböden und die Klimaanlage drinnen. Darüber hinaus: Zecken sind von Frühling bis Herbst präsent, halten Sie den Schutz aktuell und prüfen Sie das Fell nach Waldspaziergängen; im Frühling machen Sie einen weiten Bogen um die Pinienprozessionsspinner-Raupen, deren Härchen gefährlich sind, wenn ein Hund daran schnüffelt; und an felsigen Ufern achten Sie auf Seeigel. Die nächsten Tierkliniken sind in Pula und Pazin, beide rund 30–35 Minuten von der Villa, mit einer 24-Stunden-Notfalloption; wir halten eine aktuelle Tierarzt-Kontaktliste und eine Notfallnummer in der Villa bereit und sind immer erreichbar, um Ihnen schnell den richtigen zu finden. Mit diesen wenigen vernünftigen Vorkehrungen ist ein Hundeurlaub hier wirklich erholsam — für den Hund ebenso wie für Sie.',
+        },
+      ],
+      faq: [
+        { q: 'Sind Hunde in der Villa Ballena und der Villa Beluga erlaubt?', a: 'Ja — beide Villen sind hundefreundlich und Hunde übernachten kostenlos. Das gesamte Grundstück, einschließlich Poolbereich und Garten, ist vollständig eingezäunt, sodass Ihr Hund auf dem Gelände ohne Leine sein kann. Standardmäßig bitten wir um maximal einen Hund pro Villa; ein zweiter Hund lässt sich meist im Voraus gegen einen kleinen Aufpreis arrangieren — sagen Sie uns einfach bei der Buchung Bescheid.' },
+        { q: 'Fällt für einen Hund eine Gebühr an?', a: 'Nein, für einen Hund pro Villa fällt keine Gebühr an. Wenn Sie einen zweiten Hund mitbringen möchten, lässt sich das normalerweise im Voraus gegen einen kleinen Aufpreis arrangieren — bitte erwähnen Sie es bei der Buchung, damit wir es bestätigen können.' },
+        { q: 'Ist der Garten eingezäunt, sodass mein Hund frei laufen kann?', a: 'Ja. Das Grundstück beider Villen — Garten, Rasen und Poolterrasse — ist vollständig eingezäunt, sodass Ihr Hund vom Moment der Ankunft an sicher ohne Leine streifen kann. Das ist die Eigenschaft, die Hundebesitzer uns gegenüber am meisten schätzen.' },
+        { q: 'Was brauche ich, um meinen Hund nach Kroatien einzuführen?', a: 'Für Hunde aus der EU brauchen Sie einen gültigen EU-Heimtierausweis, einen ISO-konformen Mikrochip und eine Tollwutimpfung, die mindestens 21 Tage vor der Reise verabreicht wurde und noch gültig ist. Kroatien verlangt für die Einreise keine Bandwurmbehandlung. Führen Sie den Ausweis für eine eventuelle Grenzkontrolle mit.' },
+        { q: 'Gibt es hundefreundliche Strände in der Nähe der Villa?', a: 'Ja. Mehrere offizielle Hundestrände an der Süd- und Westküste — darunter Valkane und Bunarina in Pula, der Bereich Medulin und Kamenjak sowie markierte Abschnitte in Rovinj und Poreč — sind rund 30–45 Minuten entfernt. An gewöhnlichen Stadtstränden halten Sie Ihren Hund in der Hochsaison aus Höflichkeit an der Leine und schwimmen früh oder spät.' },
+        { q: 'Wie halte ich meinen Hund in der istrischen Sommerhitze sicher?', a: 'Hitze ist das Hauptrisiko. Gehen Sie früh am Morgen und am Abend, lassen Sie einen Hund nie im geparkten Auto, führen Sie immer Wasser mit, und nutzen Sie mittags die kühlen Fliesenböden und die Klimaanlage drinnen. Testen Sie die Bodentemperatur mit der Hand, bevor Sie über Asphalt oder Fels gehen, halten Sie den Zeckenschutz aktuell und meiden Sie im Frühling die Pinienprozessionsspinner.' },
       ],
     },
   },
