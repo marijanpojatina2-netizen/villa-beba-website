@@ -273,6 +273,7 @@ export const guides: Guide[] = [
       'best-time-to-visit-istria',
       'beaches-near-svetvincenat',
       'driving-to-istria-by-car',
+      'hiking-and-cycling-near-svetvincenat',
     ],
     en: {
       title: 'What to pack for a stay in central Istria',
@@ -893,6 +894,7 @@ export const guides: Guide[] = [
       'best-time-to-visit-istria',
       'day-trips-from-svetvincenat',
       'what-to-pack-for-istria',
+      'hiking-and-cycling-near-svetvincenat',
     ],
     en: {
       title: 'Beaches near Svetvinčenat — the best of the Istrian coast within 45 minutes',
@@ -1330,6 +1332,7 @@ export const guides: Guide[] = [
       'truffle-hunting-near-svetvincenat',
       'olive-oil-tasting-near-svetvincenat',
       'what-to-pack-for-istria',
+      'hiking-and-cycling-near-svetvincenat',
     ],
     en: {
       title: 'Best time to visit Istria — a month-by-month guide',
@@ -1450,6 +1453,7 @@ export const guides: Guide[] = [
       'day-trips-from-svetvincenat',
       'driving-to-istria-by-car',
       'restaurants-central-istria',
+      'hiking-and-cycling-near-svetvincenat',
     ],
     en: {
       title: 'Istria with your dog — a pet-friendly villa holiday',
@@ -1535,6 +1539,125 @@ export const guides: Guide[] = [
         { q: 'Was brauche ich, um meinen Hund nach Kroatien einzuführen?', a: 'Für Hunde aus der EU brauchen Sie einen gültigen EU-Heimtierausweis, einen ISO-konformen Mikrochip und eine Tollwutimpfung, die mindestens 21 Tage vor der Reise verabreicht wurde und noch gültig ist. Kroatien verlangt für die Einreise keine Bandwurmbehandlung. Führen Sie den Ausweis für eine eventuelle Grenzkontrolle mit.' },
         { q: 'Gibt es hundefreundliche Strände in der Nähe der Villa?', a: 'Ja. Mehrere offizielle Hundestrände an der Süd- und Westküste — darunter Valkane und Bunarina in Pula, der Bereich Medulin und Kamenjak sowie markierte Abschnitte in Rovinj und Poreč — sind rund 30–45 Minuten entfernt. An gewöhnlichen Stadtstränden halten Sie Ihren Hund in der Hochsaison aus Höflichkeit an der Leine und schwimmen früh oder spät.' },
         { q: 'Wie halte ich meinen Hund in der istrischen Sommerhitze sicher?', a: 'Hitze ist das Hauptrisiko. Gehen Sie früh am Morgen und am Abend, lassen Sie einen Hund nie im geparkten Auto, führen Sie immer Wasser mit, und nutzen Sie mittags die kühlen Fliesenböden und die Klimaanlage drinnen. Testen Sie die Bodentemperatur mit der Hand, bevor Sie über Asphalt oder Fels gehen, halten Sie den Zeckenschutz aktuell und meiden Sie im Frühling die Pinienprozessionsspinner.' },
+      ],
+    },
+  },
+  {
+    slug: 'hiking-and-cycling-near-svetvincenat',
+    category: 'planning',
+    datePublished: '2026-07-06',
+    hero: {
+      src: '/images/guides/hiking-and-cycling-near-svetvincenat/cyclists-kastel-morosini-grimani-svetvincenat.webp',
+      alt: {
+        en: 'Two cyclists pausing for a water break under a shade tree on the green meadow in front of the Kaštel Morosini-Grimani castle walls in Svetvinčenat, central Istria',
+        de: 'Zwei Radfahrer bei einer Trinkpause unter einem schattigen Baum auf der grünen Wiese vor den Burgmauern des Kaštel Morosini-Grimani in Svetvinčenat, Zentralistrien',
+      },
+      width: 1280,
+      height: 800,
+    },
+    inlineImage: {
+      afterSectionIndex: 4,
+      image: {
+        src: '/images/guides/hiking-and-cycling-near-svetvincenat/pazin-cave-hiker-headlamp-istria.webp',
+        alt: {
+          en: 'A hiker with a headlamp standing on rocks above a green underground pool inside the vast Pazin cave chamber, central Istria',
+          de: 'Ein Wanderer mit Stirnlampe auf Felsen über einem grünen unterirdischen See in der riesigen Höhlenkammer der Pazin-Höhle, Zentralistrien',
+        },
+        width: 547,
+        height: 365,
+      },
+    },
+    relatedGuides: [
+      'day-trips-from-svetvincenat',
+      'beaches-near-svetvincenat',
+      'best-time-to-visit-istria',
+      'pet-friendly-villa-istria',
+      'what-to-pack-for-istria',
+    ],
+    en: {
+      title: 'Hiking and cycling around Svetvinčenat — routes from the villa door',
+      excerpt: 'Central Istria is quiet-lane cycling and drywall-country walking at its best, and Svetvinčenat sits in the middle of it. Here are three loop rides that start at the villa gate, the Parenzana rail trail 45 minutes north, the four hikes we actually send guests on, and how to get good bikes — including e-bikes — delivered to the villa.',
+      intro: 'The southern Istrian plateau around Svetvinčenat is a patchwork of vineyards, olive groves, oak scrub, and pasture divided by dry-stone walls — a landscape you genuinely experience best at walking or cycling pace. The lanes between the villages carry almost no traffic outside the morning school run, the gradients roll rather than climb, and every loop ends with a village square and a café. This guide covers what guests ask us most: which rides start directly at the villa gate (three do — no car needed), where the famous Parenzana rail trail is and which section to ride, the hikes worth a morning, and the practical side — bike hire delivered to the villa, e-bikes, summer heat, and what to carry.',
+      sections: [
+        {
+          heading: 'Why central Istria rides and walks so well',
+          body: 'Three things make this corner of Istria unusually good for bikes and boots. First, the terrain: the plateau sits around 300 m with rolling 50–150 m undulations — enough to keep a ride interesting, never alpine. Second, the road network: a dense web of paved lanes and white gravel farm tracks connects the villages, so you can almost always trade a stretch of road for a parallel track through the fields. Third, the landscape itself: the dry-stone walls (suhozidi) and the round stone shepherd huts called kažuni — the craft of building them is on UNESCO\'s Intangible Cultural Heritage list — line the lanes for kilometres. Traffic is light year-round; drivers here are used to cyclists and pass wide. Svetvinčenat sits near the middle of the southern plateau, which means loops in every direction rather than one fixed out-and-back.',
+        },
+        {
+          heading: 'Three loop rides from the villa gate',
+          body: 'North loop — Svetvinčenat, Smoljanci, Kanfanar, Žminj, and back (~28 km, 1.5–2 h): quiet lanes the whole way, a coffee stop on Žminj\'s little square at the halfway point, and long views over the Draga valley on the return. West loop to Bale (~26 km round trip): out through the hamlets of Krmed and Golaš to Bale, one of Istria\'s prettiest small towns — lock the bikes by the Soardo-Bembo palace, walk the concentric old-town lanes, coffee or gelato, and roll home. South loop through kažuni country to Vodnjan (~30 km): the fields between Juršići and Vodnjan hold the densest concentration of kažuni in Istria, and Vodnjan\'s Kažun Park on the town edge shows how they are built. All three loops are signposted-lane riding with short gravel options; we have GPX files for each — ask and we send them to your phone.',
+        },
+        {
+          heading: 'The Parenzana — Istria\'s signature rail trail',
+          body: 'The Parenzana was the narrow-gauge railway that linked Trieste to Poreč from 1902 to 1935; its Istrian roadbed is now a car-free gravel trail and the single best family ride in the region — railway engineering means the grade never really exceeds 3 %. The classic section for a day out is Grožnjan to Livade (about 10 km each way): park in Grožnjan (a 45-minute drive from the villa), ride through two tunnels and across the Završje viaducts with the Mirna valley below, and drop to Livade — where Zigante\'s truffle restaurant makes a better-than-it-needs-to-be lunch stop — before climbing gently back. Strong riders extend toward Motovun or Buje. Bring lights or use your phone torch for the tunnels; they are short but genuinely dark. The surface is packed gravel — fine on a trekking bike, ideal on a gravel or e-bike.',
+        },
+        {
+          heading: 'Bike hire and e-bikes — delivered to the villa',
+          body: 'You do not need to bring bikes. Rental agencies in Pula, Rovinj, and Medulin deliver trekking bikes, gravel bikes, and e-bikes to the villa for multi-day hires and collect them at the end — typical rates run €15–25 per day for a trekking bike and €35–50 for an e-bike, with meaningful discounts by the week, and child seats, trailers, and helmets available on request. Email us at least 48 hours ahead with heights and dates and we coordinate delivery so the bikes are waiting when you arrive. Our honest advice on e-bikes: take them. The terrain rolls constantly, summer is hot, and an e-bike turns every loop in this guide into a holiday ride for a mixed-ability group instead of a workout for the strongest rider. Overnight, bikes store securely inside the villa\'s fully fenced grounds under the covered parking.',
+        },
+        {
+          heading: 'The four hikes we send guests on',
+          body: 'Pazin gorge (30 minutes\' drive): the trail along the Pazinčica stream drops below Pazin\'s castle to the mouth of the Pazin cave — the abyss that inspired Jules Verne\'s "Mathias Sandorf" — an easy, shaded 1.5–2 hour loop that works even in summer. Kamenjak cape (40 minutes): the coastal paths of the Premantura peninsula string together cliff viewpoints, hidden coves, and dinosaur footprints; go early, swim as you go, and note the small per-car entry fee in season. Učka — Vojak summit (1 hour): Istria\'s highest point at 1,401 m, with a stone lookout tower and views across the Kvarner islands and, on clear days, to the Alps; from the Poklon saddle it is a steady 2-hour round trip. Limski kanal (25 minutes): rim paths above the fjord-like inlet with the best viewpoints on the south side near Kloštar. And the free one: the evening field walk from the villa through the drywalls and kažuni around Svetvinčenat, finishing on the square below the Kaštel.',
+        },
+        {
+          heading: 'Summer heat, seasons, and timing',
+          body: 'The honest seasonal picture: April to mid-June and September to October are the sweet spots — 18–26 °C, green fields, empty lanes, and long riding days. July and August work with discipline: start between 07:00 and 08:30, be back by 11:30, carry two litres of water per person, and treat the afternoon as pool time — shade is scarce on the open plateau. If you must move in midsummer afternoons, pick the shaded options: the Pazin gorge, the Motovun forest tracks, or a late-evening village walk. Spring and autumn also bring the landscape\'s best colours — the vineyards turn gold through October, which is when our cycling guests take their best photographs. Winter riding is quiet and mild (Istria rarely freezes) but short days and bura wind spells make it one for the committed.',
+        },
+        {
+          heading: 'Practical notes — helmets, maps, and what to carry',
+          body: 'Croatian law requires helmets for riders under 16; we recommend them for everyone, and rental deliveries include them on request. The official Istria Bike network signposts numbered routes across the peninsula, and the loops in this guide follow quiet lanes that overlap with it — but the simplest navigation is the GPX files we share, loaded into komoot or any bike computer. Mobile coverage is solid across the plateau. Carry water, sun cream, and a little cash — the village cafés and konobas that make these loops civilised do not all take cards. Punctures are rare on the paved lanes, but rentals come with a spare tube and pump for gravel days. And if a ride ends further from the villa than planned — it happens, usually somewhere near a konoba — call us and we will help sort out a recovery.',
+        },
+      ],
+      faq: [
+        { q: 'Can we really start cycling straight from the villa?', a: 'Yes — three loop rides of 26–30 km leave directly from the villa gate on quiet lanes: north via Kanfanar and Žminj, west to Bale, and south through the kažuni fields to Vodnjan. No car needed; we share GPX files for all three.' },
+        { q: 'Can we rent bikes or e-bikes without bringing our own?', a: 'Yes. Agencies in Pula, Rovinj, and Medulin deliver bikes to the villa for multi-day hires — typically €15–25 per day for a trekking bike, €35–50 for an e-bike, cheaper by the week. Email us at least 48 hours ahead and we coordinate delivery, sizes, child seats, and helmets.' },
+        { q: 'Is the Parenzana trail suitable for children?', a: 'Yes — it is the best family ride in Istria. The old railway grade never really exceeds 3 %, the trail is car-free packed gravel, and the Grožnjan–Livade section (about 10 km each way) has tunnels and viaducts that children love. Bring lights for the tunnels.' },
+        { q: 'How hilly is the area around the villa?', a: 'Rolling rather than mountainous — the plateau undulates 50–150 m, so rides are never flat but never alpine. An e-bike flattens it completely and is our standing recommendation for mixed-ability groups, especially in summer.' },
+        { q: 'What are the best months for hiking and cycling here?', a: 'April to mid-June and September to October — mild temperatures, green or golden fields, and quiet lanes. July and August work with early starts (ride 07:00–11:30, pool in the afternoon). Winter is mild but short-dayed.' },
+        { q: 'Is there somewhere secure to keep bikes at the villa?', a: 'Yes — the villa grounds are fully fenced, and bikes store overnight under the covered parking inside the fence. Rental agencies deliver and collect at the villa, so the bikes never need to leave the property except to ride.' },
+      ],
+    },
+    de: {
+      title: 'Wandern und Radfahren rund um Svetvinčenat — Routen ab der Villentür',
+      excerpt: 'Zentralistrien ist Radfahren auf stillen Landstraßen und Wandern im Trockenmauer-Land vom Feinsten — und Svetvinčenat liegt mittendrin. Hier sind drei Rundtouren direkt ab dem Villentor, der Parenzana-Bahntrassenweg 45 Minuten nördlich, die vier Wanderungen, die wir Gästen tatsächlich empfehlen, und wie gute Räder — auch E-Bikes — direkt an die Villa geliefert werden.',
+      intro: 'Die südistrische Hochebene rund um Svetvinčenat ist ein Flickwerk aus Weinbergen, Olivenhainen, Eichenbuschland und Weiden, getrennt durch Trockensteinmauern — eine Landschaft, die man tatsächlich am besten im Geh- oder Radtempo erlebt. Die Sträßchen zwischen den Dörfern tragen außerhalb des morgendlichen Schulverkehrs kaum Autos, die Steigungen rollen statt zu klettern, und jede Runde endet an einem Dorfplatz mit Café. Dieser Leitfaden beantwortet, was Gäste uns am häufigsten fragen: welche Touren direkt am Villentor starten (drei — kein Auto nötig), wo der berühmte Parenzana-Weg verläuft und welcher Abschnitt sich lohnt, welche Wanderungen einen Vormittag wert sind, und die praktische Seite — Radverleih mit Lieferung an die Villa, E-Bikes, Sommerhitze und was in den Rucksack gehört.',
+      sections: [
+        {
+          heading: 'Warum sich Zentralistrien so gut fährt und wandert',
+          body: 'Drei Dinge machen diesen Winkel Istriens ungewöhnlich gut für Rad und Wanderschuhe. Erstens das Gelände: Die Hochebene liegt um 300 m mit rollenden Wellen von 50–150 m — genug, um eine Tour interessant zu halten, nie alpin. Zweitens das Wegenetz: Ein dichtes Geflecht aus asphaltierten Sträßchen und weißen Schotter-Feldwegen verbindet die Dörfer, sodass sich fast immer ein Straßenstück gegen einen parallelen Feldweg tauschen lässt. Drittens die Landschaft selbst: Die Trockensteinmauern (suhozidi) und die runden Steinhütten der Hirten, kažuni genannt — die Kunst ihres Baus steht auf der UNESCO-Liste des immateriellen Kulturerbes —, säumen die Wege kilometerweit. Der Verkehr ist ganzjährig gering; Autofahrer sind hier an Radfahrer gewöhnt und überholen mit Abstand. Svetvinčenat liegt nahe der Mitte der südlichen Hochebene — das bedeutet Rundtouren in alle Richtungen statt einer einzigen festen Strecke.',
+        },
+        {
+          heading: 'Drei Rundtouren ab dem Villentor',
+          body: 'Nordrunde — Svetvinčenat, Smoljanci, Kanfanar, Žminj und zurück (~28 km, 1,5–2 h): durchgehend ruhige Sträßchen, ein Kaffeestopp auf dem kleinen Platz von Žminj zur Halbzeit und lange Blicke über das Draga-Tal auf dem Rückweg. Westrunde nach Bale (~26 km hin und zurück): durch die Weiler Krmed und Golaš nach Bale, eine der schönsten Kleinstädte Istriens — Räder am Soardo-Bembo-Palast abschließen, die konzentrischen Altstadtgassen ablaufen, Kaffee oder Eis, und heimrollen. Südrunde durchs Kažuni-Land nach Vodnjan (~30 km): Die Felder zwischen Juršići und Vodnjan haben die dichteste Konzentration von kažuni in ganz Istrien, und der Kažun-Park am Ortsrand von Vodnjan zeigt, wie sie gebaut werden. Alle drei Runden verlaufen auf beschilderten Sträßchen mit kurzen Schotter-Optionen; für jede haben wir GPX-Dateien — fragen Sie einfach, wir schicken sie aufs Handy.',
+        },
+        {
+          heading: 'Die Parenzana — Istriens berühmter Bahntrassenweg',
+          body: 'Die Parenzana war die Schmalspurbahn, die von 1902 bis 1935 Triest mit Poreč verband; ihre istrische Trasse ist heute ein autofreier Schotterweg und die beste Familientour der Region — Eisenbahntrassierung bedeutet, dass die Steigung praktisch nie über 3 % geht. Der klassische Tagesabschnitt ist Grožnjan–Livade (etwa 10 km je Richtung): in Grožnjan parken (45 Minuten Fahrt von der Villa), durch zwei Tunnel und über die Viadukte von Završje mit dem Mirna-Tal darunter rollen und nach Livade hinunter — wo Zigantes Trüffelrestaurant einen besseren Mittagsstopp abgibt, als er müsste —, bevor es sanft zurück bergauf geht. Starke Fahrer verlängern Richtung Motovun oder Buje. Nehmen Sie Licht oder die Handy-Taschenlampe für die Tunnel mit; sie sind kurz, aber wirklich dunkel. Der Belag ist fester Schotter — gut mit dem Trekkingrad, ideal mit Gravel- oder E-Bike.',
+        },
+        {
+          heading: 'Radverleih und E-Bikes — geliefert an die Villa',
+          body: 'Sie müssen keine Räder mitbringen. Verleihstationen in Pula, Rovinj und Medulin liefern Trekkingräder, Gravelbikes und E-Bikes für Mehrtagesmieten an die Villa und holen sie am Ende wieder ab — übliche Preise liegen bei 15–25 € pro Tag für ein Trekkingrad und 35–50 € für ein E-Bike, mit spürbaren Wochenrabatten; Kindersitze, Anhänger und Helme auf Anfrage. Schreiben Sie uns mindestens 48 Stunden im Voraus mit Körpergrößen und Daten, und wir koordinieren die Lieferung, sodass die Räder bei Ankunft bereitstehen. Unser ehrlicher Rat zu E-Bikes: Nehmen Sie sie. Das Gelände rollt ständig, der Sommer ist heiß, und ein E-Bike macht aus jeder Runde dieses Leitfadens eine Urlaubsausfahrt für eine gemischte Gruppe statt eines Trainings für den Stärksten. Über Nacht stehen die Räder sicher auf dem vollständig eingezäunten Grundstück der Villa unter dem überdachten Stellplatz.',
+        },
+        {
+          heading: 'Die vier Wanderungen, die wir Gästen empfehlen',
+          body: 'Pazin-Schlucht (30 Minuten Fahrt): Der Weg entlang des Baches Pazinčica führt unterhalb der Burg von Pazin zur Öffnung der Pazin-Höhle — jenem Abgrund, der Jules Vernes „Mathias Sandorf" inspirierte — eine leichte, schattige Runde von 1,5–2 Stunden, die selbst im Sommer funktioniert. Kap Kamenjak (40 Minuten): Die Küstenpfade der Halbinsel Premantura reihen Klippen-Aussichtspunkte, versteckte Buchten und Dinosaurierspuren aneinander; früh losgehen, unterwegs baden, und die kleine Einfahrtsgebühr pro Auto in der Saison einplanen. Učka — Vojak-Gipfel (1 Stunde): Istriens höchster Punkt auf 1.401 m, mit steinernem Aussichtsturm und Blick über die Kvarner-Inseln und an klaren Tagen bis zu den Alpen; vom Poklon-Sattel eine stetige 2-Stunden-Runde. Limski Kanal (25 Minuten): Wege am Rand der fjordartigen Bucht mit den besten Aussichtspunkten am Südufer bei Kloštar. Und die kostenlose: der Abend-Feldspaziergang von der Villa durch Trockenmauern und kažuni rund um Svetvinčenat, mit Abschluss auf dem Platz unterhalb des Kaštels.',
+        },
+        {
+          heading: 'Sommerhitze, Jahreszeiten und Timing',
+          body: 'Das ehrliche Saisonbild: April bis Mitte Juni und September bis Oktober sind die Idealfenster — 18–26 °C, grüne Felder, leere Sträßchen und lange Fahrtage. Juli und August funktionieren mit Disziplin: zwischen 07:00 und 08:30 starten, bis 11:30 zurück sein, zwei Liter Wasser pro Person mitführen und den Nachmittag als Poolzeit betrachten — Schatten ist auf der offenen Hochebene rar. Wer im Hochsommer nachmittags unterwegs sein muss, wählt die schattigen Optionen: die Pazin-Schlucht, die Waldwege von Motovun oder einen späten Dorfspaziergang. Frühling und Herbst bringen zudem die schönsten Farben der Landschaft — die Weinberge färben sich im Oktober golden; dann machen unsere Rad-Gäste ihre besten Fotos. Winterfahren ist still und mild (Istrien friert selten), aber kurze Tage und Bura-Windlagen machen es zu einer Sache für Entschlossene.',
+        },
+        {
+          heading: 'Praktisches — Helme, Karten und Gepäck',
+          body: 'Das kroatische Gesetz schreibt Helme für Radfahrer unter 16 vor; wir empfehlen sie allen, und Verleih-Lieferungen enthalten sie auf Anfrage. Das offizielle Istria-Bike-Netz beschildert nummerierte Routen über die ganze Halbinsel, und die Runden dieses Leitfadens folgen ruhigen Sträßchen, die sich damit überschneiden — die einfachste Navigation sind aber die GPX-Dateien, die wir teilen, geladen in komoot oder jeden Radcomputer. Der Mobilfunkempfang ist auf der Hochebene durchgehend gut. Nehmen Sie Wasser, Sonnencreme und etwas Bargeld mit — die Dorfcafés und Konobas, die diese Runden so zivilisiert machen, nehmen nicht alle Karten. Plattfüße sind auf den asphaltierten Sträßchen selten, aber Mieträder kommen mit Ersatzschlauch und Pumpe für Schottertage. Und falls eine Tour weiter von der Villa endet als geplant — kommt vor, meist in der Nähe einer Konoba —, rufen Sie uns an und wir helfen bei der Rückholung.',
+        },
+      ],
+      faq: [
+        { q: 'Können wir wirklich direkt ab der Villa losradeln?', a: 'Ja — drei Rundtouren von 26–30 km starten direkt am Villentor auf ruhigen Sträßchen: nordwärts über Kanfanar und Žminj, westwärts nach Bale und südwärts durch die Kažuni-Felder nach Vodnjan. Kein Auto nötig; für alle drei teilen wir GPX-Dateien.' },
+        { q: 'Können wir Räder oder E-Bikes mieten, ohne eigene mitzubringen?', a: 'Ja. Verleihstationen in Pula, Rovinj und Medulin liefern Räder für Mehrtagesmieten an die Villa — typisch 15–25 € pro Tag für ein Trekkingrad, 35–50 € für ein E-Bike, günstiger pro Woche. Schreiben Sie uns mindestens 48 Stunden im Voraus, und wir koordinieren Lieferung, Größen, Kindersitze und Helme.' },
+        { q: 'Ist die Parenzana für Kinder geeignet?', a: 'Ja — sie ist die beste Familientour Istriens. Die alte Bahntrasse steigt praktisch nie über 3 %, der Weg ist autofreier fester Schotter, und der Abschnitt Grožnjan–Livade (etwa 10 km je Richtung) hat Tunnel und Viadukte, die Kinder lieben. Licht für die Tunnel mitnehmen.' },
+        { q: 'Wie hügelig ist die Gegend um die Villa?', a: 'Rollend, nicht bergig — die Hochebene wellt sich um 50–150 m; Touren sind nie flach, aber nie alpin. Ein E-Bike ebnet alles ein und ist unsere stehende Empfehlung für Gruppen mit gemischter Kondition, besonders im Sommer.' },
+        { q: 'Welche Monate sind die besten zum Wandern und Radfahren?', a: 'April bis Mitte Juni und September bis Oktober — milde Temperaturen, grüne oder goldene Felder und stille Sträßchen. Juli und August funktionieren mit frühen Starts (07:00–11:30 fahren, nachmittags Pool). Der Winter ist mild, aber kurztagig.' },
+        { q: 'Gibt es an der Villa einen sicheren Abstellplatz für Räder?', a: 'Ja — das Grundstück ist vollständig eingezäunt, und Räder stehen über Nacht unter dem überdachten Stellplatz innerhalb des Zauns. Die Verleiher liefern und holen direkt an der Villa, die Räder verlassen das Grundstück also nur zum Fahren.' },
       ],
     },
   },
