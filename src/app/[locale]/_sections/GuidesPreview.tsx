@@ -8,12 +8,12 @@ import { guides } from '@/lib/guides';
 // ClaudeBot, PerplexityBot) — discover and value the guide hub while off-site
 // authority builds. Same SSR-for-crawlers rationale as LocationLifestyle.tsx.
 const FEATURED = [
+  'golden-hour-photography-spots-istria',
   'hiking-and-cycling-near-svetvincenat',
   'pet-friendly-villa-istria',
   'best-time-to-visit-istria',
   'truffle-hunting-near-svetvincenat',
   'beaches-near-svetvincenat',
-  'olive-oil-tasting-near-svetvincenat',
 ];
 
 const CATEGORY_LABEL: Record<string, { en: string; de: string }> = {

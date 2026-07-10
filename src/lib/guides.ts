@@ -895,6 +895,7 @@ export const guides: Guide[] = [
       'day-trips-from-svetvincenat',
       'what-to-pack-for-istria',
       'hiking-and-cycling-near-svetvincenat',
+      'golden-hour-photography-spots-istria',
     ],
     en: {
       title: 'Beaches near Svetvinčenat — the best of the Istrian coast within 45 minutes',
@@ -1333,6 +1334,7 @@ export const guides: Guide[] = [
       'olive-oil-tasting-near-svetvincenat',
       'what-to-pack-for-istria',
       'hiking-and-cycling-near-svetvincenat',
+      'golden-hour-photography-spots-istria',
     ],
     en: {
       title: 'Best time to visit Istria — a month-by-month guide',
@@ -1573,6 +1575,7 @@ export const guides: Guide[] = [
       'best-time-to-visit-istria',
       'pet-friendly-villa-istria',
       'what-to-pack-for-istria',
+      'golden-hour-photography-spots-istria',
     ],
     en: {
       title: 'Hiking and cycling around Svetvinčenat — routes from the villa door',
@@ -1658,6 +1661,125 @@ export const guides: Guide[] = [
         { q: 'Wie hügelig ist die Gegend um die Villa?', a: 'Rollend, nicht bergig — die Hochebene wellt sich um 50–150 m; Touren sind nie flach, aber nie alpin. Ein E-Bike ebnet alles ein und ist unsere stehende Empfehlung für Gruppen mit gemischter Kondition, besonders im Sommer.' },
         { q: 'Welche Monate sind die besten zum Wandern und Radfahren?', a: 'April bis Mitte Juni und September bis Oktober — milde Temperaturen, grüne oder goldene Felder und stille Sträßchen. Juli und August funktionieren mit frühen Starts (07:00–11:30 fahren, nachmittags Pool). Der Winter ist mild, aber kurztagig.' },
         { q: 'Gibt es an der Villa einen sicheren Abstellplatz für Räder?', a: 'Ja — das Grundstück ist vollständig eingezäunt, und Räder stehen über Nacht unter dem überdachten Stellplatz innerhalb des Zauns. Die Verleiher liefern und holen direkt an der Villa, die Räder verlassen das Grundstück also nur zum Fahren.' },
+      ],
+    },
+  },
+  {
+    slug: 'golden-hour-photography-spots-istria',
+    category: 'planning',
+    datePublished: '2026-07-10',
+    hero: {
+      src: '/images/guides/golden-hour-photography-spots-istria/kastel-morosini-grimani-golden-hour-svetvincenat.webp',
+      alt: {
+        en: 'The stone wall and tower of Kaštel Morosini-Grimani in Svetvinčenat glowing gold as the sun sets behind the ramparts, with ceremony chairs on the lawn below',
+        de: 'Steinmauer und Turm des Kaštel Morosini-Grimani in Svetvinčenat leuchten golden, während die Sonne hinter den Zinnen untergeht, mit Zeremonie-Stühlen auf der Wiese davor',
+      },
+      width: 1264,
+      height: 842,
+    },
+    inlineImage: {
+      afterSectionIndex: 4,
+      image: {
+        src: '/images/guides/golden-hour-photography-spots-istria/istria-coast-cove-sunset-golden-hour.webp',
+        alt: {
+          en: 'A hidden rocky cove on the Istrian coast at sunset, turquoise water framed by limestone cliffs and pine trees with the sun sinking into the sea',
+          de: 'Eine versteckte Felsbucht an der istrischen Küste bei Sonnenuntergang, türkisfarbenes Wasser zwischen Kalksteinklippen und Pinien, die Sonne versinkt im Meer',
+        },
+        width: 921,
+        height: 1152,
+      },
+    },
+    relatedGuides: [
+      'hiking-and-cycling-near-svetvincenat',
+      'day-trips-from-svetvincenat',
+      'best-time-to-visit-istria',
+      'beaches-near-svetvincenat',
+      'what-to-pack-for-istria',
+    ],
+    en: {
+      title: 'Golden hour photography spots in Istria — where to catch the best light near Svetvinčenat',
+      excerpt: 'Istria at golden hour is hilltop silhouettes, glowing limestone, and vineyards in warm side-light — and the best of it sits 0 to 45 minutes from Villa Ballena & Beluga. Here are the spots we send guests to, the month-by-month light calendar, and the practical notes on phones, tripods, and drones.',
+      intro: 'Guests ask us surprisingly often where to go "for the good light" — usually after their first evening walk past the Kaštel, when the whole village turns honey-coloured for forty minutes. The honest answer is that Svetvinčenat sits in one of the easiest photography positions in Istria: the villa is on the open southern plateau (uninterrupted sunsets over the fields, sunrise mist in autumn), the west-coast sunset towns of Rovinj and Bale are half an hour away, and the fog-sea sunrises of Motovun are forty-five minutes north. This guide covers the locations we actually send photographers to — from the two that need no car at all to the classic postcards — plus when golden hour actually happens month by month, and what gear (if any) you need.',
+      sections: [
+        {
+          heading: 'Why Istrian light rewards a little planning',
+          body: 'Istria is a peninsula, which matters for photographers in two ways. First, the sea on three sides keeps the air clearer than in continental valleys, so golden hour arrives with real colour instead of grey haze — especially from September to June. Second, the variety per kilometre is absurd: within a 45-minute radius of the villa you have Venetian hilltop towns, a fjord-like inlet, white limestone cliffs, a 2,000-year-old Roman amphitheatre, and the drywall-and-kažuni farmland on your doorstep. At 45° north the golden hour is generous, too — in the shoulder seasons the low sun gives you a full hour of warm side-light rather than the ten scrambled minutes of southern latitudes. The only month-specific caveat: July and August afternoons can carry heat haze on the coast, which is why most of the summer spots below are best shot in the final 30 minutes before sunset, or at sunrise.',
+        },
+        {
+          heading: 'Zero-drive spots — Svetvinčenat at golden hour',
+          body: 'The single most photographed frame in the village is the western wall of Kaštel Morosini-Grimani across its meadow — from roughly an hour before sunset the low sun rakes the 13th-century stone and turns it gold, with the lawn in shadowed green below. Stand on the meadow\'s south edge and the composition organises itself. The second frame is ten minutes\' walk south of the village: the drywall lanes and kažuni fields, where the round stone huts read as clean silhouettes against the sunset sky — the same evening field walk we describe in the hiking guide, timed an hour later. In September and October, set an alarm instead: the pastures around the villa hold ground mist at sunrise, and the view from the villa terrace with a coffee is a photograph in itself. And do not overlook the obvious one — the villa pool goes mirror-still at dusk and reflects the sky for a good twenty minutes after the sun is down.',
+        },
+        {
+          heading: 'Rovinj — Istria\'s sunset postcard (35 minutes)',
+          body: 'Rovinj is the most photographed town on the Adriatic coast for one specific reason: the old town stacks up a peninsula pointing west, so from the northern waterfront the whole composition — fishing boats, pastel façades, and the campanile of St. Euphemia on top — sits directly against the setting sun for most of the year. Park in the Valdibora garage, walk two minutes to the north-shore promenade, and work along it; the classic frame is from near the small batana-boat moorings, with the boats as foreground. In July and August arrive a full hour before sunset — you will not be alone — and stay for blue hour, when the streetlamps come on and the polished cobbles of Grisia street inside the old town start to shine. For morning light instead, the Punta Corrente (Zlatni rt) park on the south side gives you the old town front-lit and almost empty.',
+        },
+        {
+          heading: 'Motovun above the fog sea — the sunrise that needs an alarm (45 minutes)',
+          body: 'From roughly mid-September to November, clear and windless nights pull a temperature inversion over the Mirna valley, and by dawn the entire valley floor below Motovun disappears under a white fog sea with only the hilltop towns breaking through. It is the most dramatic photograph in Istria and it costs nothing but sleep: leave the villa about 75 minutes before sunrise, park at the lots below the town (the upper road is residents-only), walk up 15 minutes, and shoot from the outer rampart walk — the view northeast over the valley is the classic one. The fog burns off within an hour or two of sunrise, so there is no arriving late. Two honest caveats: the fog is a probability, not a guarantee (a still, clear, humid night after a warm day is the tell), and even on fog-free mornings the vineyards below the walls in first light justify the drive. Grožnjan, 15 minutes further, offers a similar elevated sunrise with a fraction of the visitors.',
+        },
+        {
+          heading: 'Coastal golden hour — Kamenjak, the Pula Arena, and the Limski kanal',
+          body: 'Three coastal spots cover very different moods. Kamenjak (40 minutes), the wild cape at Istria\'s southern tip, is the open-sea sunset: low golden light raking across white limestone cliffs, pine silhouettes, and swimmers in the last warm coves — walk the southern cliff paths near the safari bar area and shoot until the sun is in the water; note the small per-car entry fee in season. The Pula Arena (30 minutes) is the architecture shot: in the last hour of sun the Roman limestone glows amber, and after sunset the floodlights come on — shoot the illuminated arcades at blue hour from the surrounding street, no ticket needed. The Limski kanal (25 minutes) is the landscape shot for late afternoon rather than sunset itself: from the south-rim viewpoints near Kloštar, the low sun rakes across the fjord-like inlet and its mussel farms, and the green water turns almost metallic.',
+        },
+        {
+          heading: 'The golden hour calendar — month by month',
+          body: 'Approximate sunset times for central Istria, so you can plan dinner around the light rather than the reverse: late June sets around 21:00 (golden hour from roughly 20:00), mid-August around 20:15, late September around 18:50, and after the late-October clock change the sun is down by about 17:00; midwinter sunsets sit near 16:30, but December and January compensate with soft, low-angle light for most of the day. Sunrise runs from about 05:15 in late June — heroic — to a very civilised 06:50 by the end of September, which is exactly why autumn is Motovun season. The overall sweet spots are April–June and September–October: lower sun angles, clearer air, green or golden fields, and in October the vineyards turn colour. A sun-position app (PhotoPills and Sun Surveyor are the two photographers use) shows you the exact azimuth for any date — worth checking before Rovinj, where the sun\'s set point moves along the horizon through the year.',
+        },
+        {
+          heading: 'Practical notes — phones, tripods, and drones',
+          body: 'A modern phone is genuinely enough for every spot in this guide: golden hour is the most forgiving light there is. Two habits improve phone results immediately — tap-and-hold to lock exposure on the bright sky rather than letting the phone brighten it to grey, and shoot RAW if your camera app offers it, which keeps the warm tones editable. A tripod only becomes necessary for blue hour (Rovinj lamps, the lit Arena) and Motovun fog long exposures; a pocket-sized one covers all of it. Bring a lens cloth to Kamenjak — sea spray finds every lens. On drones: Croatia follows the EU (EASA) rules, so you must register as an operator, sub-250 g drones are the practical choice in the Open category, and flying over crowds and old-town streets is prohibited — which rules out Rovinj\'s centre in season. The Brijuni national park and the Pula airport zone are no-fly areas; the open farmland around Svetvinčenat, by contrast, is about as drone-friendly as Europe gets. Check the Croatian CAA map before flying, and ask us — we can point you to a konoba for dinner wherever your sunset ends.',
+        },
+      ],
+      faq: [
+        { q: 'What time is golden hour in Istria in summer?', a: 'In late June the sun sets around 21:00, so golden hour runs from roughly 20:00; by mid-August sunset is near 20:15, and by late September around 18:50. Blue hour — worth staying for in Rovinj and Pula — follows for 25–40 minutes after sunset.' },
+        { q: 'What is the best sunset spot near the villa without driving?', a: 'The meadow on the west side of Kaštel Morosini-Grimani, five minutes\' walk away — the low sun turns the castle wall gold in the last hour of the day. Continue ten minutes south into the drywall fields for kažuni silhouettes against the sunset sky.' },
+        { q: 'When can I photograph the Motovun fog sea?', a: 'Mid-September to November, at sunrise, after a clear, windless, humid night — the fog fills the Mirna valley and burns off within an hour or two of dawn. Leave the villa about 75 minutes before sunrise, park below the town, and shoot from the rampart walk. It is a probability rather than a guarantee, but even fog-free autumn sunrises there are worth the drive.' },
+        { q: 'Is the Rovinj sunset worth the crowds?', a: 'Yes — it is the one postcard that looks like the photographs. Shoot from the northern waterfront near the batana-boat moorings, arrive an hour early in July and August, and stay for blue hour when the streetlamps come on. Outside high season the same spot is nearly empty.' },
+        { q: 'Can I fly a drone in Istria?', a: 'Yes, under EU (EASA) rules: register as an operator, keep to the Open category (a sub-250 g drone is the practical choice), and never fly over crowds or old-town streets. The Brijuni national park and Pula airport zone are no-fly areas. The open farmland around Svetvinčenat is ideal drone country — check the Croatian CAA map before flying.' },
+        { q: 'Do I need a real camera, or is a phone enough?', a: 'A phone is enough for every location in this guide — golden hour is the most forgiving light there is. Lock exposure on the sky, shoot RAW if available, and bring a pocket tripod only if you want blue-hour shots in Rovinj or Pula or long exposures over the Motovun fog.' },
+      ],
+    },
+    de: {
+      title: 'Golden-Hour-Fotospots in Istrien — wo das beste Licht nahe Svetvinčenat wartet',
+      excerpt: 'Istrien zur goldenen Stunde: Hügelstadt-Silhouetten, glühender Kalkstein und Weinberge im warmen Seitenlicht — und das Beste davon liegt 0 bis 45 Minuten von Villa Ballena & Beluga entfernt. Hier sind die Spots, zu denen wir Gäste schicken, der Lichtkalender Monat für Monat und Praktisches zu Handy, Stativ und Drohne.',
+      intro: 'Gäste fragen uns erstaunlich oft, wohin man "für das gute Licht" fahren soll — meist nach ihrem ersten Abendspaziergang am Kaštel vorbei, wenn das ganze Dorf für vierzig Minuten honigfarben wird. Die ehrliche Antwort: Svetvinčenat liegt in einer der günstigsten Fotopositionen Istriens. Die Villa steht auf der offenen südlichen Hochebene (freie Sonnenuntergänge über den Feldern, Morgennebel im Herbst), die Sonnenuntergangs-Städte der Westküste — Rovinj und Bale — sind eine halbe Stunde entfernt, und die Nebelmeer-Sonnenaufgänge von Motovun liegen 45 Minuten nördlich. Dieser Leitfaden führt zu den Orten, zu denen wir Fotografen tatsächlich schicken — von den zwei Spots ganz ohne Auto bis zu den klassischen Postkartenmotiven —, dazu der Monatskalender der goldenen Stunde und die Frage, welche Ausrüstung (wenn überhaupt) nötig ist.',
+      sections: [
+        {
+          heading: 'Warum sich in Istrien etwas Lichtplanung lohnt',
+          body: 'Istrien ist eine Halbinsel, und das zählt für Fotografen doppelt. Erstens hält das Meer auf drei Seiten die Luft klarer als in kontinentalen Tälern — die goldene Stunde kommt mit echter Farbe statt grauem Dunst, besonders von September bis Juni. Zweitens ist die Vielfalt pro Kilometer absurd: Im 45-Minuten-Radius um die Villa liegen venezianische Hügelstädte, eine fjordartige Bucht, weiße Kalksteinklippen, ein 2.000 Jahre altes römisches Amphitheater und das Trockenmauer-und-Kažuni-Land direkt vor der Tür. Auf 45° Nord ist die goldene Stunde zudem großzügig — in der Nebensaison schenkt die tiefe Sonne eine volle Stunde warmes Seitenlicht statt der zehn hektischen Minuten südlicher Breiten. Einzige saisonale Einschränkung: Juli- und August-Nachmittage können an der Küste Hitzedunst tragen — deshalb sind die meisten Sommer-Spots unten in den letzten 30 Minuten vor Sonnenuntergang oder bei Sonnenaufgang am stärksten.',
+        },
+        {
+          heading: 'Spots ohne Auto — Svetvinčenat zur goldenen Stunde',
+          body: 'Das meistfotografierte Motiv des Dorfes ist die Westmauer des Kaštel Morosini-Grimani über seiner Wiese — ab etwa einer Stunde vor Sonnenuntergang streift die tiefe Sonne den Stein aus dem 13. Jahrhundert und färbt ihn golden, mit der Wiese in schattigem Grün davor. Wer am Südrand der Wiese steht, dem organisiert sich die Komposition von selbst. Das zweite Motiv liegt zehn Gehminuten südlich des Dorfes: die Trockenmauer-Wege und Kažuni-Felder, wo die runden Steinhütten als klare Silhouetten vor dem Abendhimmel stehen — derselbe Abend-Feldspaziergang wie im Wander-Leitfaden, nur eine Stunde später angesetzt. Im September und Oktober lohnt stattdessen der Wecker: Die Weiden rund um die Villa halten bei Sonnenaufgang Bodennebel, und der Blick von der Villenterrasse mit Kaffee ist selbst ein Foto. Und das Offensichtliche nicht übersehen — der Pool der Villa wird in der Dämmerung spiegelglatt und reflektiert den Himmel noch gute zwanzig Minuten nach Sonnenuntergang.',
+        },
+        {
+          heading: 'Rovinj — Istriens Sonnenuntergangs-Postkarte (35 Minuten)',
+          body: 'Rovinj ist aus einem konkreten Grund die meistfotografierte Stadt der Adriaküste: Die Altstadt stapelt sich auf einer nach Westen zeigenden Halbinsel, sodass von der nördlichen Uferpromenade die gesamte Komposition — Fischerboote, Pastellfassaden und der Campanile der Euphemia-Kirche obenauf — den größten Teil des Jahres direkt vor der untergehenden Sonne liegt. In der Valdibora-Garage parken, zwei Minuten zur Nordufer-Promenade gehen und sie entlangarbeiten; das klassische Motiv findet sich nahe der kleinen Batana-Boots-Anleger, mit den Booten im Vordergrund. Im Juli und August eine volle Stunde vor Sonnenuntergang kommen — Sie werden nicht allein sein — und für die blaue Stunde bleiben, wenn die Laternen angehen und das polierte Pflaster der Grisia-Gasse in der Altstadt zu glänzen beginnt. Für Morgenlicht bietet der Park Punta Corrente (Zlatni rt) auf der Südseite die Altstadt frontal beleuchtet und fast menschenleer.',
+        },
+        {
+          heading: 'Motovun über dem Nebelmeer — der Sonnenaufgang mit Wecker (45 Minuten)',
+          body: 'Von etwa Mitte September bis November zieht in klaren, windstillen Nächten eine Inversionslage über das Mirna-Tal, und bis zum Morgengrauen verschwindet der gesamte Talboden unter Motovun in einem weißen Nebelmeer, aus dem nur die Hügelstädte ragen. Es ist das dramatischste Foto Istriens und kostet nichts außer Schlaf: etwa 75 Minuten vor Sonnenaufgang an der Villa losfahren, auf den Parkplätzen unterhalb der Stadt parken (die obere Straße ist Anwohnern vorbehalten), 15 Minuten hinaufgehen und vom äußeren Wehrgang fotografieren — der Blick nach Nordosten über das Tal ist der klassische. Der Nebel löst sich innerhalb von ein bis zwei Stunden nach Sonnenaufgang auf; zu spät kommen geht nicht. Zwei ehrliche Einschränkungen: Der Nebel ist eine Wahrscheinlichkeit, keine Garantie (eine stille, klare, feuchte Nacht nach einem warmen Tag ist das Zeichen), und selbst an nebelfreien Morgen rechtfertigen die Weinberge unter den Mauern im ersten Licht die Fahrt. Grožnjan, 15 Minuten weiter, bietet einen ähnlich erhöhten Sonnenaufgang mit einem Bruchteil der Besucher.',
+        },
+        {
+          heading: 'Goldene Stunde an der Küste — Kamenjak, die Arena von Pula und der Limski Kanal',
+          body: 'Drei Küsten-Spots decken sehr unterschiedliche Stimmungen ab. Kamenjak (40 Minuten), das wilde Kap an Istriens Südspitze, ist der Sonnenuntergang übers offene Meer: tiefes Goldlicht über weißen Kalksteinklippen, Pinien-Silhouetten und Schwimmer in den letzten warmen Buchten — die südlichen Klippenpfade nahe der Safari-Bar ablaufen und fotografieren, bis die Sonne im Wasser liegt; die kleine Einfahrtsgebühr pro Auto in der Saison einplanen. Die Arena von Pula (30 Minuten) ist das Architekturmotiv: In der letzten Sonnenstunde glüht der römische Kalkstein bernsteinfarben, und nach Sonnenuntergang gehen die Scheinwerfer an — die beleuchteten Arkaden zur blauen Stunde von der umliegenden Straße fotografieren, ganz ohne Ticket. Der Limski Kanal (25 Minuten) ist das Landschaftsmotiv für den späten Nachmittag statt für den Sonnenuntergang selbst: Von den Aussichtspunkten am Südrand bei Kloštar streift die tiefe Sonne über die fjordartige Bucht und ihre Muschelfarmen, und das grüne Wasser wirkt fast metallisch.',
+        },
+        {
+          heading: 'Der Golden-Hour-Kalender — Monat für Monat',
+          body: 'Ungefähre Sonnenuntergangszeiten für Zentralistrien, damit das Abendessen ums Licht geplant werden kann statt umgekehrt: Ende Juni geht die Sonne gegen 21:00 unter (goldene Stunde ab etwa 20:00), Mitte August gegen 20:15, Ende September gegen 18:50, und nach der Zeitumstellung Ende Oktober ist sie um etwa 17:00 unten; im Hochwinter liegt der Sonnenuntergang nahe 16:30 — dafür entschädigen Dezember und Januar mit weichem, flachem Licht über weite Teile des Tages. Der Sonnenaufgang wandert von etwa 05:15 Ende Juni — heroisch — zu sehr zivilisierten 06:50 Ende September; genau deshalb ist der Herbst Motovun-Saison. Die Idealfenster insgesamt: April–Juni und September–Oktober — tiefere Sonnenstände, klarere Luft, grüne oder goldene Felder, und im Oktober färben sich die Weinberge. Eine Sonnenstands-App (PhotoPills und Sun Surveyor sind die beiden, die Fotografen nutzen) zeigt den exakten Azimut für jedes Datum — lohnt sich vor Rovinj, wo der Untergangspunkt der Sonne übers Jahr am Horizont wandert.',
+        },
+        {
+          heading: 'Praktisches — Handy, Stativ und Drohne',
+          body: 'Ein modernes Smartphone reicht ehrlich für jeden Spot dieses Leitfadens: Die goldene Stunde ist das gutmütigste Licht überhaupt. Zwei Handgriffe verbessern Handyfotos sofort — per Tippen-und-Halten die Belichtung auf den hellen Himmel fixieren, statt das Telefon ihn grau aufhellen zu lassen, und RAW fotografieren, falls die Kamera-App es anbietet; das hält die warmen Töne bearbeitbar. Ein Stativ wird erst für die blaue Stunde (Rovinjs Laternen, die beleuchtete Arena) und Langzeitbelichtungen über dem Motovun-Nebel nötig; ein Taschenstativ deckt alles ab. Für Kamenjak ein Linsentuch einpacken — Gischt findet jede Linse. Zu Drohnen: Kroatien folgt den EU-Regeln (EASA) — Registrierung als Betreiber ist Pflicht, Drohnen unter 250 g sind die praktische Wahl in der Kategorie Open, und Flüge über Menschenmengen und Altstadtgassen sind verboten, was Rovinjs Zentrum in der Saison ausschließt. Der Nationalpark Brijuni und die Flughafenzone Pula sind Flugverbotsgebiete; das offene Farmland um Svetvinčenat ist dagegen so drohnenfreundlich, wie Europa nur wird. Vor dem Flug die Karte der kroatischen Luftfahrtbehörde prüfen — und fragen Sie uns: Wir nennen Ihnen eine Konoba fürs Abendessen, wo auch immer Ihr Sonnenuntergang endet.',
+        },
+      ],
+      faq: [
+        { q: 'Wann ist die goldene Stunde in Istrien im Sommer?', a: 'Ende Juni geht die Sonne gegen 21:00 unter, die goldene Stunde beginnt also etwa um 20:00; Mitte August liegt der Sonnenuntergang bei 20:15, Ende September bei etwa 18:50. Die blaue Stunde — in Rovinj und Pula das Bleiben wert — folgt 25–40 Minuten nach Sonnenuntergang.' },
+        { q: 'Was ist der beste Sonnenuntergangs-Spot nahe der Villa ohne Auto?', a: 'Die Wiese an der Westseite des Kaštel Morosini-Grimani, fünf Gehminuten entfernt — die tiefe Sonne färbt die Burgmauer in der letzten Stunde des Tages golden. Zehn Minuten weiter südlich in die Trockenmauer-Felder für Kažuni-Silhouetten vor dem Abendhimmel.' },
+        { q: 'Wann kann ich das Nebelmeer von Motovun fotografieren?', a: 'Mitte September bis November, bei Sonnenaufgang, nach einer klaren, windstillen, feuchten Nacht — der Nebel füllt das Mirna-Tal und löst sich ein bis zwei Stunden nach Sonnenaufgang auf. Etwa 75 Minuten vor Sonnenaufgang an der Villa losfahren, unterhalb der Stadt parken, vom Wehrgang fotografieren. Es ist eine Wahrscheinlichkeit, keine Garantie — aber auch nebelfreie Herbstmorgen dort lohnen die Fahrt.' },
+        { q: 'Lohnt sich der Sonnenuntergang in Rovinj trotz der Menschen?', a: 'Ja — es ist die eine Postkarte, die aussieht wie auf den Fotos. Von der nördlichen Uferpromenade nahe der Batana-Anleger fotografieren, im Juli und August eine Stunde früher kommen und für die blaue Stunde bleiben, wenn die Laternen angehen. Außerhalb der Hochsaison ist derselbe Spot fast leer.' },
+        { q: 'Darf ich in Istrien eine Drohne fliegen?', a: 'Ja, nach EU-Regeln (EASA): als Betreiber registrieren, in der Kategorie Open bleiben (eine Drohne unter 250 g ist die praktische Wahl) und nie über Menschenmengen oder Altstadtgassen fliegen. Der Nationalpark Brijuni und die Flughafenzone Pula sind Flugverbotsgebiete. Das offene Farmland um Svetvinčenat ist ideales Drohnengelände — vor dem Flug die Karte der kroatischen Luftfahrtbehörde prüfen.' },
+        { q: 'Brauche ich eine richtige Kamera, oder reicht das Handy?', a: 'Das Handy reicht für jeden Ort dieses Leitfadens — die goldene Stunde ist das gutmütigste Licht überhaupt. Belichtung auf den Himmel fixieren, RAW fotografieren falls verfügbar, und ein Taschenstativ nur mitnehmen, wenn Sie blaue Stunde in Rovinj oder Pula oder Langzeitbelichtungen über dem Motovun-Nebel planen.' },
       ],
     },
   },
