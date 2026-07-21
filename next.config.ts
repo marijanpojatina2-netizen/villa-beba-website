@@ -82,7 +82,9 @@ const nextConfig: NextConfig = {
         // prefixes (no self-redirect loop) and anything Next serves from the
         // filesystem before redirects run: /_next, /api, and any path with a
         // file extension (favicon.ico, sitemap.xml, robots.txt, images, og).
-        source: '/:path((?!en$|en/|de$|de/|_next/|api/|.*\\.).*)',
+        // /admin is a locale-less route (guest check-in dashboard) — without
+        // the exclusion it would 308 to /en/admin and 404.
+        source: '/:path((?!en$|en/|de$|de/|_next/|api/|admin$|admin/|.*\\.).*)',
         destination: '/en/:path',
         permanent: true,
       },
