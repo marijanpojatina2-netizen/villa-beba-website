@@ -6,9 +6,9 @@ import type { GuestInput } from './validate';
 
 const guest: GuestInput = {
   firstName: 'Anna', lastName: 'Eriksson', gender: 'F', citizenship: 'DE',
-  birthDate: '1974-08-12', birthCountry: 'DE', birthPlace: '',
+  birthDate: '1974-08-12', birthCountry: 'DE', birthPlace: 'Berlin',
   documentType: 'passport', documentNumber: 'L898902C3',
-  residenceCountry: 'DE', residenceCity: '',
+  residenceCountry: 'DE', residenceCity: 'Berlin',
   arrivalDate: '2026-08-01', departureDate: '2026-08-08',
 };
 
@@ -21,9 +21,11 @@ test('payload maps 1:1 to eVisitor field names', () => {
   assert.equal(t.surname, 'Eriksson');
   assert.equal(t.name, 'Anna');
   assert.equal(t.gender, 'F');
-  assert.equal(t.citizenshipCode, 'DE');
+  assert.equal(t.citizenshipCode, 'DEU');
   assert.equal(t.dateOfBirth, '1974-08-12');
-  assert.equal(t.countryOfBirthCode, 'DE');
+  assert.equal(t.countryOfBirthCode, 'DEU');
+  assert.equal(t.placeOfBirth, 'Berlin');
+  assert.equal(t.residenceCity, 'Berlin');
   assert.equal(t.documentType, 'passport');
   assert.equal(t.stayFrom, '2026-08-01');
   assert.equal(t.arrivalTime, '16:00');
@@ -37,14 +39,12 @@ test('agency arrival organization is labeled', () => {
   assert.equal(p.arrivalOrganization, 'Agencijski (grupno)');
 });
 
-test('placeOfBirth/residenceCity only pass through for Croatia', () => {
-  const hr = { ...guest, birthCountry: 'HR', birthPlace: 'Pula', residenceCountry: 'HR', residenceCity: 'Zagreb' };
+test('country codes convert to alpha-3 (eVisitor API format)', () => {
+  const hr = { ...guest, birthCountry: 'HR', citizenship: 'HR', residenceCountry: 'GB' };
   const t = buildEvisitorPayload({ villa: 'ballena' }, [hr]).tourists[0];
-  assert.equal(t.placeOfBirth, 'Pula');
-  assert.equal(t.residenceCity, 'Zagreb');
-  const de = buildEvisitorPayload({ villa: 'ballena' }, [{ ...guest, birthPlace: 'Berlin', residenceCity: 'Berlin' }]).tourists[0];
-  assert.equal(de.placeOfBirth, '');
-  assert.equal(de.residenceCity, '');
+  assert.equal(t.citizenshipCode, 'HRV');
+  assert.equal(t.countryOfBirthCode, 'HRV');
+  assert.equal(t.residenceCountryCode, 'GBR');
 });
 
 test('ttCategory follows age at arrival', () => {
@@ -56,7 +56,7 @@ test('ttCategory follows age at arrival', () => {
 });
 
 test('csv has header + one row per guest, quotes commas', () => {
-  const csv = guestsToCsv([guest, { ...guest, residenceCountry: 'HR', residenceCity: 'Zagreb, Trešnjevka' }]);
+  const csv = guestsToCsv([guest, { ...guest, residenceCity: 'Zagreb, Trešnjevka' }]);
   const rows = csv.trim().split('\n');
   assert.equal(rows.length, 3);
   assert.ok(rows[0].startsWith('surname,name,gender'));

@@ -20,9 +20,12 @@ const nextConfig: NextConfig = {
           { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           {
+            // camera=(self) — the guest check-in scanner (/en|de/checkin)
+            // uses getUserMedia; camera=() would block it browser-wide
+            // before the permission prompt even appears.
             key: 'Permissions-Policy',
             value:
-              'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+              'camera=(self), microphone=(), geolocation=(), interest-cohort=()',
           },
         ],
       },
