@@ -140,8 +140,8 @@ Order = leverage. **★ = real do-follow brand citation that lets you list your 
 
 | # | Directory | DA | Cost | Submit at | Listing type / notes |
 | - | --- | --- | --- | --- | --- |
-| 1 ★ | **Visit Istria** | 53 | Free | istra.hr/en → "register accommodation" | Official Istria board. Brand-level. EU operator qualifies automatically. Strongest, most relevant link. |
-| 2 ★ | **Visit Croatia** | 67 | Free | croatia.hr → register accommodation | National board. Brand-level. |
+| 1 ★ | **Visit Istria** | 53 | Free | **Email** info@istra.com (no self-service form) | Official Istria board. Brand-level. Email request to be presented on the portal — draft ready in `outreach-emails-2026-06.md`. Strongest, most relevant link. |
+| 2 | **Visit Croatia (HTZ)** | 67 | n/a | **No public form** — fed from eVisitor + local TZ | The national portal does NOT take individual submissions; its accommodation base is pulled from eVisitor (you're already in it) and the local tourist board. Route to it = the **TZ Općine Svetvinčenat** email (§3 of `outreach-emails-2026-06.md`), not a direct croatia.hr signup. Website-link value is uncertain. |
 | 3 ★ | **DZS / eVisitor** | 90 | Mandatory | eposlovanje.dzs.hr | Likely already registered via eVisitor — just **verify the listing carries a working website URL**. Highest DA of the lot. |
 | 4 | **Plum Guide** | 71 | Free if accepted | plumguide.com/list-your-home | Apply (curated, ~30% accept). Per-villa. Worth the application — design-led brand fits. |
 | 5 | **Tablet Hotels** | 65 | Editorial | tablethotels.com | Application required; boutique focus. |

@@ -103,11 +103,7 @@ export default function CheckinWizard({
     setGuests((prev) =>
       prev.map((g, i) => {
         if (i !== index) return g;
-        const next = { ...g, [key]: value };
-        // eVisitor asks for these only when the respective country is Croatia.
-        if (key === 'birthCountry' && value !== 'HR') next.birthPlace = '';
-        if (key === 'residenceCountry' && value !== 'HR') next.residenceCity = '';
-        return next;
+        return { ...g, [key]: value };
       }),
     );
   }
@@ -404,17 +400,15 @@ export default function CheckinWizard({
               {t('birthCountry')}
               {countrySelect('birthCountry')}
             </label>
-            {guest.birthCountry === 'HR' && (
-              <label className="text-sm font-medium">
-                {t('birthPlace')}
-                <input
-                  type="text"
-                  value={guest.birthPlace}
-                  onChange={(e) => setField(gi, 'birthPlace', e.target.value)}
-                  className={inputClass('birthPlace')}
-                />
-              </label>
-            )}
+            <label className="text-sm font-medium">
+              {t('birthPlace')}
+              <input
+                type="text"
+                value={guest.birthPlace}
+                onChange={(e) => setField(gi, 'birthPlace', e.target.value)}
+                className={inputClass('birthPlace')}
+              />
+            </label>
             <label className="text-sm font-medium">
               {t('documentType')}
               <select
@@ -443,17 +437,15 @@ export default function CheckinWizard({
               {t('residenceCountry')}
               {countrySelect('residenceCountry')}
             </label>
-            {guest.residenceCountry === 'HR' && (
-              <label className="text-sm font-medium">
-                {t('residenceCity')}
-                <input
-                  type="text"
-                  value={guest.residenceCity}
-                  onChange={(e) => setField(gi, 'residenceCity', e.target.value)}
-                  className={inputClass('residenceCity')}
-                />
-              </label>
-            )}
+            <label className="text-sm font-medium">
+              {t('residenceCity')}
+              <input
+                type="text"
+                value={guest.residenceCity}
+                onChange={(e) => setField(gi, 'residenceCity', e.target.value)}
+                className={inputClass('residenceCity')}
+              />
+            </label>
             <label className="text-sm font-medium">
               {t('arrivalDate')}
               <input
@@ -518,8 +510,7 @@ export default function CheckinWizard({
                   </button>
                 </div>
                 <p className="mt-1 text-neutral-600">
-                  {t('birthDate')}: {g.birthDate} · {t('birthCountry')}: {g.birthCountry}
-                  {g.birthCountry === 'HR' && g.birthPlace ? ` (${g.birthPlace})` : ''} ·{' '}
+                  {t('birthDate')}: {g.birthDate} · {g.birthPlace}, {g.birthCountry} ·{' '}
                   {t('citizenship')}: {g.citizenship}
                 </p>
                 <p className="text-neutral-600">
@@ -531,8 +522,7 @@ export default function CheckinWizard({
                   · {g.documentNumber}
                 </p>
                 <p className="text-neutral-600">
-                  {t('residenceCountry')}: {g.residenceCountry}
-                  {g.residenceCountry === 'HR' && g.residenceCity ? ` (${g.residenceCity})` : ''}
+                  {t('residenceCity')}: {g.residenceCity}, {g.residenceCountry}
                 </p>
                 <p className="text-neutral-600">
                   {g.arrivalDate} → {g.departureDate}

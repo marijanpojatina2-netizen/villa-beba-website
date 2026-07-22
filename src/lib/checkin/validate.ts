@@ -54,19 +54,16 @@ export function validateGuest(g: GuestInput): string[] {
     errs.push('birthDate');
   }
   if (!COUNTRIES.includes(g.birthCountry)) errs.push('birthCountry');
-  // eVisitor: place of birth is required only when the birth country is Croatia.
-  if (g.birthCountry === 'HR' && (!g.birthPlace?.trim() || g.birthPlace.length > 100)) {
-    errs.push('birthPlace');
-  }
+  // eVisitor Web API (CheckInTourist): city of birth is required for everyone —
+  // HR-born guests use the settlement codelist, foreigners free text.
+  if (!g.birthPlace?.trim() || g.birthPlace.length > 100) errs.push('birthPlace');
   if (!['id_card', 'passport', 'other'].includes(g.documentType)) errs.push('documentType');
   if (!g.documentNumber?.trim() || !/^[A-Za-z0-9<\- ]{3,20}$/.test(g.documentNumber)) {
     errs.push('documentNumber');
   }
   if (!COUNTRIES.includes(g.residenceCountry)) errs.push('residenceCountry');
-  // eVisitor: residence city is required only when the residence country is Croatia.
-  if (g.residenceCountry === 'HR' && (!g.residenceCity?.trim() || g.residenceCity.length > 100)) {
-    errs.push('residenceCity');
-  }
+  // eVisitor Web API (CheckInTourist): city of residence is required for everyone.
+  if (!g.residenceCity?.trim() || g.residenceCity.length > 100) errs.push('residenceCity');
   if (!isRealDate(g.arrivalDate)) errs.push('arrivalDate');
   if (!isRealDate(g.departureDate) || g.departureDate <= g.arrivalDate) {
     errs.push('departureDate');

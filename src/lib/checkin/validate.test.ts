@@ -5,13 +5,13 @@ import { validateGuest, COUNTRIES, type GuestInput } from './validate';
 
 const ok: GuestInput = {
   firstName: 'Anna', lastName: 'Eriksson', gender: 'F', citizenship: 'DE',
-  birthDate: '1974-08-12', birthCountry: 'DE', birthPlace: '',
+  birthDate: '1974-08-12', birthCountry: 'DE', birthPlace: 'Berlin',
   documentType: 'passport', documentNumber: 'L898902C3',
-  residenceCountry: 'DE', residenceCity: '',
+  residenceCountry: 'DE', residenceCity: 'Berlin',
   arrivalDate: '2026-08-01', departureDate: '2026-08-08',
 };
 
-test('valid foreign guest has no errors (no city/place needed)', () => {
+test('valid foreign guest has no errors', () => {
   assert.deepEqual(validateGuest(ok), []);
 });
 
@@ -25,20 +25,10 @@ test('birthCountry is required', () => {
   assert.ok(validateGuest({ ...ok, birthCountry: '' }).includes('birthCountry'));
 });
 
-test('birthPlace required only when birth country is Croatia', () => {
-  assert.ok(validateGuest({ ...ok, birthCountry: 'HR', birthPlace: '' }).includes('birthPlace'));
+test('birthPlace and residenceCity required for everyone (eVisitor API)', () => {
+  assert.ok(validateGuest({ ...ok, birthPlace: '' }).includes('birthPlace'));
+  assert.ok(validateGuest({ ...ok, residenceCity: ' ' }).includes('residenceCity'));
   assert.deepEqual(validateGuest({ ...ok, birthCountry: 'HR', birthPlace: 'Pula' }), []);
-  assert.deepEqual(validateGuest({ ...ok, birthCountry: 'DE', birthPlace: '' }), []);
-});
-
-test('residenceCity required only when residence country is Croatia', () => {
-  assert.ok(
-    validateGuest({ ...ok, residenceCountry: 'HR', residenceCity: '' }).includes('residenceCity'),
-  );
-  assert.deepEqual(
-    validateGuest({ ...ok, residenceCountry: 'HR', residenceCity: 'Zagreb' }),
-    [],
-  );
 });
 
 test('bad enum/country/date values are reported', () => {
