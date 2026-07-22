@@ -67,6 +67,17 @@ export default async function AdminPage() {
               className="mt-1 w-20 rounded border border-neutral-300 px-2 py-1.5"
             />
           </label>
+          <label className="text-sm">
+            Booking via
+            <br />
+            <select
+              name="arrivalOrganization"
+              className="mt-1 rounded border border-neutral-300 px-2 py-1.5"
+            >
+              <option value="osobno">Direct (osobno)</option>
+              <option value="agencija">Agency (Booking/Airbnb/Vrbo)</option>
+            </select>
+          </label>
           <button className="rounded bg-neutral-900 px-4 py-2 text-sm text-white">
             Create link
           </button>

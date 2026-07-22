@@ -16,6 +16,7 @@ export interface CheckinLink {
   arrival_date: string;
   departure_date: string;
   expected_guests: number;
+  arrival_organization: 'osobno' | 'agencija';
   status: 'pending' | 'submitted' | 'pushed';
   scan_count: number;
   created_at: string;
@@ -48,6 +49,7 @@ export function normalizeGuest(r: Record<string, unknown>): GuestInput {
     gender: r.gender as 'M' | 'F',
     citizenship: String(r.citizenship),
     birthDate: iso(r.birth_date),
+    birthCountry: String(r.birth_country),
     birthPlace: String(r.birth_place),
     documentType: r.document_type as GuestInput['documentType'],
     documentNumber: String(r.document_number),
@@ -64,10 +66,11 @@ export async function createLink(input: {
   arrivalDate: string;
   departureDate: string;
   expectedGuests: number;
+  arrivalOrganization: string;
 }): Promise<number> {
   const rows = await sql()`
-    INSERT INTO checkin_links (token, villa, arrival_date, departure_date, expected_guests)
-    VALUES (${input.token}, ${input.villa}, ${input.arrivalDate}, ${input.departureDate}, ${input.expectedGuests})
+    INSERT INTO checkin_links (token, villa, arrival_date, departure_date, expected_guests, arrival_organization)
+    VALUES (${input.token}, ${input.villa}, ${input.arrivalDate}, ${input.departureDate}, ${input.expectedGuests}, ${input.arrivalOrganization})
     RETURNING id`;
   return rows[0].id as number;
 }
@@ -96,10 +99,10 @@ export async function insertGuests(linkId: number, guests: GuestInput[]): Promis
   await s.transaction(
     guests.map((g) => s`
       INSERT INTO guests (link_id, first_name, last_name, gender, citizenship,
-        birth_date, birth_place, document_type, document_number,
+        birth_date, birth_country, birth_place, document_type, document_number,
         residence_country, residence_city, arrival_date, departure_date)
       VALUES (${linkId}, ${g.firstName}, ${g.lastName}, ${g.gender}, ${g.citizenship},
-        ${g.birthDate}, ${g.birthPlace}, ${g.documentType}, ${g.documentNumber},
+        ${g.birthDate}, ${g.birthCountry}, ${g.birthPlace}, ${g.documentType}, ${g.documentNumber},
         ${g.residenceCountry}, ${g.residenceCity}, ${g.arrivalDate}, ${g.departureDate})`),
   );
 }

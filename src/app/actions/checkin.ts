@@ -19,24 +19,36 @@ const SCAN_MODEL = 'claude-opus-4-8';
 const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
 const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/webp'] as const;
 
+// Nullable enum fields must use anyOf — `enum` containing null alongside a
+// union type is rejected by the structured-outputs schema validator.
+const nullableEnum = (values: string[], description?: string) => ({
+  anyOf: [{ type: 'string', enum: values }, { type: 'null' }],
+  ...(description ? { description } : {}),
+});
+
 const SCAN_SCHEMA = {
   type: 'object',
   additionalProperties: false,
   required: [
-    'firstName', 'lastName', 'gender', 'citizenship', 'birthDate', 'birthPlace',
-    'documentType', 'documentNumber', 'mrzLines', 'lowConfidenceFields',
+    'firstName', 'lastName', 'gender', 'citizenship', 'birthDate', 'birthCountry',
+    'birthPlace', 'documentType', 'documentNumber', 'mrzLines', 'lowConfidenceFields',
   ],
   properties: {
     firstName: { type: ['string', 'null'] },
     lastName: { type: ['string', 'null'] },
-    gender: { type: ['string', 'null'], enum: ['M', 'F', null] },
+    gender: nullableEnum(['M', 'F']),
     citizenship: {
       type: ['string', 'null'],
       description: 'ISO 3166-1 alpha-2 country code of citizenship/nationality',
     },
     birthDate: { type: ['string', 'null'], description: 'YYYY-MM-DD' },
+    birthCountry: {
+      type: ['string', 'null'],
+      description:
+        'ISO 3166-1 alpha-2 country of birth, when determinable from the place-of-birth field',
+    },
     birthPlace: { type: ['string', 'null'] },
-    documentType: { type: ['string', 'null'], enum: ['id_card', 'passport', 'other', null] },
+    documentType: nullableEnum(['id_card', 'passport', 'other']),
     documentNumber: { type: ['string', 'null'] },
     mrzLines: {
       type: 'array',
@@ -54,9 +66,11 @@ const SCAN_SCHEMA = {
 const SCAN_PROMPT =
   'Read this identity document (ID card or passport). Extract the holder’s data ' +
   'into the JSON schema. Use the MRZ lines when present — transcribe them character-' +
-  'for-character including "<" fillers. Dates as YYYY-MM-DD. citizenship as ISO ' +
-  '3166-1 alpha-2 (e.g. DE, HR, AT). If a field is unreadable or absent, use null ' +
-  'and list it in lowConfidenceFields. Do not guess document numbers.';
+  'for-character including "<" fillers. Dates as YYYY-MM-DD. citizenship and ' +
+  'birthCountry as ISO 3166-1 alpha-2 (e.g. DE, HR, AT); infer birthCountry from ' +
+  'the place-of-birth field when it names a country or a well-known city. If a ' +
+  'field is unreadable or absent, use null and list it in lowConfidenceFields. ' +
+  'Do not guess document numbers.';
 
 export interface ScanResult {
   success: boolean;
@@ -124,6 +138,7 @@ export async function scanDocument(formData: FormData): Promise<ScanResult> {
       gender: 'M' | 'F' | null;
       citizenship: string | null;
       birthDate: string | null;
+      birthCountry: string | null;
       birthPlace: string | null;
       documentType: GuestInput['documentType'] | null;
       documentNumber: string | null;
@@ -161,6 +176,7 @@ export async function scanDocument(formData: FormData): Promise<ScanResult> {
       fields.residenceCountry = raw.citizenship.toUpperCase();
     }
     if (raw.birthDate) fields.birthDate = raw.birthDate;
+    if (raw.birthCountry) fields.birthCountry = raw.birthCountry.toUpperCase();
     if (raw.birthPlace) fields.birthPlace = raw.birthPlace;
     if (raw.documentType) fields.documentType = raw.documentType;
     if (raw.documentNumber) fields.documentNumber = raw.documentNumber.toUpperCase();

@@ -713,7 +713,7 @@
     "genderF": "Weiblich",
     "citizenship": "Staatsangehörigkeit",
     "birthDate": "Geburtsdatum",
-    "birthPlace": "Geburtsort (optional)",
+    "birthPlace": "Geburtsort",
     "documentType": "Dokumenttyp",
     "docIdCard": "Personalausweis",
     "docPassport": "Reisepass",
@@ -738,6 +738,12 @@
     "invalidTitle": "Dieser Link ist nicht gültig",
     "invalidBody": "Der Check-in-Link ist ungültig oder abgelaufen. Bitte kontaktieren Sie uns — wir senden Ihnen einen neuen.",
     "privacy": "Datenschutzerklärung",
-    "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    "errorGeneric": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "birthCountry": "Geburtsland",
+    "scanInstruction": "Halten Sie Ihr Dokument in den Rahmen",
+    "capture": "Aufnehmen",
+    "cancel": "Abbrechen",
+    "uploadInstead": "Stattdessen Foto hochladen",
+    "cameraDenied": "Kamera nicht verfügbar — bitte laden Sie stattdessen ein Foto des Dokuments hoch."
   }
 }
