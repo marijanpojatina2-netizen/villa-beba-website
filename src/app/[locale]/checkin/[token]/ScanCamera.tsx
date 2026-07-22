@@ -3,6 +3,29 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 
+// ImageCapture (Chrome/Android) is not in TS lib.dom — minimal declaration.
+declare class ImageCapture {
+  constructor(track: MediaStreamTrack);
+  takePhoto(): Promise<Blob>;
+}
+
+// Normalize any capture to a JPEG with a bounded long edge, re-encoding at
+// lower quality if needed to stay well under the server-action body limit.
+async function toUploadJpeg(blob: Blob): Promise<Blob> {
+  const bitmap = await createImageBitmap(blob);
+  const scale = Math.min(1, 2600 / Math.max(bitmap.width, bitmap.height));
+  const canvas = document.createElement('canvas');
+  canvas.width = Math.round(bitmap.width * scale);
+  canvas.height = Math.round(bitmap.height * scale);
+  canvas.getContext('2d')!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  for (const quality of [0.9, 0.8, 0.7]) {
+    const out = await new Promise<Blob | null>((r) => canvas.toBlob(r, 'image/jpeg', quality));
+    if (out && out.size <= 2.5 * 1024 * 1024) return out;
+    if (quality === 0.7 && out) return out;
+  }
+  return blob;
+}
+
 // Fullscreen camera overlay with a document frame and scan-line animation.
 // Captures a high-res JPEG frame from the live stream — always JPEG, so HEIC
 // phone defaults can never reach the server.
@@ -32,8 +55,8 @@ export default function ScanCamera({
         const stream = await navigator.mediaDevices.getUserMedia({
           video: {
             facingMode: 'environment',
-            width: { ideal: 2560 },
-            height: { ideal: 1440 },
+            width: { ideal: 3840 },
+            height: { ideal: 2160 },
           },
           audio: false,
         });
@@ -42,6 +65,14 @@ export default function ScanCamera({
           return;
         }
         streamRef.current = stream;
+        // Close-up documents need continuous autofocus where supported.
+        try {
+          await stream.getVideoTracks()[0].applyConstraints({
+            advanced: [{ focusMode: 'continuous' } as MediaTrackConstraintSet],
+          });
+        } catch {
+          /* focusMode unsupported — camera default stays */
+        }
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
           await videoRef.current.play();
@@ -57,23 +88,43 @@ export default function ScanCamera({
     };
   }, [onUnavailable, stop]);
 
-  function capture() {
+  const [capturing, setCapturing] = useState(false);
+
+  async function capture() {
     const video = videoRef.current;
-    if (!video || !video.videoWidth) return;
-    const scale = Math.min(1, 2400 / Math.max(video.videoWidth, video.videoHeight));
-    const canvas = document.createElement('canvas');
-    canvas.width = Math.round(video.videoWidth * scale);
-    canvas.height = Math.round(video.videoHeight * scale);
-    canvas.getContext('2d')!.drawImage(video, 0, 0, canvas.width, canvas.height);
-    canvas.toBlob(
-      (blob) => {
-        stop();
-        if (blob) onCapture(blob);
-        else onUnavailable();
-      },
-      'image/jpeg',
-      0.9,
-    );
+    const track = streamRef.current?.getVideoTracks()[0];
+    if (!video || !video.videoWidth || !track || capturing) return;
+    setCapturing(true);
+    let raw: Blob | null = null;
+    // Prefer a real still photo (full sensor resolution + autofocus run) —
+    // video-frame grabs come out soft on phones at document distance.
+    if (typeof ImageCapture !== 'undefined') {
+      try {
+        raw = await new ImageCapture(track).takePhoto();
+      } catch {
+        raw = null;
+      }
+    }
+    if (!raw) {
+      const canvas = document.createElement('canvas');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d')!.drawImage(video, 0, 0);
+      raw = await new Promise<Blob | null>((r) => canvas.toBlob(r, 'image/jpeg', 0.92));
+    }
+    if (!raw) {
+      setCapturing(false);
+      onUnavailable();
+      return;
+    }
+    try {
+      const jpeg = await toUploadJpeg(raw);
+      stop();
+      onCapture(jpeg);
+    } catch {
+      setCapturing(false);
+      onUnavailable();
+    }
   }
 
   return (
@@ -133,13 +184,15 @@ export default function ScanCamera({
         </button>
         <button
           type="button"
-          onClick={capture}
-          disabled={!ready}
+          onClick={() => void capture()}
+          disabled={!ready || capturing}
           aria-label={t('capture')}
           className="h-18 w-18 rounded-full border-4 border-white bg-white/30 p-1 disabled:opacity-40"
           style={{ height: 72, width: 72 }}
         >
-          <span className="block h-full w-full rounded-full bg-white" />
+          <span
+            className={`block h-full w-full rounded-full bg-white ${capturing ? 'animate-pulse' : ''}`}
+          />
         </button>
         <span className="w-[68px]" />
       </div>
