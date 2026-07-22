@@ -4,6 +4,7 @@ import { useMemo, useRef, useState, useTransition } from 'react';
 import { useTranslations } from 'next-intl';
 import { scanDocument, submitCheckin } from '@/app/actions/checkin';
 import { COUNTRIES, validateGuest, type GuestInput } from '@/lib/checkin/validate';
+import ScanCamera from './ScanCamera';
 
 const VILLA_NAME: Record<string, string> = {
   ballena: 'Villa Ballena',
@@ -23,6 +24,7 @@ function emptyGuest(arrivalDate: string, departureDate: string): GuestInput {
     gender: '' as GuestInput['gender'],
     citizenship: '',
     birthDate: '',
+    birthCountry: '',
     birthPlace: '',
     documentType: '' as GuestInput['documentType'],
     documentNumber: '',
@@ -33,21 +35,21 @@ function emptyGuest(arrivalDate: string, departureDate: string): GuestInput {
   };
 }
 
-// Downscale client-side before upload: saves mobile bandwidth + API cost.
+// Downscale client-side before upload (file-picker path): saves bandwidth +
+// API cost, and converts anything the browser can decode to JPEG.
 async function downscale(file: File): Promise<Blob> {
   try {
     const bitmap = await createImageBitmap(file);
-    const scale = Math.min(1, 1600 / Math.max(bitmap.width, bitmap.height));
-    if (scale === 1 && file.size < 1.5 * 1024 * 1024) return file;
+    const scale = Math.min(1, 2400 / Math.max(bitmap.width, bitmap.height));
     const canvas = document.createElement('canvas');
     canvas.width = Math.round(bitmap.width * scale);
     canvas.height = Math.round(bitmap.height * scale);
     canvas.getContext('2d')!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
     return await new Promise((resolve) =>
-      canvas.toBlob((b) => resolve(b ?? file), 'image/jpeg', 0.85),
+      canvas.toBlob((b) => resolve(b ?? file), 'image/jpeg', 0.9),
     );
   } catch {
-    return file; // e.g. HEIC not decodable in this browser — let the server reject politely
+    return file; // undecodable (e.g. HEIC) — let the server reject politely
   }
 }
 
@@ -73,8 +75,12 @@ export default function CheckinWizard({
   );
   const [errors, setErrors] = useState<string[]>([]);
   const [reviewFields, setReviewFields] = useState<Record<number, string[]>>({});
-  const [scanMsg, setScanMsg] = useState<'ok' | 'review' | 'scanFailed' | 'scanLimit' | null>(null);
+  const [scanMsg, setScanMsg] = useState<
+    'ok' | 'review' | 'scanFailed' | 'scanLimit' | 'cameraDenied' | null
+  >(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [cameraOpen, setCameraOpen] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [scanning, startScan] = useTransition();
   const [submitting, startSubmit] = useTransition();
   const fileRef = useRef<HTMLInputElement>(null);
@@ -94,7 +100,16 @@ export default function CheckinWizard({
   const guest = guests[gi];
 
   function setField<K extends keyof GuestInput>(index: number, key: K, value: GuestInput[K]) {
-    setGuests((prev) => prev.map((g, i) => (i === index ? { ...g, [key]: value } : g)));
+    setGuests((prev) =>
+      prev.map((g, i) => {
+        if (i !== index) return g;
+        const next = { ...g, [key]: value };
+        // eVisitor asks for these only when the respective country is Croatia.
+        if (key === 'birthCountry' && value !== 'HR') next.birthPlace = '';
+        if (key === 'residenceCountry' && value !== 'HR') next.residenceCity = '';
+        return next;
+      }),
+    );
   }
 
   function applyCount(n: number) {
@@ -106,14 +121,21 @@ export default function CheckinWizard({
     });
   }
 
-  async function handleScanFile(file: File) {
+  function runScan(blob: Blob) {
     setScanMsg(null);
-    const blob = await downscale(file);
+    setPreviewUrl((old) => {
+      if (old) URL.revokeObjectURL(old);
+      return URL.createObjectURL(blob);
+    });
     const fd = new FormData();
     fd.append('token', token);
     fd.append('image', blob, 'scan.jpg');
     startScan(async () => {
       const result = await scanDocument(fd);
+      setPreviewUrl((old) => {
+        if (old) URL.revokeObjectURL(old);
+        return null;
+      });
       if (!result.success) {
         setScanMsg(result.error === 'scan_limit' ? 'scanLimit' : 'scanFailed');
         return;
@@ -137,6 +159,10 @@ export default function CheckinWizard({
       setScanMsg(review.length ? 'review' : 'ok');
       setErrors([]);
     });
+  }
+
+  async function handlePickedFile(file: File) {
+    runScan(await downscale(file));
   }
 
   function nextFromGuest() {
@@ -180,6 +206,19 @@ export default function CheckinWizard({
           : 'border-neutral-300 bg-white'
     }`;
 
+  const countrySelect = (field: 'citizenship' | 'birthCountry' | 'residenceCountry') => (
+    <select
+      value={guest[field]}
+      onChange={(e) => setField(gi, field, e.target.value)}
+      className={inputClass(field)}
+    >
+      <option value="" disabled>—</option>
+      {countryOptions.map((c) => (
+        <option key={c.code} value={c.code}>{c.label}</option>
+      ))}
+    </select>
+  );
+
   const stay = `${arrivalDate} → ${departureDate}`;
 
   if (step === 'done') {
@@ -193,6 +232,29 @@ export default function CheckinWizard({
 
   return (
     <main className="mx-auto max-w-xl px-6 py-24">
+      <style>{`
+        @keyframes checkin-preview-scan {
+          0% { top: 2%; }
+          50% { top: 96%; }
+          100% { top: 2%; }
+        }
+      `}</style>
+
+      {cameraOpen && (
+        <ScanCamera
+          onCapture={(blob) => {
+            setCameraOpen(false);
+            runScan(blob);
+          }}
+          onUnavailable={() => {
+            setCameraOpen(false);
+            setScanMsg('cameraDenied');
+            fileRef.current?.click();
+          }}
+          onClose={() => setCameraOpen(false)}
+        />
+      )}
+
       <h1 className="text-2xl font-medium">{t('title')}</h1>
       <p className="mt-1 text-sm text-neutral-500">
         {VILLA_NAME[villa] ?? villa} · {stay}
@@ -233,23 +295,51 @@ export default function CheckinWizard({
             <input
               ref={fileRef}
               type="file"
-              accept="image/*"
-              capture="environment"
+              accept="image/jpeg,image/png,image/webp"
               className="hidden"
               onChange={(e) => {
                 const f = e.target.files?.[0];
-                if (f) void handleScanFile(f);
+                if (f) void handlePickedFile(f);
                 e.target.value = '';
               }}
             />
-            <button
-              type="button"
-              disabled={scanning}
-              onClick={() => fileRef.current?.click()}
-              className="w-full rounded bg-neutral-900 px-4 py-3 text-white disabled:opacity-60"
-            >
-              {scanning ? t('scanning') : `📷 ${t('scanCta')}`}
-            </button>
+
+            {scanning && previewUrl ? (
+              <div className="relative overflow-hidden rounded-lg">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={previewUrl} alt="" className="w-full opacity-80" />
+                <div
+                  className="absolute left-1 right-1 h-0.5 rounded bg-emerald-400"
+                  style={{
+                    animation: 'checkin-preview-scan 2s ease-in-out infinite',
+                    boxShadow: '0 0 12px 2px rgba(52, 211, 153, 0.8)',
+                  }}
+                />
+                <p className="absolute bottom-2 left-0 right-0 text-center text-sm font-medium text-white drop-shadow">
+                  {t('scanning')}
+                </p>
+              </div>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  disabled={scanning}
+                  onClick={() => setCameraOpen(true)}
+                  className="w-full rounded bg-neutral-900 px-4 py-3 text-white disabled:opacity-60"
+                >
+                  {scanning ? t('scanning') : `📷 ${t('scanCta')}`}
+                </button>
+                <button
+                  type="button"
+                  disabled={scanning}
+                  onClick={() => fileRef.current?.click()}
+                  className="mt-2 w-full text-center text-sm text-neutral-500 underline"
+                >
+                  {t('uploadInstead')}
+                </button>
+              </>
+            )}
+
             <p className="mt-2 text-xs leading-relaxed text-neutral-500">{t('scanHint')}</p>
             {scanMsg === 'ok' && <p className="mt-2 text-sm text-green-700">{t('scanOk')}</p>}
             {scanMsg === 'review' && (
@@ -260,6 +350,9 @@ export default function CheckinWizard({
             )}
             {scanMsg === 'scanLimit' && (
               <p className="mt-2 text-sm text-red-600">{t('scanLimit')}</p>
+            )}
+            {scanMsg === 'cameraDenied' && (
+              <p className="mt-2 text-sm text-amber-700">{t('cameraDenied')}</p>
             )}
           </div>
 
@@ -305,26 +398,23 @@ export default function CheckinWizard({
             </label>
             <label className="text-sm font-medium">
               {t('citizenship')}
-              <select
-                value={guest.citizenship}
-                onChange={(e) => setField(gi, 'citizenship', e.target.value)}
-                className={inputClass('citizenship')}
-              >
-                <option value="" disabled>—</option>
-                {countryOptions.map((c) => (
-                  <option key={c.code} value={c.code}>{c.label}</option>
-                ))}
-              </select>
+              {countrySelect('citizenship')}
             </label>
             <label className="text-sm font-medium">
-              {t('birthPlace')}
-              <input
-                type="text"
-                value={guest.birthPlace}
-                onChange={(e) => setField(gi, 'birthPlace', e.target.value)}
-                className={inputClass('birthPlace')}
-              />
+              {t('birthCountry')}
+              {countrySelect('birthCountry')}
             </label>
+            {guest.birthCountry === 'HR' && (
+              <label className="text-sm font-medium">
+                {t('birthPlace')}
+                <input
+                  type="text"
+                  value={guest.birthPlace}
+                  onChange={(e) => setField(gi, 'birthPlace', e.target.value)}
+                  className={inputClass('birthPlace')}
+                />
+              </label>
+            )}
             <label className="text-sm font-medium">
               {t('documentType')}
               <select
@@ -351,26 +441,19 @@ export default function CheckinWizard({
             </label>
             <label className="text-sm font-medium">
               {t('residenceCountry')}
-              <select
-                value={guest.residenceCountry}
-                onChange={(e) => setField(gi, 'residenceCountry', e.target.value)}
-                className={inputClass('residenceCountry')}
-              >
-                <option value="" disabled>—</option>
-                {countryOptions.map((c) => (
-                  <option key={c.code} value={c.code}>{c.label}</option>
-                ))}
-              </select>
+              {countrySelect('residenceCountry')}
             </label>
-            <label className="text-sm font-medium">
-              {t('residenceCity')}
-              <input
-                type="text"
-                value={guest.residenceCity}
-                onChange={(e) => setField(gi, 'residenceCity', e.target.value)}
-                className={inputClass('residenceCity')}
-              />
-            </label>
+            {guest.residenceCountry === 'HR' && (
+              <label className="text-sm font-medium">
+                {t('residenceCity')}
+                <input
+                  type="text"
+                  value={guest.residenceCity}
+                  onChange={(e) => setField(gi, 'residenceCity', e.target.value)}
+                  className={inputClass('residenceCity')}
+                />
+              </label>
+            )}
             <label className="text-sm font-medium">
               {t('arrivalDate')}
               <input
@@ -435,8 +518,9 @@ export default function CheckinWizard({
                   </button>
                 </div>
                 <p className="mt-1 text-neutral-600">
-                  {t('birthDate')}: {g.birthDate}
-                  {g.birthPlace ? ` · ${g.birthPlace}` : ''} · {g.citizenship}
+                  {t('birthDate')}: {g.birthDate} · {t('birthCountry')}: {g.birthCountry}
+                  {g.birthCountry === 'HR' && g.birthPlace ? ` (${g.birthPlace})` : ''} ·{' '}
+                  {t('citizenship')}: {g.citizenship}
                 </p>
                 <p className="text-neutral-600">
                   {g.documentType === 'id_card'
@@ -447,7 +531,8 @@ export default function CheckinWizard({
                   · {g.documentNumber}
                 </p>
                 <p className="text-neutral-600">
-                  {t('residenceCity')}: {g.residenceCity}, {g.residenceCountry}
+                  {t('residenceCountry')}: {g.residenceCountry}
+                  {g.residenceCountry === 'HR' && g.residenceCity ? ` (${g.residenceCity})` : ''}
                 </p>
                 <p className="text-neutral-600">
                   {g.arrivalDate} → {g.departureDate}

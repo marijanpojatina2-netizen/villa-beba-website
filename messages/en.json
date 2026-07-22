@@ -713,7 +713,7 @@
     "genderF": "Female",
     "citizenship": "Citizenship",
     "birthDate": "Date of birth",
-    "birthPlace": "Place of birth (optional)",
+    "birthPlace": "Place of birth",
     "documentType": "Document type",
     "docIdCard": "ID card",
     "docPassport": "Passport",
@@ -738,6 +738,12 @@
     "invalidTitle": "This link is not valid",
     "invalidBody": "The check-in link is invalid or has expired. Please contact us and we will send you a new one.",
     "privacy": "Privacy policy",
-    "errorGeneric": "Something went wrong. Please try again."
+    "errorGeneric": "Something went wrong. Please try again.",
+    "birthCountry": "Country of birth",
+    "scanInstruction": "Place your document inside the frame",
+    "capture": "Capture",
+    "cancel": "Cancel",
+    "uploadInstead": "Upload a photo instead",
+    "cameraDenied": "Camera unavailable — please upload a photo of the document instead."
   }
 }

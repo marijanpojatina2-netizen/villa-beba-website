@@ -62,14 +62,16 @@ export default async function LinkDetail({
                     {g.lastName}, {g.firstName} ({g.gender})
                   </p>
                   <p>
-                    Born {g.birthDate}
-                    {g.birthPlace ? ` in ${g.birthPlace}` : ''} · {g.citizenship}
+                    Born {g.birthDate} · {g.birthCountry}
+                    {g.birthCountry === 'HR' && g.birthPlace ? ` (${g.birthPlace})` : ''} ·
+                    citizenship {g.citizenship}
                   </p>
                   <p>
                     {g.documentType} · {g.documentNumber}
                   </p>
                   <p>
-                    Residence: {g.residenceCity}, {g.residenceCountry}
+                    Residence: {g.residenceCountry}
+                    {g.residenceCountry === 'HR' && g.residenceCity ? ` (${g.residenceCity})` : ''}
                   </p>
                   <p>
                     Stay: {g.arrivalDate} → {g.departureDate}

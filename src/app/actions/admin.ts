@@ -51,7 +51,9 @@ export async function createCheckinLink(formData: FormData): Promise<void> {
   const arrivalDate = String(formData.get('arrivalDate') ?? '');
   const departureDate = String(formData.get('departureDate') ?? '');
   const expectedGuests = Number(formData.get('expectedGuests') ?? 2);
+  const arrivalOrganization = String(formData.get('arrivalOrganization') ?? 'osobno');
   if (
+    !['osobno', 'agencija'].includes(arrivalOrganization) ||
     !['ballena', 'beluga', 'both'].includes(villa) ||
     !/^\d{4}-\d{2}-\d{2}$/.test(arrivalDate) ||
     !/^\d{4}-\d{2}-\d{2}$/.test(departureDate) ||
@@ -68,6 +70,7 @@ export async function createCheckinLink(formData: FormData): Promise<void> {
     arrivalDate,
     departureDate,
     expectedGuests,
+    arrivalOrganization,
   });
   redirect(`/admin/links/${id}`);
 }

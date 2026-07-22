@@ -33,3 +33,10 @@ CREATE TABLE IF NOT EXISTS guests (
 );
 
 CREATE INDEX IF NOT EXISTS guests_link_id_idx ON guests(link_id);
+
+-- v2 (2026-07-23): align fields with the official eVisitor form.
+-- birth_country is required by eVisitor; birth_place/residence_city are only
+-- required when the respective country is Croatia. arrival_organization
+-- (osobno vs agencija) is set by the owner when creating the link.
+ALTER TABLE guests ADD COLUMN IF NOT EXISTS birth_country TEXT NOT NULL DEFAULT '';
+ALTER TABLE checkin_links ADD COLUMN IF NOT EXISTS arrival_organization TEXT NOT NULL DEFAULT 'osobno';

@@ -7,11 +7,12 @@ export interface GuestInput {
   gender: 'M' | 'F';
   citizenship: string; // ISO 3166-1 alpha-2
   birthDate: string; // YYYY-MM-DD
-  birthPlace: string;
+  birthCountry: string; // ISO 3166-1 alpha-2 (eVisitor: država rođenja)
+  birthPlace: string; // eVisitor requires it ONLY when birthCountry is HR
   documentType: 'id_card' | 'passport' | 'other';
   documentNumber: string;
   residenceCountry: string; // ISO 3166-1 alpha-2
-  residenceCity: string;
+  residenceCity: string; // eVisitor requires it ONLY when residenceCountry is HR
   arrivalDate: string; // YYYY-MM-DD
   departureDate: string; // YYYY-MM-DD
 }
@@ -52,13 +53,20 @@ export function validateGuest(g: GuestInput): string[] {
   if (!isRealDate(g.birthDate) || g.birthDate > new Date().toISOString().slice(0, 10)) {
     errs.push('birthDate');
   }
-  if (g.birthPlace.length > 100) errs.push('birthPlace'); // optional field
+  if (!COUNTRIES.includes(g.birthCountry)) errs.push('birthCountry');
+  // eVisitor: place of birth is required only when the birth country is Croatia.
+  if (g.birthCountry === 'HR' && (!g.birthPlace?.trim() || g.birthPlace.length > 100)) {
+    errs.push('birthPlace');
+  }
   if (!['id_card', 'passport', 'other'].includes(g.documentType)) errs.push('documentType');
   if (!g.documentNumber?.trim() || !/^[A-Za-z0-9<\- ]{3,20}$/.test(g.documentNumber)) {
     errs.push('documentNumber');
   }
   if (!COUNTRIES.includes(g.residenceCountry)) errs.push('residenceCountry');
-  if (!g.residenceCity?.trim() || g.residenceCity.length > 100) errs.push('residenceCity');
+  // eVisitor: residence city is required only when the residence country is Croatia.
+  if (g.residenceCountry === 'HR' && (!g.residenceCity?.trim() || g.residenceCity.length > 100)) {
+    errs.push('residenceCity');
+  }
   if (!isRealDate(g.arrivalDate)) errs.push('arrivalDate');
   if (!isRealDate(g.departureDate) || g.departureDate <= g.arrivalDate) {
     errs.push('departureDate');
