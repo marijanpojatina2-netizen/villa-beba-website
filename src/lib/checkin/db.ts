@@ -22,10 +22,14 @@ export interface CheckinLink {
   submitted_at: string | null;
 }
 
-// Neon returns DATE columns as JS Date objects or strings depending on driver
-// version — normalize to YYYY-MM-DD.
+// Neon returns DATE columns as JS Date objects (parsed at *local* midnight) or
+// strings depending on driver version — normalize to YYYY-MM-DD using local
+// components. toISOString() would shift a day west of UTC.
 function iso(d: unknown): string {
-  if (d instanceof Date) return d.toISOString().slice(0, 10);
+  if (d instanceof Date) {
+    const p = (n: number) => String(n).padStart(2, '0');
+    return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+  }
   return String(d).slice(0, 10);
 }
 
