@@ -4,6 +4,13 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const nextConfig: NextConfig = {
+  experimental: {
+    serverActions: {
+      // Document-scanner uploads (checkin): a phone photo at ~2400px JPEG can
+      // exceed the 1MB default and get rejected before the action runs.
+      bodySizeLimit: '6mb',
+    },
+  },
   images: {
     // AVIF first (~20-30% smaller than WebP for photographs). Browsers that
     // don't accept it fall through to WebP via the Accept header.

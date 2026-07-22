@@ -76,7 +76,7 @@ export default function CheckinWizard({
   const [errors, setErrors] = useState<string[]>([]);
   const [reviewFields, setReviewFields] = useState<Record<number, string[]>>({});
   const [scanMsg, setScanMsg] = useState<
-    'ok' | 'review' | 'scanFailed' | 'scanLimit' | 'cameraDenied' | null
+    'ok' | 'review' | 'scanFailed' | 'scanError' | 'scanLimit' | 'cameraDenied' | null
   >(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [cameraOpen, setCameraOpen] = useState(false);
@@ -133,7 +133,14 @@ export default function CheckinWizard({
         return null;
       });
       if (!result.success) {
-        setScanMsg(result.error === 'scan_limit' ? 'scanLimit' : 'scanFailed');
+        // 'unreadable' → advise a sharper photo; technical failures → generic retry.
+        setScanMsg(
+          result.error === 'scan_limit'
+            ? 'scanLimit'
+            : result.error === 'unreadable'
+              ? 'scanFailed'
+              : 'scanError',
+        );
         return;
       }
       // Prefill only fields the guest hasn't typed yet.
@@ -343,6 +350,9 @@ export default function CheckinWizard({
             )}
             {scanMsg === 'scanFailed' && (
               <p className="mt-2 text-sm text-red-600">{t('scanFailed')}</p>
+            )}
+            {scanMsg === 'scanError' && (
+              <p className="mt-2 text-sm text-red-600">{t('errorGeneric')}</p>
             )}
             {scanMsg === 'scanLimit' && (
               <p className="mt-2 text-sm text-red-600">{t('scanLimit')}</p>

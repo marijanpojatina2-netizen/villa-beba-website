@@ -182,8 +182,15 @@ export async function scanDocument(formData: FormData): Promise<ScanResult> {
     if (raw.documentNumber) fields.documentNumber = raw.documentNumber.toUpperCase();
 
     if (Object.keys(fields).length === 0) {
+      console.warn(
+        '[checkin] scan unreadable: model returned no usable fields',
+        JSON.stringify({ lowConfidence: raw.lowConfidenceFields, mrzLines: raw.mrzLines?.length ?? 0 }),
+      );
       return { success: false, error: 'unreadable' };
     }
+    console.log(
+      `[checkin] scan ok: ${Object.keys(fields).length} fields, mrzVerified=${mrzVerified}, review=[${[...review].join(',')}]`,
+    );
     return { success: true, fields, reviewFields: [...review], mrzVerified };
   } catch (err) {
     console.error('[checkin] scan error:', err instanceof Error ? err.message : String(err));
