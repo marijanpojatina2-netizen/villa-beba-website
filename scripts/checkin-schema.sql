@@ -40,3 +40,9 @@ CREATE INDEX IF NOT EXISTS guests_link_id_idx ON guests(link_id);
 -- (osobno vs agencija) is set by the owner when creating the link.
 ALTER TABLE guests ADD COLUMN IF NOT EXISTS birth_country TEXT NOT NULL DEFAULT '';
 ALTER TABLE checkin_links ADD COLUMN IF NOT EXISTS arrival_organization TEXT NOT NULL DEFAULT 'osobno';
+
+-- v3 (2026-07-23): real eVisitor Web API push. evisitor_id is the GUID we
+-- generate for CheckInTourist (needed later for checkout/cancel); push_error
+-- keeps the per-guest API error for display in admin.
+ALTER TABLE guests ADD COLUMN IF NOT EXISTS evisitor_id TEXT;
+ALTER TABLE guests ADD COLUMN IF NOT EXISTS push_error TEXT;

@@ -6,7 +6,11 @@ import { redirect } from 'next/navigation';
 import { signSession } from '@/lib/checkin/admin-auth';
 import { ADMIN_COOKIE, assertAdmin } from '@/lib/checkin/admin-guard';
 import { generateToken } from '@/lib/checkin/token';
-import { createLink, markPushed } from '@/lib/checkin/db';
+import {
+  createLink, markPushed, getLinkWithGuests, getGuestRowsForPush,
+  setGuestPushResult, refreshLinkPushStatus,
+} from '@/lib/checkin/db';
+import { pushGuestsToEvisitor, cancelEvisitorCheckIn } from '@/lib/checkin/evisitor-api';
 
 const SESSION_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 
@@ -81,4 +85,55 @@ export async function markLinkPushed(formData: FormData): Promise<void> {
   if (!Number.isInteger(id) || id <= 0) throw new Error('Invalid id');
   await markPushed(id);
   redirect(`/admin/links/${id}`);
+}
+
+export async function pushLinkToEvisitor(formData: FormData): Promise<void> {
+  await assertAdmin();
+  const id = Number(formData.get('id'));
+  if (!Number.isInteger(id) || id <= 0) throw new Error('Invalid id');
+  const data = await getLinkWithGuests(id);
+  if (!data) throw new Error('Link not found');
+
+  const rows = await getGuestRowsForPush(id);
+  const pending = rows.filter((r) => !r.evisitorId);
+  if (pending.length) {
+    const { error, results } = await pushGuestsToEvisitor(
+      data.link.villa,
+      data.link.arrival_organization ?? 'osobno',
+      pending.map((r) => ({ guestId: r.guestId, input: r.input })),
+    );
+    if (error) {
+      // Global failure (login/config/lookup) — record on every pending guest.
+      for (const r of pending) await setGuestPushResult(r.guestId, null, error);
+    } else {
+      for (const result of results) {
+        await setGuestPushResult(
+          result.guestId,
+          result.evisitorId ?? null,
+          result.error ?? null,
+        );
+      }
+    }
+    await refreshLinkPushStatus(id);
+  }
+  redirect(`/admin/links/${id}`);
+}
+
+export async function cancelGuestEvisitor(formData: FormData): Promise<void> {
+  await assertAdmin();
+  const guestId = Number(formData.get('guestId'));
+  const linkId = Number(formData.get('linkId'));
+  const evisitorId = String(formData.get('evisitorId') ?? '');
+  if (!Number.isInteger(guestId) || !Number.isInteger(linkId) || !evisitorId) {
+    throw new Error('Invalid cancel request');
+  }
+  try {
+    await cancelEvisitorCheckIn(evisitorId, 'Pogrešan unos — poništeno iz admin sučelja');
+    await setGuestPushResult(guestId, null, null);
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    await setGuestPushResult(guestId, evisitorId, `Cancel failed: ${message}`);
+  }
+  await refreshLinkPushStatus(linkId);
+  redirect(`/admin/links/${linkId}`);
 }
