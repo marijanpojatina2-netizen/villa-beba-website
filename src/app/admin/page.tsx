@@ -18,9 +18,14 @@ export default async function AdminPage() {
     <main>
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-medium">Guest check-ins</h1>
-        <form action={adminLogout}>
-          <button className="text-sm text-neutral-500 underline">Log out</button>
-        </form>
+        <div className="flex items-center gap-4">
+          <Link href="/admin/evisitor-test" className="text-sm text-neutral-500 underline">
+            eVisitor test
+          </Link>
+          <form action={adminLogout}>
+            <button className="text-sm text-neutral-500 underline">Log out</button>
+          </form>
+        </div>
       </div>
 
       <section className="mt-8 rounded border border-neutral-200 bg-white p-4">

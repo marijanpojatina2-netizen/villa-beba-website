@@ -13,7 +13,7 @@
     "gsc-report": "node scripts/gsc-report.mjs",
     "gsc-oauth-setup": "node scripts/gsc-oauth-setup.mjs",
     "test:gsc": "node --test scripts/gsc-report.test.mjs",
-    "test:checkin": "npx -y tsx --test src/lib/checkin/token.test.ts src/lib/checkin/mrz.test.ts src/lib/checkin/validate.test.ts src/lib/checkin/evisitor.test.ts src/lib/checkin/admin-auth.test.ts"
+    "test:checkin": "npx -y tsx --test src/lib/checkin/token.test.ts src/lib/checkin/mrz.test.ts src/lib/checkin/validate.test.ts src/lib/checkin/evisitor.test.ts src/lib/checkin/admin-auth.test.ts src/lib/checkin/evisitor-map.test.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.112.5",

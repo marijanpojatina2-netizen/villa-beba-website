@@ -131,6 +131,45 @@ export async function getLinkWithGuests(
   return { link: normalizeLink(links[0]), guests: guests.map(normalizeGuest) };
 }
 
+export interface GuestPushRow {
+  guestId: number;
+  input: GuestInput;
+  evisitorId: string | null;
+  pushError: string | null;
+}
+
+export async function getGuestRowsForPush(linkId: number): Promise<GuestPushRow[]> {
+  const rows = await sql()`SELECT * FROM guests WHERE link_id = ${linkId} ORDER BY id`;
+  return rows.map((r) => ({
+    guestId: r.id as number,
+    input: normalizeGuest(r),
+    evisitorId: (r.evisitor_id as string | null) ?? null,
+    pushError: (r.push_error as string | null) ?? null,
+  }));
+}
+
+export async function setGuestPushResult(
+  guestId: number,
+  evisitorId: string | null,
+  pushError: string | null,
+): Promise<void> {
+  await sql()`
+    UPDATE guests
+    SET evisitor_id = ${evisitorId}, push_error = ${pushError},
+        pushed_at = ${evisitorId ? new Date().toISOString() : null}
+    WHERE id = ${guestId}`;
+}
+
+// Link becomes 'pushed' only when every guest is in eVisitor.
+export async function refreshLinkPushStatus(linkId: number): Promise<void> {
+  await sql()`
+    UPDATE checkin_links SET status =
+      CASE WHEN NOT EXISTS (
+        SELECT 1 FROM guests WHERE link_id = ${linkId} AND evisitor_id IS NULL
+      ) THEN 'pushed' ELSE 'submitted' END
+    WHERE id = ${linkId} AND status IN ('submitted', 'pushed')`;
+}
+
 export async function markPushed(id: number): Promise<void> {
   const s = sql();
   await s.transaction([
