@@ -108,6 +108,7 @@ export default function Header() {
     { href: '/complex-beba' as const, label: t('villaComplex') },
     { href: '/experiences' as const, label: t('experiences') },
     { href: '/weddings' as const, label: t('weddings') },
+    { href: '/winter-workation' as const, label: t('workation') },
     { href: '/pricing' as const, label: t('pricing') },
     { href: '/gallery' as const, label: t('gallery') },
     { href: '/blog' as const, label: t('blog') },
