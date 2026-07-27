@@ -27,6 +27,7 @@ const ROUTE_UPDATED: Record<string, string> = {
   '/experiences': '2026-05-04',
   '/weddings': '2026-05-15',
   '/corporate-retreats': '2026-05-15',
+  '/winter-workation': '2026-07-28', // new landing page (digital nomads, Nov-Apr)
   '/pricing': '2026-05-15',
   '/gallery': '2026-06-10', // descriptive alt text on all images
   '/blog': NEWEST_POST,
