@@ -653,7 +653,8 @@
     "gallery": "Galerie",
     "blog": "Blog",
     "guides": "Guides",
-    "about": "Über uns"
+    "about": "Über uns",
+    "workation": "Winter-Workation"
   },
   "Footer": {
     "tagline": "Entspannte Mediterrane Eleganz",
@@ -672,7 +673,8 @@
     "terms": "AGB",
     "impressum": "Impressum",
     "weddings": "Hochzeiten",
-    "guides": "Guides"
+    "guides": "Guides",
+    "workation": "Winter-Workation"
   },
   "common": {
     "from": "Ab",
