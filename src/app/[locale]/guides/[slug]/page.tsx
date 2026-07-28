@@ -155,6 +155,17 @@ export default async function GuideDetail({
           </dl>
         </section>
 
+        {guide.cta && (
+          <section className="mt-12 rounded-sm border border-line bg-bg-elevated p-6 text-center lg:p-8">
+            <Link
+              href={guide.cta.href}
+              className="inline-block rounded-full bg-dark px-8 py-4 font-heading text-[0.6875rem] font-medium uppercase tracking-[0.15em] text-white transition-opacity hover:opacity-90"
+            >
+              {isDE ? guide.cta.de : guide.cta.en}
+            </Link>
+          </section>
+        )}
+
         {guide.relatedGuides && guide.relatedGuides.length > 0 && (
           <section className="mt-16">
             <h2 className="font-heading text-base uppercase tracking-[0.12em] text-text">
