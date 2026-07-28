@@ -37,6 +37,10 @@ export type Guide = {
   // of the page. Builds topical hub-and-spoke linking — the most controllable
   // SEO lever we have while off-site authority is still the bottleneck.
   relatedGuides?: string[];
+  // Optional conversion CTA rendered as a button after the FAQ block —
+  // guides that support a commercial page (e.g. /winter-workation) point
+  // readers there without stuffing links into body copy.
+  cta?: { href: string; en: string; de: string };
   en: GuideLocale;
   de: GuideLocale;
 };
@@ -1327,6 +1331,7 @@ export const guides: Guide[] = [
       },
     },
     relatedGuides: [
+      'winter-in-istria-digital-nomad-guide',
       'pet-friendly-villa-istria',
       'pool-and-sauna-season',
       'beaches-near-svetvincenat',
@@ -1780,6 +1785,115 @@ export const guides: Guide[] = [
         { q: 'Lohnt sich der Sonnenuntergang in Rovinj trotz der Menschen?', a: 'Ja — es ist die eine Postkarte, die aussieht wie auf den Fotos. Von der nördlichen Uferpromenade nahe der Batana-Anleger fotografieren, im Juli und August eine Stunde früher kommen und für die blaue Stunde bleiben, wenn die Laternen angehen. Außerhalb der Hochsaison ist derselbe Spot fast leer.' },
         { q: 'Darf ich in Istrien eine Drohne fliegen?', a: 'Ja, nach EU-Regeln (EASA): als Betreiber registrieren, in der Kategorie Open bleiben (eine Drohne unter 250 g ist die praktische Wahl) und nie über Menschenmengen oder Altstadtgassen fliegen. Der Nationalpark Brijuni und die Flughafenzone Pula sind Flugverbotsgebiete. Das offene Farmland um Svetvinčenat ist ideales Drohnengelände — vor dem Flug die Karte der kroatischen Luftfahrtbehörde prüfen.' },
         { q: 'Brauche ich eine richtige Kamera, oder reicht das Handy?', a: 'Das Handy reicht für jeden Ort dieses Leitfadens — die goldene Stunde ist das gutmütigste Licht überhaupt. Belichtung auf den Himmel fixieren, RAW fotografieren falls verfügbar, und ein Taschenstativ nur mitnehmen, wenn Sie blaue Stunde in Rovinj oder Pula oder Langzeitbelichtungen über dem Motovun-Nebel planen.' },
+      ],
+    },
+  },
+  {
+    slug: 'winter-in-istria-digital-nomad-guide',
+    category: 'planning',
+    datePublished: '2026-07-28',
+    hero: {
+      src: '/images/guides/best-time-to-visit-istria/motovun-hilltop-town-autumn-morning-mist.webp',
+      alt: {
+        en: 'The hilltop town of Motovun rising above cold-season morning mist in central Istria — the quiet, cinematic side of the peninsula that winter residents get to themselves',
+        de: 'Die Hügelstadt Motovun über dem Morgennebel der kalten Jahreszeit in Zentralistrien — die stille, filmreife Seite der Halbinsel, die Wintergäste ganz für sich haben',
+      },
+      width: 1328,
+      height: 840,
+    },
+    relatedGuides: [
+      'best-time-to-visit-istria',
+      'truffle-hunting-near-svetvincenat',
+      'restaurants-central-istria',
+      'driving-to-istria-by-car',
+    ],
+    cta: {
+      href: '/winter-workation',
+      en: 'See the Winter Workation offer →',
+      de: 'Zum Winter-Workation-Angebot →',
+    },
+    en: {
+      title: 'Wintering in Istria: The Digital Nomad Guide',
+      excerpt: 'Istria from November to April: real weather, what actually stays open, internet that holds a video call, the cost of a slow month, and how the digital-nomad permit works. A practical guide for remote workers considering a winter base in Croatia.',
+      intro: 'Every October, Istria exhales. The tour buses leave, the hilltop towns get their squares back, and the peninsula settles into the season locals quietly consider its best. For remote workers, that is exactly the opportunity: a Mediterranean region inside the EU and Schengen, one direct flight from most of Europe, at its calmest and most affordable — while your video calls run on fibre-fast satellite internet from a villa with a heated pool. This guide covers what a winter in Istria actually looks like: the weather without the brochure gloss, what stays open, where the internet is genuinely good, what a month costs, and the paperwork if you are staying longer.',
+      sections: [
+        {
+          heading: 'The honest weather report',
+          body: 'Istrian winters are mild by European standards but they are not summer with fewer people. From November to February, daytime highs typically sit between 6 and 12 °C, with January the coolest month; March and April climb quickly toward 15 °C and real spring. Snow is rare and rarely settles. What you should plan for is the bura — a dry, cold north-easterly wind that arrives in episodes of a day or three and scrubs the sky to a hard, brilliant blue. Between fronts you get strings of sunny, still days perfect for a lunchtime run or a coast walk. The practical translation: bring layers and a windproof jacket, expect more bright days than grey ones, and treat the sauna as standard equipment rather than a luxury.',
+        },
+        {
+          heading: 'What actually stays open',
+          body: 'The tourist infrastructure of the coast — beach bars, seasonal restaurants, boat tours — largely closes between November and Easter. The Istria that stays open is the one locals use, and it is the better one: konobas (family taverns) in the interior villages serve fuži, game stews and grilled fish year-round; the markets in Pula and Pazin run every day; supermarkets, pharmacies, bakeries and cafés operate normally everywhere. Winter is also Istria’s gastronomic high season: white-truffle hunting peaks from September into January in the Motovun forest, the olive harvest and fresh-pressed oil arrive in November, and wine cellars receive visitors by appointment without the summer crowds. December adds Advent markets in Pula and Rovinj. You will occasionally find a favourite restaurant on its annual holiday in January — Istrians take their own vacations then — but you will never struggle to eat well.',
+        },
+        {
+          heading: 'Internet, calls and getting work done',
+          body: 'This is where rural Istria has historically lost remote workers: much of the countryside still runs on connections in the 20–40 Mbps range, which struggles the moment two people share a call. It is why we installed Starlink at Villa Ballena & Beluga — 250+ Mbps download with low latency, enough for simultaneous video conferencing, screen sharing, cloud development and large file transfers across the whole villa. Croatian mobile coverage (4G/5G) is solid in Svetvinčenat and works as a natural backup with an EU roaming plan or a cheap local SIM. If you like a change of scene, Pula — 30 minutes away — has a university-town café culture where a laptop raises no eyebrows, and coworking options if you want a desk among people.',
+        },
+        {
+          heading: 'What a slow month costs',
+          body: 'Off-season Istria is kind to a remote salary. A konoba lunch with wine runs a fraction of what the same table costs in July; groceries at Plodine, Lidl or Konzum are noticeably cheaper than in Germany, Austria or Scandinavia; and winter is the one season you can book a full luxury villa for the price its summer guests pay for a long weekend. Fuel and toll costs are moderate, and the region is compact — Rovinj, Pula, Motovun and the east-coast beaches are all inside a 45-minute radius, so exploring does not multiply your budget. The single meaningful cost decision is the car: public transport between inland villages is thin, so plan on bringing or renting one for the stay.',
+        },
+        {
+          heading: 'Paperwork: who can stay, and for how long',
+          body: 'EU and EEA citizens can live and work remotely from Croatia without any permit — you simply register your address for longer stays. Non-EU remote workers have a dedicated route: Croatia’s digital-nomad residence permit, which allows stays of up to 18 months for people employed by (or running) companies outside Croatia. The application runs through the Ministry of the Interior and can be started online, and holders are exempt from Croatian income tax on their foreign remote-work income. Whichever category you fall into, every guest is registered with the national eVisitor system on arrival — at our villas that is an online form that takes two minutes before you travel.',
+        },
+        {
+          heading: 'A realistic winter week',
+          body: 'The rhythm that long-stay guests settle into looks something like this: deep-work mornings while the villa is quiet, a walk to the village or a lunchtime tennis match when the sun is out, afternoon calls with the fire on, sauna before dinner. Wednesday lunch at a konoba over fuži with truffles. Saturday in Rovinj or Pula while the streets belong to locals; Sunday hiking the Kamenjak cape or driving the wine roads around Motovun. It is not a holiday pace — it is a working life, just relocated somewhere where the view between meetings is a medieval castle instead of a ring road.',
+        },
+        {
+          heading: 'Where to base yourself',
+          body: 'Svetvinčenat sits in the middle of the peninsula — a medieval town with a renaissance castle, a bakery, konobas and shops, 30 minutes from Pula airport and 25 from the sea. Our two villas, Ballena and Beluga, were built in 2021 and run through winter at full capability: Starlink 250+ Mbps, heated 8 × 4 m pools, a Finnish sauna, a game room, four en-suite bedrooms each and a shared clay tennis court. From November to April we host monthly stays of one to three months, for remote-working couples, families and small teams — one villa, or both as a single estate.',
+        },
+      ],
+      faq: [
+        { q: 'Is Istria warm in winter?', a: 'Mild rather than warm: November–February daytime highs are typically 6–12 °C with frequent sunny spells, and snow is rare. March and April warm quickly. Pack layers and a windproof jacket for bura days.' },
+        { q: 'Is the internet good enough for full-time remote work?', a: 'At Villa Ballena & Beluga, yes — Starlink delivers 250+ Mbps with low latency, comfortably supporting simultaneous video calls. Croatian 4G/5G provides a reliable backup, and rural fixed lines elsewhere are often much slower, so check before booking any countryside stay.' },
+        { q: 'What is open in Istria in winter?', a: 'Everything locals use: konobas, markets, supermarkets, cafés, wineries by appointment. Coastal tourist venues close, but winter is peak season for white truffles (through January), fresh olive oil (from November) and Advent markets in Pula and Rovinj.' },
+        { q: 'Can non-EU citizens spend the whole winter?', a: 'Yes — Croatia offers a digital-nomad residence permit for stays of up to 18 months for remote workers employed outside Croatia, with an online application and an exemption from Croatian income tax on that remote income. EU citizens need no permit at all.' },
+        { q: 'Do I need a car?', a: 'Realistically yes. Svetvinčenat covers daily needs on foot, but inland public transport is sparse and Istria’s pleasures — Rovinj, Motovun, wine roads, the coast — are spread across a 45-minute driving radius.' },
+      ],
+    },
+    de: {
+      title: 'Überwintern in Istrien: Der Digital-Nomad-Guide',
+      excerpt: 'Istrien von November bis April: das echte Wetter, was wirklich geöffnet bleibt, Internet für stabile Videocalls, die Kosten eines ruhigen Monats und wie die Digital-Nomad-Aufenthaltserlaubnis funktioniert. Ein praktischer Leitfaden für Remote-Worker.',
+      intro: 'Jeden Oktober atmet Istrien aus. Die Reisebusse verschwinden, die Hügelstädte bekommen ihre Plätze zurück, und die Halbinsel gleitet in die Jahreszeit, die Einheimische still für die beste halten. Für Remote-Worker liegt genau darin die Chance: eine Mittelmeerregion in EU und Schengen, einen Direktflug von fast ganz Europa entfernt, in ihrer ruhigsten und günstigsten Phase — während die Videocalls über glasfaserschnelles Satelliteninternet aus einer Villa mit beheiztem Pool laufen. Dieser Guide zeigt, wie ein Winter in Istrien wirklich aussieht: das Wetter ohne Prospektglanz, was geöffnet bleibt, wo das Internet wirklich gut ist, was ein Monat kostet und welche Formalitäten bei längeren Aufenthalten anstehen.',
+      sections: [
+        {
+          heading: 'Der ehrliche Wetterbericht',
+          body: 'Istrische Winter sind nach europäischen Maßstäben mild, aber kein Sommer mit weniger Menschen. Von November bis Februar liegen die Tageshöchstwerte meist zwischen 6 und 12 °C, der Januar ist der kühlste Monat; März und April klettern schnell Richtung 15 °C und echten Frühling. Schnee ist selten und bleibt kaum liegen. Einplanen sollte man die Bura — einen trockenen, kalten Nordostwind, der in Episoden von ein bis drei Tagen kommt und den Himmel zu einem harten, strahlenden Blau putzt. Zwischen den Fronten reihen sich sonnige, stille Tage, perfekt für einen Lauf in der Mittagspause oder einen Küstenspaziergang. Praktisch heißt das: Schichten und eine winddichte Jacke einpacken, mehr helle als graue Tage erwarten — und die Sauna als Grundausstattung betrachten, nicht als Luxus.',
+        },
+        {
+          heading: 'Was wirklich geöffnet bleibt',
+          body: 'Die touristische Infrastruktur der Küste — Strandbars, Saisonrestaurants, Bootstouren — schließt größtenteils zwischen November und Ostern. Geöffnet bleibt das Istrien, das die Einheimischen nutzen, und es ist das bessere: Konobas (Familientavernen) im Landesinneren servieren ganzjährig Fuži, Wildragouts und gegrillten Fisch; die Märkte in Pula und Pazin laufen täglich; Supermärkte, Apotheken, Bäckereien und Cafés arbeiten überall normal. Der Winter ist zudem Istriens gastronomische Hochsaison: Die Suche nach weißen Trüffeln hat von September bis Januar im Wald von Motovun ihren Höhepunkt, im November kommen Olivenernte und frisch gepresstes Öl, und Weinkeller empfangen Besucher nach Vereinbarung ohne Sommergedränge. Der Dezember bringt Adventsmärkte in Pula und Rovinj. Gelegentlich hat das Lieblingsrestaurant im Januar Jahresurlaub — dann machen die Istrier selbst Ferien — aber gut essen wird man immer.',
+        },
+        {
+          heading: 'Internet, Calls und produktives Arbeiten',
+          body: 'Hier hat das ländliche Istrien Remote-Worker bisher verloren: Weite Teile des Hinterlands laufen noch auf Verbindungen im Bereich von 20–40 Mbit/s, die einbrechen, sobald zwei Personen gleichzeitig in Calls sitzen. Genau deshalb haben wir in der Villa Ballena & Beluga Starlink installiert — 250+ Mbit/s im Download bei niedriger Latenz, genug für parallele Videokonferenzen, Screen-Sharing, Cloud-Entwicklung und große Dateitransfers in der ganzen Villa. Das kroatische Mobilfunknetz (4G/5G) ist in Svetvinčenat solide und dient mit EU-Roaming oder einer günstigen lokalen SIM als natürliches Backup. Für einen Tapetenwechsel bietet Pula — 30 Minuten entfernt — die Cafékultur einer Universitätsstadt, in der ein Laptop niemanden wundert, plus Coworking-Optionen für alle, die einen Schreibtisch unter Menschen möchten.',
+        },
+        {
+          heading: 'Was ein ruhiger Monat kostet',
+          body: 'Die Nebensaison ist freundlich zu einem Remote-Gehalt. Ein Konoba-Mittagessen mit Wein kostet einen Bruchteil dessen, was derselbe Tisch im Juli kostet; Lebensmittel bei Plodine, Lidl oder Konzum sind spürbar günstiger als in Deutschland, Österreich oder Skandinavien; und der Winter ist die eine Jahreszeit, in der eine komplette Luxusvilla zum Preis eines sommerlichen Wochenendes für einen ganzen Monat zu haben ist. Sprit und Maut sind moderat, die Region kompakt — Rovinj, Pula, Motovun und die Strände der Ostküste liegen alle in einem 45-Minuten-Radius, Erkunden sprengt also kein Budget. Die eine relevante Kostenentscheidung ist das Auto: Der öffentliche Verkehr zwischen den Dörfern im Landesinneren ist dünn — für den Aufenthalt eines mitbringen oder mieten.',
+        },
+        {
+          heading: 'Formalitäten: Wer bleiben darf, und wie lange',
+          body: 'EU- und EWR-Bürger können ohne jede Genehmigung remote aus Kroatien arbeiten — bei längeren Aufenthalten meldet man lediglich die Adresse an. Für Nicht-EU-Remote-Worker gibt es einen eigenen Weg: Kroatiens Aufenthaltserlaubnis für digitale Nomaden erlaubt Aufenthalte von bis zu 18 Monaten für Beschäftigte (oder Inhaber) von Unternehmen außerhalb Kroatiens. Der Antrag läuft über das Innenministerium und kann online gestartet werden; Inhaber sind von der kroatischen Einkommensteuer auf ihr ausländisches Remote-Einkommen befreit. Unabhängig von der Kategorie wird jeder Gast bei Ankunft im nationalen eVisitor-System registriert — in unseren Villen ist das ein Online-Formular, das vor der Anreise zwei Minuten dauert.',
+        },
+        {
+          heading: 'Eine realistische Winterwoche',
+          body: 'Der Rhythmus, in den Langzeitgäste hineinfinden, sieht ungefähr so aus: konzentrierte Vormittage, solange die Villa still ist; ein Spaziergang ins Dorf oder ein Tennismatch in der Mittagssonne; Nachmittagscalls; Sauna vor dem Abendessen. Mittwochs Mittagessen in der Konoba, Fuži mit Trüffeln. Samstag Rovinj oder Pula, solange die Gassen den Einheimischen gehören; Sonntag Wandern am Kap Kamenjak oder die Weinstraßen um Motovun. Das ist kein Urlaubstempo — es ist ein Arbeitsleben, nur verlegt an einen Ort, an dem der Blick zwischen zwei Meetings auf ein mittelalterliches Kastell fällt statt auf eine Ringstraße.',
+        },
+        {
+          heading: 'Die richtige Basis',
+          body: 'Svetvinčenat liegt in der Mitte der Halbinsel — ein mittelalterlicher Ort mit Renaissance-Kastell, Bäckerei, Konobas und Geschäften, 30 Minuten vom Flughafen Pula und 25 vom Meer. Unsere beiden Villen, Ballena und Beluga, wurden 2021 gebaut und laufen im Winter mit voller Ausstattung: Starlink 250+ Mbit/s, beheizte 8 × 4 m Pools, finnische Sauna, Spielzimmer, je vier Schlafzimmer en suite und ein gemeinsamer Sand-Tennisplatz. Von November bis April bieten wir Monatsaufenthalte von ein bis drei Monaten an — für remote arbeitende Paare, Familien und kleine Teams, eine Villa oder beide als ein Anwesen.',
+        },
+      ],
+      faq: [
+        { q: 'Ist Istrien im Winter warm?', a: 'Mild, nicht warm: Von November bis Februar liegen die Tageshöchstwerte meist bei 6–12 °C mit vielen sonnigen Phasen, Schnee ist selten. März und April werden schnell wärmer. Für Bura-Tage Schichten und eine winddichte Jacke einpacken.' },
+        { q: 'Reicht das Internet für Vollzeit-Remote-Arbeit?', a: 'In der Villa Ballena & Beluga ja — Starlink liefert 250+ Mbit/s bei niedriger Latenz und trägt parallele Videocalls problemlos. Kroatisches 4G/5G dient als Backup. Ländliche Festnetzanschlüsse anderswo sind oft deutlich langsamer — vor jeder Landhausbuchung prüfen.' },
+        { q: 'Was hat in Istrien im Winter geöffnet?', a: 'Alles, was Einheimische nutzen: Konobas, Märkte, Supermärkte, Cafés, Weingüter nach Vereinbarung. Touristische Küstenbetriebe schließen — dafür ist Winter Hochsaison für weiße Trüffel (bis Januar), frisches Olivenöl (ab November) und Adventsmärkte in Pula und Rovinj.' },
+        { q: 'Können Nicht-EU-Bürger den ganzen Winter bleiben?', a: 'Ja — Kroatien bietet Remote-Workern mit Arbeitgeber außerhalb Kroatiens eine eigene Aufenthaltserlaubnis für digitale Nomaden von bis zu 18 Monaten, mit Online-Antrag und Befreiung von der kroatischen Einkommensteuer auf dieses Einkommen. EU-Bürger brauchen gar keine Genehmigung.' },
+        { q: 'Brauche ich ein Auto?', a: 'Realistisch ja. Svetvinčenat deckt den Alltag zu Fuß ab, aber der öffentliche Verkehr im Landesinneren ist dünn und Istriens Highlights — Rovinj, Motovun, Weinstraßen, die Küste — verteilen sich auf einen 45-Minuten-Fahrradius.' },
       ],
     },
   },
